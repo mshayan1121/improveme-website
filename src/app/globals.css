@@ -1,0 +1,393 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* === BRAND COLORS (Navy + Yellow only) === */
+    
+    /* Navy (Primary) */
+    --navy-900: 15 23 42;        /* #0f172a - Deep navy for text */
+    --navy-800: 30 41 59;        /* #1e293b */
+    --navy-700: 51 65 85;        /* #334155 */
+    --navy-600: 30 58 138;       /* #1e3a8a - Brand navy */
+    
+    /* Yellow (Primary Accent) - replaces red */
+    --yellow-400: 251 191 36;    /* #fbbf24 - Main CTA color */
+    --yellow-500: 245 158 11;    /* #f59e0b */
+    --yellow-600: 217 119 6;     /* #d97706 - Hover state */
+    
+    /* Neutrals */
+    --white: 255 255 255;
+    --gray-50: 248 250 252;
+    --gray-100: 241 245 249;
+    --gray-200: 226 232 240;
+    --gray-800: 30 41 59;
+    
+    /* === SEMANTIC COLORS === */
+    --background: var(--white);
+    --foreground: var(--navy-900);
+    
+    --card: var(--white);
+    --card-foreground: var(--navy-900);
+    
+    --primary: var(--navy-600);
+    --primary-foreground: var(--white);
+    
+    --secondary: var(--gray-100);
+    --secondary-foreground: var(--navy-900);
+    
+    --accent: var(--yellow-400);     /* Changed from red */
+    --accent-foreground: var(--navy-900);  /* Dark text on yellow */
+    
+    --muted: var(--gray-100);
+    --muted-foreground: var(--navy-700);
+    
+    --border: var(--gray-200);
+    --input: var(--gray-200);
+    --ring: var(--navy-600);
+    
+    --radius: 0.5rem;
+  }
+}
+
+/* Tailwind v4 theme: expose custom colors for utilities */
+@theme {
+  --color-navy-900: rgb(var(--navy-900));
+  --color-navy-800: rgb(var(--navy-800));
+  --color-navy-700: rgb(var(--navy-700));
+  --color-navy-600: rgb(var(--navy-600));
+  --color-yellow-400: rgb(var(--yellow-400));
+  --color-yellow-500: rgb(var(--yellow-500));
+  --color-yellow-600: rgb(var(--yellow-600));
+  --color-border: rgb(var(--gray-200));
+  --color-background: rgb(var(--white));
+  --color-foreground: rgb(var(--navy-900));
+  --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    border-color: rgb(var(--gray-200));
+  }
+  
+  body {
+    color: rgb(var(--navy-900));
+    background-color: rgb(var(--white));
+    font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Typography Scale */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+  }
+  
+  h1 {
+    font-size: 2.25rem;
+    line-height: 1.2;
+  }
+  @media (min-width: 768px) { h1 { font-size: 3rem; } }
+  @media (min-width: 1024px) { h1 { font-size: 3.75rem; } }
+  
+  h2 {
+    font-size: 1.875rem;
+    line-height: 1.2;
+  }
+  @media (min-width: 768px) { h2 { font-size: 2.25rem; } }
+  @media (min-width: 1024px) { h2 { font-size: 3rem; } }
+  
+  h3 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+  @media (min-width: 768px) { h3 { font-size: 1.875rem; } }
+  @media (min-width: 1024px) { h3 { font-size: 2.25rem; } }
+  
+  h4 {
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+  @media (min-width: 768px) { h4 { font-size: 1.5rem; } }
+  @media (min-width: 1024px) { h4 { font-size: 1.875rem; } }
+  
+  h5 {
+    font-size: 1.125rem;
+  }
+  @media (min-width: 768px) { h5 { font-size: 1.25rem; } }
+  @media (min-width: 1024px) { h5 { font-size: 1.5rem; } }
+  
+  h6 {
+    font-size: 1rem;
+  }
+  @media (min-width: 768px) { h6 { font-size: 1.125rem; } }
+  @media (min-width: 1024px) { h6 { font-size: 1.25rem; } }
+  
+  p {
+    font-size: 1rem;
+    line-height: 1.625;
+  }
+  @media (min-width: 768px) { p { font-size: 1.125rem; } }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Focus visible styles for accessibility */
+  *:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px rgb(var(--white)), 0 0 0 4px rgb(var(--navy-600));
+  }
+}
+
+@layer components {
+  /* === CUSTOM COMPONENT STYLES === */
+  
+  /* Section Container - Tighter spacing */
+  .section-container {
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3rem 1rem;
+  }
+  @media (min-width: 640px) { .section-container { padding-left: 1.5rem; padding-right: 1.5rem; } }
+  @media (min-width: 1024px) { .section-container { padding-left: 2rem; padding-right: 2rem; } }
+  @media (min-width: 768px) { .section-container { padding-top: 4rem; padding-bottom: 4rem; } }
+  
+  /* Gradient Text */
+  .gradient-text-warmth {
+    @apply bg-gradient-to-r from-yellow-400 to-yellow-500 bg-clip-text text-transparent;
+  }
+  
+  /* Button Base */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+  .btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px rgb(var(--white)), 0 0 0 4px rgb(var(--navy-600));
+  }
+  .btn:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  
+  /* Button Variants */
+  .btn-primary {
+    @apply bg-yellow-400 text-navy-900 hover:bg-yellow-500 hover:shadow-lg hover:scale-105 active:scale-100 font-semibold;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-100 text-navy-900 hover:bg-gray-200 hover:shadow-md;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-navy-600 text-navy-600 hover:bg-navy-600 hover:text-white;
+  }
+  
+  .btn-ghost {
+    color: rgb(var(--navy-900));
+  }
+  .btn-ghost:hover {
+    background-color: rgb(var(--gray-100));
+  }
+  
+  /* Card Styles */
+  .card-hover {
+    transition: all 0.3s;
+  }
+  .card-hover:hover {
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+    transform: translateY(-0.25rem);
+  }
+  
+  .card-bordered {
+    border: 1px solid rgb(var(--gray-200));
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    background: white;
+  }
+  
+  /* Badge Styles */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  
+  .badge-primary {
+    background-color: rgb(var(--navy-600));
+    color: white;
+  }
+  
+  .badge-accent {
+    background-color: rgb(var(--yellow-400));
+    color: rgb(var(--navy-900));
+  }
+  
+  .badge-outline {
+    border: 1px solid rgb(var(--navy-600));
+    color: rgb(var(--navy-600));
+  }
+  
+  /* Chevron Pattern Background */
+  .chevron-pattern {
+    background-image: 
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 35px,
+        rgba(30, 58, 138, 0.03) 35px,
+        rgba(30, 58, 138, 0.03) 70px
+      );
+  }
+  
+  /* Noise Texture Overlay */
+  .noise-texture::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.05;
+    pointer-events: none;
+  }
+  
+  /* Glass Effect */
+  .glass {
+    backdrop-filter: blur(12px);
+    background-color: rgb(255 255 255 / 0.8);
+    border: 1px solid rgb(226 232 240 / 0.5);
+  }
+}
+
+@layer utilities {
+  /* === CUSTOM UTILITIES === */
+  
+  /* Text Balance */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Container Queries */
+  .container-query {
+    container-type: inline-size;
+  }
+  
+  /* Animation Utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+  
+  .animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out forwards;
+  }
+  
+  .animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out forwards;
+  }
+  
+  /* Stagger delays for orchestrated animations */
+  .stagger-1 { animation-delay: 100ms; }
+  .stagger-2 { animation-delay: 200ms; }
+  .stagger-3 { animation-delay: 300ms; }
+  .stagger-4 { animation-delay: 400ms; }
+  .stagger-5 { animation-delay: 500ms; }
+}
+
+/* === KEYFRAME ANIMATIONS === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* === RESPONSIVE BREAKPOINTS === */
+/* sm: 640px */
+/* md: 768px */
+/* lg: 1024px */
+/* xl: 1280px */
+/* 2xl: 1536px */
+
+/* === ACCESSIBILITY === */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* === PRINT STYLES === */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
