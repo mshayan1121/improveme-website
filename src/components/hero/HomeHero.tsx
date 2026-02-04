@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import {
   ArrowRight,
-  MapPin,
   Users,
   BookOpen,
   Award,
@@ -43,28 +42,19 @@ const HomeHero = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col"
           >
-            {/* 1. Location Badge */}
-            <div className="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 shadow-sm mb-6 w-fit">
-              <MapPin className="w-4 h-4 text-yellow-500 shrink-0" />
-              <span className="text-sm font-medium text-navy-900">
-                Gold & Diamond Park, Dubai
-              </span>
-            </div>
-
-            {/* 2. Main Heading */}
-            <h1 className="mb-6 text-balance">
-              <span className="text-navy-900">Leading Tutoring Center </span>
-              <span className="gradient-text-warmth">in Dubai</span>
+            {/* 1. Main Heading */}
+            <h1 className="mb-6 text-balance text-navy-900">
+              Leading Tutoring Center
             </h1>
 
-            {/* 3. Description */}
+            {/* 2. Description */}
             <p className="text-lg text-navy-700 max-w-xl mb-8">
               Exceptional afterschool tutoring programs for primary and
               secondary students. Personalized academic support across all major
               subjects, delivered by certified tutors.
             </p>
 
-            {/* 4. Stats Badges */}
+            {/* 3. Stats Badges */}
             <div className="flex flex-wrap gap-4 mb-8">
               {stats.map((stat) => (
                 <div
@@ -84,7 +74,7 @@ const HomeHero = () => {
               ))}
             </div>
 
-            {/* 5. CTA Buttons */}
+            {/* 4. CTA Buttons */}
             <div className="flex flex-wrap gap-4 mb-8">
               <Link
                 href="/contact#assessment"
@@ -101,7 +91,7 @@ const HomeHero = () => {
               </Link>
             </div>
 
-            {/* 6. Trust Indicator */}
+            {/* 5. Trust Indicator */}
             <p className="text-sm text-navy-600">
               Trusted by families from 200+ schools across Dubai
             </p>
