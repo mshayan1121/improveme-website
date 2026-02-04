@@ -81,13 +81,13 @@ export default function BookingCTA() {
 
   return (
     <section
-      className="w-full py-16 md:py-24 relative overflow-hidden bg-gradient-to-b from-navy-700 to-navy-800"
+      className="w-full py-10 md:py-14 relative overflow-hidden bg-gradient-to-b from-navy-700 to-navy-800"
       style={{
         background: 'linear-gradient(180deg, rgb(var(--navy-700)), rgb(var(--navy-800)))',
       }}
     >
       <div className="section-container">
-        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
+        <div className="grid lg:grid-cols-5 gap-6 lg:gap-8 items-start">
           {/* Left - Content (40%) */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -98,7 +98,7 @@ export default function BookingCTA() {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Book Your Free Assessment
             </h2>
-            <p className="text-white/90 text-lg mb-8 leading-relaxed">
+            <p className="text-white/90 text-lg mb-4 leading-relaxed">
               Our team will identify learning needs and match your child with
               expert tutors.
             </p>
@@ -134,9 +134,9 @@ export default function BookingCTA() {
             viewport={{ once: true }}
             className="lg:col-span-3"
           >
-            <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 border border-gray-200/50">
+            <div className="bg-white rounded-2xl shadow-2xl p-4 md:p-5 border border-gray-200/50">
               {status === 'success' ? (
-                <div className="text-center py-12">
+                <div className="text-center py-8">
                   <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
                     <Check className="w-8 h-8 text-green-600" strokeWidth={2.5} />
                   </div>

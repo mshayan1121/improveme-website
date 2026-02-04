@@ -134,34 +134,9 @@ const HomeHero = () => {
               </Link>
             </motion.div>
 
-            {/* Card 2 - Sciences */}
+            {/* Card 2 - English */}
             <motion.div
               custom={1}
-              variants={cardVariants}
-              initial="hidden"
-              animate="visible"
-              whileHover={{ scale: 1.05 }}
-              className="flex flex-col p-5 rounded-xl shadow-lg bg-white border border-gray-200 aspect-square transition-transform"
-            >
-              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-yellow-400 to-yellow-500 flex items-center justify-center mb-3">
-                <Atom className="w-6 h-6 text-navy-900" />
-              </div>
-              <h3 className="text-lg font-bold text-navy-900 mb-1">Sciences</h3>
-              <p className="text-xs text-navy-600 mb-auto">
-                Physics, Chemistry, Biology
-              </p>
-              <Link
-                href="/courses#sciences"
-                className="inline-flex items-center gap-1 text-xs text-navy-600 mt-3 font-medium hover:gap-2 transition-all w-fit"
-              >
-                Learn More
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </motion.div>
-
-            {/* Card 3 - English */}
-            <motion.div
-              custom={2}
               variants={cardVariants}
               initial="hidden"
               animate="visible"
@@ -177,6 +152,31 @@ const HomeHero = () => {
               </p>
               <Link
                 href="/courses#english"
+                className="inline-flex items-center gap-1 text-xs text-navy-600 mt-3 font-medium hover:gap-2 transition-all w-fit"
+              >
+                Learn More
+                <ArrowRight className="w-3 h-3" />
+              </Link>
+            </motion.div>
+
+            {/* Card 3 - Sciences */}
+            <motion.div
+              custom={2}
+              variants={cardVariants}
+              initial="hidden"
+              animate="visible"
+              whileHover={{ scale: 1.05 }}
+              className="flex flex-col p-5 rounded-xl shadow-lg bg-white border border-gray-200 aspect-square transition-transform"
+            >
+              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-yellow-400 to-yellow-500 flex items-center justify-center mb-3">
+                <Atom className="w-6 h-6 text-navy-900" />
+              </div>
+              <h3 className="text-lg font-bold text-navy-900 mb-1">Sciences</h3>
+              <p className="text-xs text-navy-600 mb-auto">
+                Physics, Chemistry, Biology
+              </p>
+              <Link
+                href="/courses#sciences"
                 className="inline-flex items-center gap-1 text-xs text-navy-600 mt-3 font-medium hover:gap-2 transition-all w-fit"
               >
                 Learn More

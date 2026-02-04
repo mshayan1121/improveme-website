@@ -52,6 +52,9 @@
 
 /* Tailwind v4 theme: expose custom colors for utilities */
 @theme {
+  /* Custom tight spacing */
+  --spacing-18: 4.5rem;
+  --spacing-22: 5.5rem;
   --color-navy-900: rgb(var(--navy-900));
   --color-navy-800: rgb(var(--navy-800));
   --color-navy-700: rgb(var(--navy-700));
@@ -82,9 +85,7 @@
   
   /* Typography Scale */
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
-    font-weight: 600;
-    letter-spacing: -0.025em;
+    @apply font-display font-semibold tracking-tight mb-4;
   }
   
   h1 {
@@ -128,10 +129,8 @@
   @media (min-width: 1024px) { h6 { font-size: 1.25rem; } }
   
   p {
-    font-size: 1rem;
-    line-height: 1.625;
+    @apply text-base md:text-lg leading-relaxed mb-4;
   }
-  @media (min-width: 768px) { p { font-size: 1.125rem; } }
   
   /* Smooth scrolling */
   html {
@@ -148,16 +147,10 @@
 @layer components {
   /* === CUSTOM COMPONENT STYLES === */
   
-  /* Section Container - Tighter spacing */
+  /* Section Container - UPDATED: Tighter spacing */
   .section-container {
-    max-width: 80rem;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 3rem 1rem;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14;
   }
-  @media (min-width: 640px) { .section-container { padding-left: 1.5rem; padding-right: 1.5rem; } }
-  @media (min-width: 1024px) { .section-container { padding-left: 2rem; padding-right: 2rem; } }
-  @media (min-width: 768px) { .section-container { padding-top: 4rem; padding-bottom: 4rem; } }
   
   /* Gradient Text */
   .gradient-text-warmth {
@@ -273,6 +266,23 @@
     backdrop-filter: blur(12px);
     background-color: rgb(255 255 255 / 0.8);
     border: 1px solid rgb(226 232 240 / 0.5);
+  }
+
+  /* Tighter spacing utilities */
+  .tight-section {
+    @apply py-10 md:py-14;
+  }
+
+  .tight-grid {
+    @apply gap-3 md:gap-4;
+  }
+
+  .tight-card {
+    @apply p-4 md:p-5;
+  }
+
+  .tight-spacing {
+    @apply space-y-4;
   }
 }
 

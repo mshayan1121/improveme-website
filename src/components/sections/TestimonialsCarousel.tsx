@@ -81,14 +81,14 @@ export default function TestimonialsCarousel() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gray-100/80 py-16 md:py-24">
+    <section className="relative overflow-hidden bg-gray-100/80 py-10 md:py-14">
       <div className="section-container">
         {/* Header: Title + Google Reviews badge */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-12"
+          className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-navy-900">
             What Parents Say
@@ -145,9 +145,9 @@ export default function TestimonialsCarousel() {
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          <div className="flex items-stretch gap-6 overflow-hidden">
+          <div className="flex items-stretch gap-4 overflow-hidden">
             <motion.div
-              className="flex gap-6 md:gap-8 w-full justify-center flex-wrap lg:flex-nowrap"
+              className="flex gap-4 md:gap-5 w-full justify-center flex-wrap lg:flex-nowrap"
               drag={itemsPerView === 1 ? 'x' : false}
               dragConstraints={{ left: 0, right: 0 }}
               onDragEnd={onDragEnd}
@@ -161,7 +161,7 @@ export default function TestimonialsCarousel() {
                   transition={{ duration: 0.35 }}
                   className="flex-[1_1_100%] lg:flex-[1_1_calc(33.333%-1rem)] max-w-md mx-auto lg:mx-0 min-w-0 flex"
                 >
-                  <div className="bg-white rounded-2xl shadow-md border border-gray-200/80 p-6 md:p-8 h-full flex flex-col w-full">
+                  <div className="bg-white rounded-2xl shadow-md border border-gray-200/80 p-4 md:p-5 h-full flex flex-col w-full">
                     <div className="flex gap-1 mb-4">
                       {Array.from({ length: testimonial.rating }).map((_, j) => (
                         <Star
@@ -170,7 +170,7 @@ export default function TestimonialsCarousel() {
                         />
                       ))}
                     </div>
-                    <blockquote className="text-navy-700 text-lg leading-relaxed mb-6 flex-1">
+                    <blockquote className="text-navy-700 text-lg leading-relaxed mb-4 flex-1">
                       &ldquo;{testimonial.quote}&rdquo;
                     </blockquote>
                     <div>
@@ -206,7 +206,7 @@ export default function TestimonialsCarousel() {
           )}
 
           {/* Dots */}
-          <div className="flex justify-center gap-2 mt-8">
+          <div className="flex justify-center gap-2 mt-6">
             {Array.from({ length: maxIndex + 1 }).map((_, i) => (
               <button
                 key={i}

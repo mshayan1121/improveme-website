@@ -67,11 +67,11 @@ export default function SecondarySection() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden bg-white py-16 md:py-24"
+      className="relative overflow-hidden bg-white py-10 md:py-14"
     >
       <div className="section-container">
         {/* Reverse Layout - Top Row */}
-        <div className="grid lg:grid-cols-5 gap-6 lg:gap-8 mb-12">
+        <div className="grid lg:grid-cols-5 gap-4 lg:gap-5 mb-6">
           {/* Left - Timeline (40%) */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -79,8 +79,8 @@ export default function SecondarySection() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-2 order-2 lg:order-1"
           >
-            <div className="h-full min-h-[360px] rounded-2xl bg-gray-50/80 border border-gray-200 p-6 md:p-8 flex flex-col">
-              <h3 className="text-lg font-semibold text-navy-900 mb-6">
+            <div className="h-full min-h-[360px] rounded-2xl bg-gray-50/80 border border-gray-200 p-4 md:p-5 flex flex-col">
+              <h3 className="text-lg font-semibold text-navy-900 mb-4">
                 Your roadmap
               </h3>
               <div className="relative flex flex-col gap-0">
@@ -142,7 +142,7 @@ export default function SecondarySection() {
             <h2 className="text-3xl md:text-4xl font-bold text-navy-900 mb-4">
               Secondary <span className="gradient-text-warmth">(Age 11-18)</span>
             </h2>
-            <div className="space-y-6 mb-6">
+            <div className="space-y-4 mb-4">
               <div className="flex gap-4">
                 <div className="w-10 h-10 rounded-xl bg-navy-600/10 flex items-center justify-center shrink-0">
                   <BookOpen className="w-5 h-5 text-navy-600" strokeWidth={1.5} />
@@ -166,7 +166,7 @@ export default function SecondarySection() {
                 </div>
               </div>
             </div>
-            <div className="bg-gray-50 rounded-xl p-4 mb-8 border border-gray-200/80">
+            <div className="bg-gray-50 rounded-xl p-4 mb-5 border border-gray-200/80">
               <p className="font-medium text-navy-900 mb-3 flex items-center gap-2">
                 <Users className="w-4 h-4 text-navy-600" />
                 What We Offer
@@ -197,7 +197,7 @@ export default function SecondarySection() {
         </div>
 
         {/* Bottom - 8 Subject Cards Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {subjectCards.map((subject, index) => (
             <motion.div
               key={subject.name}

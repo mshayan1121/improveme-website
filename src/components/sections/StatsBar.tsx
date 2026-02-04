@@ -57,10 +57,10 @@ export default function StatsBar() {
   return (
     <section
       ref={ref}
-      className="w-full bg-[#1e3a8a] py-12 md:py-16 overflow-hidden"
+      className="w-full bg-[#1e3a8a] py-10 md:py-14 overflow-hidden"
     >
       <div className="section-container py-0">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-0">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}

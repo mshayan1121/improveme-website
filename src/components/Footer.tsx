@@ -35,8 +35,8 @@ const phones = [
 export default function Footer() {
   return (
     <footer className="bg-navy-900 text-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {/* 1. Logo & Social */}
           <div className="space-y-4">
             <Link href="/" className="inline-block">
@@ -132,7 +132,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-navy-800">
+        <div className="mt-6 pt-6 border-t border-navy-800">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <p className="text-gray-500 text-sm">
               Improve ME Institute © 2026. All Rights Reserved

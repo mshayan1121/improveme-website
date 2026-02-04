@@ -51,11 +51,11 @@ export default function PrimarySection() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden bg-gray-50 py-12 md:py-16 noise-texture"
+      className="relative overflow-hidden bg-gray-50 py-10 md:py-14 noise-texture"
     >
       <div className="section-container">
         {/* Heading + intro (centered, max-w-3xl) */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-6">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -77,7 +77,7 @@ export default function PrimarySection() {
         </div>
 
         {/* Grid of 3 subject cards */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-4">
           {subjectCards.map((subject, index) => (
             <motion.div
               key={subject.name}
@@ -85,7 +85,7 @@ export default function PrimarySection() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
               whileHover={{ scale: 1.05, rotate: 1 }}
-              className={`rounded-2xl shadow-xl p-6 cursor-pointer ${subject.bgClass}`}
+              className={`rounded-2xl shadow-xl p-4 md:p-5 cursor-pointer ${subject.bgClass}`}
             >
               <div
                 className={`w-14 h-14 flex items-center justify-center mb-4 ${subject.iconContainerClass}`}
