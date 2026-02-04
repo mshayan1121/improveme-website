@@ -6,311 +6,542 @@ import Image from 'next/image';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-type DropdownSection = { section: string; items: { name: string; href: string }[] };
+const TOP_BAR_BG = '#002D62';
+const CTA_GOLD = '#FFC107';
 
-const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+/* Our Courses: 3-column mega menu */
+const coursesMega = {
+  primary: {
+    title: 'Primary',
+    links: [
+      { name: 'Primary Mathematics', href: '/courses/primary-mathematics', title: 'Primary Mathematics tutoring at Improve ME Institute' },
+      { name: 'Primary English & Phonics', href: '/courses/primary-english', title: 'Primary English and Phonics tutoring' },
+      { name: 'Primary Science', href: '/courses/primary-science', title: 'Primary Science tutoring' },
+      { name: '7+/11+ Entrance Exam Prep', href: '/courses/entrance-exam-prep', title: '7+ and 11+ entrance exam preparation' },
+    ],
+  },
+  secondaryStages: {
+    title: 'Secondary Stages',
+    links: [
+      { name: 'Foundation (Years 7-9)', href: '/courses/foundation', title: 'Foundation stage tutoring Years 7-9' },
+      { name: 'GCSE / IGCSE Mastery', href: '/courses/gcse-igcse', title: 'GCSE and IGCSE exam mastery' },
+      { name: 'A-Level / IB Excellence', href: '/courses/a-level-ib', title: 'A-Level and IB Diploma tutoring' },
+    ],
+  },
+  specialist: {
+    title: 'Specialist Subjects',
+    links: [
+      { name: 'Secondary Mathematics', href: '/courses/secondary-mathematics', title: 'Secondary Mathematics tutoring' },
+      { name: 'English Language & Lit', href: '/courses/secondary-english', title: 'English Language and Literature' },
+      { name: 'The Sciences (Physics, Chemistry, Biology)', href: '/courses/sciences', title: 'Physics, Chemistry and Biology tutoring' },
+      { name: 'Business & Economics', href: '/courses/business-economics', title: 'Business and Economics tutoring' },
+      { name: 'Psychology', href: '/courses/psychology', title: 'Psychology tutoring' },
+    ],
+  },
+};
+
+/* Our Curriculum: standards-focused dropdown */
+const curriculumLinks = [
+  { name: 'British National Curriculum (KS1-KS5)', href: '/curriculum/british', title: 'British National Curriculum KS1 to KS5' },
+  { name: 'IGCSE Boards (AQA, Edexcel, CIE)', href: '/curriculum/igcse-boards', title: 'IGCSE exam boards AQA Edexcel CIE' },
+  { name: 'IB Diploma & MYP Support', href: '/curriculum/ib', title: 'IB Diploma and MYP support' },
+  { name: 'Exam Technique & Mastery', href: '/curriculum/exam-technique', title: 'Exam technique and mastery' },
+];
+
+/* Enrichment: skills-focused dropdown */
+const enrichmentLinks = [
+  { name: 'CAT Prep (Cognitive Abilities)', href: '/enrichment/cat-prep', title: 'Cognitive Abilities Test preparation' },
+  { name: 'Chess Mastery', href: '/enrichment/chess', title: 'Chess tutoring and mastery' },
+  { name: 'Financial Literacy', href: '/enrichment/financial-literacy', title: 'Financial literacy for students' },
+  { name: 'AI & Tech Literacy', href: '/enrichment/ai-tech', title: 'AI and technology literacy' },
+];
+
+const mainNavItems = [
+  { name: 'Home', href: '/', title: 'Improve ME Institute Home' },
+  { name: 'Our Courses', href: '/courses', title: 'Our Courses', hasDropdown: 'courses' as const },
+  { name: 'Our Curriculum', href: '/curriculum', title: 'Our Curriculum', hasDropdown: 'curriculum' as const },
+  { name: 'Enrichment', href: '/enrichment', title: 'Enrichment programs', hasDropdown: 'enrichment' as const },
+  { name: 'About Us', href: '/about', title: 'About Improve ME Institute' },
+  { name: 'Contact', href: '/contact', title: 'Contact us' },
+];
+
+export default function Header() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileAccordion, setMobileAccordion] = useState<'courses' | 'curriculum' | 'enrichment' | null>(null);
 
-  // Handle scroll effect
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Close mobile menu on escape key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setIsMobileMenuOpen(false);
+      if (e.key === 'Escape') {
+        setIsMobileMenuOpen(false);
+        setMobileAccordion(null);
+        setActiveDropdown(null);
+      }
     };
     document.addEventListener('keydown', handleEscape);
     return () => document.removeEventListener('keydown', handleEscape);
   }, []);
 
-  // Navigation structure
-  const navigation = {
-    main: [
-      { name: 'Home', href: '/' },
-      {
-        name: 'Our Courses',
-        href: '/courses',
-        dropdown: [
-          {
-            section: 'Primary (Age 3-11)',
-            items: [
-              { name: 'Mathematics', href: '/courses/primary-mathematics' },
-              { name: 'English', href: '/courses/primary-english' },
-              { name: 'Science', href: '/courses/primary-science' },
-            ],
-          },
-          {
-            section: 'Secondary (Age 11-18)',
-            items: [
-              { name: 'Mathematics', href: '/courses/secondary-mathematics' },
-              { name: 'Physics', href: '/courses/secondary-physics' },
-              { name: 'Chemistry', href: '/courses/secondary-chemistry' },
-              { name: 'Biology', href: '/courses/secondary-biology' },
-              { name: 'English', href: '/courses/secondary-english' },
-              { name: 'Business Studies', href: '/courses/secondary-business' },
-              { name: 'Economics', href: '/courses/secondary-economics' },
-              { name: 'Psychology', href: '/courses/secondary-psychology' },
-            ],
-          },
-          {
-            section: 'Special Programs',
-            items: [
-              { name: 'Chess', href: '/courses/chess' },
-            ],
-          },
-        ],
-      },
-      {
-        name: 'Our Curriculum',
-        href: '/curriculum',
-        dropdown: [
-          { name: 'EYFS (Age 3-5)', href: '/curriculum/eyfs' },
-          { name: 'Key Stage 1 (Ages 5-7)', href: '/curriculum/ks1' },
-          { name: 'Key Stage 2 (Ages 7-11)', href: '/curriculum/ks2' },
-          { name: 'Key Stage 3 (Ages 11-14)', href: '/curriculum/ks3' },
-          { name: 'IGCSE/GCSE/MYP (Ages 14-16)', href: '/curriculum/igcse' },
-          { name: 'A Levels/IB Diploma (Ages 16-18)', href: '/curriculum/a-levels' },
-        ],
-      },
-      { name: 'About Us', href: '/about' },
-      { name: 'FAQ', href: '/faq' },
-      { name: 'Contact', href: '/contact' },
-    ],
-  };
-
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'glass shadow-md' : 'bg-transparent'
-      }`}
-    >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link href="/" className="flex-shrink-0 transition-transform hover:scale-105">
-            <Image
-              src="/logo.png"
-              alt="Improve ME Institute"
-              width={185}
-              height={45}
-              priority
-              className="h-10 w-auto"
-            />
-          </Link>
+    <header className="fixed top-0 left-0 right-0 z-50">
+      {/* Top Bar - Dark Blue #002D62 */}
+      <div
+        className="w-full"
+        style={{ backgroundColor: TOP_BAR_BG }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-wrap items-center justify-between gap-2">
+          <span className="text-white text-xs sm:text-sm font-medium" aria-label="Location">
+            📍 Gold & Diamond Park, Dubai
+          </span>
+          <span className="text-white text-xs sm:text-sm font-medium whitespace-nowrap">
+            Primary: +971-50 185 2505 | Senior: +971-58 547 1457
+          </span>
+        </div>
+      </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex lg:items-center lg:space-x-1">
-            {navigation.main.map((item) => (
-              <div
-                key={item.name}
-                className="relative"
-                onMouseEnter={() => item.dropdown && setActiveDropdown(item.name)}
-                onMouseLeave={() => setActiveDropdown(null)}
-              >
-                <Link
-                  href={item.href}
-                  className="group px-4 py-2 text-sm font-medium text-navy-900 hover:text-navy-600 transition-colors flex items-center gap-1"
-                >
-                  {item.name}
-                  {item.dropdown && (
-                    <ChevronDown
-                      className={`w-4 h-4 transition-transform ${
-                        activeDropdown === item.name ? 'rotate-180' : ''
-                      }`}
-                    />
-                  )}
-                  <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-yellow-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-                </Link>
-
-                {/* Dropdown Menu */}
-                {item.dropdown && activeDropdown === item.name && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute left-0 mt-2 w-64 glass rounded-lg shadow-xl py-2"
-                  >
-                    {item.dropdown.length > 0 && 'section' in item.dropdown[0] ? (
-                      // Courses dropdown (grouped sections)
-                      (item.dropdown as DropdownSection[]).map((section) => (
-                        <div key={section.section} className="px-4 py-2">
-                          <p className="text-xs font-semibold text-navy-600 uppercase tracking-wide mb-1">
-                            {section.section}
-                          </p>
-                          {section.items?.map((subItem) => (
-                            <Link
-                              key={subItem.name}
-                              href={subItem.href}
-                              className="block py-1 text-sm text-navy-900 hover:text-yellow-500 transition-colors"
-                            >
-                              {subItem.name}
-                            </Link>
-                          ))}
-                        </div>
-                      ))
-                    ) : (
-                      // Curriculum dropdown (simple list)
-                      (item.dropdown as { name: string; href: string }[]).map((subItem) => (
-                        <Link
-                          key={subItem.name}
-                          href={subItem.href}
-                          className="block px-4 py-2 text-sm text-navy-900 hover:bg-gray-100 transition-colors"
-                        >
-                          {subItem.name}
-                        </Link>
-                      ))
-                    )}
-                  </motion.div>
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* CTA Button (Desktop) */}
-          <div className="hidden lg:block">
+      {/* Main Nav - White, Sticky, Box Shadow */}
+      <nav
+        className="w-full bg-white border-b border-gray-200 transition-shadow duration-200"
+        style={{ boxShadow: '0 2px 12px rgba(0,0,0,0.06)' }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo */}
             <Link
-              href="/contact#assessment"
-              className="inline-flex items-center justify-center px-6 py-2.5 text-sm font-semibold bg-yellow-400 text-navy-900 rounded-lg hover:bg-yellow-500 hover:shadow-lg transition-all duration-200"
+              href="/"
+              className="flex-shrink-0 transition-transform hover:scale-105"
+              title="Improve ME Institute - Home"
             >
-              Book Free Assessment
+              <Image
+                src="/logo.png"
+                alt="Improve ME Institute"
+                width={185}
+                height={45}
+                priority
+                className="h-9 w-auto"
+              />
             </Link>
-          </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-navy-900 hover:bg-gray-100 rounded-lg transition-colors"
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </button>
+            {/* Desktop Nav Links */}
+            <div className="hidden lg:flex lg:items-center lg:gap-0.5">
+              {mainNavItems.map((item) => (
+                <div
+                  key={item.name}
+                  className="relative"
+                  onMouseEnter={() => item.hasDropdown && setActiveDropdown(item.hasDropdown)}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                >
+                  <Link
+                    href={item.href}
+                    title={item.title}
+                    className={`flex items-center gap-0.5 px-4 py-3 text-sm font-medium rounded-md transition-colors ${
+                      item.hasDropdown && activeDropdown === item.hasDropdown
+                        ? 'text-[#FFC107]'
+                        : 'text-navy-900 hover:text-[#FFC107]'
+                    }`}
+                  >
+                    {item.name}
+                    {item.hasDropdown && (
+                      <ChevronDown
+                        className={`w-4 h-4 transition-transform ${
+                          activeDropdown === item.hasDropdown ? 'rotate-180' : ''
+                        }`}
+                        aria-hidden
+                      />
+                    )}
+                  </Link>
+
+                  {/* Our Courses MEGA MENU */}
+                  {item.hasDropdown === 'courses' && activeDropdown === 'courses' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -8 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute left-1/2 -translate-x-1/2 mt-0 pt-2"
+                    >
+                      <div className="bg-white rounded-xl shadow-lg border border-gray-200 py-6 px-6 min-w-[640px] flex gap-8">
+                        <div className="flex-1 min-w-0">
+                          <p className="text-xs font-semibold text-navy-600 uppercase tracking-wider mb-3">
+                            {coursesMega.primary.title}
+                          </p>
+                          <ul className="space-y-2">
+                            {coursesMega.primary.links.map((link) => (
+                              <li key={link.href}>
+                                <Link
+                                  href={link.href}
+                                  title={link.title}
+                                  className="text-sm text-navy-900 hover:text-[#FFC107] transition-colors block py-1"
+                                >
+                                  {link.name}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div className="flex-1 min-w-0 border-l border-gray-200 pl-6">
+                          <p className="text-xs font-semibold text-navy-600 uppercase tracking-wider mb-3">
+                            {coursesMega.secondaryStages.title}
+                          </p>
+                          <ul className="space-y-2">
+                            {coursesMega.secondaryStages.links.map((link) => (
+                              <li key={link.href}>
+                                <Link
+                                  href={link.href}
+                                  title={link.title}
+                                  className="text-sm text-navy-900 hover:text-[#FFC107] transition-colors block py-1"
+                                >
+                                  {link.name}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div className="flex-1 min-w-0 border-l border-gray-200 pl-6">
+                          <p className="text-xs font-semibold text-navy-600 uppercase tracking-wider mb-3">
+                            {coursesMega.specialist.title}
+                          </p>
+                          <ul className="space-y-2">
+                            {coursesMega.specialist.links.map((link) => (
+                              <li key={link.href}>
+                                <Link
+                                  href={link.href}
+                                  title={link.title}
+                                  className="text-sm text-navy-900 hover:text-[#FFC107] transition-colors block py-1"
+                                >
+                                  {link.name}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {/* Our Curriculum DROPDOWN */}
+                  {item.hasDropdown === 'curriculum' && activeDropdown === 'curriculum' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -8 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute left-0 mt-0 pt-2"
+                    >
+                      <div className="bg-white rounded-xl shadow-lg border border-gray-200 py-3 min-w-[280px]">
+                        <ul className="space-y-0.5 px-2">
+                          {curriculumLinks.map((link) => (
+                            <li key={link.href}>
+                              <Link
+                                href={link.href}
+                                title={link.title}
+                                className="block px-3 py-2.5 text-sm text-navy-900 hover:text-[#FFC107] rounded-lg hover:bg-gray-50 transition-colors"
+                              >
+                                {link.name}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {/* Enrichment DROPDOWN */}
+                  {item.hasDropdown === 'enrichment' && activeDropdown === 'enrichment' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -8 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute left-0 mt-0 pt-2"
+                    >
+                      <div className="bg-white rounded-xl shadow-lg border border-gray-200 py-3 min-w-[260px]">
+                        <ul className="space-y-0.5 px-2">
+                          {enrichmentLinks.map((link) => (
+                            <li key={link.href}>
+                              <Link
+                                href={link.href}
+                                title={link.title}
+                                className="block px-3 py-2.5 text-sm text-navy-900 hover:text-[#FFC107] rounded-lg hover:bg-gray-50 transition-colors"
+                              >
+                                {link.name}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </motion.div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* CTA - Gold background, Bold black text */}
+            <div className="hidden lg:block flex-shrink-0">
+              <Link
+                href="/contact#assessment"
+                title="Book a free assessment with Improve ME Institute"
+                className="inline-flex items-center justify-center px-5 py-2.5 text-sm font-bold text-black rounded-lg transition-all duration-200 hover:opacity-95 hover:shadow-md"
+                style={{ backgroundColor: CTA_GOLD }}
+              >
+                Book Free Assessment
+              </Link>
+            </div>
+
+            {/* Mobile Hamburger */}
+            <button
+              type="button"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden p-2 text-navy-900 hover:bg-gray-100 rounded-lg transition-colors"
+              aria-label="Toggle menu"
+              aria-expanded={isMobileMenuOpen}
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Accordions */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'tween', duration: 0.3 }}
-            className="fixed inset-y-0 right-0 w-full max-w-sm bg-white shadow-2xl lg:hidden overflow-y-auto"
-          >
-            <div className="p-6">
-              {/* Mobile Menu Header */}
-              <div className="flex items-center justify-between mb-8">
-                <Image
-                  src="/logo.png"
-                  alt="Improve ME Institute"
-                  width={150}
-                  height={36}
-                  className="h-8 w-auto"
-                />
-                <button
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="p-2 text-navy-900 hover:bg-gray-100 rounded-lg transition-colors"
-                  aria-label="Close menu"
-                >
-                  <X className="w-6 h-6" />
-                </button>
-              </div>
-
-              {/* Mobile Navigation Links */}
-              <nav className="space-y-4">
-                {navigation.main.map((item, index) => (
-                  <motion.div
-                    key={item.name}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05 }}
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="fixed inset-0 bg-black/25 backdrop-blur-sm lg:hidden z-40"
+              aria-hidden
+            />
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'tween', duration: 0.25 }}
+              className="fixed inset-y-0 right-0 w-full max-w-sm bg-white shadow-2xl lg:hidden z-50 overflow-y-auto"
+            >
+              <div className="p-6 pt-8">
+                <div className="flex items-center justify-between mb-6">
+                  <Link href="/" onClick={() => setIsMobileMenuOpen(false)} title="Improve ME Institute - Home">
+                    <Image src="/logo.png" alt="Improve ME Institute" width={150} height={36} className="h-8 w-auto" />
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="p-2 text-navy-900 hover:bg-gray-100 rounded-lg"
+                    aria-label="Close menu"
                   >
-                    <Link
-                      href={item.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="block text-lg font-medium text-navy-900 hover:text-yellow-500 transition-colors py-2"
-                    >
-                      {item.name}
-                    </Link>
-                    {item.dropdown && (
-                      <div className="ml-4 mt-2 space-y-2">
-                        {item.dropdown.length > 0 && 'section' in item.dropdown[0] ? (
-                          (item.dropdown as DropdownSection[]).map((section) => (
-                            <div key={section.section} className="mb-3">
-                              <p className="text-xs font-semibold text-navy-600 uppercase tracking-wide mb-1">
-                                {section.section}
-                              </p>
-                              {section.items?.map((subItem) => (
-                                <Link
-                                  key={subItem.name}
-                                  href={subItem.href}
-                                  onClick={() => setIsMobileMenuOpen(false)}
-                                  className="block text-sm text-navy-700 hover:text-yellow-500 transition-colors py-1"
-                                >
-                                  {subItem.name}
-                                </Link>
-                              ))}
-                            </div>
-                          ))
-                        ) : (
-                          (item.dropdown as { name: string; href: string }[]).map((subItem) => (
-                            <Link
-                              key={subItem.name}
-                              href={subItem.href}
-                              onClick={() => setIsMobileMenuOpen(false)}
-                              className="block text-sm text-navy-700 hover:text-yellow-500 transition-colors py-1"
-                            >
-                              {subItem.name}
-                            </Link>
-                          ))
-                        )}
-                      </div>
-                    )}
-                  </motion.div>
-                ))}
-              </nav>
+                    <X className="w-6 h-6" />
+                  </button>
+                </div>
 
-              {/* Mobile CTA */}
-              <div className="mt-8 pt-8 border-t border-gray-200">
-                <Link
-                  href="/contact#assessment"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="w-full inline-flex items-center justify-center px-6 py-3.5 text-base font-semibold bg-yellow-400 text-navy-900 rounded-lg hover:bg-yellow-500 hover:shadow-lg transition-all duration-200"
-                >
-                  Book Free Assessment
-                </Link>
+                <nav className="space-y-1" aria-label="Mobile navigation">
+                  <Link
+                    href="/"
+                    title="Improve ME Institute Home"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block py-3 px-2 text-base font-medium text-navy-900 hover:text-[#FFC107] transition-colors rounded-lg"
+                  >
+                    Home
+                  </Link>
+
+                  {/* Our Courses Accordion */}
+                  <div className="border-b border-gray-100">
+                    <button
+                      type="button"
+                      onClick={() => setMobileAccordion(mobileAccordion === 'courses' ? null : 'courses')}
+                      className="flex items-center justify-between w-full py-3 px-2 text-base font-medium text-navy-900 hover:text-[#FFC107] transition-colors rounded-lg"
+                      aria-expanded={mobileAccordion === 'courses'}
+                      aria-controls="mobile-courses"
+                      id="mobile-courses-btn"
+                    >
+                      Our Courses
+                      <ChevronDown
+                        className={`w-5 h-5 transition-transform ${mobileAccordion === 'courses' ? 'rotate-180' : ''}`}
+                      />
+                    </button>
+                    <div
+                      id="mobile-courses"
+                      role="region"
+                      aria-labelledby="mobile-courses-btn"
+                      className="overflow-hidden"
+                    >
+                      <AnimatePresence>
+                        {mobileAccordion === 'courses' && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="pl-4 pb-3 space-y-1"
+                          >
+                            <p className="text-xs font-semibold text-navy-600 uppercase tracking-wider mt-2 mb-1">
+                              Primary
+                            </p>
+                            {coursesMega.primary.links.map((link) => (
+                              <Link
+                                key={link.href}
+                                href={link.href}
+                                title={link.title}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="block py-2 text-sm text-navy-700 hover:text-[#FFC107] transition-colors"
+                              >
+                                {link.name}
+                              </Link>
+                            ))}
+                            <p className="text-xs font-semibold text-navy-600 uppercase tracking-wider mt-3 mb-1">
+                              Secondary Stages
+                            </p>
+                            {coursesMega.secondaryStages.links.map((link) => (
+                              <Link
+                                key={link.href}
+                                href={link.href}
+                                title={link.title}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="block py-2 text-sm text-navy-700 hover:text-[#FFC107] transition-colors"
+                              >
+                                {link.name}
+                              </Link>
+                            ))}
+                            <p className="text-xs font-semibold text-navy-600 uppercase tracking-wider mt-3 mb-1">
+                              Specialist Subjects
+                            </p>
+                            {coursesMega.specialist.links.map((link) => (
+                              <Link
+                                key={link.href}
+                                href={link.href}
+                                title={link.title}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="block py-2 text-sm text-navy-700 hover:text-[#FFC107] transition-colors"
+                              >
+                                {link.name}
+                              </Link>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  </div>
+
+                  {/* Our Curriculum Accordion */}
+                  <div className="border-b border-gray-100">
+                    <button
+                      type="button"
+                      onClick={() => setMobileAccordion(mobileAccordion === 'curriculum' ? null : 'curriculum')}
+                      className="flex items-center justify-between w-full py-3 px-2 text-base font-medium text-navy-900 hover:text-[#FFC107] transition-colors rounded-lg"
+                      aria-expanded={mobileAccordion === 'curriculum'}
+                      aria-controls="mobile-curriculum"
+                      id="mobile-curriculum-btn"
+                    >
+                      Our Curriculum
+                      <ChevronDown
+                        className={`w-5 h-5 transition-transform ${mobileAccordion === 'curriculum' ? 'rotate-180' : ''}`}
+                      />
+                    </button>
+                    <div id="mobile-curriculum" role="region" aria-labelledby="mobile-curriculum-btn" className="overflow-hidden">
+                      <AnimatePresence>
+                        {mobileAccordion === 'curriculum' && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="pl-4 pb-3 space-y-0.5"
+                          >
+                            {curriculumLinks.map((link) => (
+                              <Link
+                                key={link.href}
+                                href={link.href}
+                                title={link.title}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="block py-2 text-sm text-navy-700 hover:text-[#FFC107] transition-colors"
+                              >
+                                {link.name}
+                              </Link>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  </div>
+
+                  {/* Enrichment Accordion */}
+                  <div className="border-b border-gray-100">
+                    <button
+                      type="button"
+                      onClick={() => setMobileAccordion(mobileAccordion === 'enrichment' ? null : 'enrichment')}
+                      className="flex items-center justify-between w-full py-3 px-2 text-base font-medium text-navy-900 hover:text-[#FFC107] transition-colors rounded-lg"
+                      aria-expanded={mobileAccordion === 'enrichment'}
+                      aria-controls="mobile-enrichment"
+                      id="mobile-enrichment-btn"
+                    >
+                      Enrichment
+                      <ChevronDown
+                        className={`w-5 h-5 transition-transform ${mobileAccordion === 'enrichment' ? 'rotate-180' : ''}`}
+                      />
+                    </button>
+                    <div id="mobile-enrichment" role="region" aria-labelledby="mobile-enrichment-btn" className="overflow-hidden">
+                      <AnimatePresence>
+                        {mobileAccordion === 'enrichment' && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="pl-4 pb-3 space-y-0.5"
+                          >
+                            {enrichmentLinks.map((link) => (
+                              <Link
+                                key={link.href}
+                                href={link.href}
+                                title={link.title}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="block py-2 text-sm text-navy-700 hover:text-[#FFC107] transition-colors"
+                              >
+                                {link.name}
+                              </Link>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  </div>
+
+                  <Link
+                    href="/about"
+                    title="About Improve ME Institute"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block py-3 px-2 text-base font-medium text-navy-900 hover:text-[#FFC107] transition-colors rounded-lg"
+                  >
+                    About Us
+                  </Link>
+                  <Link
+                    href="/contact"
+                    title="Contact us"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block py-3 px-2 text-base font-medium text-navy-900 hover:text-[#FFC107] transition-colors rounded-lg"
+                  >
+                    Contact
+                  </Link>
+                </nav>
+
+                <div className="mt-8 pt-6 border-t border-gray-200">
+                  <Link
+                    href="/contact#assessment"
+                    title="Book a free assessment"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="w-full inline-flex items-center justify-center px-6 py-3.5 text-base font-bold text-black rounded-lg transition-all hover:opacity-95"
+                    style={{ backgroundColor: CTA_GOLD }}
+                  >
+                    Book Free Assessment
+                  </Link>
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
-
-      {/* Mobile Menu Backdrop */}
-      {isMobileMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={() => setIsMobileMenuOpen(false)}
-          className="fixed inset-0 bg-black/20 backdrop-blur-sm lg:hidden"
-          style={{ zIndex: -1 }}
-        />
-      )}
     </header>
   );
-};
-
-export default Header;
+}
