@@ -52,7 +52,7 @@ const coursesMega = {
   enrichment: {
     columnTitle: 'Future Skills',
     links: [
-      { name: 'CAT Prep', href: '/enrichment/cat-prep', title: 'Cognitive Abilities Test preparation' },
+      { name: 'CAT Prep', href: '/courses/cat-prep', title: 'Cognitive Abilities Test preparation' },
       { name: 'Chess Mastery', href: '/enrichment/chess', title: 'Chess tutoring and mastery' },
       { name: 'Financial Literacy', href: '/enrichment/financial-literacy', title: 'Financial literacy for students' },
       { name: 'AI Literacy', href: '/enrichment/ai-tech', title: 'AI and technology literacy' },

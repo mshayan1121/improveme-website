@@ -68,7 +68,7 @@ const secondarySubjects = [
 
 /* Enrichment: 4 programs, small cards/pills with icons, dark blue text */
 const enrichmentPrograms = [
-  { Icon: Target, name: 'CAT Prep', description: 'Cognitive training for school entrance exams.', href: '/enrichment/cat-prep' },
+  { Icon: Target, name: 'CAT Prep', description: 'Cognitive training for school entrance exams.', href: '/courses/cat-prep' },
   { Icon: Crown, name: 'Chess Mastery', description: 'Developing logic, strategy, and focus.', href: '/enrichment/chess' },
   { Icon: Wallet, name: 'Financial Literacy', description: 'Money management and economic intelligence.', href: '/enrichment/financial-literacy' },
   { Icon: Cpu, name: 'AI Literacy', description: 'Preparing for the future with tech mastery.', href: '/enrichment/ai-tech' },
