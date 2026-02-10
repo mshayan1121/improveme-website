@@ -322,6 +322,19 @@
   .stagger-3 { animation-delay: 300ms; }
   .stagger-4 { animation-delay: 400ms; }
   .stagger-5 { animation-delay: 500ms; }
+
+  /* Prevent column breaks inside curriculum blocks (for multi-column layout + print) */
+  .break-inside-avoid {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Force start of new column (e.g. SECONDARY header in curriculum dropdown) */
+  .break-before-column {
+    break-before: column;
+    -webkit-column-break-before: column;
+    page-break-before: column;
+  }
 }
 
 /* === KEYFRAME ANIMATIONS === */
@@ -393,6 +406,23 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Mega menu dropdown scrollbar - thin, visible */
+.mega-menu-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(209 213 219) transparent;
+}
+.mega-menu-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.mega-menu-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.mega-menu-scroll::-webkit-scrollbar-thumb {
+  background-color: rgb(209 213 219);
+  border-radius: 3px;
 }
 
 /* === PRINT STYLES === */
