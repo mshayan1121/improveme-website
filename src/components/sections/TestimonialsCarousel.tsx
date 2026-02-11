@@ -6,31 +6,24 @@ import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const testimonials = [
   {
-    name: 'Abeeda',
-    role: 'Parent',
+    name: 'A.S.',
+    role: 'Parent, Year 1 & FS2',
     quote:
-      'Both my sons have used this place. Results have risen but more importantly their confidence which is priceless.',
+      'My son\'s school has noticed a big improvement in his maths, which was one of my main concerns. The kids wouldn\'t stop asking, \'Mama, when are we going back to that cool place?\'',
     rating: 5,
   },
   {
-    name: 'Miray',
-    role: 'Parent',
+    name: 'Veronica',
+    role: 'Parent, Year 10',
     quote:
-      'My kids have been going during their primary school years and the experience has been exceptional.',
+      'In just weeks, my son was moved to the highest maths set at school and secured 2nd place in two consecutive advanced exams. The difference has been extraordinary.',
     rating: 5,
   },
   {
-    name: 'Ayse',
-    role: 'Parent',
+    name: 'Umika',
+    role: 'Student, MYP Chemistry',
     quote:
-      'Great place for children to learn without being bored and really improve their level.',
-    rating: 5,
-  },
-  {
-    name: 'Doaa',
-    role: 'Parent',
-    quote:
-      'Great institute and great teachers. Thank you for all your help!',
+      'I truly struggled in MYP Chemistry and was scoring low marks. After joining Improve ME, my grade went from a 3 to a 6 out of 7.',
     rating: 5,
   },
 ];
@@ -125,7 +118,7 @@ export default function TestimonialsCarousel() {
             </svg>
             <div className="text-left">
               <div className="flex items-center gap-1.5">
-                <span className="font-bold text-navy-900">4.9</span>
+                <span className="font-bold text-navy-900">4.8</span>
                 <span className="text-navy-600 text-sm">out of 5</span>
               </div>
               <div className="flex gap-0.5 mt-0.5">
@@ -134,7 +127,7 @@ export default function TestimonialsCarousel() {
                 ))}
                 <Star className="w-4 h-4 fill-yellow-400/50 text-yellow-400" />
               </div>
-              <p className="text-navy-600 text-xs mt-1">Based on 116 Google reviews</p>
+              <p className="text-navy-600 text-xs mt-1">Based on 206 Google Reviews</p>
             </div>
           </a>
         </motion.div>

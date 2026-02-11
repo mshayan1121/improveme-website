@@ -28,9 +28,9 @@ const stages = [
   {
     id: 'primary',
     label: 'Primary',
-    range: 'Ages 3-11',
+    range: 'Ages 3–11',
     sub: 'Building the Foundation',
-    description: 'Our early years foundation program nurtures curiosity and builds confidence through engaging, age-appropriate activities.',
+    description: 'Strong foundations in Maths, English, and Science across EYFS, Key Stage 1, and Key Stage 2. Each session is matched to your child\'s year group and school curriculum. 7+ and 11+ entrance prep available.',
     Icon: GraduationCap,
     nodeClass: 'bg-navy-600',
     pills: null as string[] | null,
@@ -38,40 +38,40 @@ const stages = [
   {
     id: 'secondary',
     label: 'Secondary',
-    range: 'Ages 11-18',
+    range: 'Ages 11–18',
     sub: null,
-    description: 'Comprehensive support for the transition to high school, IGCSE certification, and A-Level excellence.',
+    description: 'Key Stage 3 to A-Level and IB. Every session aligns with your child\'s exam board and school timetable. Our tutors know what examiners expect — and teach accordingly.',
     Icon: Trophy,
     nodeClass: 'bg-navy-600',
-    pills: ['Years 7-9', 'GCSE / IGCSE', 'A-Levels / IB'],
+    pills: ['Years 7–9 (KS3)', 'GCSE/IGCSE (Ages 14-16)', 'A-Levels/IB (Ages 16-18)'],
   },
 ];
 
 /* Subject color scheme: Math=dark blue, English=gold/orange, Science/Biology=green, Physics=light blue, Chemistry/Psychology=purple, Economics/Business=teal or burnt orange */
 const primarySubjects = [
-  { Icon: Calculator, name: 'Mathematics', description: 'Foundation to advanced problem-solving', bgClass: 'from-navy-600 to-navy-700', href: '/courses/primary#mathematics' },
-  { Icon: BookOpen, name: 'English Language', description: 'Reading, writing, and communication', bgClass: 'from-amber-500 to-amber-600', href: '/courses/primary#english-language' },
-  { Icon: Atom, name: 'Science', description: 'Explore the natural world', bgClass: 'from-green-600 to-green-700', href: '/courses/primary#science' },
+  { Icon: Calculator, name: 'Mathematics', description: 'Number & problem-solving', bgClass: 'from-navy-600 to-navy-700', href: '/courses/mathematics' },
+  { Icon: BookOpen, name: 'English Language', description: 'Reading, writing & comprehension', bgClass: 'from-amber-500 to-amber-600', href: '/courses/english' },
+  { Icon: Atom, name: 'Science', description: 'Natural world & scientific enquiry', bgClass: 'from-green-600 to-green-700', href: '/courses/science' },
 ];
 
 /* Secondary: 8 subjects with unique descriptions, 4x2 grid */
 const secondarySubjects = [
-  { Icon: Calculator, name: 'Mathematics', description: 'Expert strategies for exam-day success.', gradient: 'from-navy-600 to-navy-700' },
-  { Icon: BookText, name: 'English', description: 'Critical analysis and essay-writing mastery.', gradient: 'from-amber-500 to-amber-600' },
-  { Icon: Zap, name: 'Physics', description: 'Simplifying complex concepts and theories.', gradient: 'from-sky-400 to-blue-500' },
-  { Icon: FlaskConical, name: 'Chemistry', description: 'Comprehensive support for lab theory and equations.', gradient: 'from-purple-500 to-purple-600' },
-  { Icon: Leaf, name: 'Biology', description: 'Mastering the science of life and intricate processes.', gradient: 'from-green-500 to-green-600' },
-  { Icon: Briefcase, name: 'Business', description: 'Understanding the global marketplace and theory.', gradient: 'from-amber-600 to-amber-700' },
-  { Icon: TrendingUp, name: 'Economics', description: 'Analytical skills for the modern world.', gradient: 'from-teal-500 to-teal-600' },
-  { Icon: Brain, name: 'Psychology', description: 'In-depth support for social and cognitive sciences.', gradient: 'from-purple-500 to-purple-600' },
+  { Icon: Calculator, name: 'Mathematics', description: 'Algebra to calculus', gradient: 'from-navy-600 to-navy-700' },
+  { Icon: BookText, name: 'English', description: 'Essay technique & analysis', gradient: 'from-amber-500 to-amber-600' },
+  { Icon: Zap, name: 'Physics', description: 'Mechanics, electricity & waves', gradient: 'from-sky-400 to-blue-500' },
+  { Icon: FlaskConical, name: 'Chemistry', description: 'Organic, inorganic & physical', gradient: 'from-purple-500 to-purple-600' },
+  { Icon: Leaf, name: 'Biology', description: 'Cell biology to ecology', gradient: 'from-green-500 to-green-600' },
+  { Icon: Briefcase, name: 'Business', description: 'Case studies & exam technique', gradient: 'from-amber-600 to-amber-700' },
+  { Icon: TrendingUp, name: 'Economics', description: 'Micro, macro & data analysis', gradient: 'from-teal-500 to-teal-600' },
+  { Icon: Brain, name: 'Psychology', description: 'Research methods & approaches', gradient: 'from-purple-500 to-purple-600' },
 ];
 
 /* Enrichment: 4 programs, small cards/pills with icons, dark blue text */
 const enrichmentPrograms = [
-  { Icon: Target, name: 'CAT Prep', description: 'Cognitive training for school entrance exams.', href: '/courses/cat-prep' },
-  { Icon: Crown, name: 'Chess Mastery', description: 'Developing logic, strategy, and focus.', href: '/enrichment/chess' },
-  { Icon: Wallet, name: 'Financial Literacy', description: 'Money management and economic intelligence.', href: '/enrichment/financial-literacy' },
-  { Icon: Cpu, name: 'AI Literacy', description: 'Preparing for the future with tech mastery.', href: '/enrichment/ai-tech' },
+  { Icon: Target, name: 'CAT Prep', description: 'Preparation for CAT4 cognitive ability tests (Ages 7–13)', href: '/courses/cat-prep' },
+  { Icon: Crown, name: 'Chess Mastery', description: 'Developing logic, strategy, and focus', href: '/enrichment/chess' },
+  { Icon: Wallet, name: 'Financial Literacy', description: 'Practical money skills and economic awareness', href: '/enrichment/financial-literacy' },
+  { Icon: Cpu, name: 'AI Literacy', description: 'Understanding AI tools and thinking critically about technology', href: '/enrichment/ai-literacy' },
 ];
 
 export default function AcademicJourneySection() {
@@ -102,8 +102,7 @@ export default function AcademicJourneySection() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-navy-700 text-lg leading-relaxed"
           >
-            From early years through to university readiness—see how we support
-            every stage of your child&apos;s learning.
+            See how we support your child at every stage — from early years through to university-level exams.
           </motion.p>
         </div>
 
@@ -122,10 +121,19 @@ export default function AcademicJourneySection() {
             delay={0.15}
             index={0}
           >
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
-              {primarySubjects.map((s, i) => (
-                <SmallSubjectCard key={s.name} subject={s} index={i} variant="primary" />
-              ))}
+            <div className="space-y-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+                {primarySubjects.map((s, i) => (
+                  <SmallSubjectCard key={s.name} subject={s} index={i} variant="primary" />
+                ))}
+              </div>
+              <Link
+                href="/curriculum/primary"
+                className="inline-flex items-center gap-1 text-sm text-navy-600 hover:text-navy-900 font-medium mt-2"
+              >
+                View Primary Curriculum
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </StageRow>
 
@@ -155,6 +163,13 @@ export default function AcademicJourneySection() {
                   <SmallSubjectCard key={s.name} subject={s} index={i} variant="gradient" />
                 ))}
               </div>
+              <Link
+                href="/curriculum/secondary"
+                className="inline-flex items-center gap-1 text-sm text-navy-600 hover:text-navy-900 font-medium mt-2"
+              >
+                View Secondary Curriculum
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </StageRow>
         </div>
@@ -171,7 +186,7 @@ export default function AcademicJourneySection() {
             {/* Left: title + subtitle */}
             <div className="lg:w-[28%] lg:max-w-[16rem] shrink-0 mb-6 lg:mb-0">
               <h3 className="text-xl font-extrabold text-navy-900">Enrichment & Future Skills</h3>
-              <p className="text-sm text-navy-700 mt-1 font-medium">Building well-rounded leaders.</p>
+              <p className="text-sm text-navy-700 mt-1 font-medium">Building well-rounded learners alongside their academic programme.</p>
             </div>
             {/* Right: 4 pills + note */}
             <div className="flex-1 min-w-0">
@@ -194,7 +209,7 @@ export default function AcademicJourneySection() {
                 ))}
               </div>
               <p className="text-xs text-navy-600 mt-4 leading-relaxed italic">
-                These programs run alongside our academic courses to ensure holistic development.
+                These programmes run alongside our academic courses for a more complete education.
               </p>
             </div>
           </div>
@@ -308,9 +323,9 @@ function SmallSubjectCard({
               <subject.Icon className="w-4 h-4 text-[#FFFFFF]" strokeWidth={1.5} />
             </span>
             <div className="min-w-0 flex-1">
-              <span className="font-semibold text-[#FFFFFF] text-xs sm:text-sm block truncate">{subject.name}</span>
+              <span className="font-semibold text-[#FFFFFF] text-xs block truncate">{subject.name}</span>
               {!compact && subject.description && (
-                <span className="text-[10px] sm:text-xs line-clamp-2 opacity-90" style={{ color: '#FFFFFF' }}>{subject.description}</span>
+                <span className="text-[10px] line-clamp-2 opacity-90" style={{ color: '#FFFFFF' }}>{subject.description}</span>
               )}
             </div>
           </div>
@@ -334,11 +349,11 @@ function SmallSubjectCard({
           <p.Icon className="w-4 h-4 text-[#FFFFFF]" strokeWidth={1.5} />
         </span>
         <div className="min-w-0 flex-1">
-          <span className="font-semibold text-xs sm:text-sm block truncate text-[#FFFFFF]">
+          <span className="font-semibold text-xs block truncate text-[#FFFFFF]">
             {p.name}
           </span>
           {p.description && (
-            <span className="text-[10px] sm:text-xs line-clamp-1 opacity-90" style={{ color: '#FFFFFF' }}>
+            <span className="text-[10px] line-clamp-2 opacity-90" style={{ color: '#FFFFFF' }}>
               {p.description}
             </span>
           )}

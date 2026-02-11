@@ -27,6 +27,8 @@ import {
   Book,
   BookMarked,
   GraduationCap,
+  MessageCircle,
+  MapPin,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -263,13 +265,50 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50">
       {/* Top Bar */}
       <div className="w-full" style={{ backgroundColor: TOP_BAR_BG }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-wrap items-center justify-between gap-2">
-          <span className="text-white text-xs sm:text-sm font-medium" aria-label="Location">
-            📍 Gold & Diamond Park, Dubai
-          </span>
-          <span className="text-white text-xs sm:text-sm font-medium whitespace-nowrap">
-            Primary: +971-50 185 2505 | Senior: +971-58 547 1457
-          </span>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-col md:flex-row items-center justify-between gap-2">
+          {/* Left - Location */}
+          <div className="flex items-center gap-2">
+            <MapPin className="w-4 h-4 text-yellow-400" />
+            <span className="text-white text-xs sm:text-sm font-medium" aria-label="Location">
+              Gold & Diamond Park, Dubai
+            </span>
+          </div>
+          
+          {/* Right - Phone Numbers with WhatsApp */}
+          <div className="flex items-center gap-3 md:gap-4">
+            {/* Primary Department with WhatsApp */}
+            <div className="flex items-center gap-2">
+              <a 
+                href="tel:+971501852505" 
+                className="text-white text-xs sm:text-sm font-medium hover:text-yellow-400 transition-colors"
+              >
+                Primary: +971-50 185 2505
+              </a>
+              
+              {/* WhatsApp Icon */}
+              <a
+                href="https://wa.me/971501852505?text=Hi,%20I'm%20interested%20in%20signing%20up.%20Please%20can%20I%20get%20more%20info?"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-6 h-6 bg-green-500 hover:bg-green-600 rounded-full transition-colors"
+                title="Chat on WhatsApp"
+                aria-label="Chat on WhatsApp"
+              >
+                <MessageCircle className="w-3.5 h-3.5 text-white" />
+              </a>
+            </div>
+            
+            {/* Separator */}
+            <span className="hidden md:inline text-white/50">|</span>
+            
+            {/* Senior Department */}
+            <a 
+              href="tel:+971585471457" 
+              className="text-white text-xs sm:text-sm font-medium hover:text-yellow-400 transition-colors"
+            >
+              Senior: +971-58 547 1457
+            </a>
+          </div>
         </div>
       </div>
 
@@ -279,7 +318,7 @@ export default function Header() {
         style={{ boxShadow: '0 2px 12px rgba(0,0,0,0.06)' }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative" onMouseLeave={() => setActiveDropdown(null)}>
+          <div className="relative">
             <div className="flex items-center justify-between h-16">
               <Link href="/" className="flex-shrink-0 transition-transform hover:scale-105" title="Improve ME Institute - Home">
                 <Image src="/logo.png" alt="Improve ME Institute" width={185} height={45} priority className="h-9 w-auto" />
@@ -292,6 +331,7 @@ export default function Header() {
                     key={item.name}
                     className="relative"
                     onMouseEnter={() => item.hasDropdown && setActiveDropdown(item.hasDropdown)}
+                    onMouseLeave={() => item.hasDropdown && setActiveDropdown(null)}
                   >
                     <Link
                       href={item.href}
@@ -348,7 +388,9 @@ export default function Header() {
                   initial="hidden"
                   animate="visible"
                   exit="exit"
-                  className="absolute left-0 right-0 top-full mt-2 flex justify-center lg:block px-4"
+                  onMouseEnter={() => setActiveDropdown('courses')}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                  className="absolute left-0 right-0 top-full mt-0 flex justify-center lg:block px-4 z-50"
                 >
                   <div className="w-full max-w-6xl mx-auto">
                     <div className="bg-white backdrop-blur-md border-t-4 border-yellow-400 shadow-2xl rounded-b-lg p-5 min-h-[30rem] flex flex-col">
@@ -434,7 +476,9 @@ export default function Header() {
                   initial="hidden"
                   animate="visible"
                   exit="exit"
-                  className="absolute left-0 right-0 top-full mt-2 flex justify-center lg:block px-4"
+                  onMouseEnter={() => setActiveDropdown('curriculum')}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                  className="absolute left-0 right-0 top-full mt-0 flex justify-center lg:block px-4 z-50"
                 >
                   <div className="w-full max-w-6xl mx-auto">
                     <div className="bg-white backdrop-blur-md border-t-4 border-yellow-400 shadow-2xl rounded-b-lg p-5 min-h-[30rem] flex flex-col">

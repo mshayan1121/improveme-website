@@ -99,8 +99,7 @@ export default function BookingCTA() {
               Book Your Free Assessment
             </h2>
             <p className="text-white/90 text-lg mb-4 leading-relaxed">
-              Our team will identify learning needs and match your child with
-              expert tutors.
+              Our team will assess your child's current level and recommend the right group and tutor. There's no cost and no obligation — and we typically respond within 2 hours on working days.
             </p>
             <ul className="space-y-4 text-white">
               <li className="flex items-center gap-3">
@@ -108,21 +107,21 @@ export default function BookingCTA() {
                   className="w-6 h-6 shrink-0 text-yellow-400"
                   strokeWidth={2}
                 />
-                <span>Free consultation</span>
+                <span>Free diagnostic assessment</span>
               </li>
               <li className="flex items-center gap-3">
                 <Shield
                   className="w-6 h-6 shrink-0 text-yellow-400"
                   strokeWidth={2}
                 />
-                <span>No obligation</span>
+                <span>No obligation to enrol</span>
               </li>
               <li className="flex items-center gap-3">
                 <Clock
                   className="w-6 h-6 shrink-0 text-yellow-400"
                   strokeWidth={2}
                 />
-                <span>24-hour response</span>
+                <span>Response within 2 hours on working days</span>
               </li>
             </ul>
           </motion.div>
@@ -141,7 +140,7 @@ export default function BookingCTA() {
                     <Check className="w-8 h-8 text-green-600" strokeWidth={2.5} />
                   </div>
                   <p className="text-green-700 font-semibold text-lg mb-2">
-                    Thank you! We&apos;ll be in touch within 24 hours.
+                    Thank you! We&apos;ll be in touch within 2 hours on working days.
                   </p>
                   <p className="text-navy-600 text-sm">
                     Check your email for confirmation.
