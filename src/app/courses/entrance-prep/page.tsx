@@ -9,13 +9,12 @@ import {
   BookOpen,
   Award,
   ArrowRight,
-  MessageSquare,
-  Shapes,
   Calculator,
-  Layers,
+  Puzzle,
+  Mic,
   School,
-  ClipboardCheck,
-  Sparkles,
+  PenTool,
+  Compass,
 } from "lucide-react";
 import {
   Accordion,
@@ -25,28 +24,28 @@ import {
 } from "../../../components/ui/accordion";
 
 export const metadata: Metadata = {
-  title: "CAT4 Test Preparation Dubai | Ages 7-13 | Improve ME Institute",
+  title: "7+/11+ Entrance Exam Preparation Dubai | Improve ME Institute",
   description:
-    "CAT4 test preparation in Dubai. Cognitive abilities training for school admissions. Verbal, non-verbal, quantitative, and spatial reasoning.",
+    "Selective school entrance exam preparation in Dubai. 7+ and 11+ exam prep for top schools covering English, maths, reasoning, and interview skills.",
   keywords: [
-    "CAT4 test Dubai",
-    "cognitive abilities test",
-    "CAT4 preparation",
-    "school entrance test Dubai",
+    "7+ entrance exam Dubai",
+    "11+ preparation Dubai",
+    "selective school entrance Dubai",
+    "private school exam prep Dubai",
   ],
   authors: [{ name: "Improve ME Institute" }],
   openGraph: {
-    title: "CAT4 Test Preparation Dubai | Ages 7-13 | Improve ME Institute",
+    title: "7+/11+ Entrance Exam Preparation Dubai | Improve ME Institute",
     description:
-      "Focused CAT4 preparation covering verbal, non-verbal, quantitative, and spatial reasoning. Diagnostic assessments, targeted practice, and mock exams.",
-    url: "https://improvemeinstitute.com/courses/cat-prep",
+      "Comprehensive 7+ and 11+ exam prep covering English, Maths, reasoning, mock exams, and interview skills for Dubai's selective schools.",
+    url: "https://improvemeinstitute.com/courses/entrance-prep",
     siteName: "Improve ME Institute",
     images: [
       {
-        url: "/og-cat-prep.jpg",
+        url: "/og-entrance-prep.jpg",
         width: 1200,
         height: 630,
-        alt: "Students preparing for the CAT4 test",
+        alt: "Entrance exam preparation in Dubai",
       },
     ],
     locale: "en_AE",
@@ -57,17 +56,17 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://improvemeinstitute.com/courses/cat-prep",
+    canonical: "https://improvemeinstitute.com/courses/entrance-prep",
   },
 };
 
-const qualificationsId = "cat4-levels";
+const qualificationsId = "entrance-levels";
 
-export default function CAT4PrepPage() {
+export default function EntrancePrepPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Course",
-    name: "CAT4 Test Prep",
+    name: "7+/11+ Entrance Exam Preparation",
     description: metadata.description,
     provider: {
       "@type": "EducationalOrganization",
@@ -81,8 +80,8 @@ export default function CAT4PrepPage() {
       telephone: "+971-50-185-2505",
       url: "https://improvemeinstitute.com",
     },
-    educationalLevel: "Primary and Middle School",
-    coursePrerequisites: "None - suitable for all levels from Level A to Level F",
+    educationalLevel: "Primary Education",
+    coursePrerequisites: "None - suitable for students aged 6-11",
   };
 
   return (
@@ -139,7 +138,7 @@ export default function CAT4PrepPage() {
                 itemType="https://schema.org/ListItem"
               >
                 <span itemProp="name" className="text-navy-900 font-medium">
-                  CAT4 Test Prep
+                  7+/11+ Entrance Prep
                 </span>
                 <meta itemProp="position" content="3" />
               </li>
@@ -148,43 +147,43 @@ export default function CAT4PrepPage() {
         </nav>
 
         {/* SECTION 1: HERO */}
-        <section className="relative bg-gradient-to-br from-yellow-500 to-orange-600 chevron-pattern pt-32 pb-16">
+        <section className="relative bg-gradient-to-br from-blue-500 to-indigo-600 chevron-pattern pt-32 pb-16">
           <div className="absolute inset-0 bg-black/10 pointer-events-none" />
           <div className="relative z-10">
             <div className="max-w-7xl mx-auto px-4 text-center">
               <div className="inline-flex bg-white/20 backdrop-blur-sm rounded-full px-6 py-2 text-white/90 text-sm mb-6">
-                ENRICHMENT PROGRAMME
+                ENTRANCE EXAMINATION
               </div>
               <h1
                 itemProp="name"
                 className="text-4xl md:text-5xl font-bold text-white mb-4"
               >
-                CAT4 Test Prep
+                7+/11+ Entrance Prep
               </h1>
               <div className="inline-flex bg-white/20 rounded-full px-6 py-2 text-white/90 text-sm mb-6">
-                Ages 7-13 | Cognitive Assessment
+                Ages 6-11 | School Admissions
               </div>
               <p
                 itemProp="description"
                 className="max-w-2xl mx-auto text-lg md:text-xl text-white/90 mb-8"
               >
-                Comprehensive preparation for the Cognitive Abilities Test (CAT4).
-                We train students in verbal reasoning, non-verbal reasoning,
-                quantitative reasoning, and spatial reasoning to excel in
-                selective school admissions.
+                Comprehensive preparation for selective school entrance exams.
+                Expert tutoring covering English, mathematics, reasoning, and
+                interview skills to help your child succeed in Dubai&apos;s top
+                schools.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/contact#assessment"
                   className="bg-yellow-400 text-navy-900 px-8 py-4 rounded-lg font-semibold hover:bg-yellow-500 transition"
-                  aria-label="Book a free CAT4 assessment in Dubai"
+                  aria-label="Book a free entrance exam assessment in Dubai"
                 >
                   Book Free Assessment
                 </Link>
                 <Link
                   href={`#${qualificationsId}`}
                   className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition"
-                  aria-label="Explore CAT4 levels we prepare for in Dubai"
+                  aria-label="Explore entrance exam levels we prepare for in Dubai"
                 >
                   Explore Levels
                 </Link>
@@ -197,38 +196,38 @@ export default function CAT4PrepPage() {
         <section
           id={qualificationsId}
           className="bg-white py-14 scroll-mt-24"
-          aria-labelledby="cat4-levels-heading"
+          aria-labelledby="entrance-levels-heading"
         >
           <div className="max-w-7xl mx-auto px-4">
             <h2
-              id="cat4-levels-heading"
+              id="entrance-levels-heading"
               className="text-3xl font-bold text-navy-900 mb-4 text-center"
             >
-              CAT4 Test Levels
+              Entrance Exam Levels
             </h2>
             <p className="text-navy-600 mb-10 text-center">
-              We prepare students for all age-appropriate CAT4 levels
+              Expert Dubai entrance exam preparation tailored to your child&apos;s age
             </p>
 
             <div className="grid md:grid-cols-3 gap-6">
               <div className="group bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
                 <span className="text-xs bg-blue-600 text-white px-3 py-1 rounded-full mb-3 inline-block">
-                  Ages 6-8
+                  Year 2-3
                 </span>
-                <Target className="w-10 h-10 text-blue-600 mb-3" />
+                <School className="w-10 h-10 text-blue-600 mb-3" />
                 <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  Level A-B
+                  Ages 6-7 (7+ Level)
                 </h3>
                 <p className="text-sm text-navy-600 mb-3">Foundation Level</p>
                 <p className="text-sm text-navy-700 mb-4">
-                  Foundation level for younger students. Basic pattern
-                  recognition and reasoning skills.
+                  Early preparation for selective prep schools. Focus on literacy,
+                  numeracy, and basic reasoning skills.
                 </p>
                 <ul className="text-sm text-navy-700 space-y-1 mb-4">
-                  <li>• Verbal reasoning basics</li>
-                  <li>• Simple patterns</li>
-                  <li>• Number sequences</li>
-                  <li>• Shape recognition</li>
+                  <li>• Reading and comprehension</li>
+                  <li>• Basic mathematics</li>
+                  <li>• Simple reasoning</li>
+                  <li>• Interview preparation</li>
                 </ul>
                 <span className="mt-auto text-blue-600 font-medium text-sm group-hover:underline">
                   Learn More →
@@ -237,22 +236,22 @@ export default function CAT4PrepPage() {
 
               <div className="group bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
                 <span className="text-xs bg-purple-600 text-white px-3 py-1 rounded-full mb-3 inline-block">
-                  Ages 9-11
+                  Year 4-5
                 </span>
-                <Layers className="w-10 h-10 text-purple-600 mb-3" />
+                <GraduationCap className="w-10 h-10 text-purple-600 mb-3" />
                 <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  Level C-D
+                  Ages 8-10 (Pre-11+)
                 </h3>
                 <p className="text-sm text-navy-600 mb-3">Intermediate Level</p>
                 <p className="text-sm text-navy-700 mb-4">
-                  Intermediate level with increased complexity and
-                  problem-solving challenges.
+                  Building skills for 11+ preparation. Enhanced English, maths,
+                  and reasoning development.
                 </p>
                 <ul className="text-sm text-navy-700 space-y-1 mb-4">
-                  <li>• Advanced verbal reasoning</li>
-                  <li>• Complex patterns</li>
-                  <li>• Mathematical relationships</li>
-                  <li>• Spatial visualization</li>
+                  <li>• Advanced comprehension</li>
+                  <li>• Problem-solving maths</li>
+                  <li>• Verbal and non-verbal reasoning</li>
+                  <li>• Exam technique</li>
                 </ul>
                 <span className="mt-auto text-purple-600 font-medium text-sm group-hover:underline">
                   Learn More →
@@ -261,22 +260,22 @@ export default function CAT4PrepPage() {
 
               <div className="group bg-gradient-to-br from-indigo-50 to-indigo-100 border border-indigo-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
                 <span className="text-xs bg-indigo-600 text-white px-3 py-1 rounded-full mb-3 inline-block">
-                  Ages 12+
+                  Year 6
                 </span>
                 <Award className="w-10 h-10 text-indigo-600 mb-3" />
                 <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  Level E-F
+                  Ages 10-11 (11+ Level)
                 </h3>
                 <p className="text-sm text-navy-600 mb-3">Advanced Level</p>
                 <p className="text-sm text-navy-700 mb-4">
-                  Advanced level for older students with sophisticated reasoning
-                  and abstract thinking.
+                  Intensive preparation for selective secondary school admissions.
+                  Comprehensive exam and interview coaching.
                 </p>
                 <ul className="text-sm text-navy-700 space-y-1 mb-4">
-                  <li>• Complex verbal logic</li>
-                  <li>• Abstract patterns</li>
-                  <li>• Advanced quantitative reasoning</li>
-                  <li>• 3D spatial reasoning</li>
+                  <li>• Advanced English and maths</li>
+                  <li>• Complex reasoning</li>
+                  <li>• Mock exams</li>
+                  <li>• Interview skills</li>
                 </ul>
                 <span className="mt-auto text-indigo-600 font-medium text-sm group-hover:underline">
                   Learn More →
@@ -290,70 +289,61 @@ export default function CAT4PrepPage() {
         <section className="bg-gray-50 py-14">
           <div className="max-w-7xl mx-auto px-4">
             <h2 className="text-3xl font-bold text-navy-900 mb-10 text-center">
-              What We Cover in CAT4 Preparation
+              Comprehensive Entrance Exam Coverage
             </h2>
-            <p className="text-navy-600 mb-10 text-center">
-              Comprehensive training across all four reasoning types
-            </p>
 
             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               <div className="bg-white rounded-xl p-6 border border-gray-200">
-                <MessageSquare
-                  className="w-10 h-10 text-yellow-500 mb-4"
-                  aria-label="MessageSquare icon for verbal reasoning"
+                <BookOpen
+                  className="w-10 h-10 text-blue-600 mb-4"
+                  aria-label="BookOpen icon for English and comprehension"
                 />
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
-                  Verbal Reasoning
+                  English & Comprehension
                 </h3>
                 <ul className="space-y-2 text-navy-700">
-                  <li>Word relationships</li>
-                  <li>Verbal analogies</li>
-                  <li>Verbal classification</li>
-                  <li>Word patterns</li>
-                  <li>Vocabulary building</li>
-                  <li>Comprehension skills</li>
-                  <li>Logic puzzles</li>
-                  <li>Deductive reasoning</li>
-                </ul>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 border border-gray-200">
-                <Shapes
-                  className="w-10 h-10 text-yellow-500 mb-4"
-                  aria-label="Shapes icon for non-verbal and spatial reasoning"
-                />
-                <h3 className="text-xl font-bold text-navy-900 mb-4">
-                  Non-Verbal & Spatial Reasoning
-                </h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Pattern completion</li>
-                  <li>Figure matrices</li>
-                  <li>Figure classification</li>
-                  <li>3D visualization</li>
-                  <li>Mental rotation</li>
-                  <li>Figure analysis</li>
-                  <li>Shape sequences</li>
-                  <li>Spatial awareness</li>
+                  <li>Reading comprehension techniques</li>
+                  <li>Creative writing practice</li>
+                  <li>Grammar and vocabulary mastery</li>
+                  <li>Verbal reasoning drills</li>
+                  <li>Timed comprehension strategies</li>
+                  <li>Story analysis and inference</li>
                 </ul>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200">
                 <Calculator
-                  className="w-10 h-10 text-yellow-500 mb-4"
-                  aria-label="Calculator icon for quantitative reasoning"
+                  className="w-10 h-10 text-blue-600 mb-4"
+                  aria-label="Calculator icon for mathematics and problem-solving"
                 />
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
-                  Quantitative Reasoning
+                  Mathematics & Problem-Solving
                 </h3>
                 <ul className="space-y-2 text-navy-700">
-                  <li>Number series</li>
-                  <li>Number analogies</li>
-                  <li>Number matrices</li>
-                  <li>Mathematical patterns</li>
-                  <li>Problem-solving</li>
-                  <li>Logical sequences</li>
-                  <li>Data interpretation</li>
-                  <li>Numerical relationships</li>
+                  <li>Arithmetic fluency and accuracy</li>
+                  <li>Problem-solving heuristics</li>
+                  <li>Number patterns and sequences</li>
+                  <li>Mental maths workouts</li>
+                  <li>Applied word problems</li>
+                  <li>Time management strategies</li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200">
+                <Puzzle
+                  className="w-10 h-10 text-blue-600 mb-4"
+                  aria-label="Puzzle icon for reasoning and interview skills"
+                />
+                <h3 className="text-xl font-bold text-navy-900 mb-4">
+                  Reasoning & Interview Skills
+                </h3>
+                <ul className="space-y-2 text-navy-700">
+                  <li>Non-verbal reasoning & spatial skills</li>
+                  <li>Interview preparation & etiquette</li>
+                  <li>Time management strategies</li>
+                  <li>Exam confidence coaching</li>
+                  <li>Mindset and resilience training</li>
+                  <li>Mock interview practice</li>
                 </ul>
               </div>
             </div>
@@ -364,11 +354,8 @@ export default function CAT4PrepPage() {
         <section className="bg-white py-14">
           <div className="max-w-7xl mx-auto px-4">
             <h2 className="text-3xl font-bold text-navy-900 mb-10 text-center">
-              Our Approach by Level
+              Entrance Prep by Level
             </h2>
-            <p className="text-navy-600 mb-10 text-center">
-              Tailored preparation based on age and ability
-            </p>
 
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               <div className="bg-blue-50 border border-blue-200 rounded-xl p-8">
@@ -377,25 +364,24 @@ export default function CAT4PrepPage() {
                 </span>
                 <School
                   className="w-10 h-10 text-blue-600 mb-4"
-                  aria-label="School icon for foundation levels"
+                  aria-label="School icon for 7+ preparation"
                 />
                 <h3 className="text-2xl font-bold text-navy-900 mb-4">
-                  Foundation Levels (Ages 6-10)
+                  7+ Preparation
                 </h3>
                 <p className="text-navy-700 mb-4">
-                  Build strong reasoning foundations with comprehensive coverage
-                  of basic cognitive skills. Foundation level preparation focuses
-                  on{" "}
-                  <span className="font-semibold">Levels A, B, and C</span>{" "}
-                  for younger students entering selective schools.
+                  Build strong foundations for selective prep school admissions.
+                  Foundation entrance prep focuses on{" "}
+                  <span className="font-semibold">Year 2-3 students</span>{" "}
+                  preparing for 7+ examinations in Dubai.
                 </p>
                 <ul className="space-y-2 text-navy-700">
-                  <li>Basic pattern recognition</li>
-                  <li>Simple verbal relationships</li>
-                  <li>Foundation number sequences</li>
-                  <li>Shape and figure identification</li>
-                  <li>Building confidence with reasoning</li>
-                  <li>Exam technique for younger students</li>
+                  <li>Early literacy and numeracy skills</li>
+                  <li>Basic reasoning development</li>
+                  <li>Interview confidence building</li>
+                  <li>Age-appropriate exam technique</li>
+                  <li>Foundation English and maths</li>
+                  <li>Social and communication skills</li>
                 </ul>
               </div>
 
@@ -405,24 +391,24 @@ export default function CAT4PrepPage() {
                 </span>
                 <GraduationCap
                   className="w-10 h-10 text-indigo-600 mb-4"
-                  aria-label="GraduationCap icon for advanced levels"
+                  aria-label="GraduationCap icon for 11+ preparation"
                 />
                 <h3 className="text-2xl font-bold text-navy-900 mb-4">
-                  Advanced Levels (Ages 10-14)
+                  11+ Preparation
                 </h3>
                 <p className="text-navy-700 mb-4">
-                  Master advanced reasoning for competitive school admissions.
-                  Advanced level students progress to{" "}
-                  <span className="font-semibold">Levels D, E, and F</span>{" "}
-                  for older students seeking placement in top Dubai schools.
+                  Master advanced entrance exam skills for competitive secondary
+                  school admissions. Advanced level students prepare for{" "}
+                  <span className="font-semibold">Year 6 examinations</span>{" "}
+                  targeting Dubai&apos;s top selective schools.
                 </p>
                 <ul className="space-y-2 text-navy-700">
-                  <li>Complex pattern analysis</li>
-                  <li>Advanced verbal logic</li>
-                  <li>Sophisticated quantitative reasoning</li>
-                  <li>3D spatial visualization</li>
-                  <li>Time management strategies</li>
-                  <li>Competitive exam preparation</li>
+                  <li>Advanced English and mathematics</li>
+                  <li>Complex reasoning challenges</li>
+                  <li>Comprehensive mock exam practice</li>
+                  <li>Professional interview coaching</li>
+                  <li>Competitive exam strategies</li>
+                  <li>Time management and confidence</li>
                 </ul>
               </div>
             </div>
@@ -438,58 +424,58 @@ export default function CAT4PrepPage() {
 
             <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               <div className="border border-gray-200 bg-white rounded-xl p-6 hover:shadow-lg transition">
+                <PenTool
+                  className="w-12 h-12 text-blue-600 mb-4"
+                  aria-label="PenTool icon representing subject specialists"
+                />
+                <h3 className="text-xl font-bold text-navy-900 mb-2">
+                  Subject Specialists
+                </h3>
+                <p className="text-navy-700 text-sm">
+                  English and maths tutors who understand each exam board&apos;s
+                  nuances and mark schemes for selective school admissions.
+                </p>
+              </div>
+
+              <div className="border border-gray-200 bg-white rounded-xl p-6 hover:shadow-lg transition">
                 <Users
-                  className="w-12 h-12 text-yellow-500 mb-4"
+                  className="w-12 h-12 text-blue-600 mb-4"
                   aria-label="Users icon representing small groups"
                 />
                 <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  Small Groups
+                  Small Group Excellence
                 </h3>
                 <p className="text-navy-700 text-sm">
                   Maximum 6 students per class ensures personalized attention
-                  and focused practice on individual reasoning strengths.
+                  and focused practice on individual strengths.
                 </p>
               </div>
 
               <div className="border border-gray-200 bg-white rounded-xl p-6 hover:shadow-lg transition">
-                <ClipboardCheck
-                  className="w-12 h-12 text-yellow-500 mb-4"
-                  aria-label="ClipboardCheck icon representing diagnostic assessment"
+                <Compass
+                  className="w-12 h-12 text-blue-600 mb-4"
+                  aria-label="Compass icon representing reasoning labs"
                 />
                 <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  Diagnostic Assessment
+                  Reasoning Labs
                 </h3>
                 <p className="text-navy-700 text-sm">
-                  Initial testing to identify current ability levels and areas
-                  for development across all four reasoning types.
+                  Hands-on sessions dedicated to verbal, non-verbal, and
+                  problem-solving techniques with targeted practice.
                 </p>
               </div>
 
               <div className="border border-gray-200 bg-white rounded-xl p-6 hover:shadow-lg transition">
-                <Target
-                  className="w-12 h-12 text-yellow-500 mb-4"
-                  aria-label="Target icon representing focused training"
+                <Mic
+                  className="w-12 h-12 text-blue-600 mb-4"
+                  aria-label="Mic icon representing interview coaching"
                 />
                 <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  Focused Training
+                  Interview Coaching
                 </h3>
                 <p className="text-navy-700 text-sm">
-                  Targeted practice on weak areas with progressive difficulty
-                  and regular checkpoints to track improvement.
-                </p>
-              </div>
-
-              <div className="border border-gray-200 bg-white rounded-xl p-6 hover:shadow-lg transition">
-                <Award
-                  className="w-12 h-12 text-yellow-500 mb-4"
-                  aria-label="Award icon representing practice tests"
-                />
-                <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  Practice Tests
-                </h3>
-                <p className="text-navy-700 text-sm">
-                  Regular mock tests under exam conditions with detailed
-                  feedback and improvement strategies.
+                  Role-play scenarios, communication skills, and
+                  confidence-building for parent and student meetings.
                 </p>
               </div>
             </div>
@@ -505,10 +491,10 @@ export default function CAT4PrepPage() {
 
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
               {[
-                "12-16 Sessions",
+                "12-20 Sessions",
                 "Weekly or Bi-weekly",
                 "Max 6 Students",
-                "Practice Tests Included",
+                "Mock Exams Included",
                 "Progress Reports",
               ].map((detail) => (
                 <div
@@ -516,7 +502,7 @@ export default function CAT4PrepPage() {
                   className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center"
                 >
                   <CheckCircle
-                    className="w-6 h-6 text-yellow-500 mx-auto mb-2"
+                    className="w-6 h-6 text-blue-600 mx-auto mb-2"
                     aria-hidden="true"
                   />
                   <p className="text-sm font-semibold text-navy-900">
@@ -529,19 +515,19 @@ export default function CAT4PrepPage() {
         </section>
 
         {/* SECTION 7: WHY CHOOSE US */}
-        <section className="bg-gradient-to-br from-yellow-500 to-orange-600 py-14">
+        <section className="bg-gradient-to-br from-blue-500 to-indigo-600 py-14">
           <div className="max-w-7xl mx-auto px-4">
             <h2 className="text-3xl font-bold text-white mb-10 text-center">
-              Why Choose Our CAT4 Preparation?
+              Why Choose Our Entrance Exam Preparation?
             </h2>
 
             <div className="max-w-3xl mx-auto space-y-4">
               {[
                 "KHDA-approved tutoring centre with proven track record",
-                "Experienced tutors familiar with all CAT4 levels and question types",
+                "Experienced tutors familiar with selective school expectations",
                 "Small groups (maximum 6 students) for personalized attention",
-                "All CAT4 levels covered (A through F) for ages 6-14",
-                "Comprehensive mock testing under real exam conditions",
+                "Comprehensive coverage of 7+ and 11+ exam formats",
+                "Regular mock exams and interview practice sessions",
                 "Regular progress tracking with detailed feedback reports",
                 "Proven track record of successful school placements",
                 "Flexible scheduling options including weekends and holidays",
@@ -552,7 +538,7 @@ export default function CAT4PrepPage() {
                   className="flex gap-3 items-start text-white/90"
                 >
                   <CheckCircle
-                    className="w-6 h-6 text-white flex-shrink-0 mt-0.5"
+                    className="w-6 h-6 text-yellow-400 flex-shrink-0 mt-0.5"
                     aria-hidden="true"
                   />
                   <p>{benefit}</p>
@@ -571,11 +557,11 @@ export default function CAT4PrepPage() {
 
             <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
               <div
-                className="bg-yellow-50 border border-yellow-200 rounded-xl p-6"
+                className="bg-blue-50 border border-blue-200 rounded-xl p-6"
                 itemScope
                 itemType="https://schema.org/Review"
               >
-                <meta itemProp="itemReviewed" content="CAT4 Test Prep" />
+                <meta itemProp="itemReviewed" content="7+/11+ Entrance Prep" />
                 <div
                   itemProp="reviewRating"
                   itemScope
@@ -588,8 +574,8 @@ export default function CAT4PrepPage() {
                   className="text-navy-800 text-sm"
                   itemProp="reviewBody"
                 >
-                  &quot;Our daughter improved her CAT4 scores significantly and
-                  received offers from both Dubai College and JESS.&quot;
+                  &quot;Improve ME helped my son secure offers from both Dubai
+                  College and JESS after three months of preparation.&quot;
                 </blockquote>
                 <p
                   className="text-sm font-semibold text-navy-900 mt-4"
@@ -597,9 +583,9 @@ export default function CAT4PrepPage() {
                   itemScope
                   itemType="https://schema.org/Person"
                 >
-                  <span itemProp="name">Mariam H.</span>
+                  <span itemProp="name">Sarah P.</span>
                 </p>
-                <p className="text-xs text-navy-600">Parent of Year 6 student</p>
+                <p className="text-xs text-navy-600">Year 6 parent | 11+ offer holder</p>
                 <div className="flex mt-3 gap-1" aria-hidden="true">
                   {Array.from({ length: 5 }).map((_, index) => (
                     <span
@@ -613,11 +599,11 @@ export default function CAT4PrepPage() {
               </div>
 
               <div
-                className="bg-yellow-50 border border-yellow-200 rounded-xl p-6"
+                className="bg-blue-50 border border-blue-200 rounded-xl p-6"
                 itemScope
                 itemType="https://schema.org/Review"
               >
-                <meta itemProp="itemReviewed" content="CAT4 Test Prep" />
+                <meta itemProp="itemReviewed" content="7+/11+ Entrance Prep" />
                 <div
                   itemProp="reviewRating"
                   itemScope
@@ -630,8 +616,8 @@ export default function CAT4PrepPage() {
                   className="text-navy-800 text-sm"
                   itemProp="reviewBody"
                 >
-                  &quot;The mock tests were incredibly helpful. My son felt
-                  confident and prepared on exam day.&quot;
+                  &quot;The interview coaching was invaluable—our daughter
+                  walked in prepared and confident.&quot;
                 </blockquote>
                 <p
                   className="text-sm font-semibold text-navy-900 mt-4"
@@ -639,17 +625,17 @@ export default function CAT4PrepPage() {
                   itemScope
                   itemType="https://schema.org/Person"
                 >
-                  <span itemProp="name">Sanjay R.</span>
+                  <span itemProp="name">Omar L.</span>
                 </p>
-                <p className="text-xs text-navy-600">Parent of Year 7 student</p>
+                <p className="text-xs text-navy-600">Year 3 parent | 7+ interview success</p>
               </div>
 
               <div
-                className="bg-yellow-50 border border-yellow-200 rounded-xl p-6"
+                className="bg-blue-50 border border-blue-200 rounded-xl p-6"
                 itemScope
                 itemType="https://schema.org/Review"
               >
-                <meta itemProp="itemReviewed" content="CAT4 Test Prep" />
+                <meta itemProp="itemReviewed" content="7+/11+ Entrance Prep" />
                 <div
                   itemProp="reviewRating"
                   itemScope
@@ -671,9 +657,9 @@ export default function CAT4PrepPage() {
                   itemScope
                   itemType="https://schema.org/Person"
                 >
-                  <span itemProp="name">Fatima A.</span>
+                  <span itemProp="name">Priya S.</span>
                 </p>
-                <p className="text-xs text-navy-600">Parent of Year 5 student</p>
+                <p className="text-xs text-navy-600">Year 5 parent</p>
               </div>
             </div>
           </div>
@@ -688,40 +674,39 @@ export default function CAT4PrepPage() {
 
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
               <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
-                <Award
+                <Target
                   className="w-10 h-10 text-blue-600 mb-3"
-                  aria-label="Award icon for entrance prep"
+                  aria-label="Target icon for CAT4 test prep"
                 />
                 <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  7+/11+ Entrance Prep
+                  CAT4 Test Prep
                 </h3>
                 <p className="text-navy-600 text-sm mb-4">
-                  School entrance exam preparation covering English, maths, and
-                  reasoning.
+                  Benchmark reasoning skills before the admissions season.
                 </p>
                 <Link
-                  href="/courses/entrance-prep"
-                  className="text-yellow-500 font-medium hover:text-yellow-600 text-sm"
-                  aria-label="Explore entrance prep courses in Dubai"
+                  href="/courses/cat-prep"
+                  className="text-blue-600 font-medium hover:text-blue-700 text-sm"
+                  aria-label="Explore CAT4 test prep courses in Dubai"
                 >
-                  Explore Entrance Prep →
+                  Explore CAT4 Prep →
                 </Link>
               </div>
 
               <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
                 <Calculator
                   className="w-10 h-10 text-green-600 mb-3"
-                  aria-label="Calculator icon for mathematics"
+                  aria-label="Calculator icon for primary mathematics"
                 />
                 <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  Mathematics
+                  Primary Mathematics
                 </h3>
                 <p className="text-navy-600 text-sm mb-4">
-                  Strengthen numerical reasoning and problem-solving skills.
+                  Deepen numeracy skills and mental maths for written papers.
                 </p>
                 <Link
                   href="/courses/mathematics"
-                  className="text-yellow-500 font-medium hover:text-yellow-600 text-sm"
+                  className="text-blue-600 font-medium hover:text-blue-700 text-sm"
                   aria-label="Explore mathematics courses in Dubai"
                 >
                   Explore Mathematics →
@@ -729,22 +714,22 @@ export default function CAT4PrepPage() {
               </div>
 
               <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
-                <Target
+                <BookOpen
                   className="w-10 h-10 text-navy-600 mb-3"
-                  aria-label="Target icon for chess mastery"
+                  aria-label="BookOpen icon for primary English"
                 />
                 <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  Chess Mastery
+                  Primary English
                 </h3>
                 <p className="text-navy-600 text-sm mb-4">
-                  Strategic thinking and logic development through chess.
+                  Sharpen comprehension and creative writing technique.
                 </p>
                 <Link
-                  href="/courses/chess"
-                  className="text-yellow-500 font-medium hover:text-yellow-600 text-sm"
-                  aria-label="Explore chess mastery courses in Dubai"
+                  href="/courses/english"
+                  className="text-blue-600 font-medium hover:text-blue-700 text-sm"
+                  aria-label="Explore English courses in Dubai"
                 >
-                  Explore Chess →
+                  Explore English →
                 </Link>
               </div>
             </div>
@@ -770,7 +755,7 @@ export default function CAT4PrepPage() {
               >
                 <AccordionTrigger>
                   <span itemProp="name">
-                    What CAT4 levels do you prepare students for?
+                    What entrance exams do you prepare students for?
                   </span>
                 </AccordionTrigger>
                 <AccordionContent>
@@ -780,9 +765,9 @@ export default function CAT4PrepPage() {
                     itemType="https://schema.org/Answer"
                   >
                     <p itemProp="text" className="text-sm text-navy-700">
-                      We prepare students for all CAT4 levels from Level A
-                      (ages 6-7) through Level F (ages 13+). Our programme is
-                      tailored to each student&apos;s age and current ability level.
+                      We prepare students for 7+ exams (Year 2-3) and 11+ exams
+                      (Year 6) for selective schools in Dubai including Dubai
+                      College, JESS, Kings Dubai, and other top institutions.
                     </p>
                   </div>
                 </AccordionContent>
@@ -795,7 +780,7 @@ export default function CAT4PrepPage() {
               >
                 <AccordionTrigger>
                   <span itemProp="name">
-                    What is the class size for CAT4 preparation?
+                    What is the class size for entrance exam preparation?
                   </span>
                 </AccordionTrigger>
                 <AccordionContent>
@@ -821,7 +806,7 @@ export default function CAT4PrepPage() {
               >
                 <AccordionTrigger>
                   <span itemProp="name">
-                    Do you provide mock CAT4 tests?
+                    Do you provide interview coaching?
                   </span>
                 </AccordionTrigger>
                 <AccordionContent>
@@ -831,10 +816,10 @@ export default function CAT4PrepPage() {
                     itemType="https://schema.org/Answer"
                   >
                     <p itemProp="text" className="text-sm text-navy-700">
-                      Yes, we provide regular mock tests under real exam
-                      conditions with detailed feedback and improvement
-                      strategies. This helps students build confidence and
-                      familiarity with the test format.
+                      Yes, interview coaching is built into every programme. We
+                      provide role-play scenarios, communication skills training,
+                      and confidence-building sessions for both students and
+                      parents.
                     </p>
                   </div>
                 </AccordionContent>
@@ -847,7 +832,7 @@ export default function CAT4PrepPage() {
               >
                 <AccordionTrigger>
                   <span itemProp="name">
-                    How long does CAT4 preparation take?
+                    How long does entrance exam preparation take?
                   </span>
                 </AccordionTrigger>
                 <AccordionContent>
@@ -857,9 +842,9 @@ export default function CAT4PrepPage() {
                     itemType="https://schema.org/Answer"
                   >
                     <p itemProp="text" className="text-sm text-navy-700">
-                      Our CAT4 preparation programme typically runs for 12-16
-                      sessions, depending on the student&apos;s starting level and
-                      target school requirements. Sessions can be scheduled
+                      Our entrance exam preparation typically runs for 12-20
+                      sessions, depending on the student&apos;s starting level
+                      and target school requirements. Sessions can be scheduled
                       weekly or bi-weekly.
                     </p>
                   </div>
@@ -873,28 +858,25 @@ export default function CAT4PrepPage() {
         <section className="bg-gradient-to-r from-yellow-400 to-yellow-500 py-14">
           <div className="max-w-7xl mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold text-navy-900 mb-4">
-              Ready to Excel in CAT4?
+              Ready to Excel in Entrance Exams?
             </h2>
             <p className="text-navy-800 mb-8 text-lg">
-              Book a free assessment and discover your pathway to CAT4 success
-              with Dubai&apos;s best cognitive abilities training.
+              Book a free assessment and discover your pathway to selective
+              school success with Dubai&apos;s best entrance exam tutors.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact#assessment"
                 className="inline-flex items-center gap-2 bg-navy-900 text-white px-10 py-4 rounded-lg font-semibold hover:bg-navy-800 transition"
-                aria-label="Book a free CAT4 assessment at Improve ME Institute Dubai"
+                aria-label="Book a free entrance exam assessment at Improve ME Institute Dubai"
               >
                 <span>Book Free Assessment</span>
-                <ArrowRight
-                  className="w-5 h-5"
-                  aria-hidden="true"
-                />
+                <ArrowRight className="w-5 h-5" aria-hidden="true" />
               </Link>
               <Link
                 href="/contact#timetable"
                 className="inline-flex items-center gap-2 bg-white text-navy-900 border-2 border-navy-900 px-10 py-4 rounded-lg font-semibold hover:bg-navy-50 transition"
-                aria-label="View CAT4 preparation timetable in Dubai"
+                aria-label="View entrance exam preparation timetable in Dubai"
               >
                 <span>View Timetable</span>
               </Link>

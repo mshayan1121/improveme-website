@@ -99,7 +99,7 @@ export default function BookingCTA() {
               Book Your Free Assessment
             </h2>
             <p className="text-white/90 text-lg mb-4 leading-relaxed">
-              Our team will assess your child's current level and recommend the right group and tutor. There's no cost and no obligation — and we typically respond within 2 hours on working days.
+              Our team will assess your child&apos;s current level and recommend the right group and tutor. There&apos;s no cost and no obligation — and we typically respond within 2 hours on working days.
             </p>
             <ul className="space-y-4 text-white">
               <li className="flex items-center gap-3">

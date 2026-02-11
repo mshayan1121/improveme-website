@@ -9,13 +9,12 @@ import {
   BookOpen,
   Award,
   ArrowRight,
-  MessageSquare,
-  Shapes,
+  Crown,
+  Swords,
+  Trophy,
+  BrainCircuit,
   Calculator,
-  Layers,
-  School,
-  ClipboardCheck,
-  Sparkles,
+  Cpu,
 } from "lucide-react";
 import {
   Accordion,
@@ -25,28 +24,28 @@ import {
 } from "../../../components/ui/accordion";
 
 export const metadata: Metadata = {
-  title: "CAT4 Test Preparation Dubai | Ages 7-13 | Improve ME Institute",
+  title: "Chess Classes Dubai | Strategic Thinking for Children | Improve ME",
   description:
-    "CAT4 test preparation in Dubai. Cognitive abilities training for school admissions. Verbal, non-verbal, quantitative, and spatial reasoning.",
+    "Chess classes in Dubai for ages 6+. Develop strategic thinking, problem-solving, patience, and competition readiness from beginner to advanced levels.",
   keywords: [
-    "CAT4 test Dubai",
-    "cognitive abilities test",
-    "CAT4 preparation",
-    "school entrance test Dubai",
+    "chess classes Dubai",
+    "chess for children",
+    "chess lessons Dubai",
+    "strategic thinking games",
   ],
   authors: [{ name: "Improve ME Institute" }],
   openGraph: {
-    title: "CAT4 Test Preparation Dubai | Ages 7-13 | Improve ME Institute",
+    title: "Chess Mastery for Children in Dubai | Improve ME Institute",
     description:
-      "Focused CAT4 preparation covering verbal, non-verbal, quantitative, and spatial reasoning. Diagnostic assessments, targeted practice, and mock exams.",
-    url: "https://improvemeinstitute.com/courses/cat-prep",
+      "Beginner to advanced chess coaching that builds strategic thinking, problem-solving, and focus for students aged 6+.",
+    url: "https://improvemeinstitute.com/courses/chess",
     siteName: "Improve ME Institute",
     images: [
       {
-        url: "/og-cat-prep.jpg",
+        url: "/og-chess.jpg",
         width: 1200,
         height: 630,
-        alt: "Students preparing for the CAT4 test",
+        alt: "Chess training for children in Dubai",
       },
     ],
     locale: "en_AE",
@@ -57,17 +56,17 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://improvemeinstitute.com/courses/cat-prep",
+    canonical: "https://improvemeinstitute.com/courses/chess",
   },
 };
 
-const qualificationsId = "cat4-levels";
+const qualificationsId = "chess-levels";
 
-export default function CAT4PrepPage() {
+export default function ChessPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Course",
-    name: "CAT4 Test Prep",
+    name: "Chess Mastery",
     description: metadata.description,
     provider: {
       "@type": "EducationalOrganization",
@@ -81,8 +80,8 @@ export default function CAT4PrepPage() {
       telephone: "+971-50-185-2505",
       url: "https://improvemeinstitute.com",
     },
-    educationalLevel: "Primary and Middle School",
-    coursePrerequisites: "None - suitable for all levels from Level A to Level F",
+    educationalLevel: "Primary and Secondary Education",
+    coursePrerequisites: "None - suitable for all levels from beginner to advanced",
   };
 
   return (
@@ -139,7 +138,7 @@ export default function CAT4PrepPage() {
                 itemType="https://schema.org/ListItem"
               >
                 <span itemProp="name" className="text-navy-900 font-medium">
-                  CAT4 Test Prep
+                  Chess Mastery
                 </span>
                 <meta itemProp="position" content="3" />
               </li>
@@ -148,43 +147,42 @@ export default function CAT4PrepPage() {
         </nav>
 
         {/* SECTION 1: HERO */}
-        <section className="relative bg-gradient-to-br from-yellow-500 to-orange-600 chevron-pattern pt-32 pb-16">
+        <section className="relative bg-gradient-to-br from-emerald-500 to-green-600 chevron-pattern pt-32 pb-16">
           <div className="absolute inset-0 bg-black/10 pointer-events-none" />
           <div className="relative z-10">
             <div className="max-w-7xl mx-auto px-4 text-center">
               <div className="inline-flex bg-white/20 backdrop-blur-sm rounded-full px-6 py-2 text-white/90 text-sm mb-6">
-                ENRICHMENT PROGRAMME
+                STRATEGIC THINKING
               </div>
               <h1
                 itemProp="name"
                 className="text-4xl md:text-5xl font-bold text-white mb-4"
               >
-                CAT4 Test Prep
+                Chess Mastery
               </h1>
               <div className="inline-flex bg-white/20 rounded-full px-6 py-2 text-white/90 text-sm mb-6">
-                Ages 7-13 | Cognitive Assessment
+                Ages 6+ | Life Skills
               </div>
               <p
                 itemProp="description"
                 className="max-w-2xl mx-auto text-lg md:text-xl text-white/90 mb-8"
               >
-                Comprehensive preparation for the Cognitive Abilities Test (CAT4).
-                We train students in verbal reasoning, non-verbal reasoning,
-                quantitative reasoning, and spatial reasoning to excel in
-                selective school admissions.
+                Develop strategic thinking, problem-solving, and patience through
+                the ancient game of chess. Beginner to competitive levels delivered
+                at our modern Gold &amp; Diamond Park learning center.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/contact#assessment"
                   className="bg-yellow-400 text-navy-900 px-8 py-4 rounded-lg font-semibold hover:bg-yellow-500 transition"
-                  aria-label="Book a free CAT4 assessment in Dubai"
+                  aria-label="Book a free chess assessment in Dubai"
                 >
                   Book Free Assessment
                 </Link>
                 <Link
                   href={`#${qualificationsId}`}
                   className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition"
-                  aria-label="Explore CAT4 levels we prepare for in Dubai"
+                  aria-label="Explore chess levels we teach in Dubai"
                 >
                   Explore Levels
                 </Link>
@@ -197,88 +195,88 @@ export default function CAT4PrepPage() {
         <section
           id={qualificationsId}
           className="bg-white py-14 scroll-mt-24"
-          aria-labelledby="cat4-levels-heading"
+          aria-labelledby="chess-levels-heading"
         >
           <div className="max-w-7xl mx-auto px-4">
             <h2
-              id="cat4-levels-heading"
+              id="chess-levels-heading"
               className="text-3xl font-bold text-navy-900 mb-4 text-center"
             >
-              CAT4 Test Levels
+              Chess Across All Levels
             </h2>
             <p className="text-navy-600 mb-10 text-center">
-              We prepare students for all age-appropriate CAT4 levels
+              Expert Dubai chess coaching tailored to your skill level
             </p>
 
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="group bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
-                <span className="text-xs bg-blue-600 text-white px-3 py-1 rounded-full mb-3 inline-block">
-                  Ages 6-8
+              <div className="group bg-gradient-to-br from-green-50 to-green-100 border border-green-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
+                <span className="text-xs bg-green-600 text-white px-3 py-1 rounded-full mb-3 inline-block">
+                  Beginner
                 </span>
-                <Target className="w-10 h-10 text-blue-600 mb-3" />
+                <Crown className="w-10 h-10 text-green-600 mb-3" />
                 <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  Level A-B
+                  Complete Novices
                 </h3>
                 <p className="text-sm text-navy-600 mb-3">Foundation Level</p>
                 <p className="text-sm text-navy-700 mb-4">
-                  Foundation level for younger students. Basic pattern
-                  recognition and reasoning skills.
+                  Learn the board, piece movements, and basic rules. Build
+                  confidence with puzzles and simple tactics.
                 </p>
                 <ul className="text-sm text-navy-700 space-y-1 mb-4">
-                  <li>• Verbal reasoning basics</li>
-                  <li>• Simple patterns</li>
-                  <li>• Number sequences</li>
-                  <li>• Shape recognition</li>
+                  <li>• Board and piece basics</li>
+                  <li>• Basic rules and checkmates</li>
+                  <li>• Opening principles</li>
+                  <li>• Simple tactics</li>
                 </ul>
-                <span className="mt-auto text-blue-600 font-medium text-sm group-hover:underline">
+                <span className="mt-auto text-green-600 font-medium text-sm group-hover:underline">
                   Learn More →
                 </span>
               </div>
 
-              <div className="group bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
-                <span className="text-xs bg-purple-600 text-white px-3 py-1 rounded-full mb-3 inline-block">
-                  Ages 9-11
+              <div className="group bg-gradient-to-br from-emerald-50 to-emerald-100 border border-emerald-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
+                <span className="text-xs bg-emerald-600 text-white px-3 py-1 rounded-full mb-3 inline-block">
+                  Intermediate
                 </span>
-                <Layers className="w-10 h-10 text-purple-600 mb-3" />
+                <Trophy className="w-10 h-10 text-emerald-600 mb-3" />
                 <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  Level C-D
+                  Club Players
                 </h3>
                 <p className="text-sm text-navy-600 mb-3">Intermediate Level</p>
                 <p className="text-sm text-navy-700 mb-4">
-                  Intermediate level with increased complexity and
-                  problem-solving challenges.
+                  Develop tactical patterns, opening repertoire, and positional
+                  understanding. Tournament preparation basics.
                 </p>
                 <ul className="text-sm text-navy-700 space-y-1 mb-4">
-                  <li>• Advanced verbal reasoning</li>
-                  <li>• Complex patterns</li>
-                  <li>• Mathematical relationships</li>
-                  <li>• Spatial visualization</li>
+                  <li>• Tactical patterns</li>
+                  <li>• Opening repertoire</li>
+                  <li>• Positional play</li>
+                  <li>• Tournament prep</li>
                 </ul>
-                <span className="mt-auto text-purple-600 font-medium text-sm group-hover:underline">
+                <span className="mt-auto text-emerald-600 font-medium text-sm group-hover:underline">
                   Learn More →
                 </span>
               </div>
 
-              <div className="group bg-gradient-to-br from-indigo-50 to-indigo-100 border border-indigo-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
-                <span className="text-xs bg-indigo-600 text-white px-3 py-1 rounded-full mb-3 inline-block">
-                  Ages 12+
+              <div className="group bg-gradient-to-br from-teal-50 to-teal-100 border border-teal-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
+                <span className="text-xs bg-teal-600 text-white px-3 py-1 rounded-full mb-3 inline-block">
+                  Advanced
                 </span>
-                <Award className="w-10 h-10 text-indigo-600 mb-3" />
+                <Award className="w-10 h-10 text-teal-600 mb-3" />
                 <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  Level E-F
+                  Tournament Ready
                 </h3>
                 <p className="text-sm text-navy-600 mb-3">Advanced Level</p>
                 <p className="text-sm text-navy-700 mb-4">
-                  Advanced level for older students with sophisticated reasoning
-                  and abstract thinking.
+                  Advanced tactics, endgame technique, and competitive play.
+                  Preparation for rated tournaments and championships.
                 </p>
                 <ul className="text-sm text-navy-700 space-y-1 mb-4">
-                  <li>• Complex verbal logic</li>
-                  <li>• Abstract patterns</li>
-                  <li>• Advanced quantitative reasoning</li>
-                  <li>• 3D spatial reasoning</li>
+                  <li>• Advanced tactics</li>
+                  <li>• Endgame mastery</li>
+                  <li>• Competitive strategies</li>
+                  <li>• Performance analysis</li>
                 </ul>
-                <span className="mt-auto text-indigo-600 font-medium text-sm group-hover:underline">
+                <span className="mt-auto text-teal-600 font-medium text-sm group-hover:underline">
                   Learn More →
                 </span>
               </div>
@@ -290,70 +288,61 @@ export default function CAT4PrepPage() {
         <section className="bg-gray-50 py-14">
           <div className="max-w-7xl mx-auto px-4">
             <h2 className="text-3xl font-bold text-navy-900 mb-10 text-center">
-              What We Cover in CAT4 Preparation
+              Comprehensive Chess Coverage
             </h2>
-            <p className="text-navy-600 mb-10 text-center">
-              Comprehensive training across all four reasoning types
-            </p>
 
             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               <div className="bg-white rounded-xl p-6 border border-gray-200">
-                <MessageSquare
-                  className="w-10 h-10 text-yellow-500 mb-4"
-                  aria-label="MessageSquare icon for verbal reasoning"
+                <Swords
+                  className="w-10 h-10 text-emerald-600 mb-4"
+                  aria-label="Swords icon for opening principles"
                 />
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
-                  Verbal Reasoning
+                  Opening Principles
                 </h3>
                 <ul className="space-y-2 text-navy-700">
-                  <li>Word relationships</li>
-                  <li>Verbal analogies</li>
-                  <li>Verbal classification</li>
-                  <li>Word patterns</li>
-                  <li>Vocabulary building</li>
-                  <li>Comprehension skills</li>
-                  <li>Logic puzzles</li>
-                  <li>Deductive reasoning</li>
+                  <li>Opening fundamentals and principles</li>
+                  <li>Popular opening repertoires</li>
+                  <li>Opening traps and tactics</li>
+                  <li>Positional understanding</li>
+                  <li>Development and control</li>
+                  <li>King safety principles</li>
                 </ul>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200">
-                <Shapes
-                  className="w-10 h-10 text-yellow-500 mb-4"
-                  aria-label="Shapes icon for non-verbal and spatial reasoning"
+                <Target
+                  className="w-10 h-10 text-emerald-600 mb-4"
+                  aria-label="Target icon for tactical patterns"
                 />
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
-                  Non-Verbal & Spatial Reasoning
+                  Tactical Patterns
                 </h3>
                 <ul className="space-y-2 text-navy-700">
-                  <li>Pattern completion</li>
-                  <li>Figure matrices</li>
-                  <li>Figure classification</li>
-                  <li>3D visualization</li>
-                  <li>Mental rotation</li>
-                  <li>Figure analysis</li>
-                  <li>Shape sequences</li>
-                  <li>Spatial awareness</li>
+                  <li>Pins, forks, and skewers</li>
+                  <li>Discovered attacks</li>
+                  <li>Back rank weaknesses</li>
+                  <li>Mating patterns</li>
+                  <li>Tactical combinations</li>
+                  <li>Calculation training</li>
                 </ul>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200">
-                <Calculator
-                  className="w-10 h-10 text-yellow-500 mb-4"
-                  aria-label="Calculator icon for quantitative reasoning"
+                <BrainCircuit
+                  className="w-10 h-10 text-emerald-600 mb-4"
+                  aria-label="BrainCircuit icon for strategic concepts"
                 />
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
-                  Quantitative Reasoning
+                  Strategic Concepts
                 </h3>
                 <ul className="space-y-2 text-navy-700">
-                  <li>Number series</li>
-                  <li>Number analogies</li>
-                  <li>Number matrices</li>
-                  <li>Mathematical patterns</li>
-                  <li>Problem-solving</li>
-                  <li>Logical sequences</li>
-                  <li>Data interpretation</li>
-                  <li>Numerical relationships</li>
+                  <li>Position evaluation</li>
+                  <li>Long-term planning</li>
+                  <li>Pawn structures</li>
+                  <li>Piece coordination</li>
+                  <li>Endgame technique</li>
+                  <li>Time management</li>
                 </ul>
               </div>
             </div>
@@ -364,65 +353,61 @@ export default function CAT4PrepPage() {
         <section className="bg-white py-14">
           <div className="max-w-7xl mx-auto px-4">
             <h2 className="text-3xl font-bold text-navy-900 mb-10 text-center">
-              Our Approach by Level
+              Chess by Level
             </h2>
-            <p className="text-navy-600 mb-10 text-center">
-              Tailored preparation based on age and ability
-            </p>
 
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              <div className="bg-blue-50 border border-blue-200 rounded-xl p-8">
-                <span className="bg-blue-600 text-white px-4 py-1 rounded-full mb-4 inline-block text-sm">
+              <div className="bg-green-50 border border-green-200 rounded-xl p-8">
+                <span className="bg-green-600 text-white px-4 py-1 rounded-full mb-4 inline-block text-sm">
                   Foundation Level
                 </span>
-                <School
-                  className="w-10 h-10 text-blue-600 mb-4"
-                  aria-label="School icon for foundation levels"
+                <Crown
+                  className="w-10 h-10 text-green-600 mb-4"
+                  aria-label="Crown icon for beginner to intermediate"
                 />
                 <h3 className="text-2xl font-bold text-navy-900 mb-4">
-                  Foundation Levels (Ages 6-10)
+                  Beginner to Intermediate
                 </h3>
                 <p className="text-navy-700 mb-4">
-                  Build strong reasoning foundations with comprehensive coverage
-                  of basic cognitive skills. Foundation level preparation focuses
-                  on{" "}
-                  <span className="font-semibold">Levels A, B, and C</span>{" "}
-                  for younger students entering selective schools.
+                  Build strong chess foundations with comprehensive coverage of
+                  basic skills. Foundation chess courses prepare students for{" "}
+                  <span className="font-semibold">club play and local tournaments</span>{" "}
+                  in Dubai.
                 </p>
                 <ul className="space-y-2 text-navy-700">
-                  <li>Basic pattern recognition</li>
-                  <li>Simple verbal relationships</li>
-                  <li>Foundation number sequences</li>
-                  <li>Shape and figure identification</li>
-                  <li>Building confidence with reasoning</li>
-                  <li>Exam technique for younger students</li>
+                  <li>Basic rules and piece movements</li>
+                  <li>Opening principles and development</li>
+                  <li>Simple tactics and patterns</li>
+                  <li>Basic endgame knowledge</li>
+                  <li>Tournament etiquette</li>
+                  <li>Confidence building through play</li>
                 </ul>
               </div>
 
-              <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-8">
-                <span className="bg-indigo-600 text-white px-4 py-1 rounded-full mb-4 inline-block text-sm">
+              <div className="bg-teal-50 border border-teal-200 rounded-xl p-8">
+                <span className="bg-teal-600 text-white px-4 py-1 rounded-full mb-4 inline-block text-sm">
                   Advanced Level
                 </span>
-                <GraduationCap
-                  className="w-10 h-10 text-indigo-600 mb-4"
-                  aria-label="GraduationCap icon for advanced levels"
+                <Trophy
+                  className="w-10 h-10 text-teal-600 mb-4"
+                  aria-label="Trophy icon for competitive play"
                 />
                 <h3 className="text-2xl font-bold text-navy-900 mb-4">
-                  Advanced Levels (Ages 10-14)
+                  Competitive Play
                 </h3>
                 <p className="text-navy-700 mb-4">
-                  Master advanced reasoning for competitive school admissions.
+                  Master advanced chess for competitive tournaments and beyond.
                   Advanced level students progress to{" "}
-                  <span className="font-semibold">Levels D, E, and F</span>{" "}
-                  for older students seeking placement in top Dubai schools.
+                  <span className="font-semibold">rated play and championships</span>{" "}
+                  for competitive chess excellence in Dubai.
                 </p>
                 <ul className="space-y-2 text-navy-700">
-                  <li>Complex pattern analysis</li>
-                  <li>Advanced verbal logic</li>
-                  <li>Sophisticated quantitative reasoning</li>
-                  <li>3D spatial visualization</li>
-                  <li>Time management strategies</li>
-                  <li>Competitive exam preparation</li>
+                  <li>Advanced tactical combinations</li>
+                  <li>Complex strategic planning</li>
+                  <li>Endgame mastery and studies</li>
+                  <li>Opening theory and preparation</li>
+                  <li>Performance analysis and review</li>
+                  <li>Competitive tournament strategies</li>
                 </ul>
               </div>
             </div>
@@ -439,57 +424,57 @@ export default function CAT4PrepPage() {
             <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               <div className="border border-gray-200 bg-white rounded-xl p-6 hover:shadow-lg transition">
                 <Users
-                  className="w-12 h-12 text-yellow-500 mb-4"
+                  className="w-12 h-12 text-emerald-600 mb-4"
                   aria-label="Users icon representing small groups"
                 />
                 <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  Small Groups
+                  Small Group Excellence
                 </h3>
                 <p className="text-navy-700 text-sm">
                   Maximum 6 students per class ensures personalized attention
-                  and focused practice on individual reasoning strengths.
+                  and interactive learning through game analysis.
                 </p>
               </div>
 
               <div className="border border-gray-200 bg-white rounded-xl p-6 hover:shadow-lg transition">
-                <ClipboardCheck
-                  className="w-12 h-12 text-yellow-500 mb-4"
-                  aria-label="ClipboardCheck icon representing diagnostic assessment"
+                <BookOpen
+                  className="w-12 h-12 text-emerald-600 mb-4"
+                  aria-label="BookOpen icon representing interactive board work"
                 />
                 <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  Diagnostic Assessment
+                  Interactive Board Work
                 </h3>
                 <p className="text-navy-700 text-sm">
-                  Initial testing to identify current ability levels and areas
-                  for development across all four reasoning types.
+                  Digital analysis tools and hands-on practice sessions with
+                  real game positions and tactical puzzles.
                 </p>
               </div>
 
               <div className="border border-gray-200 bg-white rounded-xl p-6 hover:shadow-lg transition">
-                <Target
-                  className="w-12 h-12 text-yellow-500 mb-4"
-                  aria-label="Target icon representing focused training"
+                <Trophy
+                  className="w-12 h-12 text-emerald-600 mb-4"
+                  aria-label="Trophy icon representing regular tournaments"
                 />
                 <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  Focused Training
+                  Regular Tournaments
                 </h3>
                 <p className="text-navy-700 text-sm">
-                  Targeted practice on weak areas with progressive difficulty
-                  and regular checkpoints to track improvement.
+                  In-house tournaments and match play for competitive experience
+                  and confidence building.
                 </p>
               </div>
 
               <div className="border border-gray-200 bg-white rounded-xl p-6 hover:shadow-lg transition">
-                <Award
-                  className="w-12 h-12 text-yellow-500 mb-4"
-                  aria-label="Award icon representing practice tests"
+                <TrendingUp
+                  className="w-12 h-12 text-emerald-600 mb-4"
+                  aria-label="TrendingUp icon representing progress tracking"
                 />
                 <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  Practice Tests
+                  Progress Tracking
                 </h3>
                 <p className="text-navy-700 text-sm">
-                  Regular mock tests under exam conditions with detailed
-                  feedback and improvement strategies.
+                  Performance reports and rating improvement monitoring with
+                  personalized feedback and improvement plans.
                 </p>
               </div>
             </div>
@@ -505,10 +490,10 @@ export default function CAT4PrepPage() {
 
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
               {[
-                "12-16 Sessions",
-                "Weekly or Bi-weekly",
+                "Weekly Sessions",
+                "Flexible Timing",
                 "Max 6 Students",
-                "Practice Tests Included",
+                "Tournaments Included",
                 "Progress Reports",
               ].map((detail) => (
                 <div
@@ -516,7 +501,7 @@ export default function CAT4PrepPage() {
                   className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center"
                 >
                   <CheckCircle
-                    className="w-6 h-6 text-yellow-500 mx-auto mb-2"
+                    className="w-6 h-6 text-emerald-600 mx-auto mb-2"
                     aria-hidden="true"
                   />
                   <p className="text-sm font-semibold text-navy-900">
@@ -529,22 +514,22 @@ export default function CAT4PrepPage() {
         </section>
 
         {/* SECTION 7: WHY CHOOSE US */}
-        <section className="bg-gradient-to-br from-yellow-500 to-orange-600 py-14">
+        <section className="bg-gradient-to-br from-emerald-500 to-green-600 py-14">
           <div className="max-w-7xl mx-auto px-4">
             <h2 className="text-3xl font-bold text-white mb-10 text-center">
-              Why Choose Our CAT4 Preparation?
+              Why Choose Our Chess Programme?
             </h2>
 
             <div className="max-w-3xl mx-auto space-y-4">
               {[
                 "KHDA-approved tutoring centre with proven track record",
-                "Experienced tutors familiar with all CAT4 levels and question types",
+                "Experienced chess coaches with tournament experience",
                 "Small groups (maximum 6 students) for personalized attention",
-                "All CAT4 levels covered (A through F) for ages 6-14",
-                "Comprehensive mock testing under real exam conditions",
+                "Comprehensive coverage from beginner to advanced levels",
+                "Regular in-house tournaments and competitive play",
                 "Regular progress tracking with detailed feedback reports",
-                "Proven track record of successful school placements",
-                "Flexible scheduling options including weekends and holidays",
+                "Proven track record of tournament success",
+                "Flexible scheduling options including weekends",
                 "Dedicated learning environment in Gold & Diamond Park with easy access from Sheikh Zayed Road",
               ].map((benefit) => (
                 <div
@@ -552,7 +537,7 @@ export default function CAT4PrepPage() {
                   className="flex gap-3 items-start text-white/90"
                 >
                   <CheckCircle
-                    className="w-6 h-6 text-white flex-shrink-0 mt-0.5"
+                    className="w-6 h-6 text-yellow-400 flex-shrink-0 mt-0.5"
                     aria-hidden="true"
                   />
                   <p>{benefit}</p>
@@ -571,11 +556,11 @@ export default function CAT4PrepPage() {
 
             <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
               <div
-                className="bg-yellow-50 border border-yellow-200 rounded-xl p-6"
+                className="bg-green-50 border border-green-200 rounded-xl p-6"
                 itemScope
                 itemType="https://schema.org/Review"
               >
-                <meta itemProp="itemReviewed" content="CAT4 Test Prep" />
+                <meta itemProp="itemReviewed" content="Chess Mastery" />
                 <div
                   itemProp="reviewRating"
                   itemScope
@@ -588,8 +573,8 @@ export default function CAT4PrepPage() {
                   className="text-navy-800 text-sm"
                   itemProp="reviewBody"
                 >
-                  &quot;Our daughter improved her CAT4 scores significantly and
-                  received offers from both Dubai College and JESS.&quot;
+                  &quot;After one term my son moved from casual play to winning
+                  his first inter-school tournament.&quot;
                 </blockquote>
                 <p
                   className="text-sm font-semibold text-navy-900 mt-4"
@@ -597,9 +582,9 @@ export default function CAT4PrepPage() {
                   itemScope
                   itemType="https://schema.org/Person"
                 >
-                  <span itemProp="name">Mariam H.</span>
+                  <span itemProp="name">Lina M.</span>
                 </p>
-                <p className="text-xs text-navy-600">Parent of Year 6 student</p>
+                <p className="text-xs text-navy-600">Parent of Year 5 student</p>
                 <div className="flex mt-3 gap-1" aria-hidden="true">
                   {Array.from({ length: 5 }).map((_, index) => (
                     <span
@@ -613,11 +598,11 @@ export default function CAT4PrepPage() {
               </div>
 
               <div
-                className="bg-yellow-50 border border-yellow-200 rounded-xl p-6"
+                className="bg-green-50 border border-green-200 rounded-xl p-6"
                 itemScope
                 itemType="https://schema.org/Review"
               >
-                <meta itemProp="itemReviewed" content="CAT4 Test Prep" />
+                <meta itemProp="itemReviewed" content="Chess Mastery" />
                 <div
                   itemProp="reviewRating"
                   itemScope
@@ -630,8 +615,8 @@ export default function CAT4PrepPage() {
                   className="text-navy-800 text-sm"
                   itemProp="reviewBody"
                 >
-                  &quot;The mock tests were incredibly helpful. My son felt
-                  confident and prepared on exam day.&quot;
+                  &quot;The mix of strategy lessons and tournaments kept our
+                  daughter motivated and confident.&quot;
                 </blockquote>
                 <p
                   className="text-sm font-semibold text-navy-900 mt-4"
@@ -639,17 +624,17 @@ export default function CAT4PrepPage() {
                   itemScope
                   itemType="https://schema.org/Person"
                 >
-                  <span itemProp="name">Sanjay R.</span>
+                  <span itemProp="name">Ahmad K.</span>
                 </p>
-                <p className="text-xs text-navy-600">Parent of Year 7 student</p>
+                <p className="text-xs text-navy-600">Parent of Year 8 student</p>
               </div>
 
               <div
-                className="bg-yellow-50 border border-yellow-200 rounded-xl p-6"
+                className="bg-green-50 border border-green-200 rounded-xl p-6"
                 itemScope
                 itemType="https://schema.org/Review"
               >
-                <meta itemProp="itemReviewed" content="CAT4 Test Prep" />
+                <meta itemProp="itemReviewed" content="Chess Mastery" />
                 <div
                   itemProp="reviewRating"
                   itemScope
@@ -662,8 +647,8 @@ export default function CAT4PrepPage() {
                   className="text-navy-800 text-sm"
                   itemProp="reviewBody"
                 >
-                  &quot;Excellent preparation programme. The tutors really
-                  understood how to help my child improve.&quot;
+                  &quot;Excellent coaching programme. My son&apos;s strategic
+                  thinking has improved dramatically.&quot;
                 </blockquote>
                 <p
                   className="text-sm font-semibold text-navy-900 mt-4"
@@ -673,7 +658,7 @@ export default function CAT4PrepPage() {
                 >
                   <span itemProp="name">Fatima A.</span>
                 </p>
-                <p className="text-xs text-navy-600">Parent of Year 5 student</p>
+                <p className="text-xs text-navy-600">Parent of Year 7 student</p>
               </div>
             </div>
           </div>
@@ -688,23 +673,22 @@ export default function CAT4PrepPage() {
 
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
               <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
-                <Award
+                <Target
                   className="w-10 h-10 text-blue-600 mb-3"
-                  aria-label="Award icon for entrance prep"
+                  aria-label="Target icon for CAT4 test prep"
                 />
                 <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  7+/11+ Entrance Prep
+                  CAT4 Test Prep
                 </h3>
                 <p className="text-navy-600 text-sm mb-4">
-                  School entrance exam preparation covering English, maths, and
-                  reasoning.
+                  Boost cognitive reasoning alongside strategic play.
                 </p>
                 <Link
-                  href="/courses/entrance-prep"
-                  className="text-yellow-500 font-medium hover:text-yellow-600 text-sm"
-                  aria-label="Explore entrance prep courses in Dubai"
+                  href="/courses/cat-prep"
+                  className="text-emerald-600 font-medium hover:text-emerald-700 text-sm"
+                  aria-label="Explore CAT4 test prep courses in Dubai"
                 >
-                  Explore Entrance Prep →
+                  Explore CAT4 Prep →
                 </Link>
               </div>
 
@@ -717,11 +701,11 @@ export default function CAT4PrepPage() {
                   Mathematics
                 </h3>
                 <p className="text-navy-600 text-sm mb-4">
-                  Strengthen numerical reasoning and problem-solving skills.
+                  Strengthen analytical thinking for tactical calculation.
                 </p>
                 <Link
                   href="/courses/mathematics"
-                  className="text-yellow-500 font-medium hover:text-yellow-600 text-sm"
+                  className="text-emerald-600 font-medium hover:text-emerald-700 text-sm"
                   aria-label="Explore mathematics courses in Dubai"
                 >
                   Explore Mathematics →
@@ -729,22 +713,22 @@ export default function CAT4PrepPage() {
               </div>
 
               <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
-                <Target
+                <Cpu
                   className="w-10 h-10 text-navy-600 mb-3"
-                  aria-label="Target icon for chess mastery"
+                  aria-label="Cpu icon for AI literacy"
                 />
                 <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  Chess Mastery
+                  AI Literacy
                 </h3>
                 <p className="text-navy-600 text-sm mb-4">
-                  Strategic thinking and logic development through chess.
+                  Explore how technology and strategy intersect.
                 </p>
                 <Link
-                  href="/courses/chess"
-                  className="text-yellow-500 font-medium hover:text-yellow-600 text-sm"
-                  aria-label="Explore chess mastery courses in Dubai"
+                  href="/courses/ai-literacy"
+                  className="text-emerald-600 font-medium hover:text-emerald-700 text-sm"
+                  aria-label="Explore AI literacy courses in Dubai"
                 >
-                  Explore Chess →
+                  Explore AI Literacy →
                 </Link>
               </div>
             </div>
@@ -770,7 +754,7 @@ export default function CAT4PrepPage() {
               >
                 <AccordionTrigger>
                   <span itemProp="name">
-                    What CAT4 levels do you prepare students for?
+                    What chess levels do you teach?
                   </span>
                 </AccordionTrigger>
                 <AccordionContent>
@@ -780,9 +764,10 @@ export default function CAT4PrepPage() {
                     itemType="https://schema.org/Answer"
                   >
                     <p itemProp="text" className="text-sm text-navy-700">
-                      We prepare students for all CAT4 levels from Level A
-                      (ages 6-7) through Level F (ages 13+). Our programme is
-                      tailored to each student&apos;s age and current ability level.
+                      We teach chess for all levels from complete beginners
+                      (ages 6+) through advanced competitive players. Our
+                      programme is tailored to each student&apos;s current skill
+                      level.
                     </p>
                   </div>
                 </AccordionContent>
@@ -795,7 +780,7 @@ export default function CAT4PrepPage() {
               >
                 <AccordionTrigger>
                   <span itemProp="name">
-                    What is the class size for CAT4 preparation?
+                    What is the class size for chess coaching?
                   </span>
                 </AccordionTrigger>
                 <AccordionContent>
@@ -807,7 +792,7 @@ export default function CAT4PrepPage() {
                     <p itemProp="text" className="text-sm text-navy-700">
                       We maintain small group classes with a maximum of 6
                       students to ensure personalized attention. We also offer
-                      1-on-1 tutoring for students who prefer individual
+                      1-on-1 coaching for students who prefer individual
                       instruction.
                     </p>
                   </div>
@@ -821,7 +806,7 @@ export default function CAT4PrepPage() {
               >
                 <AccordionTrigger>
                   <span itemProp="name">
-                    Do you provide mock CAT4 tests?
+                    Do you organize chess tournaments?
                   </span>
                 </AccordionTrigger>
                 <AccordionContent>
@@ -831,10 +816,9 @@ export default function CAT4PrepPage() {
                     itemType="https://schema.org/Answer"
                   >
                     <p itemProp="text" className="text-sm text-navy-700">
-                      Yes, we provide regular mock tests under real exam
-                      conditions with detailed feedback and improvement
-                      strategies. This helps students build confidence and
-                      familiarity with the test format.
+                      Yes, we organize regular in-house tournaments and match play
+                      sessions. This helps students build competitive experience
+                      and confidence in tournament settings.
                     </p>
                   </div>
                 </AccordionContent>
@@ -847,7 +831,7 @@ export default function CAT4PrepPage() {
               >
                 <AccordionTrigger>
                   <span itemProp="name">
-                    How long does CAT4 preparation take?
+                    How long does chess coaching take?
                   </span>
                 </AccordionTrigger>
                 <AccordionContent>
@@ -857,10 +841,9 @@ export default function CAT4PrepPage() {
                     itemType="https://schema.org/Answer"
                   >
                     <p itemProp="text" className="text-sm text-navy-700">
-                      Our CAT4 preparation programme typically runs for 12-16
-                      sessions, depending on the student&apos;s starting level and
-                      target school requirements. Sessions can be scheduled
-                      weekly or bi-weekly.
+                      Our chess coaching programme runs on a weekly basis with
+                      flexible scheduling options. Students can join at any time
+                      and progress at their own pace.
                     </p>
                   </div>
                 </AccordionContent>
@@ -873,28 +856,25 @@ export default function CAT4PrepPage() {
         <section className="bg-gradient-to-r from-yellow-400 to-yellow-500 py-14">
           <div className="max-w-7xl mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold text-navy-900 mb-4">
-              Ready to Excel in CAT4?
+              Ready to Master Chess?
             </h2>
             <p className="text-navy-800 mb-8 text-lg">
-              Book a free assessment and discover your pathway to CAT4 success
-              with Dubai&apos;s best cognitive abilities training.
+              Book a free assessment and discover your pathway to chess mastery
+              with Dubai&apos;s best chess coaches.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact#assessment"
                 className="inline-flex items-center gap-2 bg-navy-900 text-white px-10 py-4 rounded-lg font-semibold hover:bg-navy-800 transition"
-                aria-label="Book a free CAT4 assessment at Improve ME Institute Dubai"
+                aria-label="Book a free chess assessment at Improve ME Institute Dubai"
               >
                 <span>Book Free Assessment</span>
-                <ArrowRight
-                  className="w-5 h-5"
-                  aria-hidden="true"
-                />
+                <ArrowRight className="w-5 h-5" aria-hidden="true" />
               </Link>
               <Link
                 href="/contact#timetable"
                 className="inline-flex items-center gap-2 bg-white text-navy-900 border-2 border-navy-900 px-10 py-4 rounded-lg font-semibold hover:bg-navy-50 transition"
-                aria-label="View CAT4 preparation timetable in Dubai"
+                aria-label="View chess coaching timetable in Dubai"
               >
                 <span>View Timetable</span>
               </Link>

@@ -51,7 +51,7 @@ const HomeHero = () => {
 
             {/* 2. Description */}
             <p className="text-lg md:text-xl text-navy-700 max-w-2xl">
-              KHDA-approved tutoring centre in Dubai for ages 3–18. Since 2010, we've helped students from 30+ schools — including Dubai College, Repton, and JESS — achieve stronger results across GCSE, IGCSE, A-Level, and IB.
+              KHDA-approved tutoring centre in Dubai for ages 3–18. Since 2010, we&apos;ve helped students from 30+ schools — including Dubai College, Repton, and JESS — achieve stronger results across GCSE, IGCSE, A-Level, and IB.
             </p>
 
             {/* 3. Stats Badges */}

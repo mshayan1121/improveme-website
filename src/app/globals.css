@@ -408,6 +408,15 @@
   }
 }
 
+/* Scrollbar hide utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 /* Mega menu dropdown scrollbar - thin, visible */
 .mega-menu-scroll {
   scrollbar-width: thin;

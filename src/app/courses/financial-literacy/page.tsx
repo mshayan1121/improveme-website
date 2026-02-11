@@ -9,13 +9,11 @@ import {
   BookOpen,
   Award,
   ArrowRight,
-  MessageSquare,
-  Shapes,
+  DollarSign,
+  PiggyBank,
+  Wallet,
   Calculator,
-  Layers,
-  School,
-  ClipboardCheck,
-  Sparkles,
+  Briefcase,
 } from "lucide-react";
 import {
   Accordion,
@@ -25,28 +23,28 @@ import {
 } from "../../../components/ui/accordion";
 
 export const metadata: Metadata = {
-  title: "CAT4 Test Preparation Dubai | Ages 7-13 | Improve ME Institute",
+  title: "Financial Literacy for Children Dubai | Money Management Skills",
   description:
-    "CAT4 test preparation in Dubai. Cognitive abilities training for school admissions. Verbal, non-verbal, quantitative, and spatial reasoning.",
+    "Financial literacy programme in Dubai for ages 8-16. Teach children about money, budgeting, saving, and investing through practical, age-appropriate lessons.",
   keywords: [
-    "CAT4 test Dubai",
-    "cognitive abilities test",
-    "CAT4 preparation",
-    "school entrance test Dubai",
+    "financial literacy Dubai",
+    "money management children",
+    "financial education kids Dubai",
+    "budgeting for children",
   ],
   authors: [{ name: "Improve ME Institute" }],
   openGraph: {
-    title: "CAT4 Test Preparation Dubai | Ages 7-13 | Improve ME Institute",
+    title: "Financial Literacy for Children Dubai | Money Management Skills",
     description:
-      "Focused CAT4 preparation covering verbal, non-verbal, quantitative, and spatial reasoning. Diagnostic assessments, targeted practice, and mock exams.",
-    url: "https://improvemeinstitute.com/courses/cat-prep",
+      "Interactive financial literacy classes covering budgeting, saving, banking, investing, and smart spending for ages 8-16.",
+    url: "https://improvemeinstitute.com/courses/financial-literacy",
     siteName: "Improve ME Institute",
     images: [
       {
-        url: "/og-cat-prep.jpg",
+        url: "/og-financial-literacy.jpg",
         width: 1200,
         height: 630,
-        alt: "Students preparing for the CAT4 test",
+        alt: "Financial literacy lessons for children",
       },
     ],
     locale: "en_AE",
@@ -57,17 +55,17 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://improvemeinstitute.com/courses/cat-prep",
+    canonical: "https://improvemeinstitute.com/courses/financial-literacy",
   },
 };
 
-const qualificationsId = "cat4-levels";
+const qualificationsId = "financial-levels";
 
-export default function CAT4PrepPage() {
+export default function FinancialLiteracyPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Course",
-    name: "CAT4 Test Prep",
+    name: "Financial Literacy for Children",
     description: metadata.description,
     provider: {
       "@type": "EducationalOrganization",
@@ -81,8 +79,8 @@ export default function CAT4PrepPage() {
       telephone: "+971-50-185-2505",
       url: "https://improvemeinstitute.com",
     },
-    educationalLevel: "Primary and Middle School",
-    coursePrerequisites: "None - suitable for all levels from Level A to Level F",
+    educationalLevel: "Primary and Secondary Education",
+    coursePrerequisites: "None - suitable for students aged 8-16",
   };
 
   return (
@@ -139,7 +137,7 @@ export default function CAT4PrepPage() {
                 itemType="https://schema.org/ListItem"
               >
                 <span itemProp="name" className="text-navy-900 font-medium">
-                  CAT4 Test Prep
+                  Financial Literacy
                 </span>
                 <meta itemProp="position" content="3" />
               </li>
@@ -148,43 +146,42 @@ export default function CAT4PrepPage() {
         </nav>
 
         {/* SECTION 1: HERO */}
-        <section className="relative bg-gradient-to-br from-yellow-500 to-orange-600 chevron-pattern pt-32 pb-16">
+        <section className="relative bg-gradient-to-br from-green-500 to-teal-600 chevron-pattern pt-32 pb-16">
           <div className="absolute inset-0 bg-black/10 pointer-events-none" />
           <div className="relative z-10">
             <div className="max-w-7xl mx-auto px-4 text-center">
               <div className="inline-flex bg-white/20 backdrop-blur-sm rounded-full px-6 py-2 text-white/90 text-sm mb-6">
-                ENRICHMENT PROGRAMME
+                LIFE SKILLS
               </div>
               <h1
                 itemProp="name"
                 className="text-4xl md:text-5xl font-bold text-white mb-4"
               >
-                CAT4 Test Prep
+                Financial Literacy
               </h1>
               <div className="inline-flex bg-white/20 rounded-full px-6 py-2 text-white/90 text-sm mb-6">
-                Ages 7-13 | Cognitive Assessment
+                Ages 8-16 | Money Management
               </div>
               <p
                 itemProp="description"
                 className="max-w-2xl mx-auto text-lg md:text-xl text-white/90 mb-8"
               >
-                Comprehensive preparation for the Cognitive Abilities Test (CAT4).
-                We train students in verbal reasoning, non-verbal reasoning,
-                quantitative reasoning, and spatial reasoning to excel in
-                selective school admissions.
+                Equip your child with essential money management skills. From
+                budgeting and saving to investing and smart spending, delivered
+                at our modern Gold &amp; Diamond Park learning center.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/contact#assessment"
                   className="bg-yellow-400 text-navy-900 px-8 py-4 rounded-lg font-semibold hover:bg-yellow-500 transition"
-                  aria-label="Book a free CAT4 assessment in Dubai"
+                  aria-label="Book a free financial literacy assessment in Dubai"
                 >
                   Book Free Assessment
                 </Link>
                 <Link
                   href={`#${qualificationsId}`}
                   className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition"
-                  aria-label="Explore CAT4 levels we prepare for in Dubai"
+                  aria-label="Explore financial literacy levels we teach in Dubai"
                 >
                   Explore Levels
                 </Link>
@@ -197,88 +194,88 @@ export default function CAT4PrepPage() {
         <section
           id={qualificationsId}
           className="bg-white py-14 scroll-mt-24"
-          aria-labelledby="cat4-levels-heading"
+          aria-labelledby="financial-levels-heading"
         >
           <div className="max-w-7xl mx-auto px-4">
             <h2
-              id="cat4-levels-heading"
+              id="financial-levels-heading"
               className="text-3xl font-bold text-navy-900 mb-4 text-center"
             >
-              CAT4 Test Levels
+              Financial Literacy Across All Levels
             </h2>
             <p className="text-navy-600 mb-10 text-center">
-              We prepare students for all age-appropriate CAT4 levels
+              Expert Dubai financial education tailored to your child&apos;s age
             </p>
 
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="group bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
-                <span className="text-xs bg-blue-600 text-white px-3 py-1 rounded-full mb-3 inline-block">
-                  Ages 6-8
+              <div className="group bg-gradient-to-br from-green-50 to-green-100 border border-green-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
+                <span className="text-xs bg-green-600 text-white px-3 py-1 rounded-full mb-3 inline-block">
+                  Ages 8-11
                 </span>
-                <Target className="w-10 h-10 text-blue-600 mb-3" />
+                <PiggyBank className="w-10 h-10 text-green-600 mb-3" />
                 <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  Level A-B
+                  Foundation (Money Basics)
                 </h3>
                 <p className="text-sm text-navy-600 mb-3">Foundation Level</p>
                 <p className="text-sm text-navy-700 mb-4">
-                  Foundation level for younger students. Basic pattern
-                  recognition and reasoning skills.
+                  Understanding money, choices, and basic saving. Learn to save,
+                  share, and spend wisely.
                 </p>
                 <ul className="text-sm text-navy-700 space-y-1 mb-4">
-                  <li>• Verbal reasoning basics</li>
-                  <li>• Simple patterns</li>
-                  <li>• Number sequences</li>
-                  <li>• Shape recognition</li>
+                  <li>• What is money?</li>
+                  <li>• Needs vs wants</li>
+                  <li>• Basic saving concepts</li>
+                  <li>• Smart spending choices</li>
                 </ul>
-                <span className="mt-auto text-blue-600 font-medium text-sm group-hover:underline">
+                <span className="mt-auto text-green-600 font-medium text-sm group-hover:underline">
                   Learn More →
                 </span>
               </div>
 
-              <div className="group bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
-                <span className="text-xs bg-purple-600 text-white px-3 py-1 rounded-full mb-3 inline-block">
-                  Ages 9-11
+              <div className="group bg-gradient-to-br from-teal-50 to-teal-100 border border-teal-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
+                <span className="text-xs bg-teal-600 text-white px-3 py-1 rounded-full mb-3 inline-block">
+                  Ages 12-14
                 </span>
-                <Layers className="w-10 h-10 text-purple-600 mb-3" />
+                <Wallet className="w-10 h-10 text-teal-600 mb-3" />
                 <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  Level C-D
+                  Intermediate (Banking & Saving)
                 </h3>
                 <p className="text-sm text-navy-600 mb-3">Intermediate Level</p>
                 <p className="text-sm text-navy-700 mb-4">
-                  Intermediate level with increased complexity and
-                  problem-solving challenges.
+                  Budgeting, banking, and introductions to investing. Building
+                  independence with allowance planning.
                 </p>
                 <ul className="text-sm text-navy-700 space-y-1 mb-4">
-                  <li>• Advanced verbal reasoning</li>
-                  <li>• Complex patterns</li>
-                  <li>• Mathematical relationships</li>
-                  <li>• Spatial visualization</li>
+                  <li>• Personal budgeting</li>
+                  <li>• Banking basics</li>
+                  <li>• Interest concepts</li>
+                  <li>• Goal setting</li>
                 </ul>
-                <span className="mt-auto text-purple-600 font-medium text-sm group-hover:underline">
+                <span className="mt-auto text-teal-600 font-medium text-sm group-hover:underline">
                   Learn More →
                 </span>
               </div>
 
-              <div className="group bg-gradient-to-br from-indigo-50 to-indigo-100 border border-indigo-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
-                <span className="text-xs bg-indigo-600 text-white px-3 py-1 rounded-full mb-3 inline-block">
-                  Ages 12+
+              <div className="group bg-gradient-to-br from-emerald-50 to-emerald-100 border border-emerald-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
+                <span className="text-xs bg-emerald-600 text-white px-3 py-1 rounded-full mb-3 inline-block">
+                  Ages 15-16
                 </span>
-                <Award className="w-10 h-10 text-indigo-600 mb-3" />
+                <TrendingUp className="w-10 h-10 text-emerald-600 mb-3" />
                 <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  Level E-F
+                  Advanced (Investing & Planning)
                 </h3>
                 <p className="text-sm text-navy-600 mb-3">Advanced Level</p>
                 <p className="text-sm text-navy-700 mb-4">
-                  Advanced level for older students with sophisticated reasoning
-                  and abstract thinking.
+                  Responsible investing, compounding, and financial planning for
+                  university and future.
                 </p>
                 <ul className="text-sm text-navy-700 space-y-1 mb-4">
-                  <li>• Complex verbal logic</li>
-                  <li>• Abstract patterns</li>
-                  <li>• Advanced quantitative reasoning</li>
-                  <li>• 3D spatial reasoning</li>
+                  <li>• Investing fundamentals</li>
+                  <li>• Risk and return</li>
+                  <li>• Long-term planning</li>
+                  <li>• Financial responsibility</li>
                 </ul>
-                <span className="mt-auto text-indigo-600 font-medium text-sm group-hover:underline">
+                <span className="mt-auto text-emerald-600 font-medium text-sm group-hover:underline">
                   Learn More →
                 </span>
               </div>
@@ -290,70 +287,61 @@ export default function CAT4PrepPage() {
         <section className="bg-gray-50 py-14">
           <div className="max-w-7xl mx-auto px-4">
             <h2 className="text-3xl font-bold text-navy-900 mb-10 text-center">
-              What We Cover in CAT4 Preparation
+              Comprehensive Financial Literacy Coverage
             </h2>
-            <p className="text-navy-600 mb-10 text-center">
-              Comprehensive training across all four reasoning types
-            </p>
 
             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               <div className="bg-white rounded-xl p-6 border border-gray-200">
-                <MessageSquare
-                  className="w-10 h-10 text-yellow-500 mb-4"
-                  aria-label="MessageSquare icon for verbal reasoning"
+                <DollarSign
+                  className="w-10 h-10 text-green-600 mb-4"
+                  aria-label="DollarSign icon for money fundamentals"
                 />
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
-                  Verbal Reasoning
+                  Money Fundamentals
                 </h3>
                 <ul className="space-y-2 text-navy-700">
-                  <li>Word relationships</li>
-                  <li>Verbal analogies</li>
-                  <li>Verbal classification</li>
-                  <li>Word patterns</li>
-                  <li>Vocabulary building</li>
-                  <li>Comprehension skills</li>
-                  <li>Logic puzzles</li>
-                  <li>Deductive reasoning</li>
+                  <li>Understanding money and value</li>
+                  <li>Earning, spending, and saving</li>
+                  <li>Needs vs wants decision-making</li>
+                  <li>Values-based money choices</li>
+                  <li>Basic financial vocabulary</li>
+                  <li>Money safety and security</li>
                 </ul>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200">
-                <Shapes
-                  className="w-10 h-10 text-yellow-500 mb-4"
-                  aria-label="Shapes icon for non-verbal and spatial reasoning"
+                <PiggyBank
+                  className="w-10 h-10 text-green-600 mb-4"
+                  aria-label="PiggyBank icon for banking and saving"
                 />
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
-                  Non-Verbal & Spatial Reasoning
+                  Banking & Saving
                 </h3>
                 <ul className="space-y-2 text-navy-700">
-                  <li>Pattern completion</li>
-                  <li>Figure matrices</li>
-                  <li>Figure classification</li>
-                  <li>3D visualization</li>
-                  <li>Mental rotation</li>
-                  <li>Figure analysis</li>
-                  <li>Shape sequences</li>
-                  <li>Spatial awareness</li>
+                  <li>How banks operate</li>
+                  <li>Different account types</li>
+                  <li>Simple and compound interest</li>
+                  <li>Savings goals and planning</li>
+                  <li>Online banking safety</li>
+                  <li>Scam recognition</li>
                 </ul>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200">
-                <Calculator
-                  className="w-10 h-10 text-yellow-500 mb-4"
-                  aria-label="Calculator icon for quantitative reasoning"
+                <TrendingUp
+                  className="w-10 h-10 text-green-600 mb-4"
+                  aria-label="TrendingUp icon for investing and planning"
                 />
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
-                  Quantitative Reasoning
+                  Investing & Planning
                 </h3>
                 <ul className="space-y-2 text-navy-700">
-                  <li>Number series</li>
-                  <li>Number analogies</li>
-                  <li>Number matrices</li>
-                  <li>Mathematical patterns</li>
-                  <li>Problem-solving</li>
-                  <li>Logical sequences</li>
-                  <li>Data interpretation</li>
-                  <li>Numerical relationships</li>
+                  <li>What is investing?</li>
+                  <li>Stocks, funds, and diversification</li>
+                  <li>Risk vs return concepts</li>
+                  <li>Long-term wealth building</li>
+                  <li>Financial goal setting</li>
+                  <li>Future planning strategies</li>
                 </ul>
               </div>
             </div>
@@ -364,65 +352,62 @@ export default function CAT4PrepPage() {
         <section className="bg-white py-14">
           <div className="max-w-7xl mx-auto px-4">
             <h2 className="text-3xl font-bold text-navy-900 mb-10 text-center">
-              Our Approach by Level
+              Financial Literacy by Level
             </h2>
-            <p className="text-navy-600 mb-10 text-center">
-              Tailored preparation based on age and ability
-            </p>
 
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              <div className="bg-blue-50 border border-blue-200 rounded-xl p-8">
-                <span className="bg-blue-600 text-white px-4 py-1 rounded-full mb-4 inline-block text-sm">
+              <div className="bg-green-50 border border-green-200 rounded-xl p-8">
+                <span className="bg-green-600 text-white px-4 py-1 rounded-full mb-4 inline-block text-sm">
                   Foundation Level
                 </span>
-                <School
-                  className="w-10 h-10 text-blue-600 mb-4"
-                  aria-label="School icon for foundation levels"
+                <PiggyBank
+                  className="w-10 h-10 text-green-600 mb-4"
+                  aria-label="PiggyBank icon for ages 8-11"
                 />
                 <h3 className="text-2xl font-bold text-navy-900 mb-4">
-                  Foundation Levels (Ages 6-10)
+                  Ages 8-11
                 </h3>
                 <p className="text-navy-700 mb-4">
-                  Build strong reasoning foundations with comprehensive coverage
-                  of basic cognitive skills. Foundation level preparation focuses
+                  Build strong financial foundations with comprehensive coverage
+                  of basic money concepts. Foundation financial literacy focuses
                   on{" "}
-                  <span className="font-semibold">Levels A, B, and C</span>{" "}
-                  for younger students entering selective schools.
+                  <span className="font-semibold">understanding money and choices</span>{" "}
+                  for younger students.
                 </p>
                 <ul className="space-y-2 text-navy-700">
-                  <li>Basic pattern recognition</li>
-                  <li>Simple verbal relationships</li>
-                  <li>Foundation number sequences</li>
-                  <li>Shape and figure identification</li>
-                  <li>Building confidence with reasoning</li>
-                  <li>Exam technique for younger students</li>
+                  <li>Money basics and value</li>
+                  <li>Earning and spending concepts</li>
+                  <li>Basic saving habits</li>
+                  <li>Needs vs wants decisions</li>
+                  <li>Smart spending choices</li>
+                  <li>Money safety awareness</li>
                 </ul>
               </div>
 
-              <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-8">
-                <span className="bg-indigo-600 text-white px-4 py-1 rounded-full mb-4 inline-block text-sm">
+              <div className="bg-teal-50 border border-teal-200 rounded-xl p-8">
+                <span className="bg-teal-600 text-white px-4 py-1 rounded-full mb-4 inline-block text-sm">
                   Advanced Level
                 </span>
-                <GraduationCap
-                  className="w-10 h-10 text-indigo-600 mb-4"
-                  aria-label="GraduationCap icon for advanced levels"
+                <Wallet
+                  className="w-10 h-10 text-teal-600 mb-4"
+                  aria-label="Wallet icon for ages 12-16"
                 />
                 <h3 className="text-2xl font-bold text-navy-900 mb-4">
-                  Advanced Levels (Ages 10-14)
+                  Ages 12-16
                 </h3>
                 <p className="text-navy-700 mb-4">
-                  Master advanced reasoning for competitive school admissions.
-                  Advanced level students progress to{" "}
-                  <span className="font-semibold">Levels D, E, and F</span>{" "}
-                  for older students seeking placement in top Dubai schools.
+                  Master advanced financial skills for independence and future
+                  planning. Advanced level students learn{" "}
+                  <span className="font-semibold">banking, investing, and planning</span>{" "}
+                  for university and career preparation in Dubai.
                 </p>
                 <ul className="space-y-2 text-navy-700">
-                  <li>Complex pattern analysis</li>
-                  <li>Advanced verbal logic</li>
-                  <li>Sophisticated quantitative reasoning</li>
-                  <li>3D spatial visualization</li>
-                  <li>Time management strategies</li>
-                  <li>Competitive exam preparation</li>
+                  <li>Personal budgeting and planning</li>
+                  <li>Banking and account management</li>
+                  <li>Investing fundamentals</li>
+                  <li>Risk assessment and decision-making</li>
+                  <li>Long-term financial planning</li>
+                  <li>Financial responsibility</li>
                 </ul>
               </div>
             </div>
@@ -438,58 +423,58 @@ export default function CAT4PrepPage() {
 
             <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               <div className="border border-gray-200 bg-white rounded-xl p-6 hover:shadow-lg transition">
+                <PiggyBank
+                  className="w-12 h-12 text-green-600 mb-4"
+                  aria-label="PiggyBank icon representing interactive lessons"
+                />
+                <h3 className="text-xl font-bold text-navy-900 mb-2">
+                  Interactive Lessons
+                </h3>
+                <p className="text-navy-700 text-sm">
+                  Gamified activities, role-play markets, and real-world case
+                  studies for every financial concept.
+                </p>
+              </div>
+
+              <div className="border border-gray-200 bg-white rounded-xl p-6 hover:shadow-lg transition">
                 <Users
-                  className="w-12 h-12 text-yellow-500 mb-4"
+                  className="w-12 h-12 text-green-600 mb-4"
                   aria-label="Users icon representing small groups"
                 />
                 <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  Small Groups
+                  Small Group Excellence
                 </h3>
                 <p className="text-navy-700 text-sm">
                   Maximum 6 students per class ensures personalized attention
-                  and focused practice on individual reasoning strengths.
+                  and practical financial skill development.
                 </p>
               </div>
 
               <div className="border border-gray-200 bg-white rounded-xl p-6 hover:shadow-lg transition">
-                <ClipboardCheck
-                  className="w-12 h-12 text-yellow-500 mb-4"
-                  aria-label="ClipboardCheck icon representing diagnostic assessment"
+                <TrendingUp
+                  className="w-12 h-12 text-green-600 mb-4"
+                  aria-label="TrendingUp icon representing practical projects"
                 />
                 <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  Diagnostic Assessment
+                  Practical Projects
                 </h3>
                 <p className="text-navy-700 text-sm">
-                  Initial testing to identify current ability levels and areas
-                  for development across all four reasoning types.
+                  Budget trackers, savings challenges, and investing simulations
+                  that continue at home.
                 </p>
               </div>
 
               <div className="border border-gray-200 bg-white rounded-xl p-6 hover:shadow-lg transition">
-                <Target
-                  className="w-12 h-12 text-yellow-500 mb-4"
-                  aria-label="Target icon representing focused training"
+                <GraduationCap
+                  className="w-12 h-12 text-green-600 mb-4"
+                  aria-label="GraduationCap icon representing guided reflection"
                 />
                 <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  Focused Training
+                  Guided Reflection
                 </h3>
                 <p className="text-navy-700 text-sm">
-                  Targeted practice on weak areas with progressive difficulty
-                  and regular checkpoints to track improvement.
-                </p>
-              </div>
-
-              <div className="border border-gray-200 bg-white rounded-xl p-6 hover:shadow-lg transition">
-                <Award
-                  className="w-12 h-12 text-yellow-500 mb-4"
-                  aria-label="Award icon representing practice tests"
-                />
-                <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  Practice Tests
-                </h3>
-                <p className="text-navy-700 text-sm">
-                  Regular mock tests under exam conditions with detailed
-                  feedback and improvement strategies.
+                  Students reflect on values, goals, and ethical spending to
+                  build confident financial habits.
                 </p>
               </div>
             </div>
@@ -508,7 +493,7 @@ export default function CAT4PrepPage() {
                 "12-16 Sessions",
                 "Weekly or Bi-weekly",
                 "Max 6 Students",
-                "Practice Tests Included",
+                "Practical Projects",
                 "Progress Reports",
               ].map((detail) => (
                 <div
@@ -516,7 +501,7 @@ export default function CAT4PrepPage() {
                   className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center"
                 >
                   <CheckCircle
-                    className="w-6 h-6 text-yellow-500 mx-auto mb-2"
+                    className="w-6 h-6 text-green-600 mx-auto mb-2"
                     aria-hidden="true"
                   />
                   <p className="text-sm font-semibold text-navy-900">
@@ -529,22 +514,22 @@ export default function CAT4PrepPage() {
         </section>
 
         {/* SECTION 7: WHY CHOOSE US */}
-        <section className="bg-gradient-to-br from-yellow-500 to-orange-600 py-14">
+        <section className="bg-gradient-to-br from-green-500 to-teal-600 py-14">
           <div className="max-w-7xl mx-auto px-4">
             <h2 className="text-3xl font-bold text-white mb-10 text-center">
-              Why Choose Our CAT4 Preparation?
+              Why Choose Our Financial Literacy Programme?
             </h2>
 
             <div className="max-w-3xl mx-auto space-y-4">
               {[
                 "KHDA-approved tutoring centre with proven track record",
-                "Experienced tutors familiar with all CAT4 levels and question types",
+                "Experienced financial educators with practical expertise",
                 "Small groups (maximum 6 students) for personalized attention",
-                "All CAT4 levels covered (A through F) for ages 6-14",
-                "Comprehensive mock testing under real exam conditions",
+                "Age-appropriate content from basics to advanced investing",
+                "Interactive lessons with real-world applications",
                 "Regular progress tracking with detailed feedback reports",
-                "Proven track record of successful school placements",
-                "Flexible scheduling options including weekends and holidays",
+                "Proven track record of building financial confidence",
+                "Flexible scheduling options including weekends",
                 "Dedicated learning environment in Gold & Diamond Park with easy access from Sheikh Zayed Road",
               ].map((benefit) => (
                 <div
@@ -552,7 +537,7 @@ export default function CAT4PrepPage() {
                   className="flex gap-3 items-start text-white/90"
                 >
                   <CheckCircle
-                    className="w-6 h-6 text-white flex-shrink-0 mt-0.5"
+                    className="w-6 h-6 text-yellow-400 flex-shrink-0 mt-0.5"
                     aria-hidden="true"
                   />
                   <p>{benefit}</p>
@@ -571,11 +556,11 @@ export default function CAT4PrepPage() {
 
             <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
               <div
-                className="bg-yellow-50 border border-yellow-200 rounded-xl p-6"
+                className="bg-green-50 border border-green-200 rounded-xl p-6"
                 itemScope
                 itemType="https://schema.org/Review"
               >
-                <meta itemProp="itemReviewed" content="CAT4 Test Prep" />
+                <meta itemProp="itemReviewed" content="Financial Literacy" />
                 <div
                   itemProp="reviewRating"
                   itemScope
@@ -588,8 +573,8 @@ export default function CAT4PrepPage() {
                   className="text-navy-800 text-sm"
                   itemProp="reviewBody"
                 >
-                  &quot;Our daughter improved her CAT4 scores significantly and
-                  received offers from both Dubai College and JESS.&quot;
+                  &quot;Our son now keeps a budget and even tracks his savings
+                  goals without reminders.&quot;
                 </blockquote>
                 <p
                   className="text-sm font-semibold text-navy-900 mt-4"
@@ -597,9 +582,9 @@ export default function CAT4PrepPage() {
                   itemScope
                   itemType="https://schema.org/Person"
                 >
-                  <span itemProp="name">Mariam H.</span>
+                  <span itemProp="name">Helen S.</span>
                 </p>
-                <p className="text-xs text-navy-600">Parent of Year 6 student</p>
+                <p className="text-xs text-navy-600">Parent of Year 7 student</p>
                 <div className="flex mt-3 gap-1" aria-hidden="true">
                   {Array.from({ length: 5 }).map((_, index) => (
                     <span
@@ -613,11 +598,11 @@ export default function CAT4PrepPage() {
               </div>
 
               <div
-                className="bg-yellow-50 border border-yellow-200 rounded-xl p-6"
+                className="bg-green-50 border border-green-200 rounded-xl p-6"
                 itemScope
                 itemType="https://schema.org/Review"
               >
-                <meta itemProp="itemReviewed" content="CAT4 Test Prep" />
+                <meta itemProp="itemReviewed" content="Financial Literacy" />
                 <div
                   itemProp="reviewRating"
                   itemScope
@@ -630,8 +615,8 @@ export default function CAT4PrepPage() {
                   className="text-navy-800 text-sm"
                   itemProp="reviewBody"
                 >
-                  &quot;The mock tests were incredibly helpful. My son felt
-                  confident and prepared on exam day.&quot;
+                  &quot;The investing simulation helped my daughter understand
+                  risk before buying her first stock with us.&quot;
                 </blockquote>
                 <p
                   className="text-sm font-semibold text-navy-900 mt-4"
@@ -639,17 +624,17 @@ export default function CAT4PrepPage() {
                   itemScope
                   itemType="https://schema.org/Person"
                 >
-                  <span itemProp="name">Sanjay R.</span>
+                  <span itemProp="name">Jasmeet R.</span>
                 </p>
-                <p className="text-xs text-navy-600">Parent of Year 7 student</p>
+                <p className="text-xs text-navy-600">Parent of Year 10 student</p>
               </div>
 
               <div
-                className="bg-yellow-50 border border-yellow-200 rounded-xl p-6"
+                className="bg-green-50 border border-green-200 rounded-xl p-6"
                 itemScope
                 itemType="https://schema.org/Review"
               >
-                <meta itemProp="itemReviewed" content="CAT4 Test Prep" />
+                <meta itemProp="itemReviewed" content="Financial Literacy" />
                 <div
                   itemProp="reviewRating"
                   itemScope
@@ -662,8 +647,8 @@ export default function CAT4PrepPage() {
                   className="text-navy-800 text-sm"
                   itemProp="reviewBody"
                 >
-                  &quot;Excellent preparation programme. The tutors really
-                  understood how to help my child improve.&quot;
+                  &quot;Excellent programme. My daughter now understands the
+                  value of money and makes informed spending decisions.&quot;
                 </blockquote>
                 <p
                   className="text-sm font-semibold text-navy-900 mt-4"
@@ -671,9 +656,9 @@ export default function CAT4PrepPage() {
                   itemScope
                   itemType="https://schema.org/Person"
                 >
-                  <span itemProp="name">Fatima A.</span>
+                  <span itemProp="name">Mohammed A.</span>
                 </p>
-                <p className="text-xs text-navy-600">Parent of Year 5 student</p>
+                <p className="text-xs text-navy-600">Parent of Year 9 student</p>
               </div>
             </div>
           </div>
@@ -688,40 +673,20 @@ export default function CAT4PrepPage() {
 
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
               <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
-                <Award
-                  className="w-10 h-10 text-blue-600 mb-3"
-                  aria-label="Award icon for entrance prep"
-                />
-                <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  7+/11+ Entrance Prep
-                </h3>
-                <p className="text-navy-600 text-sm mb-4">
-                  School entrance exam preparation covering English, maths, and
-                  reasoning.
-                </p>
-                <Link
-                  href="/courses/entrance-prep"
-                  className="text-yellow-500 font-medium hover:text-yellow-600 text-sm"
-                  aria-label="Explore entrance prep courses in Dubai"
-                >
-                  Explore Entrance Prep →
-                </Link>
-              </div>
-
-              <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
                 <Calculator
-                  className="w-10 h-10 text-green-600 mb-3"
+                  className="w-10 h-10 text-blue-600 mb-3"
                   aria-label="Calculator icon for mathematics"
                 />
                 <h3 className="text-xl font-bold text-navy-900 mb-2">
                   Mathematics
                 </h3>
                 <p className="text-navy-600 text-sm mb-4">
-                  Strengthen numerical reasoning and problem-solving skills.
+                  Strengthen numeracy and data literacy to support financial
+                  concepts.
                 </p>
                 <Link
                   href="/courses/mathematics"
-                  className="text-yellow-500 font-medium hover:text-yellow-600 text-sm"
+                  className="text-green-600 font-medium hover:text-green-700 text-sm"
                   aria-label="Explore mathematics courses in Dubai"
                 >
                   Explore Mathematics →
@@ -729,22 +694,42 @@ export default function CAT4PrepPage() {
               </div>
 
               <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
-                <Target
-                  className="w-10 h-10 text-navy-600 mb-3"
-                  aria-label="Target icon for chess mastery"
+                <Briefcase
+                  className="w-10 h-10 text-green-600 mb-3"
+                  aria-label="Briefcase icon for business studies"
                 />
                 <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  Chess Mastery
+                  Business Studies
                 </h3>
                 <p className="text-navy-600 text-sm mb-4">
-                  Strategic thinking and logic development through chess.
+                  Explore entrepreneurship, marketing, and real-world commerce.
                 </p>
                 <Link
-                  href="/courses/chess"
-                  className="text-yellow-500 font-medium hover:text-yellow-600 text-sm"
-                  aria-label="Explore chess mastery courses in Dubai"
+                  href="/courses/business-studies"
+                  className="text-green-600 font-medium hover:text-green-700 text-sm"
+                  aria-label="Explore business studies courses in Dubai"
                 >
-                  Explore Chess →
+                  Explore Business →
+                </Link>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+                <TrendingUp
+                  className="w-10 h-10 text-navy-600 mb-3"
+                  aria-label="TrendingUp icon for economics"
+                />
+                <h3 className="text-xl font-bold text-navy-900 mb-2">
+                  Economics
+                </h3>
+                <p className="text-navy-600 text-sm mb-4">
+                  Connect personal finance skills with macroeconomic understanding.
+                </p>
+                <Link
+                  href="/courses/economics"
+                  className="text-green-600 font-medium hover:text-green-700 text-sm"
+                  aria-label="Explore economics courses in Dubai"
+                >
+                  Explore Economics →
                 </Link>
               </div>
             </div>
@@ -770,7 +755,7 @@ export default function CAT4PrepPage() {
               >
                 <AccordionTrigger>
                   <span itemProp="name">
-                    What CAT4 levels do you prepare students for?
+                    What age groups do you teach financial literacy?
                   </span>
                 </AccordionTrigger>
                 <AccordionContent>
@@ -780,9 +765,9 @@ export default function CAT4PrepPage() {
                     itemType="https://schema.org/Answer"
                   >
                     <p itemProp="text" className="text-sm text-navy-700">
-                      We prepare students for all CAT4 levels from Level A
-                      (ages 6-7) through Level F (ages 13+). Our programme is
-                      tailored to each student&apos;s age and current ability level.
+                      We teach financial literacy for students aged 8-16, with
+                      age-appropriate content divided into foundation (8-11),
+                      intermediate (12-14), and advanced (15-16) levels.
                     </p>
                   </div>
                 </AccordionContent>
@@ -795,7 +780,7 @@ export default function CAT4PrepPage() {
               >
                 <AccordionTrigger>
                   <span itemProp="name">
-                    What is the class size for CAT4 preparation?
+                    What is the class size for financial literacy classes?
                   </span>
                 </AccordionTrigger>
                 <AccordionContent>
@@ -821,7 +806,7 @@ export default function CAT4PrepPage() {
               >
                 <AccordionTrigger>
                   <span itemProp="name">
-                    Do you provide mock CAT4 tests?
+                    Do you cover investing in the financial literacy programme?
                   </span>
                 </AccordionTrigger>
                 <AccordionContent>
@@ -831,10 +816,9 @@ export default function CAT4PrepPage() {
                     itemType="https://schema.org/Answer"
                   >
                     <p itemProp="text" className="text-sm text-navy-700">
-                      Yes, we provide regular mock tests under real exam
-                      conditions with detailed feedback and improvement
-                      strategies. This helps students build confidence and
-                      familiarity with the test format.
+                      Yes, our advanced level (ages 15-16) covers investing
+                      fundamentals including stocks, funds, diversification, and
+                      risk vs return concepts through interactive simulations.
                     </p>
                   </div>
                 </AccordionContent>
@@ -847,7 +831,7 @@ export default function CAT4PrepPage() {
               >
                 <AccordionTrigger>
                   <span itemProp="name">
-                    How long does CAT4 preparation take?
+                    How long does the financial literacy programme take?
                   </span>
                 </AccordionTrigger>
                 <AccordionContent>
@@ -857,10 +841,9 @@ export default function CAT4PrepPage() {
                     itemType="https://schema.org/Answer"
                   >
                     <p itemProp="text" className="text-sm text-navy-700">
-                      Our CAT4 preparation programme typically runs for 12-16
-                      sessions, depending on the student&apos;s starting level and
-                      target school requirements. Sessions can be scheduled
-                      weekly or bi-weekly.
+                      Our financial literacy programme typically runs for 12-16
+                      sessions, depending on the student&apos;s age and level.
+                      Sessions can be scheduled weekly or bi-weekly.
                     </p>
                   </div>
                 </AccordionContent>
@@ -873,28 +856,25 @@ export default function CAT4PrepPage() {
         <section className="bg-gradient-to-r from-yellow-400 to-yellow-500 py-14">
           <div className="max-w-7xl mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold text-navy-900 mb-4">
-              Ready to Excel in CAT4?
+              Ready to Build Financial Confidence?
             </h2>
             <p className="text-navy-800 mb-8 text-lg">
-              Book a free assessment and discover your pathway to CAT4 success
-              with Dubai&apos;s best cognitive abilities training.
+              Book a free assessment and discover your pathway to financial
+              literacy with Dubai&apos;s best money management education.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact#assessment"
                 className="inline-flex items-center gap-2 bg-navy-900 text-white px-10 py-4 rounded-lg font-semibold hover:bg-navy-800 transition"
-                aria-label="Book a free CAT4 assessment at Improve ME Institute Dubai"
+                aria-label="Book a free financial literacy assessment at Improve ME Institute Dubai"
               >
                 <span>Book Free Assessment</span>
-                <ArrowRight
-                  className="w-5 h-5"
-                  aria-hidden="true"
-                />
+                <ArrowRight className="w-5 h-5" aria-hidden="true" />
               </Link>
               <Link
                 href="/contact#timetable"
                 className="inline-flex items-center gap-2 bg-white text-navy-900 border-2 border-navy-900 px-10 py-4 rounded-lg font-semibold hover:bg-navy-50 transition"
-                aria-label="View CAT4 preparation timetable in Dubai"
+                aria-label="View financial literacy timetable in Dubai"
               >
                 <span>View Timetable</span>
               </Link>
