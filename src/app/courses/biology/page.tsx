@@ -12,6 +12,7 @@ import {
   Leaf,
   Dna,
   Heart,
+  Atom,
 } from "lucide-react";
 import {
   Accordion,
