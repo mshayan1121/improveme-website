@@ -106,20 +106,15 @@ export default function AcademicJourneySection() {
           </motion.p>
         </div>
 
-        {/* Vertical spine + 2 rows - spine runs from first icon to second icon only */}
-        <div className="relative pl-8 sm:pl-10">
-          {/* Vertical spine (brand blue) - runs from first node to second node; end cap in last row stops it at second icon */}
-          <div
-            className="absolute left-7 top-6 bottom-0 w-[2px] rounded-full bg-navy-600 journey-spine"
-            aria-hidden
-          />
-
+        {/* Primary + Secondary rows */}
+        <div className="relative">
           {/* Row 1: Primary (Ages 3-11) - 3 cards */}
           <StageRow
             stage={stages[0]}
+            ctaHref="/curriculum/primary"
+            ctaText="View Primary Curriculum"
             isInView={isInView}
             delay={0.15}
-            index={0}
           >
             <div className="space-y-4">
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
@@ -127,23 +122,16 @@ export default function AcademicJourneySection() {
                   <SmallSubjectCard key={s.name} subject={s} index={i} variant="primary" />
                 ))}
               </div>
-              <Link
-                href="/curriculum/primary"
-                className="inline-flex items-center gap-1 text-sm text-navy-600 hover:text-navy-900 font-medium mt-2 mb-2 w-fit"
-              >
-                View Primary Curriculum
-                <ArrowRight className="w-4 h-4" />
-              </Link>
             </div>
           </StageRow>
 
           {/* Row 2: Secondary (Ages 11-18) - pills + 8 cards in 4x2 grid */}
           <StageRow
             stage={stages[1]}
+            ctaHref="/curriculum/secondary"
+            ctaText="View Secondary Curriculum"
             isInView={isInView}
             delay={0.25}
-            index={1}
-            isLast
           >
             <div className="space-y-4">
               {stages[1].pills && stages[1].pills.length > 0 && (
@@ -151,7 +139,7 @@ export default function AcademicJourneySection() {
                   {stages[1].pills.map((pill) => (
                     <span
                       key={pill}
-                      className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-navy-100 text-navy-700 border border-navy-200"
+                      className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-navy-100 text-navy-700 border border-navy-200"
                     >
                       {pill}
                     </span>
@@ -163,13 +151,6 @@ export default function AcademicJourneySection() {
                   <SmallSubjectCard key={s.name} subject={s} index={i} variant="gradient" />
                 ))}
               </div>
-              <Link
-                href="/curriculum/secondary"
-                className="inline-flex items-center gap-1 text-sm text-navy-600 hover:text-navy-900 font-medium mt-2 mb-2 w-fit"
-              >
-                View Secondary Curriculum
-                <ArrowRight className="w-4 h-4" />
-              </Link>
             </div>
           </StageRow>
         </div>
@@ -237,47 +218,39 @@ export default function AcademicJourneySection() {
 function StageRow({
   stage,
   children,
+  ctaHref,
+  ctaText,
   isInView,
   delay,
-  index,
-  isLast,
 }: {
   stage: (typeof stages)[0];
   children: React.ReactNode;
+  ctaHref: string;
+  ctaText: string;
   isInView: boolean;
   delay: number;
-  index: number;
-  isLast?: boolean;
 }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.4, delay }}
-      className="relative flex gap-4 sm:gap-6 py-12 md:py-16 first:pt-0"
+      className="py-12 md:py-16 first:pt-0"
     >
-      {/* Node on spine: 56px circle, spine runs through center (left-7 = 28px = half of 56px so circle fits in pl-8) */}
-      <div className="absolute left-7 top-6 z-10 w-14 h-14 -translate-x-1/2 flex items-center justify-center">
-        <span
-          className={`w-full h-full rounded-full ${stage.nodeClass} border-2 border-white shadow-lg flex items-center justify-center`}
-          style={{ color: '#FFFFFF' }}
-        >
-          <stage.Icon className="w-6 h-6 sm:w-7 sm:h-7" strokeWidth={2} />
-        </span>
-      </div>
-      {/* Spine end cap: hides spine below center of last node so line stops at Secondary icon */}
-      {isLast && (
-        <div
-          className="absolute left-7 top-[52px] bottom-0 z-[1] w-[2px] -translate-x-1/2 bg-gray-50"
-          aria-hidden
-        />
-      )}
-
       {/* Content: stage title + description (25%) then cards (75%); consistent padding between Primary and Secondary */}
-      <div className="flex-1 min-w-0 ml-16 sm:ml-20 md:ml-24 border-b border-gray-200 last:border-b-0 pb-12 md:pb-16 last:pb-0">
+      <div className="min-w-0 border-b border-gray-200 last:border-b-0 pb-12 md:pb-16 last:pb-0">
         <div className="min-w-0">
-          <h3 className="text-xl font-extrabold text-navy-900">{stage.label}</h3>
-          <p className="text-xs font-medium text-navy-600 mt-0.5">
+          <div className="flex items-start gap-2">
+            <span
+              className={`w-7 h-7 rounded-lg ${stage.nodeClass} flex items-center justify-center shrink-0 mt-0.5`}
+              style={{ color: '#FFFFFF' }}
+              aria-hidden
+            >
+              <stage.Icon className="w-4 h-4" strokeWidth={2} />
+            </span>
+            <h3 className="text-xl sm:text-2xl font-extrabold text-navy-900 leading-tight">{stage.label}</h3>
+          </div>
+          <p className="text-sm font-medium text-navy-600 mt-1">
             {stage.range}
             {stage.sub != null && ` · ${stage.sub}`}
           </p>
@@ -287,7 +260,14 @@ function StageRow({
           {children}
         </div>
 
-        <p className="text-sm text-navy-600 mt-4 leading-relaxed">{stage.description}</p>
+        <p className="text-base text-navy-600 mt-4 leading-relaxed">{stage.description}</p>
+        <Link
+          href={ctaHref}
+          className="inline-flex items-center gap-1 text-base text-navy-600 hover:text-navy-900 font-medium mt-4 w-fit"
+        >
+          {ctaText}
+          <ArrowRight className="w-4 h-4" />
+        </Link>
       </div>
     </motion.div>
   );
@@ -325,9 +305,9 @@ function SmallSubjectCard({
               <subject.Icon className="w-4 h-4 text-[#FFFFFF]" strokeWidth={1.5} />
             </span>
             <div className="min-w-0 flex-1">
-              <span className="font-semibold text-[#FFFFFF] text-xs block truncate">{subject.name}</span>
+              <span className="font-semibold text-[#FFFFFF] text-sm block truncate">{subject.name}</span>
               {!compact && subject.description && (
-                <span className="text-[10px] line-clamp-2 opacity-90" style={{ color: '#FFFFFF' }}>{subject.description}</span>
+                <span className="text-xs line-clamp-2 opacity-90" style={{ color: '#FFFFFF' }}>{subject.description}</span>
               )}
             </div>
           </div>
@@ -351,11 +331,11 @@ function SmallSubjectCard({
           <p.Icon className="w-4 h-4 text-[#FFFFFF]" strokeWidth={1.5} />
         </span>
         <div className="min-w-0 flex-1">
-          <span className="font-semibold text-xs block truncate text-[#FFFFFF]">
+          <span className="font-semibold text-sm block truncate text-[#FFFFFF]">
             {p.name}
           </span>
           {p.description && (
-            <span className="text-[10px] line-clamp-2 opacity-90" style={{ color: '#FFFFFF' }}>
+            <span className="text-xs line-clamp-2 opacity-90" style={{ color: '#FFFFFF' }}>
               {p.description}
             </span>
           )}
