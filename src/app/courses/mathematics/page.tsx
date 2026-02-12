@@ -19,6 +19,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../../../components/ui/accordion";
+import { BulletList } from "../../../components/ui/bullet-list";
 
 export const metadata: Metadata = {
   title:
@@ -67,8 +68,6 @@ export const metadata: Metadata = {
     canonical: "https://improvemeinstitute.com/courses/mathematics",
   },
 };
-
-const qualificationsId = "mathematics-qualifications";
 
 export default function MathematicsPage() {
   const jsonLd = {
@@ -264,112 +263,6 @@ export default function MathematicsPage() {
                 >
                   Book Free Assessment
                 </Link>
-                <Link
-                  href={`#${qualificationsId}`}
-                  className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition"
-                  aria-label="Explore mathematics qualifications we teach in Dubai"
-                >
-                  Explore Qualifications
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* SECTION 2: QUALIFICATIONS OVERVIEW */}
-        <section
-          id={qualificationsId}
-          className="bg-white py-14 scroll-mt-24"
-          aria-labelledby="mathematics-qualifications-heading"
-        >
-          <div className="max-w-7xl mx-auto px-4">
-            <h2
-              id="mathematics-qualifications-heading"
-              className="text-3xl font-bold text-navy-900 mb-4 text-center"
-            >
-              Mathematics Across All Qualifications
-            </h2>
-            <p className="text-navy-600 mb-10 text-center">
-              Expert Dubai mathematics tutoring tailored to your curriculum
-            </p>
-
-            <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-6">
-              <div className="group bg-gradient-to-br from-blue-400 to-blue-500 border border-blue-300 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
-                <span className="text-xs bg-white text-blue-700 px-3 py-1 rounded-full mb-3 inline-block font-semibold">
-                  Ages 3-11
-                </span>
-                <h3 className="text-xl font-bold text-white mb-2">
-                  EYFS/Primary
-                </h3>
-                <p className="text-sm text-white/90 mb-3">Foundation Mathematics</p>
-                <p className="text-sm text-white/80 mb-4">
-                  Building number sense, problem-solving, and mathematical reasoning.
-                </p>
-              </div>
-
-              <div className="group bg-gradient-to-br from-blue-500 to-blue-600 border border-blue-400 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
-                <span className="text-xs bg-white text-blue-700 px-3 py-1 rounded-full mb-3 inline-block font-semibold">
-                  Ages 11-14
-                </span>
-                <h3 className="text-xl font-bold text-white mb-2">
-                  Key Stage 3
-                </h3>
-                <p className="text-sm text-white/90 mb-3">UK National Curriculum</p>
-                <p className="text-sm text-white/80 mb-4">
-                  Preparing for GCSE with comprehensive coverage of key concepts.
-                </p>
-              </div>
-
-              <div className="group bg-gradient-to-br from-green-500 to-green-600 border border-green-400 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
-                <span className="text-xs bg-white text-green-700 px-3 py-1 rounded-full mb-3 inline-block font-semibold">
-                  Ages 14-16
-                </span>
-                <h3 className="text-xl font-bold text-white mb-2">
-                  GCSE
-                </h3>
-                <p className="text-sm text-white/90 mb-3">AQA, Edexcel, OCR</p>
-                <p className="text-sm text-white/80 mb-4">
-                  Foundation to Higher tier, targeting grades 7-9.
-                </p>
-              </div>
-
-              <div className="group bg-gradient-to-br from-teal-500 to-teal-600 border border-teal-400 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
-                <span className="text-xs bg-white text-teal-700 px-3 py-1 rounded-full mb-3 inline-block font-semibold">
-                  Ages 14-16
-                </span>
-                <h3 className="text-xl font-bold text-white mb-2">
-                  IGCSE
-                </h3>
-                <p className="text-sm text-white/90 mb-3">Cambridge, Edexcel</p>
-                <p className="text-sm text-white/80 mb-4">
-                  International curriculum with global recognition.
-                </p>
-              </div>
-
-              <div className="group bg-gradient-to-br from-purple-500 to-purple-600 border border-purple-400 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
-                <span className="text-xs bg-white text-purple-700 px-3 py-1 rounded-full mb-3 inline-block font-semibold">
-                  Ages 16-18
-                </span>
-                <h3 className="text-xl font-bold text-white mb-2">
-                  A-Level
-                </h3>
-                <p className="text-sm text-white/90 mb-3">AQA, Edexcel, OCR</p>
-                <p className="text-sm text-white/80 mb-4">
-                  Advanced level for university preparation.
-                </p>
-              </div>
-
-              <div className="group bg-gradient-to-br from-indigo-500 to-indigo-600 border border-indigo-400 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
-                <span className="text-xs bg-white text-indigo-700 px-3 py-1 rounded-full mb-3 inline-block font-semibold">
-                  Ages 16-18
-                </span>
-                <h3 className="text-xl font-bold text-white mb-2">
-                  IB
-                </h3>
-                <p className="text-sm text-white/90 mb-3">SL & HL</p>
-                <p className="text-sm text-white/80 mb-4">
-                  International Baccalaureate standard and higher level.
-                </p>
               </div>
             </div>
           </div>
@@ -391,14 +284,16 @@ export default function MathematicsPage() {
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
                   Foundation Topics
                 </h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Number and place value</li>
-                  <li>Arithmetic operations</li>
-                  <li>Fractions, decimals, percentages</li>
-                  <li>Basic algebra and equations</li>
-                  <li>Geometry and measurement</li>
-                  <li>Data handling and statistics</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Number and place value",
+                    "Arithmetic operations",
+                    "Fractions, decimals, percentages",
+                    "Basic algebra and equations",
+                    "Geometry and measurement",
+                    "Data handling and statistics",
+                  ]}
+                />
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -409,14 +304,16 @@ export default function MathematicsPage() {
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
                   Intermediate Topics
                 </h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Linear and quadratic equations</li>
-                  <li>Trigonometry</li>
-                  <li>Coordinate geometry</li>
-                  <li>Probability and statistics</li>
-                  <li>Sequences and series</li>
-                  <li>Graph interpretation</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Linear and quadratic equations",
+                    "Trigonometry",
+                    "Coordinate geometry",
+                    "Probability and statistics",
+                    "Sequences and series",
+                    "Graph interpretation",
+                  ]}
+                />
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -427,14 +324,16 @@ export default function MathematicsPage() {
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
                   Advanced Topics
                 </h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Calculus (differentiation and integration)</li>
-                  <li>Further algebra and functions</li>
-                  <li>Complex numbers</li>
-                  <li>Vectors and matrices</li>
-                  <li>Mechanics and statistics</li>
-                  <li>Pure and applied mathematics</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Calculus (differentiation and integration)",
+                    "Further algebra and functions",
+                    "Complex numbers",
+                    "Vectors and matrices",
+                    "Mechanics and statistics",
+                    "Pure and applied mathematics",
+                  ]}
+                />
               </div>
             </div>
           </div>
@@ -455,16 +354,16 @@ export default function MathematicsPage() {
                 <h3 className="text-2xl font-bold text-navy-900 mb-4">
                   EYFS to GCSE/IGCSE Mathematics
                 </h3>
-                <p className="text-navy-700 mb-4">
-                  Building strong foundations in number sense, problem-solving, and mathematical reasoning. We focus on confidence, exam technique, and applying mathematics to real-world situations.
-                </p>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Fundamental concepts and number operations</li>
-                  <li>Problem-solving strategies</li>
-                  <li>Algebraic manipulation</li>
-                  <li>Geometric reasoning</li>
-                  <li>Exam technique for top grades</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Build strong foundations in number sense and arithmetic",
+                    "Develop problem-solving and mathematical reasoning",
+                    "Focus on exam technique and confidence building",
+                    "Apply mathematics to real-world situations",
+                    "Master Key Stage 3 and GCSE/IGCSE content",
+                    "Regular assessments and progress tracking",
+                  ]}
+                />
               </div>
 
               <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-8">
@@ -474,16 +373,16 @@ export default function MathematicsPage() {
                 <h3 className="text-2xl font-bold text-navy-900 mb-4">
                   A-Level & IB Mathematics
                 </h3>
-                <p className="text-navy-700 mb-4">
-                  Advanced mathematics covering pure, mechanics, and statistics. We prepare students for university-level mathematics and demanding exams with rigorous problem-solving practice.
-                </p>
-                <ul className="space-y-2 text-navy-700">
-                  <li>In-depth theoretical understanding</li>
-                  <li>Advanced calculus and analysis</li>
-                  <li>Complex problem-solving</li>
-                  <li>Mathematical modeling</li>
-                  <li>University entrance preparation</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "In-depth theoretical understanding",
+                    "Advanced calculus and analysis",
+                    "Complex problem-solving and mathematical modeling",
+                    "Pure mathematics, mechanics, and statistics",
+                    "University entrance preparation",
+                    "Rigorous exam practice for top grades",
+                  ]}
+                />
               </div>
             </div>
           </div>

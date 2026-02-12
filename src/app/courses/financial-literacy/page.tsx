@@ -21,6 +21,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../../../components/ui/accordion";
+import { BulletList } from "../../../components/ui/bullet-list";
 
 export const metadata: Metadata = {
   title: "Financial Literacy for Children Dubai | Money Management Skills",
@@ -221,12 +222,16 @@ export default function FinancialLiteracyPage() {
                   Understanding money, choices, and basic saving. Learn to save,
                   share, and spend wisely.
                 </p>
-                <ul className="text-sm text-navy-700 space-y-1 mb-4">
-                  <li>• What is money?</li>
-                  <li>• Needs vs wants</li>
-                  <li>• Basic saving concepts</li>
-                  <li>• Smart spending choices</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "What is money?",
+                    "Needs vs wants",
+                    "Basic saving concepts",
+                    "Smart spending choices",
+                  ]}
+                  textClassName="text-navy-700 text-sm"
+                  className="mb-4"
+                />
                 <span className="mt-auto text-green-600 font-medium text-sm group-hover:underline">
                   Learn More →
                 </span>
@@ -245,12 +250,16 @@ export default function FinancialLiteracyPage() {
                   Budgeting, banking, and introductions to investing. Building
                   independence with allowance planning.
                 </p>
-                <ul className="text-sm text-navy-700 space-y-1 mb-4">
-                  <li>• Personal budgeting</li>
-                  <li>• Banking basics</li>
-                  <li>• Interest concepts</li>
-                  <li>• Goal setting</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Personal budgeting",
+                    "Banking basics",
+                    "Interest concepts",
+                    "Goal setting",
+                  ]}
+                  textClassName="text-navy-700 text-sm"
+                  className="mb-4"
+                />
                 <span className="mt-auto text-teal-600 font-medium text-sm group-hover:underline">
                   Learn More →
                 </span>
@@ -269,12 +278,16 @@ export default function FinancialLiteracyPage() {
                   Responsible investing, compounding, and financial planning for
                   university and future.
                 </p>
-                <ul className="text-sm text-navy-700 space-y-1 mb-4">
-                  <li>• Investing fundamentals</li>
-                  <li>• Risk and return</li>
-                  <li>• Long-term planning</li>
-                  <li>• Financial responsibility</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Investing fundamentals",
+                    "Risk and return",
+                    "Long-term planning",
+                    "Financial responsibility",
+                  ]}
+                  textClassName="text-navy-700 text-sm"
+                  className="mb-4"
+                />
                 <span className="mt-auto text-emerald-600 font-medium text-sm group-hover:underline">
                   Learn More →
                 </span>
@@ -299,14 +312,16 @@ export default function FinancialLiteracyPage() {
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
                   Money Fundamentals
                 </h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Understanding money and value</li>
-                  <li>Earning, spending, and saving</li>
-                  <li>Needs vs wants decision-making</li>
-                  <li>Values-based money choices</li>
-                  <li>Basic financial vocabulary</li>
-                  <li>Money safety and security</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Understanding money and value",
+                    "Earning, spending, and saving",
+                    "Needs vs wants decision-making",
+                    "Values-based money choices",
+                    "Basic financial vocabulary",
+                    "Money safety and security",
+                  ]}
+                />
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -317,14 +332,16 @@ export default function FinancialLiteracyPage() {
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
                   Banking & Saving
                 </h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>How banks operate</li>
-                  <li>Different account types</li>
-                  <li>Simple and compound interest</li>
-                  <li>Savings goals and planning</li>
-                  <li>Online banking safety</li>
-                  <li>Scam recognition</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "How banks operate",
+                    "Different account types",
+                    "Simple and compound interest",
+                    "Savings goals and planning",
+                    "Online banking safety",
+                    "Scam recognition",
+                  ]}
+                />
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -335,14 +352,16 @@ export default function FinancialLiteracyPage() {
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
                   Investing & Planning
                 </h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>What is investing?</li>
-                  <li>Stocks, funds, and diversification</li>
-                  <li>Risk vs return concepts</li>
-                  <li>Long-term wealth building</li>
-                  <li>Financial goal setting</li>
-                  <li>Future planning strategies</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "What is investing?",
+                    "Stocks, funds, and diversification",
+                    "Risk vs return concepts",
+                    "Long-term wealth building",
+                    "Financial goal setting",
+                    "Future planning strategies",
+                  ]}
+                />
               </div>
             </div>
           </div>
@@ -367,21 +386,16 @@ export default function FinancialLiteracyPage() {
                 <h3 className="text-2xl font-bold text-navy-900 mb-4">
                   Ages 8-11
                 </h3>
-                <p className="text-navy-700 mb-4">
-                  Build strong financial foundations with comprehensive coverage
-                  of basic money concepts. Foundation financial literacy focuses
-                  on{" "}
-                  <span className="font-semibold">understanding money and choices</span>{" "}
-                  for younger students.
-                </p>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Money basics and value</li>
-                  <li>Earning and spending concepts</li>
-                  <li>Basic saving habits</li>
-                  <li>Needs vs wants decisions</li>
-                  <li>Smart spending choices</li>
-                  <li>Money safety awareness</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Money basics and value",
+                    "Earning and spending concepts",
+                    "Basic saving habits",
+                    "Needs vs wants decisions",
+                    "Smart spending choices",
+                    "Money safety awareness",
+                  ]}
+                />
               </div>
 
               <div className="bg-teal-50 border border-teal-200 rounded-xl p-8">
@@ -395,20 +409,16 @@ export default function FinancialLiteracyPage() {
                 <h3 className="text-2xl font-bold text-navy-900 mb-4">
                   Ages 12-16
                 </h3>
-                <p className="text-navy-700 mb-4">
-                  Master advanced financial skills for independence and future
-                  planning. Advanced level students learn{" "}
-                  <span className="font-semibold">banking, investing, and planning</span>{" "}
-                  for university and career preparation in Dubai.
-                </p>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Personal budgeting and planning</li>
-                  <li>Banking and account management</li>
-                  <li>Investing fundamentals</li>
-                  <li>Risk assessment and decision-making</li>
-                  <li>Long-term financial planning</li>
-                  <li>Financial responsibility</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Personal budgeting and planning",
+                    "Banking and account management",
+                    "Investing fundamentals",
+                    "Risk assessment and decision-making",
+                    "Long-term financial planning",
+                    "Financial responsibility",
+                  ]}
+                />
               </div>
             </div>
           </div>

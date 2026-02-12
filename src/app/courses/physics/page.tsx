@@ -19,6 +19,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../../../components/ui/accordion";
+import { BulletList } from "../../../components/ui/bullet-list";
 
 export const metadata: Metadata = {
   title:
@@ -67,8 +68,6 @@ export const metadata: Metadata = {
     canonical: "https://improvemeinstitute.com/courses/physics",
   },
 };
-
-const qualificationsId = "physics-qualifications";
 
 export default function PhysicsPage() {
   const jsonLd = {
@@ -167,38 +166,7 @@ export default function PhysicsPage() {
                 <Link href="/contact#assessment" className="bg-yellow-400 text-navy-900 px-8 py-4 rounded-lg font-semibold hover:bg-yellow-500 transition">
                   Book Free Assessment
                 </Link>
-                <Link href={`#${qualificationsId}`} className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition">
-                  Explore Qualifications
-                </Link>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* SECTION 2: QUALIFICATIONS OVERVIEW */}
-        <section id={qualificationsId} className="bg-white py-14 scroll-mt-24">
-          <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-3xl font-bold text-navy-900 mb-4 text-center">
-              Physics Across All Qualifications
-            </h2>
-            <p className="text-navy-600 mb-10 text-center">
-              Expert Dubai physics tutoring tailored to your curriculum
-            </p>
-
-            <div className="grid md:grid-cols-4 gap-6">
-              {[
-                { name: "GCSE", age: "Ages 14-16", boards: "AQA, Edexcel, OCR", desc: "Foundation to Higher tier, targeting grades 7-9." },
-                { name: "IGCSE", age: "Ages 14-16", boards: "Cambridge, Edexcel", desc: "International curriculum with global recognition." },
-                { name: "A-Level", age: "Ages 16-18", boards: "AQA, Edexcel, OCR", desc: "Advanced level for university preparation." },
-                { name: "IB", age: "Ages 16-18", boards: "SL & HL", desc: "International Baccalaureate standard and higher level." },
-              ].map((qual, idx) => (
-                <div key={qual.name} className="group bg-gradient-to-br from-sky-50 to-sky-100 border border-sky-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
-                  <span className="text-xs bg-sky-600 text-white px-3 py-1 rounded-full mb-3 inline-block">{qual.age}</span>
-                  <h3 className="text-xl font-bold text-navy-900 mb-2">{qual.name}</h3>
-                  <p className="text-sm text-navy-600 mb-3">{qual.boards}</p>
-                  <p className="text-sm text-navy-700 mb-4">{qual.desc}</p>
-                </div>
-              ))}
             </div>
           </div>
         </section>
@@ -214,40 +182,46 @@ export default function PhysicsPage() {
               <div className="bg-white rounded-xl p-6 border border-gray-200">
                 <Gauge className="w-10 h-10 text-sky-600 mb-4" />
                 <h3 className="text-xl font-bold text-navy-900 mb-4">Mechanics</h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Forces and motion</li>
-                  <li>Newton&apos;s laws</li>
-                  <li>Energy and work</li>
-                  <li>Momentum and collisions</li>
-                  <li>Circular motion</li>
-                  <li>Gravitation</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Forces and motion",
+                    "Newton's laws",
+                    "Energy and work",
+                    "Momentum and collisions",
+                    "Circular motion",
+                    "Gravitation",
+                  ]}
+                />
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200">
                 <Zap className="w-10 h-10 text-sky-600 mb-4" />
                 <h3 className="text-xl font-bold text-navy-900 mb-4">Electricity & Waves</h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Current electricity</li>
-                  <li>Circuits and resistance</li>
-                  <li>Magnetis and electromagnetism</li>
-                  <li>Waves and oscillations</li>
-                  <li>Light and optics</li>
-                  <li>Sound and acoustics</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Current electricity",
+                    "Circuits and resistance",
+                    "Magnetis and electromagnetism",
+                    "Waves and oscillations",
+                    "Light and optics",
+                    "Sound and acoustics",
+                  ]}
+                />
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200">
                 <Atom className="w-10 h-10 text-sky-600 mb-4" />
                 <h3 className="text-xl font-bold text-navy-900 mb-4">Modern Physics</h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Atomic structure</li>
-                  <li>Nuclear physics</li>
-                  <li>Radioactivity</li>
-                  <li>Quantum phenomena</li>
-                  <li>Particle physics</li>
-                  <li>Astrophysics</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Atomic structure",
+                    "Nuclear physics",
+                    "Radioactivity",
+                    "Quantum phenomena",
+                    "Particle physics",
+                    "Astrophysics",
+                  ]}
+                />
               </div>
             </div>
           </div>
@@ -264,31 +238,29 @@ export default function PhysicsPage() {
               <div className="bg-blue-50 border border-blue-200 rounded-xl p-8">
                 <span className="bg-blue-600 text-white px-4 py-1 rounded-full mb-4 inline-block text-sm">Foundation Level</span>
                 <h3 className="text-2xl font-bold text-navy-900 mb-4">GCSE/IGCSE Physics</h3>
-                <p className="text-navy-700 mb-4">
-                  Building understanding of key physics concepts with clear explanations and practical examples. We focus on problem-solving, calculations, and exam technique.
-                </p>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Fundamental concepts and theories</li>
-                  <li>Core practical experiments</li>
-                  <li>Problem-solving strategies</li>
-                  <li>Calculation skills</li>
-                  <li>Exam technique for top grades</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Fundamental concepts and theories",
+                    "Core practical experiments",
+                    "Problem-solving strategies",
+                    "Calculation skills",
+                    "Exam technique for top grades",
+                  ]}
+                />
               </div>
 
               <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-8">
                 <span className="bg-indigo-600 text-white px-4 py-1 rounded-full mb-4 inline-block text-sm">Advanced Level</span>
                 <h3 className="text-2xl font-bold text-navy-900 mb-4">A-Level & IB Physics</h3>
-                <p className="text-navy-700 mb-4">
-                  Advanced physics covering mechanics, fields, waves, and modern physics. We prepare students for university physics with rigorous mathematical and conceptual work.
-                </p>
-                <ul className="space-y-2 text-navy-700">
-                  <li>In-depth theoretical understanding</li>
-                  <li>Complex problem-solving</li>
-                  <li>Advanced practical investigations</li>
-                  <li>Mathematical modeling</li>
-                  <li>University entrance preparation</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "In-depth theoretical understanding",
+                    "Complex problem-solving",
+                    "Advanced practical investigations",
+                    "Mathematical modeling",
+                    "University entrance preparation",
+                  ]}
+                />
               </div>
             </div>
           </div>

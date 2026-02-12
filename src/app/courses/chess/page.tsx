@@ -22,6 +22,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../../../components/ui/accordion";
+import { BulletList } from "../../../components/ui/bullet-list";
 
 export const metadata: Metadata = {
   title: "Chess Classes Dubai | Strategic Thinking for Children | Improve ME",
@@ -222,12 +223,16 @@ export default function ChessPage() {
                   Learn the board, piece movements, and basic rules. Build
                   confidence with puzzles and simple tactics.
                 </p>
-                <ul className="text-sm text-navy-700 space-y-1 mb-4">
-                  <li>• Board and piece basics</li>
-                  <li>• Basic rules and checkmates</li>
-                  <li>• Opening principles</li>
-                  <li>• Simple tactics</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Board and piece basics",
+                    "Basic rules and checkmates",
+                    "Opening principles",
+                    "Simple tactics",
+                  ]}
+                  textClassName="text-navy-700 text-sm"
+                  className="mb-4"
+                />
                 <span className="mt-auto text-green-600 font-medium text-sm group-hover:underline">
                   Learn More →
                 </span>
@@ -246,12 +251,16 @@ export default function ChessPage() {
                   Develop tactical patterns, opening repertoire, and positional
                   understanding. Tournament preparation basics.
                 </p>
-                <ul className="text-sm text-navy-700 space-y-1 mb-4">
-                  <li>• Tactical patterns</li>
-                  <li>• Opening repertoire</li>
-                  <li>• Positional play</li>
-                  <li>• Tournament prep</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Tactical patterns",
+                    "Opening repertoire",
+                    "Positional play",
+                    "Tournament prep",
+                  ]}
+                  textClassName="text-navy-700 text-sm"
+                  className="mb-4"
+                />
                 <span className="mt-auto text-emerald-600 font-medium text-sm group-hover:underline">
                   Learn More →
                 </span>
@@ -270,12 +279,16 @@ export default function ChessPage() {
                   Advanced tactics, endgame technique, and competitive play.
                   Preparation for rated tournaments and championships.
                 </p>
-                <ul className="text-sm text-navy-700 space-y-1 mb-4">
-                  <li>• Advanced tactics</li>
-                  <li>• Endgame mastery</li>
-                  <li>• Competitive strategies</li>
-                  <li>• Performance analysis</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Advanced tactics",
+                    "Endgame mastery",
+                    "Competitive strategies",
+                    "Performance analysis",
+                  ]}
+                  textClassName="text-navy-700 text-sm"
+                  className="mb-4"
+                />
                 <span className="mt-auto text-teal-600 font-medium text-sm group-hover:underline">
                   Learn More →
                 </span>
@@ -300,14 +313,16 @@ export default function ChessPage() {
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
                   Opening Principles
                 </h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Opening fundamentals and principles</li>
-                  <li>Popular opening repertoires</li>
-                  <li>Opening traps and tactics</li>
-                  <li>Positional understanding</li>
-                  <li>Development and control</li>
-                  <li>King safety principles</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Opening fundamentals and principles",
+                    "Popular opening repertoires",
+                    "Opening traps and tactics",
+                    "Positional understanding",
+                    "Development and control",
+                    "King safety principles",
+                  ]}
+                />
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -318,14 +333,16 @@ export default function ChessPage() {
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
                   Tactical Patterns
                 </h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Pins, forks, and skewers</li>
-                  <li>Discovered attacks</li>
-                  <li>Back rank weaknesses</li>
-                  <li>Mating patterns</li>
-                  <li>Tactical combinations</li>
-                  <li>Calculation training</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Pins, forks, and skewers",
+                    "Discovered attacks",
+                    "Back rank weaknesses",
+                    "Mating patterns",
+                    "Tactical combinations",
+                    "Calculation training",
+                  ]}
+                />
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -336,14 +353,16 @@ export default function ChessPage() {
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
                   Strategic Concepts
                 </h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Position evaluation</li>
-                  <li>Long-term planning</li>
-                  <li>Pawn structures</li>
-                  <li>Piece coordination</li>
-                  <li>Endgame technique</li>
-                  <li>Time management</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Position evaluation",
+                    "Long-term planning",
+                    "Pawn structures",
+                    "Piece coordination",
+                    "Endgame technique",
+                    "Time management",
+                  ]}
+                />
               </div>
             </div>
           </div>
@@ -368,20 +387,16 @@ export default function ChessPage() {
                 <h3 className="text-2xl font-bold text-navy-900 mb-4">
                   Beginner to Intermediate
                 </h3>
-                <p className="text-navy-700 mb-4">
-                  Build strong chess foundations with comprehensive coverage of
-                  basic skills. Foundation chess courses prepare students for{" "}
-                  <span className="font-semibold">club play and local tournaments</span>{" "}
-                  in Dubai.
-                </p>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Basic rules and piece movements</li>
-                  <li>Opening principles and development</li>
-                  <li>Simple tactics and patterns</li>
-                  <li>Basic endgame knowledge</li>
-                  <li>Tournament etiquette</li>
-                  <li>Confidence building through play</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Basic rules and piece movements",
+                    "Opening principles and development",
+                    "Simple tactics and patterns",
+                    "Basic endgame knowledge",
+                    "Tournament etiquette",
+                    "Confidence building through play",
+                  ]}
+                />
               </div>
 
               <div className="bg-teal-50 border border-teal-200 rounded-xl p-8">
@@ -395,20 +410,16 @@ export default function ChessPage() {
                 <h3 className="text-2xl font-bold text-navy-900 mb-4">
                   Competitive Play
                 </h3>
-                <p className="text-navy-700 mb-4">
-                  Master advanced chess for competitive tournaments and beyond.
-                  Advanced level students progress to{" "}
-                  <span className="font-semibold">rated play and championships</span>{" "}
-                  for competitive chess excellence in Dubai.
-                </p>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Advanced tactical combinations</li>
-                  <li>Complex strategic planning</li>
-                  <li>Endgame mastery and studies</li>
-                  <li>Opening theory and preparation</li>
-                  <li>Performance analysis and review</li>
-                  <li>Competitive tournament strategies</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Advanced tactical combinations",
+                    "Complex strategic planning",
+                    "Endgame mastery and studies",
+                    "Opening theory and preparation",
+                    "Performance analysis and review",
+                    "Competitive tournament strategies",
+                  ]}
+                />
               </div>
             </div>
           </div>

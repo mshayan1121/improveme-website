@@ -19,6 +19,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../../../components/ui/accordion";
+import { BulletList } from "../../../components/ui/bullet-list";
 
 export const metadata: Metadata = {
   title:
@@ -67,8 +68,6 @@ export const metadata: Metadata = {
     canonical: "https://improvemeinstitute.com/courses/english",
   },
 };
-
-const qualificationsId = "english-qualifications";
 
 export default function EnglishPage() {
   const jsonLd = {
@@ -237,94 +236,6 @@ export default function EnglishPage() {
                 >
                   Book Free Assessment
                 </Link>
-                <Link
-                  href={`#${qualificationsId}`}
-                  className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition"
-                >
-                  Explore Qualifications
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* SECTION 2: QUALIFICATIONS OVERVIEW */}
-        <section
-          id={qualificationsId}
-          className="bg-white py-14 scroll-mt-24"
-        >
-          <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-3xl font-bold text-navy-900 mb-4 text-center">
-              English Across All Qualifications
-            </h2>
-            <p className="text-navy-600 mb-10 text-center">
-              Expert Dubai English tutoring tailored to your curriculum
-            </p>
-
-            <div className="grid md:grid-cols-5 gap-6">
-              <div className="group bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
-                <span className="text-xs bg-purple-600 text-white px-3 py-1 rounded-full mb-3 inline-block">
-                  Ages 3-11
-                </span>
-                <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  Primary
-                </h3>
-                <p className="text-sm text-navy-600 mb-3">UK National Curriculum</p>
-                <p className="text-sm text-navy-700 mb-4">
-                  Building reading confidence, writing skills, and communication.
-                </p>
-              </div>
-
-              <div className="group bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
-                <span className="text-xs bg-purple-600 text-white px-3 py-1 rounded-full mb-3 inline-block">
-                  Ages 11-14
-                </span>
-                <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  Key Stage 3
-                </h3>
-                <p className="text-sm text-navy-600 mb-3">UK National Curriculum</p>
-                <p className="text-sm text-navy-700 mb-4">
-                  Preparing for GCSE with comprehensive language and literature skills.
-                </p>
-              </div>
-
-              <div className="group bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
-                <span className="text-xs bg-purple-600 text-white px-3 py-1 rounded-full mb-3 inline-block">
-                  Ages 14-16
-                </span>
-                <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  GCSE/IGCSE English Language
-                </h3>
-                <p className="text-sm text-navy-600 mb-3">AQA, Edexcel, OCR, Cambridge</p>
-                <p className="text-sm text-navy-700 mb-4">
-                  Reading, writing, speaking, and listening skills.
-                </p>
-              </div>
-
-              <div className="group bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
-                <span className="text-xs bg-purple-600 text-white px-3 py-1 rounded-full mb-3 inline-block">
-                  Ages 14-16
-                </span>
-                <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  GCSE/IGCSE English Literature
-                </h3>
-                <p className="text-sm text-navy-600 mb-3">AQA, Edexcel, OCR, Cambridge</p>
-                <p className="text-sm text-navy-700 mb-4">
-                  Poetry, prose, drama, and Shakespeare analysis.
-                </p>
-              </div>
-
-              <div className="group bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
-                <span className="text-xs bg-purple-600 text-white px-3 py-1 rounded-full mb-3 inline-block">
-                  Ages 16-18
-                </span>
-                <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  A-Level/IB English Literature
-                </h3>
-                <p className="text-sm text-navy-600 mb-3">AQA, Edexcel, OCR, IB</p>
-                <p className="text-sm text-navy-700 mb-4">
-                  Advanced literary analysis and critical thinking.
-                </p>
               </div>
             </div>
           </div>
@@ -345,14 +256,16 @@ export default function EnglishPage() {
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
                   Language Skills
                 </h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Reading comprehension</li>
-                  <li>Creative writing</li>
-                  <li>Descriptive and narrative writing</li>
-                  <li>Grammar and punctuation</li>
-                  <li>Vocabulary development</li>
-                  <li>Speaking and listening</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Reading comprehension",
+                    "Creative writing",
+                    "Descriptive and narrative writing",
+                    "Grammar and punctuation",
+                    "Vocabulary development",
+                    "Speaking and listening",
+                  ]}
+                />
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -362,14 +275,16 @@ export default function EnglishPage() {
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
                   Literary Analysis
                 </h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Poetry analysis</li>
-                  <li>Prose and fiction study</li>
-                  <li>Drama and Shakespeare</li>
-                  <li>Literary techniques</li>
-                  <li>Character and theme analysis</li>
-                  <li>Context and interpretation</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Poetry analysis",
+                    "Prose and fiction study",
+                    "Drama and Shakespeare",
+                    "Literary techniques",
+                    "Character and theme analysis",
+                    "Context and interpretation",
+                  ]}
+                />
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -379,14 +294,16 @@ export default function EnglishPage() {
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
                   Exam Skills
                 </h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Essay structure and planning</li>
-                  <li>Analytical writing technique</li>
-                  <li>Comparative analysis</li>
-                  <li>Extract analysis</li>
-                  <li>Timed writing practice</li>
-                  <li>Critical evaluation</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Essay structure and planning",
+                    "Analytical writing technique",
+                    "Comparative analysis",
+                    "Extract analysis",
+                    "Timed writing practice",
+                    "Critical evaluation",
+                  ]}
+                />
               </div>
             </div>
           </div>
@@ -407,16 +324,16 @@ export default function EnglishPage() {
                 <h3 className="text-2xl font-bold text-navy-900 mb-4">
                   Primary to GCSE/IGCSE English
                 </h3>
-                <p className="text-navy-700 mb-4">
-                  Building reading confidence, writing skills, and analytical thinking. We focus on comprehension, creative expression, and developing a love of literature.
-                </p>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Fundamental reading and writing skills</li>
-                  <li>Grammar and vocabulary development</li>
-                  <li>Creative and analytical writing</li>
-                  <li>Text analysis and interpretation</li>
-                  <li>Exam technique for top grades</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Build fundamental reading and writing skills",
+                    "Develop grammar and vocabulary",
+                    "Creative and analytical writing practice",
+                    "Text analysis and interpretation",
+                    "Comprehension and critical thinking",
+                    "Exam technique for top grades",
+                  ]}
+                />
               </div>
 
               <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-8">
@@ -426,16 +343,16 @@ export default function EnglishPage() {
                 <h3 className="text-2xl font-bold text-navy-900 mb-4">
                   A-Level & IB English Literature
                 </h3>
-                <p className="text-navy-700 mb-4">
-                  Advanced literary analysis, critical thinking, and sophisticated essay writing. We cover major texts, contextual understanding, and preparing for demanding exams.
-                </p>
-                <ul className="space-y-2 text-navy-700">
-                  <li>In-depth textual analysis</li>
-                  <li>Critical theory and perspectives</li>
-                  <li>Advanced essay writing</li>
-                  <li>Comparative literature</li>
-                  <li>University entrance preparation</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Advanced literary analysis",
+                    "Critical theory and perspectives",
+                    "Sophisticated essay writing technique",
+                    "Comparative literature study",
+                    "University entrance preparation",
+                    "Rigorous text analysis",
+                  ]}
+                />
               </div>
             </div>
           </div>

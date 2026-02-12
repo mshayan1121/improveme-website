@@ -19,6 +19,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../../../components/ui/accordion";
+import { BulletList } from "../../../components/ui/bullet-list";
 
 export const metadata: Metadata = {
   title: "Business Studies Tutoring Dubai | GCSE, IGCSE, A-Level, IB",
@@ -106,20 +107,98 @@ export default function BusinessStudiesPage() {
           <div className="max-w-7xl mx-auto px-4">
             <h2 className="text-3xl font-bold text-navy-900 mb-4 text-center">Business Studies Across All Qualifications</h2>
             <p className="text-navy-600 mb-10 text-center">Expert Dubai business studies tutoring tailored to your curriculum</p>
-            <div className="grid md:grid-cols-4 gap-6">
-              {[
-                { name: "GCSE", age: "Ages 14-16", boards: "AQA, Edexcel, OCR", desc: "Foundation to Higher tier, targeting grades 7-9." },
-                { name: "IGCSE", age: "Ages 14-16", boards: "Cambridge, Edexcel", desc: "International curriculum with global recognition." },
-                { name: "A-Level", age: "Ages 16-18", boards: "AQA, Edexcel, OCR", desc: "Advanced level for university preparation." },
-                { name: "IB", age: "Ages 16-18", boards: "Business Management", desc: "International Baccalaureate standard and higher level." },
-              ].map((qual) => (
-                <div key={qual.name} className="group bg-gradient-to-br from-amber-50 to-amber-100 border border-amber-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
-                  <span className="text-xs bg-amber-600 text-white px-3 py-1 rounded-full mb-3 inline-block">{qual.age}</span>
-                  <h3 className="text-xl font-bold text-navy-900 mb-2">{qual.name}</h3>
-                  <p className="text-sm text-navy-600 mb-3">{qual.boards}</p>
-                  <p className="text-sm text-navy-700 mb-4">{qual.desc}</p>
+            <div className="overflow-x-auto pb-4 scrollbar-hide">
+              <div className="grid grid-flow-col auto-cols-[200px] sm:auto-cols-[220px] lg:auto-cols-[240px] xl:auto-cols-[260px] gap-6 px-4">
+              <Link href="/curriculum/secondary/gcse/business-studies" className="block h-full">
+                <div className="group bg-gradient-to-br from-green-500 to-green-600 rounded-xl p-3 min-h-[220px] h-full flex flex-col hover:scale-105 hover:shadow-2xl transition-all cursor-pointer">
+                  <div className="bg-white/20 backdrop-blur-sm text-white px-2.5 py-1 rounded-full text-[10px] font-semibold mb-2 inline-block w-fit">
+                    Ages 14-16
+                  </div>
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 w-10 h-10 mx-auto mb-2 flex items-center justify-center">
+                    <Briefcase className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white text-center mb-1">GCSE</h3>
+                  <p className="text-white/90 text-[10px] text-center mb-2">
+                    AQA, Edexcel, OCR
+                  </p>
+                  <p className="text-white/90 text-xs text-center mb-2 flex-grow leading-tight">
+                    Build strong business fundamentals—marketing, operations, finance,
+                    and enterprise—plus case study and exam technique.
+                  </p>
+                  <div className="flex items-center justify-center gap-1.5 text-white/80 text-[10px] mt-auto transition-colors group-hover:text-white">
+                    <span>Learn more about GCSE Business Studies</span>
+                    <ArrowRight className="w-2.5 h-2.5" />
+                  </div>
                 </div>
-              ))}
+              </Link>
+
+              <Link href="/curriculum/secondary/igcse/business-studies" className="block h-full">
+                <div className="group bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl p-3 min-h-[220px] h-full flex flex-col hover:scale-105 hover:shadow-2xl transition-all cursor-pointer">
+                  <div className="bg-white/20 backdrop-blur-sm text-white px-2.5 py-1 rounded-full text-[10px] font-semibold mb-2 inline-block w-fit">
+                    Ages 14-16
+                  </div>
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 w-10 h-10 mx-auto mb-2 flex items-center justify-center">
+                    <Briefcase className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white text-center mb-1">IGCSE</h3>
+                  <p className="text-white/90 text-[10px] text-center mb-2">
+                    Cambridge, Edexcel
+                  </p>
+                  <p className="text-white/90 text-xs text-center mb-2 flex-grow leading-tight">
+                    International pathway covering business activity, marketing,
+                    finance, and operations—supported by structured past paper practice.
+                  </p>
+                  <div className="flex items-center justify-center gap-1.5 text-white/80 text-[10px] mt-auto transition-colors group-hover:text-white">
+                    <span>Learn more about IGCSE Business Studies</span>
+                    <ArrowRight className="w-2.5 h-2.5" />
+                  </div>
+                </div>
+              </Link>
+
+              <Link href="/curriculum/secondary/a-level/business-studies" className="block h-full">
+                <div className="group bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl p-3 min-h-[220px] h-full flex flex-col hover:scale-105 hover:shadow-2xl transition-all cursor-pointer">
+                  <div className="bg-white/20 backdrop-blur-sm text-white px-2.5 py-1 rounded-full text-[10px] font-semibold mb-2 inline-block w-fit">
+                    Ages 16-18
+                  </div>
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 w-10 h-10 mx-auto mb-2 flex items-center justify-center">
+                    <Briefcase className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white text-center mb-1">A-Level</h3>
+                  <p className="text-white/90 text-[10px] text-center mb-2">
+                    AQA, Edexcel, OCR
+                  </p>
+                  <p className="text-white/90 text-xs text-center mb-2 flex-grow leading-tight">
+                    Advanced analysis of strategy, leadership, finance, and market
+                    environments—ideal for university preparation.
+                  </p>
+                  <div className="flex items-center justify-center gap-1.5 text-white/80 text-[10px] mt-auto transition-colors group-hover:text-white">
+                    <span>Learn more about A-Level Business Studies</span>
+                    <ArrowRight className="w-2.5 h-2.5" />
+                  </div>
+                </div>
+              </Link>
+
+              <Link href="/curriculum/secondary/ib/business-studies" className="block h-full">
+                <div className="group bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl p-3 min-h-[220px] h-full flex flex-col hover:scale-105 hover:shadow-2xl transition-all cursor-pointer">
+                  <div className="bg-white/20 backdrop-blur-sm text-white px-2.5 py-1 rounded-full text-[10px] font-semibold mb-2 inline-block w-fit">
+                    Ages 16-18
+                  </div>
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 w-10 h-10 mx-auto mb-2 flex items-center justify-center">
+                    <Briefcase className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white text-center mb-1">IB Business</h3>
+                  <p className="text-white/90 text-[10px] text-center mb-2">SL &amp; HL</p>
+                  <p className="text-white/90 text-xs text-center mb-2 flex-grow leading-tight">
+                    Business Management support—case study skills, quantitative tools,
+                    and strong evaluation for exams and Internal Assessment.
+                  </p>
+                  <div className="flex items-center justify-center gap-1.5 text-white/80 text-[10px] mt-auto transition-colors group-hover:text-white">
+                    <span>Learn more about IB Business</span>
+                    <ArrowRight className="w-2.5 h-2.5" />
+                  </div>
+                </div>
+              </Link>
+              </div>
             </div>
           </div>
         </section>
@@ -131,38 +210,44 @@ export default function BusinessStudiesPage() {
               <div className="bg-white rounded-xl p-6 border border-gray-200">
                 <Building2 className="w-10 h-10 text-amber-600 mb-4" />
                 <h3 className="text-xl font-bold text-navy-900 mb-4">Business Fundamentals</h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Enterprise and entrepreneurship</li>
-                  <li>Business planning</li>
-                  <li>Stakeholders and objectives</li>
-                  <li>Business structures</li>
-                  <li>Legal structures</li>
-                  <li>Business growth</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Enterprise and entrepreneurship",
+                    "Business planning",
+                    "Stakeholders and objectives",
+                    "Business structures",
+                    "Legal structures",
+                    "Business growth",
+                  ]}
+                />
               </div>
               <div className="bg-white rounded-xl p-6 border border-gray-200">
                 <BarChart3 className="w-10 h-10 text-amber-600 mb-4" />
                 <h3 className="text-xl font-bold text-navy-900 mb-4">Functional Areas</h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Marketing and market research</li>
-                  <li>Finance and accounts</li>
-                  <li>Operations management</li>
-                  <li>Human resources</li>
-                  <li>Supply chain</li>
-                  <li>Quality management</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Marketing and market research",
+                    "Finance and accounts",
+                    "Operations management",
+                    "Human resources",
+                    "Supply chain",
+                    "Quality management",
+                  ]}
+                />
               </div>
               <div className="bg-white rounded-xl p-6 border border-gray-200">
                 <Briefcase className="w-10 h-10 text-amber-600 mb-4" />
                 <h3 className="text-xl font-bold text-navy-900 mb-4">Strategy & Analysis</h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Decision-making frameworks</li>
-                  <li>Case study analysis</li>
-                  <li>Business environment (PESTLE)</li>
-                  <li>Competitive analysis (Porter&apos;s 5 Forces)</li>
-                  <li>Strategic planning</li>
-                  <li>Global business</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Decision-making frameworks",
+                    "Case study analysis",
+                    "Business environment (PESTLE)",
+                    "Competitive analysis (Porter's 5 Forces)",
+                    "Strategic planning",
+                    "Global business",
+                  ]}
+                />
               </div>
             </div>
           </div>
@@ -175,24 +260,28 @@ export default function BusinessStudiesPage() {
               <div className="bg-blue-50 border border-blue-200 rounded-xl p-8">
                 <span className="bg-blue-600 text-white px-4 py-1 rounded-full mb-4 inline-block text-sm">Foundation Level</span>
                 <h3 className="text-2xl font-bold text-navy-900 mb-4">GCSE/IGCSE Business Studies</h3>
-                <p className="text-navy-700 mb-4">Introduction to business concepts, functional areas, and decision-making. We use real business examples and develop case study analysis skills.</p>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Fundamental business concepts</li>
-                  <li>Functional area understanding</li>
-                  <li>Case study analysis</li>
-                  <li>Exam technique for top grades</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Fundamental business concepts",
+                    "Functional area understanding",
+                    "Case study analysis",
+                    "Real business examples",
+                    "Exam technique for top grades",
+                  ]}
+                />
               </div>
               <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-8">
                 <span className="bg-indigo-600 text-white px-4 py-1 rounded-full mb-4 inline-block text-sm">Advanced Level</span>
                 <h3 className="text-2xl font-bold text-navy-900 mb-4">A-Level & IB Business Management</h3>
-                <p className="text-navy-700 mb-4">Advanced business strategy, detailed functional analysis, and sophisticated case study evaluation. Preparing students for university business studies.</p>
-                <ul className="space-y-2 text-navy-700">
-                  <li>In-depth strategic analysis</li>
-                  <li>Advanced case study evaluation</li>
-                  <li>Business research skills</li>
-                  <li>University entrance preparation</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "In-depth strategic analysis",
+                    "Advanced case study evaluation",
+                    "Business research skills",
+                    "University entrance preparation",
+                    "Detailed functional analysis",
+                  ]}
+                />
               </div>
             </div>
           </div>

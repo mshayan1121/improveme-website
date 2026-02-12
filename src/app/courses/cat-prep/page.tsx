@@ -23,6 +23,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../../../components/ui/accordion";
+import { BulletList } from "../../../components/ui/bullet-list";
 
 export const metadata: Metadata = {
   title: "CAT4 Test Preparation Dubai | Ages 7-13 | Improve ME Institute",
@@ -211,7 +212,7 @@ export default function CAT4PrepPage() {
             </p>
 
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="group bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
+              <div className="group bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-xl p-6 hover:shadow-lg transition flex flex-col">
                 <span className="text-xs bg-blue-600 text-white px-3 py-1 rounded-full mb-3 inline-block">
                   Ages 6-8
                 </span>
@@ -224,18 +225,19 @@ export default function CAT4PrepPage() {
                   Foundation level for younger students. Basic pattern
                   recognition and reasoning skills.
                 </p>
-                <ul className="text-sm text-navy-700 space-y-1 mb-4">
-                  <li>• Verbal reasoning basics</li>
-                  <li>• Simple patterns</li>
-                  <li>• Number sequences</li>
-                  <li>• Shape recognition</li>
-                </ul>
-                <span className="mt-auto text-blue-600 font-medium text-sm group-hover:underline">
-                  Learn More →
-                </span>
+                <BulletList
+                  items={[
+                    "Verbal reasoning basics",
+                    "Simple patterns",
+                    "Number sequences",
+                    "Shape recognition",
+                  ]}
+                  textClassName="text-navy-700 text-sm"
+                  className="mb-4"
+                />
               </div>
 
-              <div className="group bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
+              <div className="group bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-xl p-6 hover:shadow-lg transition flex flex-col">
                 <span className="text-xs bg-purple-600 text-white px-3 py-1 rounded-full mb-3 inline-block">
                   Ages 9-11
                 </span>
@@ -248,18 +250,19 @@ export default function CAT4PrepPage() {
                   Intermediate level with increased complexity and
                   problem-solving challenges.
                 </p>
-                <ul className="text-sm text-navy-700 space-y-1 mb-4">
-                  <li>• Advanced verbal reasoning</li>
-                  <li>• Complex patterns</li>
-                  <li>• Mathematical relationships</li>
-                  <li>• Spatial visualization</li>
-                </ul>
-                <span className="mt-auto text-purple-600 font-medium text-sm group-hover:underline">
-                  Learn More →
-                </span>
+                <BulletList
+                  items={[
+                    "Advanced verbal reasoning",
+                    "Complex patterns",
+                    "Mathematical relationships",
+                    "Spatial visualization",
+                  ]}
+                  textClassName="text-navy-700 text-sm"
+                  className="mb-4"
+                />
               </div>
 
-              <div className="group bg-gradient-to-br from-indigo-50 to-indigo-100 border border-indigo-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
+              <div className="group bg-gradient-to-br from-indigo-50 to-indigo-100 border border-indigo-200 rounded-xl p-6 hover:shadow-lg transition flex flex-col">
                 <span className="text-xs bg-indigo-600 text-white px-3 py-1 rounded-full mb-3 inline-block">
                   Ages 12+
                 </span>
@@ -272,15 +275,16 @@ export default function CAT4PrepPage() {
                   Advanced level for older students with sophisticated reasoning
                   and abstract thinking.
                 </p>
-                <ul className="text-sm text-navy-700 space-y-1 mb-4">
-                  <li>• Complex verbal logic</li>
-                  <li>• Abstract patterns</li>
-                  <li>• Advanced quantitative reasoning</li>
-                  <li>• 3D spatial reasoning</li>
-                </ul>
-                <span className="mt-auto text-indigo-600 font-medium text-sm group-hover:underline">
-                  Learn More →
-                </span>
+                <BulletList
+                  items={[
+                    "Complex verbal logic",
+                    "Abstract patterns",
+                    "Advanced quantitative reasoning",
+                    "3D spatial reasoning",
+                  ]}
+                  textClassName="text-navy-700 text-sm"
+                  className="mb-4"
+                />
               </div>
             </div>
           </div>
@@ -305,16 +309,17 @@ export default function CAT4PrepPage() {
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
                   Verbal Reasoning
                 </h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Word relationships</li>
-                  <li>Verbal analogies</li>
-                  <li>Verbal classification</li>
-                  <li>Word patterns</li>
-                  <li>Vocabulary building</li>
-                  <li>Comprehension skills</li>
-                  <li>Logic puzzles</li>
-                  <li>Deductive reasoning</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Word relationships and analogies",
+                    "Verbal classification exercises",
+                    "Vocabulary building techniques",
+                    "Comprehension skills",
+                    "Logic puzzles",
+                    "Deductive reasoning",
+                    "Practice tests and timed exercises",
+                  ]}
+                />
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -325,16 +330,17 @@ export default function CAT4PrepPage() {
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
                   Non-Verbal & Spatial Reasoning
                 </h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Pattern completion</li>
-                  <li>Figure matrices</li>
-                  <li>Figure classification</li>
-                  <li>3D visualization</li>
-                  <li>Mental rotation</li>
-                  <li>Figure analysis</li>
-                  <li>Shape sequences</li>
-                  <li>Spatial awareness</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Pattern completion",
+                    "Figure matrices",
+                    "Figure classification",
+                    "3D visualization",
+                    "Mental rotation exercises",
+                    "Shape sequences",
+                    "Spatial awareness training",
+                  ]}
+                />
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -345,16 +351,17 @@ export default function CAT4PrepPage() {
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
                   Quantitative Reasoning
                 </h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Number series</li>
-                  <li>Number analogies</li>
-                  <li>Number matrices</li>
-                  <li>Mathematical patterns</li>
-                  <li>Problem-solving</li>
-                  <li>Logical sequences</li>
-                  <li>Data interpretation</li>
-                  <li>Numerical relationships</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Number series and patterns",
+                    "Number analogies",
+                    "Number matrices",
+                    "Mathematical problem-solving",
+                    "Logical number sequences",
+                    "Data interpretation",
+                    "Numerical reasoning practice",
+                  ]}
+                />
               </div>
             </div>
           </div>
@@ -382,21 +389,16 @@ export default function CAT4PrepPage() {
                 <h3 className="text-2xl font-bold text-navy-900 mb-4">
                   Foundation Levels (Ages 6-10)
                 </h3>
-                <p className="text-navy-700 mb-4">
-                  Build strong reasoning foundations with comprehensive coverage
-                  of basic cognitive skills. Foundation level preparation focuses
-                  on{" "}
-                  <span className="font-semibold">Levels A, B, and C</span>{" "}
-                  for younger students entering selective schools.
-                </p>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Basic pattern recognition</li>
-                  <li>Simple verbal relationships</li>
-                  <li>Foundation number sequences</li>
-                  <li>Shape and figure identification</li>
-                  <li>Building confidence with reasoning</li>
-                  <li>Exam technique for younger students</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Master verbal reasoning basics (word relationships, analogies)",
+                    "Develop pattern recognition skills",
+                    "Build number sequence understanding",
+                    "Practice spatial awareness exercises",
+                    "Timed practice with age-appropriate materials",
+                    "Regular diagnostic assessments",
+                  ]}
+                />
               </div>
 
               <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-8">
@@ -410,20 +412,16 @@ export default function CAT4PrepPage() {
                 <h3 className="text-2xl font-bold text-navy-900 mb-4">
                   Advanced Levels (Ages 10-14)
                 </h3>
-                <p className="text-navy-700 mb-4">
-                  Master advanced reasoning for competitive school admissions.
-                  Advanced level students progress to{" "}
-                  <span className="font-semibold">Levels D, E, and F</span>{" "}
-                  for older students seeking placement in top Dubai schools.
-                </p>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Complex pattern analysis</li>
-                  <li>Advanced verbal logic</li>
-                  <li>Sophisticated quantitative reasoning</li>
-                  <li>3D spatial visualization</li>
-                  <li>Time management strategies</li>
-                  <li>Competitive exam preparation</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Complex pattern analysis and abstract reasoning",
+                    "Advanced verbal logic and deductive reasoning",
+                    "Sophisticated quantitative reasoning",
+                    "3D spatial visualization and mental rotation",
+                    "Time management strategies for exam success",
+                    "Competitive exam preparation for top Dubai schools",
+                  ]}
+                />
               </div>
             </div>
           </div>

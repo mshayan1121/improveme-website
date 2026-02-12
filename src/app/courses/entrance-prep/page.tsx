@@ -22,6 +22,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../../../components/ui/accordion";
+import { BulletList } from "../../../components/ui/bullet-list";
 
 export const metadata: Metadata = {
   title: "7+/11+ Entrance Exam Preparation Dubai | Improve ME Institute",
@@ -223,12 +224,16 @@ export default function EntrancePrepPage() {
                   Early preparation for selective prep schools. Focus on literacy,
                   numeracy, and basic reasoning skills.
                 </p>
-                <ul className="text-sm text-navy-700 space-y-1 mb-4">
-                  <li>• Reading and comprehension</li>
-                  <li>• Basic mathematics</li>
-                  <li>• Simple reasoning</li>
-                  <li>• Interview preparation</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Reading and comprehension",
+                    "Basic mathematics",
+                    "Simple reasoning",
+                    "Interview preparation",
+                  ]}
+                  textClassName="text-navy-700 text-sm"
+                  className="mb-4"
+                />
                 <span className="mt-auto text-blue-600 font-medium text-sm group-hover:underline">
                   Learn More →
                 </span>
@@ -247,12 +252,16 @@ export default function EntrancePrepPage() {
                   Building skills for 11+ preparation. Enhanced English, maths,
                   and reasoning development.
                 </p>
-                <ul className="text-sm text-navy-700 space-y-1 mb-4">
-                  <li>• Advanced comprehension</li>
-                  <li>• Problem-solving maths</li>
-                  <li>• Verbal and non-verbal reasoning</li>
-                  <li>• Exam technique</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Advanced comprehension",
+                    "Problem-solving maths",
+                    "Verbal and non-verbal reasoning",
+                    "Exam technique",
+                  ]}
+                  textClassName="text-navy-700 text-sm"
+                  className="mb-4"
+                />
                 <span className="mt-auto text-purple-600 font-medium text-sm group-hover:underline">
                   Learn More →
                 </span>
@@ -271,12 +280,16 @@ export default function EntrancePrepPage() {
                   Intensive preparation for selective secondary school admissions.
                   Comprehensive exam and interview coaching.
                 </p>
-                <ul className="text-sm text-navy-700 space-y-1 mb-4">
-                  <li>• Advanced English and maths</li>
-                  <li>• Complex reasoning</li>
-                  <li>• Mock exams</li>
-                  <li>• Interview skills</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Advanced English and maths",
+                    "Complex reasoning",
+                    "Mock exams",
+                    "Interview skills",
+                  ]}
+                  textClassName="text-navy-700 text-sm"
+                  className="mb-4"
+                />
                 <span className="mt-auto text-indigo-600 font-medium text-sm group-hover:underline">
                   Learn More →
                 </span>
@@ -301,14 +314,16 @@ export default function EntrancePrepPage() {
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
                   English & Comprehension
                 </h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Reading comprehension techniques</li>
-                  <li>Creative writing practice</li>
-                  <li>Grammar and vocabulary mastery</li>
-                  <li>Verbal reasoning drills</li>
-                  <li>Timed comprehension strategies</li>
-                  <li>Story analysis and inference</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Reading comprehension techniques",
+                    "Creative writing practice",
+                    "Grammar and vocabulary mastery",
+                    "Verbal reasoning drills",
+                    "Timed comprehension strategies",
+                    "Story analysis and inference",
+                  ]}
+                />
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -319,14 +334,16 @@ export default function EntrancePrepPage() {
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
                   Mathematics & Problem-Solving
                 </h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Arithmetic fluency and accuracy</li>
-                  <li>Problem-solving heuristics</li>
-                  <li>Number patterns and sequences</li>
-                  <li>Mental maths workouts</li>
-                  <li>Applied word problems</li>
-                  <li>Time management strategies</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Arithmetic fluency and accuracy",
+                    "Problem-solving heuristics",
+                    "Number patterns and sequences",
+                    "Mental maths workouts",
+                    "Applied word problems",
+                    "Time management strategies",
+                  ]}
+                />
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -337,14 +354,16 @@ export default function EntrancePrepPage() {
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
                   Reasoning & Interview Skills
                 </h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Non-verbal reasoning & spatial skills</li>
-                  <li>Interview preparation & etiquette</li>
-                  <li>Time management strategies</li>
-                  <li>Exam confidence coaching</li>
-                  <li>Mindset and resilience training</li>
-                  <li>Mock interview practice</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Non-verbal reasoning & spatial skills",
+                    "Interview preparation & etiquette",
+                    "Time management strategies",
+                    "Exam confidence coaching",
+                    "Mindset and resilience training",
+                    "Mock interview practice",
+                  ]}
+                />
               </div>
             </div>
           </div>
@@ -369,20 +388,16 @@ export default function EntrancePrepPage() {
                 <h3 className="text-2xl font-bold text-navy-900 mb-4">
                   7+ Preparation
                 </h3>
-                <p className="text-navy-700 mb-4">
-                  Build strong foundations for selective prep school admissions.
-                  Foundation entrance prep focuses on{" "}
-                  <span className="font-semibold">Year 2-3 students</span>{" "}
-                  preparing for 7+ examinations in Dubai.
-                </p>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Early literacy and numeracy skills</li>
-                  <li>Basic reasoning development</li>
-                  <li>Interview confidence building</li>
-                  <li>Age-appropriate exam technique</li>
-                  <li>Foundation English and maths</li>
-                  <li>Social and communication skills</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Early literacy and numeracy skills",
+                    "Basic reasoning development",
+                    "Interview confidence building",
+                    "Age-appropriate exam technique",
+                    "Foundation English and maths",
+                    "Social and communication skills",
+                  ]}
+                />
               </div>
 
               <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-8">
@@ -396,20 +411,16 @@ export default function EntrancePrepPage() {
                 <h3 className="text-2xl font-bold text-navy-900 mb-4">
                   11+ Preparation
                 </h3>
-                <p className="text-navy-700 mb-4">
-                  Master advanced entrance exam skills for competitive secondary
-                  school admissions. Advanced level students prepare for{" "}
-                  <span className="font-semibold">Year 6 examinations</span>{" "}
-                  targeting Dubai&apos;s top selective schools.
-                </p>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Advanced English and mathematics</li>
-                  <li>Complex reasoning challenges</li>
-                  <li>Comprehensive mock exam practice</li>
-                  <li>Professional interview coaching</li>
-                  <li>Competitive exam strategies</li>
-                  <li>Time management and confidence</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Advanced English and mathematics",
+                    "Complex reasoning challenges",
+                    "Comprehensive mock exam practice",
+                    "Professional interview coaching",
+                    "Competitive exam strategies",
+                    "Time management and confidence",
+                  ]}
+                />
               </div>
             </div>
           </div>

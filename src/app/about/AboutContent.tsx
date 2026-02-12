@@ -117,7 +117,7 @@ export default function AboutContent() {
                     Future-ready skills programmes including Financial Literacy, Chess Mastery, CAT4 Test Preparation, and AI Literacy
                   </li>
                   <li>
-                    A dedicated 7,000 sq ft learning facility in Gold and Diamond Park with UK-themed classrooms designed to inspire and engage young learners
+                    A dedicated 7,000 sq ft teaching facility in Gold and Diamond Park with UK-themed classrooms designed to inspire and engage young learners
                   </li>
                 </ul>
               </div>
@@ -314,7 +314,7 @@ export default function AboutContent() {
               {
                 icon: Building,
                 heading: "Dedicated Facility",
-                description: "7,000 sq ft purpose-built learning centre in Gold and Diamond Park with UK-themed classrooms and a motivating environment.",
+                description: "7,000 sq ft purpose-built teaching facility in Gold and Diamond Park with UK-themed classrooms and a motivating environment.",
               },
             ].map((benefit, index) => (
               <motion.div
@@ -531,7 +531,7 @@ export default function AboutContent() {
               Our Learning Environment
             </h2>
             <p className="text-lg text-navy-700 leading-relaxed">
-              Our 7,000 sq ft facility in Gold and Diamond Park is purpose-built to inspire and motivate young learners. With UK-themed classrooms, comfortable study spaces, and modern resources, we&apos;ve created an environment where students love to learn.
+              Our 7,000 sq ft teaching facility in Gold and Diamond Park is purpose-built to inspire and motivate young learners. With UK-themed classrooms, comfortable study spaces, and modern resources, we&apos;ve created an environment where students love to learn.
             </p>
           </motion.div>
 

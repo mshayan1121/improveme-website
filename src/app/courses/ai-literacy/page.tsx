@@ -25,6 +25,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../../../components/ui/accordion";
+import { BulletList } from "../../../components/ui/bullet-list";
 
 export const metadata: Metadata = {
   title: "AI Literacy for Children Dubai | Understanding Artificial Intelligence",
@@ -226,12 +227,16 @@ export default function AILiteracyPage() {
                   Foundations: what AI is and where it shows up. Visual,
                   game-based demos and storytelling.
                 </p>
-                <ul className="text-sm text-navy-700 space-y-1 mb-4">
-                  <li>• Understanding AI basics</li>
-                  <li>• AI in everyday life</li>
-                  <li>• Visual demonstrations</li>
-                  <li>• Interactive games</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Understanding AI basics",
+                    "AI in everyday life",
+                    "Visual demonstrations",
+                    "Interactive games",
+                  ]}
+                  textClassName="text-navy-700 text-sm"
+                  className="mb-4"
+                />
                 <span className="mt-auto text-cyan-600 font-medium text-sm group-hover:underline">
                   Learn More →
                 </span>
@@ -250,12 +255,16 @@ export default function AILiteracyPage() {
                   Deeper look at how AI works and real applications. Critical
                   thinking and bias investigations.
                 </p>
-                <ul className="text-sm text-navy-700 space-y-1 mb-4">
-                  <li>• How AI systems work</li>
-                  <li>• Machine learning basics</li>
-                  <li>• Real-world applications</li>
-                  <li>• Critical thinking skills</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "How AI systems work",
+                    "Machine learning basics",
+                    "Real-world applications",
+                    "Critical thinking skills",
+                  ]}
+                  textClassName="text-navy-700 text-sm"
+                  className="mb-4"
+                />
                 <span className="mt-auto text-blue-600 font-medium text-sm group-hover:underline">
                   Learn More →
                 </span>
@@ -274,12 +283,16 @@ export default function AILiteracyPage() {
                   Ethics, privacy, and advanced case studies. Career exploration
                   and responsible tool building.
                 </p>
-                <ul className="text-sm text-navy-700 space-y-1 mb-4">
-                  <li>• AI ethics and bias</li>
-                  <li>• Privacy and security</li>
-                  <li>• Responsible AI use</li>
-                  <li>• Career exploration</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "AI ethics and bias",
+                    "Privacy and security",
+                    "Responsible AI use",
+                    "Career exploration",
+                  ]}
+                  textClassName="text-navy-700 text-sm"
+                  className="mb-4"
+                />
                 <span className="mt-auto text-indigo-600 font-medium text-sm group-hover:underline">
                   Learn More →
                 </span>
@@ -304,14 +317,16 @@ export default function AILiteracyPage() {
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
                   AI Fundamentals
                 </h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>What is AI and machine learning?</li>
-                  <li>Narrow vs general intelligence</li>
-                  <li>AI in everyday life examples</li>
-                  <li>Data, patterns, and model training</li>
-                  <li>Algorithms and decision making</li>
-                  <li>Neural networks explained simply</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "What is AI and machine learning?",
+                    "Narrow vs general intelligence",
+                    "AI in everyday life examples",
+                    "Data, patterns, and model training",
+                    "Algorithms and decision making",
+                    "Neural networks explained simply",
+                  ]}
+                />
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -322,14 +337,16 @@ export default function AILiteracyPage() {
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
                   How AI Works
                 </h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Voice assistants and chatbots</li>
-                  <li>Image recognition and computer vision</li>
-                  <li>Natural language processing</li>
-                  <li>Recommendation engines</li>
-                  <li>Self-driving cars case studies</li>
-                  <li>Healthcare AI applications</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Voice assistants and chatbots",
+                    "Image recognition and computer vision",
+                    "Natural language processing",
+                    "Recommendation engines",
+                    "Self-driving cars case studies",
+                    "Healthcare AI applications",
+                  ]}
+                />
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -340,14 +357,16 @@ export default function AILiteracyPage() {
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
                   Ethics & Responsible Use
                 </h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>AI capabilities vs limitations</li>
-                  <li>Bias, privacy, and misinformation</li>
-                  <li>Ethical frameworks and debate</li>
-                  <li>Fact-checking and deepfake detection</li>
-                  <li>Responsible AI tool usage</li>
-                  <li>Digital safety and privacy</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "AI capabilities vs limitations",
+                    "Bias, privacy, and misinformation",
+                    "Ethical frameworks and debate",
+                    "Fact-checking and deepfake detection",
+                    "Responsible AI tool usage",
+                    "Digital safety and privacy",
+                  ]}
+                />
               </div>
             </div>
           </div>
@@ -372,20 +391,16 @@ export default function AILiteracyPage() {
                 <h3 className="text-2xl font-bold text-navy-900 mb-4">
                   Ages 10-12
                 </h3>
-                <p className="text-navy-700 mb-4">
-                  Build strong AI foundations with comprehensive coverage of
-                  basic concepts. Foundation AI literacy focuses on{" "}
-                  <span className="font-semibold">understanding what AI is</span>{" "}
-                  for younger students.
-                </p>
-                <ul className="space-y-2 text-navy-700">
-                  <li>What AI is and where it appears</li>
-                  <li>Visual demonstrations and games</li>
-                  <li>Storytelling and interactive activities</li>
-                  <li>Basic AI vocabulary</li>
-                  <li>Safe technology use</li>
-                  <li>Building curiosity and interest</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "What AI is and where it appears",
+                    "Visual demonstrations and games",
+                    "Storytelling and interactive activities",
+                    "Basic AI vocabulary",
+                    "Safe technology use",
+                    "Building curiosity and interest",
+                  ]}
+                />
               </div>
 
               <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-8">
@@ -399,20 +414,16 @@ export default function AILiteracyPage() {
                 <h3 className="text-2xl font-bold text-navy-900 mb-4">
                   Ages 13-16
                 </h3>
-                <p className="text-navy-700 mb-4">
-                  Master advanced AI concepts for critical thinking and
-                  responsible use. Advanced level students learn{" "}
-                  <span className="font-semibold">ethics, privacy, and career exploration</span>{" "}
-                  for future-ready technology understanding in Dubai.
-                </p>
-                <ul className="space-y-2 text-navy-700">
-                  <li>How AI systems work technically</li>
-                  <li>Critical thinking about AI capabilities</li>
-                  <li>Ethics, bias, and privacy concerns</li>
-                  <li>Responsible AI tool usage</li>
-                  <li>Career exploration in AI fields</li>
-                  <li>Advanced case studies and projects</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "How AI systems work technically",
+                    "Critical thinking about AI capabilities",
+                    "Ethics, bias, and privacy concerns",
+                    "Responsible AI tool usage",
+                    "Career exploration in AI fields",
+                    "Advanced case studies and projects",
+                  ]}
+                />
               </div>
             </div>
           </div>

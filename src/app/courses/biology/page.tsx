@@ -20,6 +20,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../../../components/ui/accordion";
+import { BulletList } from "../../../components/ui/bullet-list";
 
 export const metadata: Metadata = {
   title:
@@ -117,20 +118,98 @@ export default function BiologyPage() {
           <div className="max-w-7xl mx-auto px-4">
             <h2 className="text-3xl font-bold text-navy-900 mb-4 text-center">Biology Across All Qualifications</h2>
             <p className="text-navy-600 mb-10 text-center">Expert Dubai biology tutoring tailored to your curriculum</p>
-            <div className="grid md:grid-cols-4 gap-6">
-              {[
-                { name: "GCSE", age: "Ages 14-16", boards: "AQA, Edexcel, OCR", desc: "Foundation to Higher tier, targeting grades 7-9." },
-                { name: "IGCSE", age: "Ages 14-16", boards: "Cambridge, Edexcel", desc: "International curriculum with global recognition." },
-                { name: "A-Level", age: "Ages 16-18", boards: "AQA, Edexcel, OCR", desc: "Advanced level for university preparation." },
-                { name: "IB", age: "Ages 16-18", boards: "SL & HL", desc: "International Baccalaureate standard and higher level." },
-              ].map((qual) => (
-                <div key={qual.name} className="group bg-gradient-to-br from-emerald-50 to-emerald-100 border border-emerald-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
-                  <span className="text-xs bg-emerald-600 text-white px-3 py-1 rounded-full mb-3 inline-block">{qual.age}</span>
-                  <h3 className="text-xl font-bold text-navy-900 mb-2">{qual.name}</h3>
-                  <p className="text-sm text-navy-600 mb-3">{qual.boards}</p>
-                  <p className="text-sm text-navy-700 mb-4">{qual.desc}</p>
+            <div className="overflow-x-auto pb-4 scrollbar-hide">
+              <div className="grid grid-flow-col auto-cols-[200px] sm:auto-cols-[220px] lg:auto-cols-[240px] xl:auto-cols-[260px] gap-6 px-4">
+              <Link href="/curriculum/secondary/gcse/biology" className="block h-full">
+                <div className="group bg-gradient-to-br from-green-500 to-green-600 rounded-xl p-3 min-h-[220px] h-full flex flex-col hover:scale-105 hover:shadow-2xl transition-all cursor-pointer">
+                  <div className="bg-white/20 backdrop-blur-sm text-white px-2.5 py-1 rounded-full text-[10px] font-semibold mb-2 inline-block w-fit">
+                    Ages 14-16
+                  </div>
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 w-10 h-10 mx-auto mb-2 flex items-center justify-center">
+                    <Leaf className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white text-center mb-1">GCSE</h3>
+                  <p className="text-white/90 text-[10px] text-center mb-2">
+                    AQA, Edexcel, OCR
+                  </p>
+                  <p className="text-white/90 text-xs text-center mb-2 flex-grow leading-tight">
+                    Foundation to Higher tier. Covers cells, genetics, homeostasis,
+                    ecosystems, and required practicals with exam technique.
+                  </p>
+                  <div className="flex items-center justify-center gap-1.5 text-white/80 text-[10px] mt-auto transition-colors group-hover:text-white">
+                    <span>Learn more about GCSE Biology</span>
+                    <ArrowRight className="w-2.5 h-2.5" />
+                  </div>
                 </div>
-              ))}
+              </Link>
+
+              <Link href="/curriculum/secondary/igcse/biology" className="block h-full">
+                <div className="group bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl p-3 min-h-[220px] h-full flex flex-col hover:scale-105 hover:shadow-2xl transition-all cursor-pointer">
+                  <div className="bg-white/20 backdrop-blur-sm text-white px-2.5 py-1 rounded-full text-[10px] font-semibold mb-2 inline-block w-fit">
+                    Ages 14-16
+                  </div>
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 w-10 h-10 mx-auto mb-2 flex items-center justify-center">
+                    <Leaf className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white text-center mb-1">IGCSE</h3>
+                  <p className="text-white/90 text-[10px] text-center mb-2">
+                    Cambridge, Edexcel
+                  </p>
+                  <p className="text-white/90 text-xs text-center mb-2 flex-grow leading-tight">
+                    International pathway covering cell biology, human physiology,
+                    ecology, and practical skills—supported by targeted paper practice.
+                  </p>
+                  <div className="flex items-center justify-center gap-1.5 text-white/80 text-[10px] mt-auto transition-colors group-hover:text-white">
+                    <span>Learn more about IGCSE Biology</span>
+                    <ArrowRight className="w-2.5 h-2.5" />
+                  </div>
+                </div>
+              </Link>
+
+              <Link href="/curriculum/secondary/a-level/biology" className="block h-full">
+                <div className="group bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl p-3 min-h-[220px] h-full flex flex-col hover:scale-105 hover:shadow-2xl transition-all cursor-pointer">
+                  <div className="bg-white/20 backdrop-blur-sm text-white px-2.5 py-1 rounded-full text-[10px] font-semibold mb-2 inline-block w-fit">
+                    Ages 16-18
+                  </div>
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 w-10 h-10 mx-auto mb-2 flex items-center justify-center">
+                    <Leaf className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white text-center mb-1">A-Level</h3>
+                  <p className="text-white/90 text-[10px] text-center mb-2">
+                    AQA, Edexcel, OCR
+                  </p>
+                  <p className="text-white/90 text-xs text-center mb-2 flex-grow leading-tight">
+                    Advanced study of biochemistry, genetics, physiology, and
+                    experimental design—ideal preparation for medicine and life sciences.
+                  </p>
+                  <div className="flex items-center justify-center gap-1.5 text-white/80 text-[10px] mt-auto transition-colors group-hover:text-white">
+                    <span>Learn more about A-Level Biology</span>
+                    <ArrowRight className="w-2.5 h-2.5" />
+                  </div>
+                </div>
+              </Link>
+
+              <Link href="/curriculum/secondary/ib/biology" className="block h-full">
+                <div className="group bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl p-3 min-h-[220px] h-full flex flex-col hover:scale-105 hover:shadow-2xl transition-all cursor-pointer">
+                  <div className="bg-white/20 backdrop-blur-sm text-white px-2.5 py-1 rounded-full text-[10px] font-semibold mb-2 inline-block w-fit">
+                    Ages 16-18
+                  </div>
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 w-10 h-10 mx-auto mb-2 flex items-center justify-center">
+                    <Leaf className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white text-center mb-1">IB Biology</h3>
+                  <p className="text-white/90 text-[10px] text-center mb-2">SL &amp; HL</p>
+                  <p className="text-white/90 text-xs text-center mb-2 flex-grow leading-tight">
+                    Standard and Higher Level support with clear explanations, strong
+                    data handling, and Internal Assessment guidance.
+                  </p>
+                  <div className="flex items-center justify-center gap-1.5 text-white/80 text-[10px] mt-auto transition-colors group-hover:text-white">
+                    <span>Learn more about IB Biology</span>
+                    <ArrowRight className="w-2.5 h-2.5" />
+                  </div>
+                </div>
+              </Link>
+              </div>
             </div>
           </div>
         </section>
@@ -142,38 +221,44 @@ export default function BiologyPage() {
               <div className="bg-white rounded-xl p-6 border border-gray-200">
                 <Dna className="w-10 h-10 text-emerald-600 mb-4" />
                 <h3 className="text-xl font-bold text-navy-900 mb-4">Cell Biology & Genetics</h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Cell structure and function</li>
-                  <li>Cell division (mitosis and meiosis)</li>
-                  <li>DNA and protein synthesis</li>
-                  <li>Genetics and inheritance</li>
-                  <li>Evolution and natural selection</li>
-                  <li>Genetic engineering</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Cell structure and function",
+                    "Cell division (mitosis and meiosis)",
+                    "DNA and protein synthesis",
+                    "Genetics and inheritance",
+                    "Evolution and natural selection",
+                    "Genetic engineering",
+                  ]}
+                />
               </div>
               <div className="bg-white rounded-xl p-6 border border-gray-200">
                 <Heart className="w-10 h-10 text-emerald-600 mb-4" />
                 <h3 className="text-xl font-bold text-navy-900 mb-4">Human Biology</h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Organ systems</li>
-                  <li>Digestion and nutrition</li>
-                  <li>Respiration and gas exchange</li>
-                  <li>Circulation and heart</li>
-                  <li>Nervous system and hormones</li>
-                  <li>Health and disease</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Organ systems",
+                    "Digestion and nutrition",
+                    "Respiration and gas exchange",
+                    "Circulation and heart",
+                    "Nervous system and hormones",
+                    "Health and disease",
+                  ]}
+                />
               </div>
               <div className="bg-white rounded-xl p-6 border border-gray-200">
                 <Leaf className="w-10 h-10 text-emerald-600 mb-4" />
                 <h3 className="text-xl font-bold text-navy-900 mb-4">Ecology & Environment</h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Ecosystems and food webs</li>
-                  <li>Photosynthesis and respiration</li>
-                  <li>Biodiversity and classification</li>
-                  <li>Environmental impacts</li>
-                  <li>Conservation</li>
-                  <li>Field techniques</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Ecosystems and food webs",
+                    "Photosynthesis and respiration",
+                    "Biodiversity and classification",
+                    "Environmental impacts",
+                    "Conservation",
+                    "Field techniques",
+                  ]}
+                />
               </div>
             </div>
           </div>
@@ -186,24 +271,28 @@ export default function BiologyPage() {
               <div className="bg-blue-50 border border-blue-200 rounded-xl p-8">
                 <span className="bg-blue-600 text-white px-4 py-1 rounded-full mb-4 inline-block text-sm">Foundation Level</span>
                 <h3 className="text-2xl font-bold text-navy-900 mb-4">GCSE/IGCSE Biology</h3>
-                <p className="text-navy-700 mb-4">Comprehensive coverage of cell biology, human biology, and ecology. We develop practical skills, exam technique, and scientific understanding.</p>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Fundamental concepts and theories</li>
-                  <li>Core practical experiments</li>
-                  <li>Scientific method and analysis</li>
-                  <li>Exam technique for top grades</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Fundamental concepts and theories",
+                    "Core practical experiments",
+                    "Scientific method and analysis",
+                    "Cell biology, human biology, ecology",
+                    "Exam technique for top grades",
+                  ]}
+                />
               </div>
               <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-8">
                 <span className="bg-indigo-600 text-white px-4 py-1 rounded-full mb-4 inline-block text-sm">Advanced Level</span>
                 <h3 className="text-2xl font-bold text-navy-900 mb-4">A-Level & IB Biology</h3>
-                <p className="text-navy-700 mb-4">Advanced biology including biochemistry, genetics, physiology, and ecology. Preparing students for university biological sciences with detailed content and practical work.</p>
-                <ul className="space-y-2 text-navy-700">
-                  <li>In-depth theoretical understanding</li>
-                  <li>Advanced practical investigations</li>
-                  <li>Research skills and analysis</li>
-                  <li>University entrance preparation</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "In-depth theoretical understanding",
+                    "Advanced practical investigations",
+                    "Research skills and analysis",
+                    "University entrance preparation",
+                    "Biochemistry, genetics, physiology",
+                  ]}
+                />
               </div>
             </div>
           </div>

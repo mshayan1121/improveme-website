@@ -2,13 +2,13 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Users, Target, Clock, GraduationCap } from 'lucide-react';
+import { Users, Award, Star, ShieldCheck } from 'lucide-react';
 
 const stats = [
-  { Icon: Users, number: 'Max 6', label: 'per group' },
-  { Icon: Target, number: '2-3', label: 'average class size' },
-  { Icon: Clock, number: '54,000+', label: 'teaching hours yearly' },
-  { Icon: GraduationCap, number: '40+', label: 'specialist tutors' },
+  { Icon: Users, number: '1,000+', label: 'Students Yearly' },
+  { Icon: Award, number: '15', label: 'Years Experience' },
+  { Icon: Star, number: '4.8★', label: 'Google Rating' },
+  { Icon: ShieldCheck, number: 'KHDA', label: 'Approved' },
 ];
 
 export default function StatsBar() {

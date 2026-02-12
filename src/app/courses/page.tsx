@@ -349,7 +349,7 @@ export default function CoursesPage() {
               All Exam Boards
             </div>
             <div className="bg-white/20 backdrop-blur-sm rounded-full px-6 py-2 text-white font-semibold">
-              Max 6 per Class
+              KHDA Approved
             </div>
           </div>
         </div>

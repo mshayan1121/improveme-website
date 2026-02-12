@@ -223,7 +223,7 @@ export default function ContactPage() {
                 <Building2 className="w-5 h-5 text-yellow-400" />
                 <div className="text-left">
                   <span className="block font-bold text-white text-sm">7,000 sq ft</span>
-                  <span className="block text-xs text-white/80">Learning Centre</span>
+                  <span className="block text-xs text-white/80">Teaching Facility</span>
                 </div>
               </div>
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-2">
@@ -763,7 +763,7 @@ export default function ContactPage() {
               <AccordionContent>
                 <div itemProp="acceptedAnswer" itemScope itemType="https://schema.org/Answer">
                   <p itemProp="text" className="text-base text-navy-700 leading-relaxed">
-                    Absolutely! We encourage parents and students to visit our 7,000 sq ft facility in Gold & Diamond Park. You can see our UK-themed classrooms and meet our team. Call us to schedule a visit: Primary +971-50 185 2505 | Senior +971-58 547 1457
+                    Absolutely! We encourage parents and students to visit our 7,000 sq ft teaching facility in Gold & Diamond Park. You can see our UK-themed classrooms and meet our team. Call us to schedule a visit: Primary +971-50 185 2505 | Senior +971-58 547 1457
                   </p>
                 </div>
               </AccordionContent>

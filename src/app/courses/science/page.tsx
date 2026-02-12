@@ -19,6 +19,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../../../components/ui/accordion";
+import { BulletList } from "../../../components/ui/bullet-list";
 
 export const metadata: Metadata = {
   title: "Science Tutoring Dubai | Primary & KS3 | Improve ME Institute",
@@ -37,8 +38,6 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-video-preview": -1, "max-image-preview": "large", "max-snippet": -1 } },
   alternates: { canonical: "https://improvemeinstitute.com/courses/science" },
 };
-
-const qualificationsId = "science-qualifications";
 
 export default function SciencePage() {
   const jsonLd = {
@@ -96,29 +95,7 @@ export default function SciencePage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/contact#assessment" className="bg-yellow-400 text-navy-900 px-8 py-4 rounded-lg font-semibold hover:bg-yellow-500 transition">Book Free Assessment</Link>
-                <Link href={`#${qualificationsId}`} className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition">Explore Qualifications</Link>
               </div>
-            </div>
-          </div>
-        </section>
-
-        <section id={qualificationsId} className="bg-white py-14 scroll-mt-24">
-          <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-3xl font-bold text-navy-900 mb-4 text-center">Science Across All Levels</h2>
-            <p className="text-navy-600 mb-10 text-center">Expert Dubai science tutoring tailored to your curriculum</p>
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                { name: "Key Stage 1", age: "Ages 5-7", desc: "Building curiosity and scientific thinking through exploration." },
-                { name: "Key Stage 2", age: "Ages 7-11", desc: "Developing scientific method and practical skills." },
-                { name: "Key Stage 3", age: "Ages 11-14", desc: "Preparing for GCSE with comprehensive coverage of all sciences." },
-              ].map((qual) => (
-                <div key={qual.name} className="group bg-gradient-to-br from-green-50 to-green-100 border border-green-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col">
-                  <span className="text-xs bg-green-600 text-white px-3 py-1 rounded-full mb-3 inline-block">{qual.age}</span>
-                  <h3 className="text-xl font-bold text-navy-900 mb-2">{qual.name}</h3>
-                  <p className="text-sm text-navy-600 mb-3">UK National Curriculum</p>
-                  <p className="text-sm text-navy-700 mb-4">{qual.desc}</p>
-                </div>
-              ))}
             </div>
           </div>
         </section>
@@ -130,38 +107,44 @@ export default function SciencePage() {
               <div className="bg-white rounded-xl p-6 border border-gray-200">
                 <Leaf className="w-10 h-10 text-green-600 mb-4" />
                 <h3 className="text-xl font-bold text-navy-900 mb-4">Biology Topics</h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Living things and habitats</li>
-                  <li>Plants and animals</li>
-                  <li>Human body systems</li>
-                  <li>Life cycles and reproduction</li>
-                  <li>Evolution and inheritance</li>
-                  <li>Cells and organization</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Living things and habitats",
+                    "Plants and animals",
+                    "Human body systems",
+                    "Life cycles and reproduction",
+                    "Evolution and inheritance",
+                    "Cells and organization",
+                  ]}
+                />
               </div>
               <div className="bg-white rounded-xl p-6 border border-gray-200">
                 <Atom className="w-10 h-10 text-green-600 mb-4" />
                 <h3 className="text-xl font-bold text-navy-900 mb-4">Chemistry Topics</h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Materials and their properties</li>
-                  <li>States of matter</li>
-                  <li>Chemical reactions</li>
-                  <li>Atoms, elements, compounds</li>
-                  <li>The periodic table</li>
-                  <li>Acids and alkalis</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Materials and their properties",
+                    "States of matter",
+                    "Chemical reactions",
+                    "Atoms, elements, compounds",
+                    "The periodic table",
+                    "Acids and alkalis",
+                  ]}
+                />
               </div>
               <div className="bg-white rounded-xl p-6 border border-gray-200">
                 <Microscope className="w-10 h-10 text-green-600 mb-4" />
                 <h3 className="text-xl font-bold text-navy-900 mb-4">Physics Topics</h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Forces and motion</li>
-                  <li>Light and sound</li>
-                  <li>Electricity and magnetism</li>
-                  <li>Energy and power</li>
-                  <li>Space and the solar system</li>
-                  <li>Waves and radiation</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Forces and motion",
+                    "Light and sound",
+                    "Electricity and magnetism",
+                    "Energy and power",
+                    "Space and the solar system",
+                    "Waves and radiation",
+                  ]}
+                />
               </div>
             </div>
           </div>
@@ -174,24 +157,28 @@ export default function SciencePage() {
               <div className="bg-blue-50 border border-blue-200 rounded-xl p-8">
                 <span className="bg-blue-600 text-white px-4 py-1 rounded-full mb-4 inline-block text-sm">Primary Level</span>
                 <h3 className="text-2xl font-bold text-navy-900 mb-4">KS1-KS2 Science</h3>
-                <p className="text-navy-700 mb-4">Building curiosity and scientific thinking through practical exploration. We cover plants, animals, materials, forces, and the human body through engaging, hands-on activities.</p>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Hands-on experiments and investigations</li>
-                  <li>Scientific observation and recording</li>
-                  <li>Basic scientific concepts</li>
-                  <li>Developing scientific vocabulary</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Hands-on experiments and investigations",
+                    "Scientific observation and recording",
+                    "Plants, animals, materials, forces",
+                    "Basic scientific concepts",
+                    "Developing scientific vocabulary",
+                  ]}
+                />
               </div>
               <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-8">
                 <span className="bg-indigo-600 text-white px-4 py-1 rounded-full mb-4 inline-block text-sm">Key Stage 3</span>
                 <h3 className="text-2xl font-bold text-navy-900 mb-4">KS3 Science</h3>
-                <p className="text-navy-700 mb-4">Preparing students for GCSE with comprehensive coverage of biology, chemistry, and physics. We develop scientific method, practical skills, and exam readiness.</p>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Comprehensive coverage of all sciences</li>
-                  <li>Scientific method and investigation</li>
-                  <li>Practical skills development</li>
-                  <li>GCSE preparation</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Comprehensive coverage of biology, chemistry, physics",
+                    "Scientific method and investigation",
+                    "Practical skills development",
+                    "GCSE preparation",
+                    "Exam readiness",
+                  ]}
+                />
               </div>
             </div>
           </div>

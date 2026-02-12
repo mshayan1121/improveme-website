@@ -11,6 +11,7 @@ import {
   ArrowRight,
   Atom,
   Beaker,
+  FlaskConical,
   Microscope,
 } from "lucide-react";
 import {
@@ -19,6 +20,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../../../components/ui/accordion";
+import { BulletList } from "../../../components/ui/bullet-list";
 
 export const metadata: Metadata = {
   title:
@@ -67,8 +69,6 @@ export const metadata: Metadata = {
     canonical: "https://improvemeinstitute.com/courses/chemistry",
   },
 };
-
-const qualificationsId = "chemistry-qualifications";
 
 export default function ChemistryPage() {
   const jsonLd = {
@@ -267,135 +267,7 @@ export default function ChemistryPage() {
                 >
                   Book Free Assessment
                 </Link>
-                <Link
-                  href={`#${qualificationsId}`}
-                  className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition"
-                  aria-label="Explore chemistry qualifications we teach in Dubai"
-                >
-                  Explore Qualifications
-                </Link>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* SECTION 2: QUALIFICATIONS OVERVIEW */}
-        <section
-          id={qualificationsId}
-          className="bg-white py-14 scroll-mt-24"
-          aria-labelledby="chemistry-qualifications-heading"
-        >
-          <div className="max-w-7xl mx-auto px-4">
-            <h2
-              id="chemistry-qualifications-heading"
-              className="text-3xl font-bold text-navy-900 mb-4 text-center"
-            >
-              Chemistry Across All Qualifications
-            </h2>
-            <p className="text-navy-600 mb-10 text-center">
-              Expert Dubai chemistry tutoring tailored to your curriculum
-            </p>
-
-            <div className="grid md:grid-cols-5 gap-6">
-              <Link
-                href="/courses/gcse-chemistry"
-                className="group bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col"
-                aria-label="Learn more about GCSE Chemistry tutoring in Dubai"
-              >
-                <span className="text-xs bg-blue-600 text-white px-3 py-1 rounded-full mb-3 inline-block">
-                  Years 10-11
-                </span>
-                <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  GCSE Chemistry
-                </h3>
-                <p className="text-sm text-navy-600 mb-3">AQA, Edexcel, OCR</p>
-                <p className="text-sm text-navy-700 mb-4">
-                  Foundation to Higher tier, targeting grades 7-9.
-                </p>
-                <span className="mt-auto text-blue-600 font-medium text-sm group-hover:underline">
-                  Learn More →
-                </span>
-              </Link>
-
-              <Link
-                href="/courses/igcse-chemistry"
-                className="group bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col"
-                aria-label="Learn more about IGCSE Chemistry tutoring in Dubai"
-              >
-                <span className="text-xs bg-purple-600 text-white px-3 py-1 rounded-full mb-3 inline-block">
-                  Years 10-11
-                </span>
-                <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  IGCSE Chemistry
-                </h3>
-                <p className="text-sm text-navy-600 mb-3">Cambridge, Edexcel</p>
-                <p className="text-sm text-navy-700 mb-4">
-                  International curriculum with global recognition.
-                </p>
-                <span className="mt-auto text-purple-600 font-medium text-sm group-hover:underline">
-                  Learn More →
-                </span>
-              </Link>
-
-              <Link
-                href="/courses/myp-chemistry"
-                className="group bg-gradient-to-br from-teal-50 to-teal-100 border border-teal-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col"
-                aria-label="Learn more about MYP Chemistry tutoring in Dubai"
-              >
-                <span className="text-xs bg-teal-600 text-white px-3 py-1 rounded-full mb-3 inline-block">
-                  Years 7-11
-                </span>
-                <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  MYP Chemistry
-                </h3>
-                <p className="text-sm text-navy-600 mb-3">IB Middle Years</p>
-                <p className="text-sm text-navy-700 mb-4">
-                  Inquiry-based learning for IB pathway students.
-                </p>
-                <span className="mt-auto text-teal-600 font-medium text-sm group-hover:underline">
-                  Learn More →
-                </span>
-              </Link>
-
-              <Link
-                href="/courses/a-level-chemistry"
-                className="group bg-gradient-to-br from-indigo-50 to-indigo-100 border border-indigo-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col"
-                aria-label="Learn more about A-Level Chemistry tutoring in Dubai"
-              >
-                <span className="text-xs bg-indigo-600 text-white px-3 py-1 rounded-full mb-3 inline-block">
-                  Years 12-13
-                </span>
-                <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  A-Level Chemistry
-                </h3>
-                <p className="text-sm text-navy-600 mb-3">AQA, Edexcel, OCR</p>
-                <p className="text-sm text-navy-700 mb-4">
-                  Advanced level for university preparation in Dubai.
-                </p>
-                <span className="mt-auto text-indigo-600 font-medium text-sm group-hover:underline">
-                  Learn More →
-                </span>
-              </Link>
-
-              <Link
-                href="/courses/ib-chemistry"
-                className="group bg-gradient-to-br from-green-50 to-green-100 border border-green-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer flex flex-col"
-                aria-label="Learn more about IB Chemistry tutoring in Dubai"
-              >
-                <span className="text-xs bg-green-600 text-white px-3 py-1 rounded-full mb-3 inline-block">
-                  Years 12-13
-                </span>
-                <h3 className="text-xl font-bold text-navy-900 mb-2">
-                  IB Chemistry
-                </h3>
-                <p className="text-sm text-navy-600 mb-3">SL &amp; HL</p>
-                <p className="text-sm text-navy-700 mb-4">
-                  International Baccalaureate standard and higher level.
-                </p>
-                <span className="mt-auto text-green-600 font-medium text-sm group-hover:underline">
-                  Learn More →
-                </span>
-              </Link>
             </div>
           </div>
         </section>
@@ -416,14 +288,16 @@ export default function ChemistryPage() {
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
                   Core Topics
                 </h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Atomic structure and periodic table</li>
-                  <li>Chemical bonding and structures</li>
-                  <li>Stoichiometry and equations</li>
-                  <li>Energetics and thermodynamics</li>
-                  <li>Kinetics and equilibrium</li>
-                  <li>Acids, bases, and salts</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Atomic structure and periodic table",
+                    "Chemical bonding and structures",
+                    "Stoichiometry and equations",
+                    "Energetics and thermodynamics",
+                    "Kinetics and equilibrium",
+                    "Acids, bases, and salts",
+                  ]}
+                />
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -434,14 +308,16 @@ export default function ChemistryPage() {
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
                   Advanced Concepts
                 </h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Organic chemistry mechanisms</li>
-                  <li>Redox and electrochemistry</li>
-                  <li>Transition metals</li>
-                  <li>Spectroscopic techniques</li>
-                  <li>Chemical analysis</li>
-                  <li>Green chemistry principles</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Organic chemistry mechanisms",
+                    "Redox and electrochemistry",
+                    "Transition metals",
+                    "Spectroscopic techniques",
+                    "Chemical analysis",
+                    "Green chemistry principles",
+                  ]}
+                />
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -452,14 +328,16 @@ export default function ChemistryPage() {
                 <h3 className="text-xl font-bold text-navy-900 mb-4">
                   Practical Skills
                 </h3>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Laboratory techniques</li>
-                  <li>Data collection and analysis</li>
-                  <li>Graph plotting and interpretation</li>
-                  <li>Risk assessment</li>
-                  <li>Internal assessments (IA)</li>
-                  <li>Experimental design</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Laboratory techniques",
+                    "Data collection and analysis",
+                    "Graph plotting and interpretation",
+                    "Risk assessment",
+                    "Internal assessments (IA)",
+                    "Experimental design",
+                  ]}
+                />
               </div>
             </div>
           </div>
@@ -499,13 +377,15 @@ export default function ChemistryPage() {
                   </Link>{" "}
                   examinations in Dubai.
                 </p>
-                <ul className="space-y-2 text-navy-700">
-                  <li>Fundamental concepts and theories</li>
-                  <li>Core practical experiments</li>
-                  <li>Equation writing and balancing</li>
-                  <li>Calculation skills</li>
-                  <li>Exam technique for top grades</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "Fundamental concepts and theories",
+                    "Core practical experiments",
+                    "Equation writing and balancing",
+                    "Calculation skills",
+                    "Exam technique for top grades",
+                  ]}
+                />
                 <div className="mt-6 flex flex-wrap gap-3 text-sm font-medium">
                   <Link
                     href="/courses/gcse-chemistry"
@@ -556,13 +436,15 @@ export default function ChemistryPage() {
                   </Link>{" "}
                   for competitive university preparation in Dubai.
                 </p>
-                <ul className="space-y-2 text-navy-700">
-                  <li>In-depth theoretical understanding</li>
-                  <li>Complex organic mechanisms</li>
-                  <li>Advanced practical investigations</li>
-                  <li>Internal assessments and coursework</li>
-                  <li>University entrance preparation</li>
-                </ul>
+                <BulletList
+                  items={[
+                    "In-depth theoretical understanding",
+                    "Complex organic mechanisms",
+                    "Advanced practical investigations",
+                    "Internal assessments and coursework",
+                    "University entrance preparation",
+                  ]}
+                />
                 <div className="mt-6 flex flex-wrap gap-3 text-sm font-medium">
                   <Link
                     href="/courses/a-level-chemistry"
