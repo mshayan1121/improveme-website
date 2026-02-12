@@ -110,10 +110,10 @@ export function SubjectQualificationsGrid({
   return (
     <div
       className={[
-        "grid gap-6",
-        "sm:grid-cols-2",
-        "lg:grid-cols-3",
-        "xl:grid-cols-5",
+        "grid gap-6 justify-center",
+        // Auto-fit columns keeps the whole row centered even with fewer cards.
+        // Each card column stays within a pleasant width range (matches the design reference).
+        "grid-cols-[repeat(auto-fit,minmax(220px,260px))]",
         className,
       ]
         .filter(Boolean)

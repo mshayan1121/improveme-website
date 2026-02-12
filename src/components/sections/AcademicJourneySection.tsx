@@ -129,7 +129,7 @@ export default function AcademicJourneySection() {
               </div>
               <Link
                 href="/curriculum/primary"
-                className="inline-flex items-center gap-1 text-sm text-navy-600 hover:text-navy-900 font-medium mt-2"
+                className="inline-flex items-center gap-1 text-sm text-navy-600 hover:text-navy-900 font-medium mt-2 mb-2 w-fit"
               >
                 View Primary Curriculum
                 <ArrowRight className="w-4 h-4" />
@@ -165,7 +165,7 @@ export default function AcademicJourneySection() {
               </div>
               <Link
                 href="/curriculum/secondary"
-                className="inline-flex items-center gap-1 text-sm text-navy-600 hover:text-navy-900 font-medium mt-2"
+                className="inline-flex items-center gap-1 text-sm text-navy-600 hover:text-navy-900 font-medium mt-2 mb-2 w-fit"
               >
                 View Secondary Curriculum
                 <ArrowRight className="w-4 h-4" />
@@ -274,18 +274,20 @@ function StageRow({
       )}
 
       {/* Content: stage title + description (25%) then cards (75%); consistent padding between Primary and Secondary */}
-      <div className="flex-1 min-w-0 flex flex-col lg:flex-row lg:gap-4 gap-4 ml-16 sm:ml-20 md:ml-24 border-b border-gray-200 last:border-b-0 pb-12 md:pb-16 last:pb-0">
-        <div className="lg:w-[25%] lg:max-w-[14rem] shrink-0">
+      <div className="flex-1 min-w-0 ml-16 sm:ml-20 md:ml-24 border-b border-gray-200 last:border-b-0 pb-12 md:pb-16 last:pb-0">
+        <div className="min-w-0">
           <h3 className="text-xl font-extrabold text-navy-900">{stage.label}</h3>
           <p className="text-xs font-medium text-navy-600 mt-0.5">
             {stage.range}
             {stage.sub != null && ` · ${stage.sub}`}
           </p>
-          <p className="text-sm text-navy-600 mt-2 leading-tight">{stage.description}</p>
         </div>
-        <div className="lg:w-[75%] lg:min-w-0 flex-1">
+
+        <div className="mt-4">
           {children}
         </div>
+
+        <p className="text-sm text-navy-600 mt-4 leading-relaxed">{stage.description}</p>
       </div>
     </motion.div>
   );
