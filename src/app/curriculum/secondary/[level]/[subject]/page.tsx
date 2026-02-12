@@ -23,11 +23,12 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { level: string; subject: string };
+  params: Promise<{ level: string; subject: string }>;
 }): Promise<Metadata> {
-  const level = params.level as SecondaryLevelKey;
-  const subject = params.subject as SubjectKey;
-  const content = getQualificationSubjectContent(level, subject);
+  const { level, subject } = await params;
+  const levelKey = level as SecondaryLevelKey;
+  const subjectKey = subject as SubjectKey;
+  const content = getQualificationSubjectContent(levelKey, subjectKey);
   if (!content) return { title: "Secondary Curriculum | Improve ME Institute Dubai" };
 
   return {
@@ -37,20 +38,21 @@ export async function generateMetadata({
   };
 }
 
-export default function SecondaryLevelSubjectPage({
+export default async function SecondaryLevelSubjectPage({
   params,
 }: {
-  params: { level: string; subject: string };
+  params: Promise<{ level: string; subject: string }>;
 }) {
-  const level = params.level as SecondaryLevelKey;
-  const subject = params.subject as SubjectKey;
-  const content = getQualificationSubjectContent(level, subject);
+  const { level, subject } = await params;
+  const levelKey = level as SecondaryLevelKey;
+  const subjectKey = subject as SubjectKey;
+  const content = getQualificationSubjectContent(levelKey, subjectKey);
   if (!content) notFound();
 
   const breadcrumbs = [
     { href: "/", label: "Home" },
     { href: "/curriculum/secondary", label: "Secondary Curriculum" },
-    { href: `/curriculum/secondary/${level}`, label: content.qualification.label },
+    { href: `/curriculum/secondary/${levelKey}`, label: content.qualification.label },
     { label: content.subject.label },
   ];
 

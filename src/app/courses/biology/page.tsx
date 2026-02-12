@@ -4,7 +4,6 @@ import {
   Users,
   GraduationCap,
   Target,
-  TrendingUp,
   CheckCircle,
   BookOpen,
   Award,
@@ -21,6 +20,7 @@ import {
   AccordionTrigger,
 } from "../../../components/ui/accordion";
 import { BulletList } from "../../../components/ui/bullet-list";
+import { SubjectQualificationsGrid } from "@/components/sections/SubjectQualificationsGrid";
 
 export const metadata: Metadata = {
   title:
@@ -118,99 +118,7 @@ export default function BiologyPage() {
           <div className="max-w-7xl mx-auto px-4">
             <h2 className="text-3xl font-bold text-navy-900 mb-4 text-center">Biology Across All Qualifications</h2>
             <p className="text-navy-600 mb-10 text-center">Expert Dubai biology tutoring tailored to your curriculum</p>
-            <div className="overflow-x-auto pb-4 scrollbar-hide">
-              <div className="grid grid-flow-col auto-cols-[200px] sm:auto-cols-[220px] lg:auto-cols-[240px] xl:auto-cols-[260px] gap-6 px-4">
-              <Link href="/curriculum/secondary/gcse/biology" className="block h-full">
-                <div className="group bg-gradient-to-br from-green-500 to-green-600 rounded-xl p-3 min-h-[220px] h-full flex flex-col hover:scale-105 hover:shadow-2xl transition-all cursor-pointer">
-                  <div className="bg-white/20 backdrop-blur-sm text-white px-2.5 py-1 rounded-full text-[10px] font-semibold mb-2 inline-block w-fit">
-                    Ages 14-16
-                  </div>
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 w-10 h-10 mx-auto mb-2 flex items-center justify-center">
-                    <Leaf className="w-5 h-5 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white text-center mb-1">GCSE</h3>
-                  <p className="text-white/90 text-[10px] text-center mb-2">
-                    AQA, Edexcel, OCR
-                  </p>
-                  <p className="text-white/90 text-xs text-center mb-2 flex-grow leading-tight">
-                    Foundation to Higher tier. Covers cells, genetics, homeostasis,
-                    ecosystems, and required practicals with exam technique.
-                  </p>
-                  <div className="flex items-center justify-center gap-1.5 text-white/80 text-[10px] mt-auto transition-colors group-hover:text-white">
-                    <span>Learn more about GCSE Biology</span>
-                    <ArrowRight className="w-2.5 h-2.5" />
-                  </div>
-                </div>
-              </Link>
-
-              <Link href="/curriculum/secondary/igcse/biology" className="block h-full">
-                <div className="group bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl p-3 min-h-[220px] h-full flex flex-col hover:scale-105 hover:shadow-2xl transition-all cursor-pointer">
-                  <div className="bg-white/20 backdrop-blur-sm text-white px-2.5 py-1 rounded-full text-[10px] font-semibold mb-2 inline-block w-fit">
-                    Ages 14-16
-                  </div>
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 w-10 h-10 mx-auto mb-2 flex items-center justify-center">
-                    <Leaf className="w-5 h-5 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white text-center mb-1">IGCSE</h3>
-                  <p className="text-white/90 text-[10px] text-center mb-2">
-                    Cambridge, Edexcel
-                  </p>
-                  <p className="text-white/90 text-xs text-center mb-2 flex-grow leading-tight">
-                    International pathway covering cell biology, human physiology,
-                    ecology, and practical skills—supported by targeted paper practice.
-                  </p>
-                  <div className="flex items-center justify-center gap-1.5 text-white/80 text-[10px] mt-auto transition-colors group-hover:text-white">
-                    <span>Learn more about IGCSE Biology</span>
-                    <ArrowRight className="w-2.5 h-2.5" />
-                  </div>
-                </div>
-              </Link>
-
-              <Link href="/curriculum/secondary/a-level/biology" className="block h-full">
-                <div className="group bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl p-3 min-h-[220px] h-full flex flex-col hover:scale-105 hover:shadow-2xl transition-all cursor-pointer">
-                  <div className="bg-white/20 backdrop-blur-sm text-white px-2.5 py-1 rounded-full text-[10px] font-semibold mb-2 inline-block w-fit">
-                    Ages 16-18
-                  </div>
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 w-10 h-10 mx-auto mb-2 flex items-center justify-center">
-                    <Leaf className="w-5 h-5 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white text-center mb-1">A-Level</h3>
-                  <p className="text-white/90 text-[10px] text-center mb-2">
-                    AQA, Edexcel, OCR
-                  </p>
-                  <p className="text-white/90 text-xs text-center mb-2 flex-grow leading-tight">
-                    Advanced study of biochemistry, genetics, physiology, and
-                    experimental design—ideal preparation for medicine and life sciences.
-                  </p>
-                  <div className="flex items-center justify-center gap-1.5 text-white/80 text-[10px] mt-auto transition-colors group-hover:text-white">
-                    <span>Learn more about A-Level Biology</span>
-                    <ArrowRight className="w-2.5 h-2.5" />
-                  </div>
-                </div>
-              </Link>
-
-              <Link href="/curriculum/secondary/ib/biology" className="block h-full">
-                <div className="group bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl p-3 min-h-[220px] h-full flex flex-col hover:scale-105 hover:shadow-2xl transition-all cursor-pointer">
-                  <div className="bg-white/20 backdrop-blur-sm text-white px-2.5 py-1 rounded-full text-[10px] font-semibold mb-2 inline-block w-fit">
-                    Ages 16-18
-                  </div>
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 w-10 h-10 mx-auto mb-2 flex items-center justify-center">
-                    <Leaf className="w-5 h-5 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white text-center mb-1">IB Biology</h3>
-                  <p className="text-white/90 text-[10px] text-center mb-2">SL &amp; HL</p>
-                  <p className="text-white/90 text-xs text-center mb-2 flex-grow leading-tight">
-                    Standard and Higher Level support with clear explanations, strong
-                    data handling, and Internal Assessment guidance.
-                  </p>
-                  <div className="flex items-center justify-center gap-1.5 text-white/80 text-[10px] mt-auto transition-colors group-hover:text-white">
-                    <span>Learn more about IB Biology</span>
-                    <ArrowRight className="w-2.5 h-2.5" />
-                  </div>
-                </div>
-              </Link>
-              </div>
-            </div>
+            <SubjectQualificationsGrid subject="biology" />
           </div>
         </section>
 
@@ -257,40 +165,6 @@ export default function BiologyPage() {
                     "Environmental impacts",
                     "Conservation",
                     "Field techniques",
-                  ]}
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-white py-14">
-          <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-3xl font-bold text-navy-900 mb-10 text-center">Biology by Level</h2>
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              <div className="bg-blue-50 border border-blue-200 rounded-xl p-8">
-                <span className="bg-blue-600 text-white px-4 py-1 rounded-full mb-4 inline-block text-sm">Foundation Level</span>
-                <h3 className="text-2xl font-bold text-navy-900 mb-4">GCSE/IGCSE Biology</h3>
-                <BulletList
-                  items={[
-                    "Fundamental concepts and theories",
-                    "Core practical experiments",
-                    "Scientific method and analysis",
-                    "Cell biology, human biology, ecology",
-                    "Exam technique for top grades",
-                  ]}
-                />
-              </div>
-              <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-8">
-                <span className="bg-indigo-600 text-white px-4 py-1 rounded-full mb-4 inline-block text-sm">Advanced Level</span>
-                <h3 className="text-2xl font-bold text-navy-900 mb-4">A-Level & IB Biology</h3>
-                <BulletList
-                  items={[
-                    "In-depth theoretical understanding",
-                    "Advanced practical investigations",
-                    "Research skills and analysis",
-                    "University entrance preparation",
-                    "Biochemistry, genetics, physiology",
                   ]}
                 />
               </div>

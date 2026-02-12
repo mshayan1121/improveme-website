@@ -4,7 +4,6 @@ import {
   Users,
   GraduationCap,
   Target,
-  TrendingUp,
   CheckCircle,
   BookOpen,
   Award,
@@ -20,6 +19,7 @@ import {
   AccordionTrigger,
 } from "../../../components/ui/accordion";
 import { BulletList } from "../../../components/ui/bullet-list";
+import { SubjectQualificationsGrid } from "@/components/sections/SubjectQualificationsGrid";
 
 export const metadata: Metadata = {
   title: "Economics Tutoring Dubai | GCSE, IGCSE, A-Level, IB | Improve ME Institute",
@@ -107,99 +107,7 @@ export default function EconomicsPage() {
           <div className="max-w-7xl mx-auto px-4">
             <h2 className="text-3xl font-bold text-navy-900 mb-4 text-center">Economics Across All Qualifications</h2>
             <p className="text-navy-600 mb-10 text-center">Expert Dubai economics tutoring tailored to your curriculum</p>
-            <div className="overflow-x-auto pb-4 scrollbar-hide">
-              <div className="grid grid-flow-col auto-cols-[200px] sm:auto-cols-[220px] lg:auto-cols-[240px] xl:auto-cols-[260px] gap-6 px-4">
-              <Link href="/curriculum/secondary/gcse/economics" className="block h-full">
-                <div className="group bg-gradient-to-br from-green-500 to-green-600 rounded-xl p-3 min-h-[220px] h-full flex flex-col hover:scale-105 hover:shadow-2xl transition-all cursor-pointer">
-                  <div className="bg-white/20 backdrop-blur-sm text-white px-2.5 py-1 rounded-full text-[10px] font-semibold mb-2 inline-block w-fit">
-                    Ages 14-16
-                  </div>
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 w-10 h-10 mx-auto mb-2 flex items-center justify-center">
-                    <TrendingUp className="w-5 h-5 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white text-center mb-1">GCSE</h3>
-                  <p className="text-white/90 text-[10px] text-center mb-2">
-                    AQA, Edexcel, OCR
-                  </p>
-                  <p className="text-white/90 text-xs text-center mb-2 flex-grow leading-tight">
-                    Core micro and macro foundations—supply and demand, market
-                    failure, inflation, growth, and evaluation with strong exam technique.
-                  </p>
-                  <div className="flex items-center justify-center gap-1.5 text-white/80 text-[10px] mt-auto transition-colors group-hover:text-white">
-                    <span>Learn more about GCSE Economics</span>
-                    <ArrowRight className="w-2.5 h-2.5" />
-                  </div>
-                </div>
-              </Link>
-
-              <Link href="/curriculum/secondary/igcse/economics" className="block h-full">
-                <div className="group bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl p-3 min-h-[220px] h-full flex flex-col hover:scale-105 hover:shadow-2xl transition-all cursor-pointer">
-                  <div className="bg-white/20 backdrop-blur-sm text-white px-2.5 py-1 rounded-full text-[10px] font-semibold mb-2 inline-block w-fit">
-                    Ages 14-16
-                  </div>
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 w-10 h-10 mx-auto mb-2 flex items-center justify-center">
-                    <TrendingUp className="w-5 h-5 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white text-center mb-1">IGCSE</h3>
-                  <p className="text-white/90 text-[10px] text-center mb-2">
-                    Cambridge, Edexcel
-                  </p>
-                  <p className="text-white/90 text-xs text-center mb-2 flex-grow leading-tight">
-                    International pathway focused on diagrams, data response, and
-                    structured evaluation across core micro and macro topics.
-                  </p>
-                  <div className="flex items-center justify-center gap-1.5 text-white/80 text-[10px] mt-auto transition-colors group-hover:text-white">
-                    <span>Learn more about IGCSE Economics</span>
-                    <ArrowRight className="w-2.5 h-2.5" />
-                  </div>
-                </div>
-              </Link>
-
-              <Link href="/curriculum/secondary/a-level/economics" className="block h-full">
-                <div className="group bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl p-3 min-h-[220px] h-full flex flex-col hover:scale-105 hover:shadow-2xl transition-all cursor-pointer">
-                  <div className="bg-white/20 backdrop-blur-sm text-white px-2.5 py-1 rounded-full text-[10px] font-semibold mb-2 inline-block w-fit">
-                    Ages 16-18
-                  </div>
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 w-10 h-10 mx-auto mb-2 flex items-center justify-center">
-                    <TrendingUp className="w-5 h-5 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white text-center mb-1">A-Level</h3>
-                  <p className="text-white/90 text-[10px] text-center mb-2">
-                    AQA, Edexcel, OCR
-                  </p>
-                  <p className="text-white/90 text-xs text-center mb-2 flex-grow leading-tight">
-                    Advanced micro, macro, and global themes—deep evaluation, essay
-                    structure, and quantitative skills for top grades.
-                  </p>
-                  <div className="flex items-center justify-center gap-1.5 text-white/80 text-[10px] mt-auto transition-colors group-hover:text-white">
-                    <span>Learn more about A-Level Economics</span>
-                    <ArrowRight className="w-2.5 h-2.5" />
-                  </div>
-                </div>
-              </Link>
-
-              <Link href="/curriculum/secondary/ib/economics" className="block h-full">
-                <div className="group bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl p-3 min-h-[220px] h-full flex flex-col hover:scale-105 hover:shadow-2xl transition-all cursor-pointer">
-                  <div className="bg-white/20 backdrop-blur-sm text-white px-2.5 py-1 rounded-full text-[10px] font-semibold mb-2 inline-block w-fit">
-                    Ages 16-18
-                  </div>
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 w-10 h-10 mx-auto mb-2 flex items-center justify-center">
-                    <TrendingUp className="w-5 h-5 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white text-center mb-1">IB Economics</h3>
-                  <p className="text-white/90 text-[10px] text-center mb-2">SL &amp; HL</p>
-                  <p className="text-white/90 text-xs text-center mb-2 flex-grow leading-tight">
-                    Standard and Higher Level support—Paper 1/2/3 skills, real-world
-                    application, and Internal Assessment guidance.
-                  </p>
-                  <div className="flex items-center justify-center gap-1.5 text-white/80 text-[10px] mt-auto transition-colors group-hover:text-white">
-                    <span>Learn more about IB Economics</span>
-                    <ArrowRight className="w-2.5 h-2.5" />
-                  </div>
-                </div>
-              </Link>
-              </div>
-            </div>
+            <SubjectQualificationsGrid subject="economics" />
           </div>
         </section>
 
@@ -246,40 +154,6 @@ export default function EconomicsPage() {
                     "Essay structure and evaluation",
                     "Real-world application",
                     "Current economic issues",
-                  ]}
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-white py-14">
-          <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-3xl font-bold text-navy-900 mb-10 text-center">Economics by Level</h2>
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              <div className="bg-blue-50 border border-blue-200 rounded-xl p-8">
-                <span className="bg-blue-600 text-white px-4 py-1 rounded-full mb-4 inline-block text-sm">Foundation Level</span>
-                <h3 className="text-2xl font-bold text-navy-900 mb-4">GCSE/IGCSE Economics</h3>
-                <BulletList
-                  items={[
-                    "Fundamental economic concepts",
-                    "Basic diagrams and analysis",
-                    "Market mechanisms",
-                    "How markets and economies function",
-                    "Exam technique for top grades",
-                  ]}
-                />
-              </div>
-              <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-8">
-                <span className="bg-indigo-600 text-white px-4 py-1 rounded-full mb-4 inline-block text-sm">Advanced Level</span>
-                <h3 className="text-2xl font-bold text-navy-900 mb-4">A-Level & IB Economics</h3>
-                <BulletList
-                  items={[
-                    "In-depth theoretical understanding",
-                    "Advanced quantitative methods",
-                    "Sophisticated evaluation skills",
-                    "University entrance preparation",
-                    "Rigorous economic analysis",
                   ]}
                 />
               </div>

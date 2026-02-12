@@ -129,9 +129,10 @@ const SUBJECTS = [
 export async function generateMetadata({
   params,
 }: {
-  params: { level: string };
+  params: Promise<{ level: string }>;
 }): Promise<Metadata> {
-  const key = params.level as LevelKey;
+  const { level } = await params;
+  const key = level as LevelKey;
   const data = LEVELS[key];
 
   if (!data) {
@@ -146,12 +147,13 @@ export async function generateMetadata({
   };
 }
 
-export default function SecondaryLevelCurriculumPage({
+export default async function SecondaryLevelCurriculumPage({
   params,
 }: {
-  params: { level: string };
+  params: Promise<{ level: string }>;
 }) {
-  const key = params.level as LevelKey;
+  const { level } = await params;
+  const key = level as LevelKey;
   const data = LEVELS[key];
 
   if (!data) notFound();

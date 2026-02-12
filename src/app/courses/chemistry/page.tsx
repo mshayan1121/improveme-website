@@ -6,12 +6,9 @@ import {
   Target,
   TrendingUp,
   CheckCircle,
-  BookOpen,
-  Award,
   ArrowRight,
   Atom,
   Beaker,
-  FlaskConical,
   Microscope,
 } from "lucide-react";
 import {
@@ -21,6 +18,7 @@ import {
   AccordionTrigger,
 } from "../../../components/ui/accordion";
 import { BulletList } from "../../../components/ui/bullet-list";
+import { SubjectQualificationsGrid } from "@/components/sections/SubjectQualificationsGrid";
 
 export const metadata: Metadata = {
   title:
@@ -272,6 +270,20 @@ export default function ChemistryPage() {
           </div>
         </section>
 
+        {/* SECTION 2: QUALIFICATIONS GRID */}
+        <section className="bg-white py-14">
+          <div className="max-w-7xl mx-auto px-4">
+            <h2 className="text-3xl font-bold text-navy-900 mb-4 text-center">
+              Chemistry Across All Qualifications
+            </h2>
+            <p className="text-navy-600 mb-10 text-center">
+              Expert Dubai chemistry tutoring tailored to your curriculum
+            </p>
+
+            <SubjectQualificationsGrid subject="chemistry" />
+          </div>
+        </section>
+
         {/* SECTION 3: WHAT WE COVER */}
         <section className="bg-gray-50 py-14">
           <div className="max-w-7xl mx-auto px-4">
@@ -338,129 +350,6 @@ export default function ChemistryPage() {
                     "Experimental design",
                   ]}
                 />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* SECTION 4: BY LEVEL BREAKDOWN */}
-        <section className="bg-white py-14">
-          <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-3xl font-bold text-navy-900 mb-10 text-center">
-              Chemistry by Level
-            </h2>
-
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              <div className="bg-blue-50 border border-blue-200 rounded-xl p-8">
-                <span className="bg-blue-600 text-white px-4 py-1 rounded-full mb-4 inline-block text-sm">
-                  Foundation Level
-                </span>
-                <h3 className="text-2xl font-bold text-navy-900 mb-4">
-                  GCSE, IGCSE &amp; MYP Chemistry
-                </h3>
-                <p className="text-navy-700 mb-4">
-                  Build strong chemistry foundations with comprehensive coverage
-                  of key concepts. Foundation chemistry courses prepare students
-                  for{" "}
-                  <Link
-                    href="/courses/gcse-chemistry"
-                    className="text-blue-700 underline-offset-2 hover:underline"
-                  >
-                    GCSE Chemistry
-                  </Link>{" "}
-                  and{" "}
-                  <Link
-                    href="/courses/igcse-chemistry"
-                    className="text-blue-700 underline-offset-2 hover:underline"
-                  >
-                    IGCSE Chemistry
-                  </Link>{" "}
-                  examinations in Dubai.
-                </p>
-                <BulletList
-                  items={[
-                    "Fundamental concepts and theories",
-                    "Core practical experiments",
-                    "Equation writing and balancing",
-                    "Calculation skills",
-                    "Exam technique for top grades",
-                  ]}
-                />
-                <div className="mt-6 flex flex-wrap gap-3 text-sm font-medium">
-                  <Link
-                    href="/courses/gcse-chemistry"
-                    className="text-blue-600"
-                    aria-label="Go to GCSE Chemistry course page"
-                  >
-                    GCSE →
-                  </Link>
-                  <Link
-                    href="/courses/igcse-chemistry"
-                    className="text-blue-600"
-                    aria-label="Go to IGCSE Chemistry course page"
-                  >
-                    IGCSE →
-                  </Link>
-                  <Link
-                    href="/courses/myp-chemistry"
-                    className="text-blue-600"
-                    aria-label="Go to MYP Chemistry course page"
-                  >
-                    MYP →
-                  </Link>
-                </div>
-              </div>
-
-              <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-8">
-                <span className="bg-indigo-600 text-white px-4 py-1 rounded-full mb-4 inline-block text-sm">
-                  Advanced Level
-                </span>
-                <h3 className="text-2xl font-bold text-navy-900 mb-4">
-                  A-Level &amp; IB Chemistry
-                </h3>
-                <p className="text-navy-700 mb-4">
-                  Master advanced chemistry for university and beyond. Advanced
-                  level students progress to{" "}
-                  <Link
-                    href="/courses/a-level-chemistry"
-                    className="text-indigo-700 underline-offset-2 hover:underline"
-                  >
-                    A-Level Chemistry
-                  </Link>{" "}
-                  or{" "}
-                  <Link
-                    href="/courses/ib-chemistry"
-                    className="text-indigo-700 underline-offset-2 hover:underline"
-                  >
-                    IB Chemistry
-                  </Link>{" "}
-                  for competitive university preparation in Dubai.
-                </p>
-                <BulletList
-                  items={[
-                    "In-depth theoretical understanding",
-                    "Complex organic mechanisms",
-                    "Advanced practical investigations",
-                    "Internal assessments and coursework",
-                    "University entrance preparation",
-                  ]}
-                />
-                <div className="mt-6 flex flex-wrap gap-3 text-sm font-medium">
-                  <Link
-                    href="/courses/a-level-chemistry"
-                    className="text-indigo-600"
-                    aria-label="Go to A-Level Chemistry course page"
-                  >
-                    A-Level →
-                  </Link>
-                  <Link
-                    href="/courses/ib-chemistry"
-                    className="text-indigo-600"
-                    aria-label="Go to IB Chemistry course page"
-                  >
-                    IB Chemistry →
-                  </Link>
-                </div>
               </div>
             </div>
           </div>

@@ -4,10 +4,8 @@ import {
   Users,
   GraduationCap,
   Target,
-  TrendingUp,
   CheckCircle,
   BookOpen,
-  Award,
   ArrowRight,
   Microscope,
   Atom,
@@ -20,6 +18,7 @@ import {
   AccordionTrigger,
 } from "../../../components/ui/accordion";
 import { BulletList } from "../../../components/ui/bullet-list";
+import { SubjectQualificationsGrid } from "@/components/sections/SubjectQualificationsGrid";
 
 export const metadata: Metadata = {
   title: "Science Tutoring Dubai | Primary & KS3 | Improve ME Institute",
@@ -100,6 +99,20 @@ export default function SciencePage() {
           </div>
         </section>
 
+        {/* SECTION 2: QUALIFICATIONS GRID */}
+        <section className="bg-white py-14">
+          <div className="max-w-7xl mx-auto px-4">
+            <h2 className="text-3xl font-bold text-navy-900 mb-4 text-center">
+              Science Across All Qualifications
+            </h2>
+            <p className="text-navy-600 mb-10 text-center">
+              Expert Dubai science tutoring tailored to your curriculum
+            </p>
+
+            <SubjectQualificationsGrid subject="science" />
+          </div>
+        </section>
+
         <section className="bg-gray-50 py-14">
           <div className="max-w-7xl mx-auto px-4">
             <h2 className="text-3xl font-bold text-navy-900 mb-10 text-center">Comprehensive Science Coverage</h2>
@@ -143,40 +156,6 @@ export default function SciencePage() {
                     "Energy and power",
                     "Space and the solar system",
                     "Waves and radiation",
-                  ]}
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-white py-14">
-          <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-3xl font-bold text-navy-900 mb-10 text-center">Science by Level</h2>
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              <div className="bg-blue-50 border border-blue-200 rounded-xl p-8">
-                <span className="bg-blue-600 text-white px-4 py-1 rounded-full mb-4 inline-block text-sm">Primary Level</span>
-                <h3 className="text-2xl font-bold text-navy-900 mb-4">KS1-KS2 Science</h3>
-                <BulletList
-                  items={[
-                    "Hands-on experiments and investigations",
-                    "Scientific observation and recording",
-                    "Plants, animals, materials, forces",
-                    "Basic scientific concepts",
-                    "Developing scientific vocabulary",
-                  ]}
-                />
-              </div>
-              <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-8">
-                <span className="bg-indigo-600 text-white px-4 py-1 rounded-full mb-4 inline-block text-sm">Key Stage 3</span>
-                <h3 className="text-2xl font-bold text-navy-900 mb-4">KS3 Science</h3>
-                <BulletList
-                  items={[
-                    "Comprehensive coverage of biology, chemistry, physics",
-                    "Scientific method and investigation",
-                    "Practical skills development",
-                    "GCSE preparation",
-                    "Exam readiness",
                   ]}
                 />
               </div>

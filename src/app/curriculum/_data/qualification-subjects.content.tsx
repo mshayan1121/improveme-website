@@ -13,7 +13,12 @@ import {
   Users,
   Zap,
 } from "lucide-react";
-import type { QualificationKey, SubjectKey, QualificationSubjectContent } from "./qualification-subjects";
+import type {
+  CurriculumSectionColumn,
+  QualificationKey,
+  SubjectKey,
+  QualificationSubjectContent,
+} from "./qualification-subjects";
 import { QUALIFICATIONS, SUBJECTS } from "./qualification-subjects";
 
 type ContentKey = `${QualificationKey}:${SubjectKey}`;
@@ -578,27 +583,40 @@ function contentFor(q: QualificationKey, s: SubjectKey): QualificationSubjectCon
       ],
     } as const;
 
+    const toMutableColumns = (
+      cols: readonly {
+        readonly title: string;
+        readonly iconBgClassName: string;
+        readonly icon: React.ReactNode;
+        readonly items: readonly string[];
+      }[]
+    ): CurriculumSectionColumn[] =>
+      cols.map((c) => ({
+        ...c,
+        items: [...c.items],
+      }));
+
     switch (s) {
       case "mathematics":
-        return common.maths;
+        return toMutableColumns(common.maths);
       case "english":
-        return common.english;
+        return toMutableColumns(common.english);
       case "science":
-        return common.scienceGeneral;
+        return toMutableColumns(common.scienceGeneral);
       case "physics":
-        return common.physics;
+        return toMutableColumns(common.physics);
       case "chemistry":
-        return common.chemistry;
+        return toMutableColumns(common.chemistry);
       case "biology":
-        return common.biology;
+        return toMutableColumns(common.biology);
       case "business-studies":
-        return common.business;
+        return toMutableColumns(common.business);
       case "economics":
-        return common.economics;
+        return toMutableColumns(common.economics);
       case "psychology":
-        return common.psychology;
+        return toMutableColumns(common.psychology);
       default:
-        return common.scienceGeneral;
+        return toMutableColumns(common.scienceGeneral);
     }
   })();
 
@@ -899,7 +917,9 @@ function contentFor(q: QualificationKey, s: SubjectKey): QualificationSubjectCon
     return base.map((it) => ({
       title: it.title,
       description: it.description,
-      icon: React.cloneElement(it.icon as React.ReactElement, { className: `w-8 h-8 ${colors[1]}` }),
+      icon: React.cloneElement(it.icon as React.ReactElement<{ className?: string }>, {
+        className: `w-8 h-8 ${colors[1]}`,
+      }),
       iconBgClassName: colors[0],
       iconClassName: colors[1],
     }));

@@ -4,7 +4,6 @@ import {
   Users,
   GraduationCap,
   Target,
-  TrendingUp,
   CheckCircle,
   BookOpen,
   Award,
@@ -20,6 +19,7 @@ import {
   AccordionTrigger,
 } from "../../../components/ui/accordion";
 import { BulletList } from "../../../components/ui/bullet-list";
+import { SubjectQualificationsGrid } from "@/components/sections/SubjectQualificationsGrid";
 
 export const metadata: Metadata = {
   title: "Psychology Tutoring Dubai | GCSE, IGCSE, A-Level, IB | Improve ME Institute",
@@ -107,99 +107,7 @@ export default function PsychologyPage() {
           <div className="max-w-7xl mx-auto px-4">
             <h2 className="text-3xl font-bold text-navy-900 mb-4 text-center">Psychology Across All Qualifications</h2>
             <p className="text-navy-600 mb-10 text-center">Expert Dubai psychology tutoring tailored to your curriculum</p>
-            <div className="overflow-x-auto pb-4 scrollbar-hide">
-              <div className="grid grid-flow-col auto-cols-[200px] sm:auto-cols-[220px] lg:auto-cols-[240px] xl:auto-cols-[260px] gap-6 px-4">
-              <Link href="/curriculum/secondary/gcse/psychology" className="block h-full">
-                <div className="group bg-gradient-to-br from-green-500 to-green-600 rounded-xl p-3 min-h-[220px] h-full flex flex-col hover:scale-105 hover:shadow-2xl transition-all cursor-pointer">
-                  <div className="bg-white/20 backdrop-blur-sm text-white px-2.5 py-1 rounded-full text-[10px] font-semibold mb-2 inline-block w-fit">
-                    Ages 14-16
-                  </div>
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 w-10 h-10 mx-auto mb-2 flex items-center justify-center">
-                    <Brain className="w-5 h-5 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white text-center mb-1">GCSE</h3>
-                  <p className="text-white/90 text-[10px] text-center mb-2">
-                    AQA, Edexcel, OCR
-                  </p>
-                  <p className="text-white/90 text-xs text-center mb-2 flex-grow leading-tight">
-                    Build strong foundations in approaches and research methods—key
-                    studies, data interpretation, and structured exam responses.
-                  </p>
-                  <div className="flex items-center justify-center gap-1.5 text-white/80 text-[10px] mt-auto transition-colors group-hover:text-white">
-                    <span>Learn more about GCSE Psychology</span>
-                    <ArrowRight className="w-2.5 h-2.5" />
-                  </div>
-                </div>
-              </Link>
-
-              <Link href="/curriculum/secondary/igcse/psychology" className="block h-full">
-                <div className="group bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl p-3 min-h-[220px] h-full flex flex-col hover:scale-105 hover:shadow-2xl transition-all cursor-pointer">
-                  <div className="bg-white/20 backdrop-blur-sm text-white px-2.5 py-1 rounded-full text-[10px] font-semibold mb-2 inline-block w-fit">
-                    Ages 14-16
-                  </div>
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 w-10 h-10 mx-auto mb-2 flex items-center justify-center">
-                    <Brain className="w-5 h-5 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white text-center mb-1">IGCSE</h3>
-                  <p className="text-white/90 text-[10px] text-center mb-2">
-                    Cambridge, Edexcel
-                  </p>
-                  <p className="text-white/90 text-xs text-center mb-2 flex-grow leading-tight">
-                    International pathway focused on research methods, key concepts,
-                    and clear writing—supported by targeted past paper practice.
-                  </p>
-                  <div className="flex items-center justify-center gap-1.5 text-white/80 text-[10px] mt-auto transition-colors group-hover:text-white">
-                    <span>Learn more about IGCSE Psychology</span>
-                    <ArrowRight className="w-2.5 h-2.5" />
-                  </div>
-                </div>
-              </Link>
-
-              <Link href="/curriculum/secondary/a-level/psychology" className="block h-full">
-                <div className="group bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl p-3 min-h-[220px] h-full flex flex-col hover:scale-105 hover:shadow-2xl transition-all cursor-pointer">
-                  <div className="bg-white/20 backdrop-blur-sm text-white px-2.5 py-1 rounded-full text-[10px] font-semibold mb-2 inline-block w-fit">
-                    Ages 16-18
-                  </div>
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 w-10 h-10 mx-auto mb-2 flex items-center justify-center">
-                    <Brain className="w-5 h-5 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white text-center mb-1">A-Level</h3>
-                  <p className="text-white/90 text-[10px] text-center mb-2">
-                    AQA, Edexcel, OCR
-                  </p>
-                  <p className="text-white/90 text-xs text-center mb-2 flex-grow leading-tight">
-                    Advanced approaches, biopsychology, and research methods—essay
-                    technique, evaluation, and statistical understanding for top marks.
-                  </p>
-                  <div className="flex items-center justify-center gap-1.5 text-white/80 text-[10px] mt-auto transition-colors group-hover:text-white">
-                    <span>Learn more about A-Level Psychology</span>
-                    <ArrowRight className="w-2.5 h-2.5" />
-                  </div>
-                </div>
-              </Link>
-
-              <Link href="/curriculum/secondary/ib/psychology" className="block h-full">
-                <div className="group bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl p-3 min-h-[220px] h-full flex flex-col hover:scale-105 hover:shadow-2xl transition-all cursor-pointer">
-                  <div className="bg-white/20 backdrop-blur-sm text-white px-2.5 py-1 rounded-full text-[10px] font-semibold mb-2 inline-block w-fit">
-                    Ages 16-18
-                  </div>
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 w-10 h-10 mx-auto mb-2 flex items-center justify-center">
-                    <Brain className="w-5 h-5 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white text-center mb-1">IB Psychology</h3>
-                  <p className="text-white/90 text-[10px] text-center mb-2">SL &amp; HL</p>
-                  <p className="text-white/90 text-xs text-center mb-2 flex-grow leading-tight">
-                    Standard and Higher Level support—Paper strategy, critical
-                    thinking, and Internal Assessment guidance for confident evaluation.
-                  </p>
-                  <div className="flex items-center justify-center gap-1.5 text-white/80 text-[10px] mt-auto transition-colors group-hover:text-white">
-                    <span>Learn more about IB Psychology</span>
-                    <ArrowRight className="w-2.5 h-2.5" />
-                  </div>
-                </div>
-              </Link>
-              </div>
-            </div>
+            <SubjectQualificationsGrid subject="psychology" />
           </div>
         </section>
 
@@ -246,40 +154,6 @@ export default function PsychologyPage() {
                     "Memory and cognition",
                     "Mental health",
                     "Individual differences",
-                  ]}
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-white py-14">
-          <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-3xl font-bold text-navy-900 mb-10 text-center">Psychology by Level</h2>
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              <div className="bg-blue-50 border border-blue-200 rounded-xl p-8">
-                <span className="bg-blue-600 text-white px-4 py-1 rounded-full mb-4 inline-block text-sm">Foundation Level</span>
-                <h3 className="text-2xl font-bold text-navy-900 mb-4">GCSE/IGCSE Psychology</h3>
-                <BulletList
-                  items={[
-                    "Fundamental psychological concepts",
-                    "Basic research methods",
-                    "Classic studies and theories",
-                    "Understanding and exam technique",
-                    "Exam technique for top grades",
-                  ]}
-                />
-              </div>
-              <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-8">
-                <span className="bg-indigo-600 text-white px-4 py-1 rounded-full mb-4 inline-block text-sm">Advanced Level</span>
-                <h3 className="text-2xl font-bold text-navy-900 mb-4">A-Level & IB Psychology</h3>
-                <BulletList
-                  items={[
-                    "In-depth theoretical understanding",
-                    "Advanced research methods",
-                    "Sophisticated evaluation skills",
-                    "University entrance preparation",
-                    "Complex theories and applications",
                   ]}
                 />
               </div>

@@ -20,6 +20,7 @@ import {
   AccordionTrigger,
 } from "../../../components/ui/accordion";
 import { BulletList } from "../../../components/ui/bullet-list";
+import { SubjectQualificationsGrid } from "@/components/sections/SubjectQualificationsGrid";
 
 export const metadata: Metadata = {
   title:
@@ -241,6 +242,20 @@ export default function EnglishPage() {
           </div>
         </section>
 
+        {/* SECTION 2: QUALIFICATIONS GRID */}
+        <section className="bg-white py-14">
+          <div className="max-w-7xl mx-auto px-4">
+            <h2 className="text-3xl font-bold text-navy-900 mb-4 text-center">
+              English Across All Qualifications
+            </h2>
+            <p className="text-navy-600 mb-10 text-center">
+              Expert Dubai English tutoring tailored to your curriculum
+            </p>
+
+            <SubjectQualificationsGrid subject="english" />
+          </div>
+        </section>
+
         {/* SECTION 3: WHAT WE COVER */}
         <section className="bg-gray-50 py-14">
           <div className="max-w-7xl mx-auto px-4">
@@ -302,55 +317,6 @@ export default function EnglishPage() {
                     "Extract analysis",
                     "Timed writing practice",
                     "Critical evaluation",
-                  ]}
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* SECTION 4: BY LEVEL BREAKDOWN */}
-        <section className="bg-white py-14">
-          <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-3xl font-bold text-navy-900 mb-10 text-center">
-              English by Level
-            </h2>
-
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              <div className="bg-blue-50 border border-blue-200 rounded-xl p-8">
-                <span className="bg-blue-600 text-white px-4 py-1 rounded-full mb-4 inline-block text-sm">
-                  Foundation Level
-                </span>
-                <h3 className="text-2xl font-bold text-navy-900 mb-4">
-                  Primary to GCSE/IGCSE English
-                </h3>
-                <BulletList
-                  items={[
-                    "Build fundamental reading and writing skills",
-                    "Develop grammar and vocabulary",
-                    "Creative and analytical writing practice",
-                    "Text analysis and interpretation",
-                    "Comprehension and critical thinking",
-                    "Exam technique for top grades",
-                  ]}
-                />
-              </div>
-
-              <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-8">
-                <span className="bg-indigo-600 text-white px-4 py-1 rounded-full mb-4 inline-block text-sm">
-                  Advanced Level
-                </span>
-                <h3 className="text-2xl font-bold text-navy-900 mb-4">
-                  A-Level & IB English Literature
-                </h3>
-                <BulletList
-                  items={[
-                    "Advanced literary analysis",
-                    "Critical theory and perspectives",
-                    "Sophisticated essay writing technique",
-                    "Comparative literature study",
-                    "University entrance preparation",
-                    "Rigorous text analysis",
                   ]}
                 />
               </div>
