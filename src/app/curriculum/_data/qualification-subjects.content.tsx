@@ -1388,6 +1388,14 @@ function contentFor(q: QualificationKey, s: SubjectKey): QualificationSubjectCon
       ];
     }
 
+    if (q === "ib" && contentSubjectKey === "mathematics") {
+      return [
+        { eyebrow: "Internal", title: "Mathematics IA", bullets: ["Exploration or investigation", "SL & HL criteria", "Personal engagement and reflection"], accentClassName: "text-indigo-600", borderClassName: "border-indigo-500 bg-indigo-50" },
+        { eyebrow: "Paper 1", title: "Non-Calculator", bullets: ["AA/AI Paper 1", "Short and extended response", "SL & HL differences"], accentClassName: "text-indigo-600", borderClassName: "border-indigo-500 bg-indigo-50" },
+        { eyebrow: "Paper 2", title: "Calculator", bullets: ["AA/AI Paper 2", "Technology allowed", "HL Paper 3 (option) where applicable"], accentClassName: "text-indigo-600", borderClassName: "border-indigo-500 bg-indigo-50" },
+      ];
+    }
+
     if (q === "ib") {
       return [
         {
@@ -1454,14 +1462,6 @@ function contentFor(q: QualificationKey, s: SubjectKey): QualificationSubjectCon
         { eyebrow: "Paper 1", title: "Pure Mathematics 1", bullets: ["2 hr", "100 marks", "Proof, algebra, calculus, trigonometry"], accentClassName: "text-purple-700", borderClassName: "border-purple-500 bg-purple-50" },
         { eyebrow: "Paper 2", title: "Pure Mathematics 2", bullets: ["2 hr", "100 marks", "Further calculus, sequences, numerical methods"], accentClassName: "text-purple-700", borderClassName: "border-purple-500 bg-purple-50" },
         { eyebrow: "Paper 3", title: "Statistics & Mechanics", bullets: ["2 hr", "100 marks", "Applied maths: stats and mechanics combined"], accentClassName: "text-purple-700", borderClassName: "border-purple-500 bg-purple-50" },
-      ];
-    }
-
-    if (q === "ib" && contentSubjectKey === "mathematics") {
-      return [
-        { eyebrow: "Internal", title: "Mathematics IA", bullets: ["Exploration or investigation", "SL & HL criteria", "Personal engagement and reflection"], accentClassName: "text-indigo-600", borderClassName: "border-indigo-500 bg-indigo-50" },
-        { eyebrow: "Paper 1", title: "Non-Calculator", bullets: ["AA/AI Paper 1", "Short and extended response", "SL & HL differences"], accentClassName: "text-indigo-600", borderClassName: "border-indigo-500 bg-indigo-50" },
-        { eyebrow: "Paper 2", title: "Calculator", bullets: ["AA/AI Paper 2", "Technology allowed", "HL Paper 3 (option) where applicable"], accentClassName: "text-indigo-600", borderClassName: "border-indigo-500 bg-indigo-50" },
       ];
     }
 
