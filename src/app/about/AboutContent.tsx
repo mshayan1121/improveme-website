@@ -554,6 +554,22 @@ export default function AboutContent() {
                 src: "/GCSE Maths Class (5).jpeg",
                 alt: "GCSE Maths class in progress at Improve ME Institute",
               },
+              {
+                src: "/Y5 English.jpeg",
+                alt: "Year 5 English class at Improve ME Institute",
+              },
+              {
+                src: "/Chess_Strategic Thinking.jpeg",
+                alt: "Chess and strategic thinking session at Improve ME Institute",
+              },
+              {
+                src: "/Y11 Physics.jpeg",
+                alt: "Year 11 Physics class at Improve ME Institute",
+              },
+              {
+                src: "/Y11 Physics (1).jpeg",
+                alt: "Year 11 Physics lesson at Improve ME Institute",
+              },
             ].map((image, index) => (
               <motion.div
                 key={image.alt}
