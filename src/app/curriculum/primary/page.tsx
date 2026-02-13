@@ -87,54 +87,86 @@ export default function PrimaryCurriculumPage() {
 
           <div className="mt-12 max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold text-navy-900 text-center mb-4">
-              Primary Subjects
+              Primary Subjects by Key Stage
             </h2>
             <p className="text-navy-600 text-center mb-10">
-              Choose a subject to see what we cover and how we build strong foundations.
+              Choose a key stage and subject to see what we cover and how we build strong foundations.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <Link href="/curriculum/primary/mathematics" className="block h-full">
-                <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 h-full hover:shadow-2xl hover:scale-105 transition-all">
-                  <div className="bg-white rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center border border-gray-200">
-                    <Calculator className="w-8 h-8 text-navy-900" />
-                  </div>
-                  <h3 className="text-xl font-bold text-navy-900 text-center mb-2">
-                    Mathematics
-                  </h3>
-                  <p className="text-sm text-navy-600 text-center">
-                    Number sense, problem-solving, and confidence with core maths skills.
-                  </p>
+            <div className="space-y-10">
+              <div>
+                <h3 className="text-xl font-bold text-navy-900 mb-4">EYFS (Ages 3-5)</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <Link href="/curriculum/primary/eyfs/mathematics" className="block h-full">
+                    <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 h-full hover:shadow-2xl hover:scale-105 transition-all">
+                      <Calculator className="w-10 h-10 text-navy-900 mb-3" />
+                      <h4 className="text-lg font-bold text-navy-900">Mathematics</h4>
+                      <p className="text-sm text-navy-600">Number sense and early maths confidence.</p>
+                    </div>
+                  </Link>
+                  <Link href="/curriculum/primary/eyfs/english" className="block h-full">
+                    <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 h-full hover:shadow-2xl hover:scale-105 transition-all">
+                      <BookOpen className="w-10 h-10 text-navy-900 mb-3" />
+                      <h4 className="text-lg font-bold text-navy-900">English</h4>
+                      <p className="text-sm text-navy-600">Early literacy and communication.</p>
+                    </div>
+                  </Link>
                 </div>
-              </Link>
+              </div>
 
-              <Link href="/curriculum/primary/english" className="block h-full">
-                <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 h-full hover:shadow-2xl hover:scale-105 transition-all">
-                  <div className="bg-white rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center border border-gray-200">
-                    <BookOpen className="w-8 h-8 text-navy-900" />
-                  </div>
-                  <h3 className="text-xl font-bold text-navy-900 text-center mb-2">
-                    English
-                  </h3>
-                  <p className="text-sm text-navy-600 text-center">
-                    Reading comprehension, writing skills, and vocabulary building.
-                  </p>
+              <div>
+                <h3 className="text-xl font-bold text-navy-900 mb-4">Key Stage 1 (Ages 5-7)</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <Link href="/curriculum/primary/ks1/mathematics" className="block h-full">
+                    <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 h-full hover:shadow-2xl hover:scale-105 transition-all">
+                      <Calculator className="w-10 h-10 text-navy-900 mb-3" />
+                      <h4 className="text-lg font-bold text-navy-900">Mathematics</h4>
+                      <p className="text-sm text-navy-600">Core numeracy and problem-solving.</p>
+                    </div>
+                  </Link>
+                  <Link href="/curriculum/primary/ks1/english" className="block h-full">
+                    <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 h-full hover:shadow-2xl hover:scale-105 transition-all">
+                      <BookOpen className="w-10 h-10 text-navy-900 mb-3" />
+                      <h4 className="text-lg font-bold text-navy-900">English</h4>
+                      <p className="text-sm text-navy-600">Reading, writing, and speaking.</p>
+                    </div>
+                  </Link>
+                  <Link href="/curriculum/primary/ks1/science" className="block h-full">
+                    <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 h-full hover:shadow-2xl hover:scale-105 transition-all">
+                      <Microscope className="w-10 h-10 text-navy-900 mb-3" />
+                      <h4 className="text-lg font-bold text-navy-900">Science</h4>
+                      <p className="text-sm text-navy-600">Scientific thinking and discovery.</p>
+                    </div>
+                  </Link>
                 </div>
-              </Link>
+              </div>
 
-              <Link href="/curriculum/primary/science" className="block h-full">
-                <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 h-full hover:shadow-2xl hover:scale-105 transition-all">
-                  <div className="bg-white rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center border border-gray-200">
-                    <Microscope className="w-8 h-8 text-navy-900" />
-                  </div>
-                  <h3 className="text-xl font-bold text-navy-900 text-center mb-2">
-                    Science
-                  </h3>
-                  <p className="text-sm text-navy-600 text-center">
-                    Biology, chemistry, and physics basics with practical thinking.
-                  </p>
+              <div>
+                <h3 className="text-xl font-bold text-navy-900 mb-4">Key Stage 2 (Ages 7-11)</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <Link href="/curriculum/primary/ks2/mathematics" className="block h-full">
+                    <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 h-full hover:shadow-2xl hover:scale-105 transition-all">
+                      <Calculator className="w-10 h-10 text-navy-900 mb-3" />
+                      <h4 className="text-lg font-bold text-navy-900">Mathematics</h4>
+                      <p className="text-sm text-navy-600">Number sense, problem-solving, and fluency.</p>
+                    </div>
+                  </Link>
+                  <Link href="/curriculum/primary/ks2/english" className="block h-full">
+                    <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 h-full hover:shadow-2xl hover:scale-105 transition-all">
+                      <BookOpen className="w-10 h-10 text-navy-900 mb-3" />
+                      <h4 className="text-lg font-bold text-navy-900">English</h4>
+                      <p className="text-sm text-navy-600">Comprehension, writing, and vocabulary.</p>
+                    </div>
+                  </Link>
+                  <Link href="/curriculum/primary/ks2/science" className="block h-full">
+                    <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 h-full hover:shadow-2xl hover:scale-105 transition-all">
+                      <Microscope className="w-10 h-10 text-navy-900 mb-3" />
+                      <h4 className="text-lg font-bold text-navy-900">Science</h4>
+                      <p className="text-sm text-navy-600">Biology, chemistry, and physics foundations.</p>
+                    </div>
+                  </Link>
                 </div>
-              </Link>
+              </div>
             </div>
           </div>
 

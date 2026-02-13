@@ -21,11 +21,13 @@ function toTitle(s: string) {
 
 function curriculumHref(levelKey: string, subjectKey: string) {
   if (levelKey === "primary") return `/curriculum/primary/${subjectKey}`;
+  if (levelKey === "eyfs" || levelKey === "ks1" || levelKey === "ks2")
+    return `/curriculum/primary/${levelKey}/${subjectKey}`;
   return `/curriculum/secondary/${levelKey}/${subjectKey}`;
 }
 
 function pickRelatedLevels(currentLevelKey: string, subjectKey: string) {
-  const order = ["primary", "ks3", "myp", "gcse", "igcse", "a-level", "ib"] as const;
+  const order = ["eyfs", "ks1", "ks2", "primary", "ks3", "myp", "gcse", "igcse", "a-level", "ib"] as const;
 
   const candidates = order.filter((k) => {
     if (k === currentLevelKey) return false;
@@ -318,7 +320,26 @@ export function QualificationSubjectPage({
         </div>
       </section>
 
-      {/* SECTION 7: SUCCESS STORIES */}
+      {/* SECTION 7: WHY CHOOSE US */}
+      {content.whyChooseUs?.items?.length ? (
+        <section className="py-20 md:py-28 bg-white">
+          <div className="max-w-5xl mx-auto px-4">
+            <h2 className="text-4xl font-bold text-navy-900 text-center mb-12">
+              {content.whyChooseUs.heading}
+            </h2>
+            <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+              {content.whyChooseUs.items.map((item, idx) => (
+                <li key={idx} className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-navy-700 text-base md:text-lg">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ) : null}
+
+      {/* SECTION 8: SUCCESS STORIES */}
       <section className="py-20 md:py-28 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-navy-900 text-center mb-16">
@@ -338,7 +359,7 @@ export function QualificationSubjectPage({
         </div>
       </section>
 
-      {/* SECTION 8: RELATED COURSES */}
+      {/* SECTION 9: RELATED COURSES */}
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-navy-900 text-center mb-6">
@@ -414,7 +435,7 @@ export function QualificationSubjectPage({
         </div>
       </section>
 
-      {/* SECTION 9: FINAL CTA */}
+      {/* SECTION 10: FINAL CTA */}
       <section className={`py-20 md:py-32 bg-gradient-to-br ${qualification.gradientClassName} relative overflow-hidden`}>
         <div className="absolute inset-0 bg-black/10 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
@@ -445,7 +466,7 @@ export function QualificationSubjectPage({
             </Link>
           </div>
 
-          <p className="text-white/80 mt-6 text-sm">No obligation • Response within 2 hours • Trusted by 30+ Dubai schools</p>
+          <p className="text-white/80 mt-6 text-sm">Trusted by families from Dubai College, Repton, JESS…</p>
         </div>
       </section>
     </div>

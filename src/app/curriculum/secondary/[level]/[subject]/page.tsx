@@ -7,10 +7,12 @@ import {
 } from "../../../_data/qualification-subjects.content";
 import type { QualificationKey, SubjectKey } from "../../../_data/qualification-subjects";
 
-type SecondaryLevelKey = Exclude<QualificationKey, "primary">;
+type SecondaryLevelKey = "ks3" | "gcse" | "igcse" | "a-level" | "ib" | "myp";
+
+const SECONDARY_LEVEL_KEYS: SecondaryLevelKey[] = ["ks3", "gcse", "igcse", "a-level", "ib", "myp"];
 
 export function generateStaticParams() {
-  const levels = Object.keys(SUBJECTS_BY_LEVEL).filter((k) => k !== "primary") as SecondaryLevelKey[];
+  const levels = SECONDARY_LEVEL_KEYS;
 
   return levels.flatMap((level) =>
     SUBJECTS_BY_LEVEL[level].map((subject) => ({
@@ -27,6 +29,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { level, subject } = await params;
   const levelKey = level as SecondaryLevelKey;
+  if (!SECONDARY_LEVEL_KEYS.includes(levelKey)) return { title: "Secondary Curriculum | Improve ME Institute Dubai" };
   const subjectKey = subject as SubjectKey;
   const content = getQualificationSubjectContent(levelKey, subjectKey);
   if (!content) return { title: "Secondary Curriculum | Improve ME Institute Dubai" };
@@ -45,6 +48,7 @@ export default async function SecondaryLevelSubjectPage({
 }) {
   const { level, subject } = await params;
   const levelKey = level as SecondaryLevelKey;
+  if (!SECONDARY_LEVEL_KEYS.includes(levelKey)) notFound();
   const subjectKey = subject as SubjectKey;
   const content = getQualificationSubjectContent(levelKey, subjectKey);
   if (!content) notFound();

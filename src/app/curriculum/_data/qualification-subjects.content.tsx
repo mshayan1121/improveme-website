@@ -51,10 +51,13 @@ export const SECONDARY_LEVELS: Array<Exclude<QualificationKey, "primary">> = [
 
 export const SUBJECTS_BY_LEVEL: Record<QualificationKey, SubjectKey[]> = {
   primary: ["mathematics", "english", "science"],
+  eyfs: ["mathematics", "english"],
+  ks1: ["mathematics", "english", "science"],
+  ks2: ["mathematics", "english", "science"],
   ks3: ["mathematics", "english", "science"],
   gcse: [
     "mathematics",
-    "english",
+    "english-language",
     "physics",
     "chemistry",
     "biology",
@@ -64,20 +67,21 @@ export const SUBJECTS_BY_LEVEL: Record<QualificationKey, SubjectKey[]> = {
   ],
   igcse: [
     "mathematics",
-    "english",
+    "english-language",
     "physics",
     "chemistry",
     "biology",
     "business-studies",
     "economics",
+    "psychology",
   ],
   "a-level": [
     "mathematics",
-    "english",
+    "english-literature",
     "physics",
     "chemistry",
     "biology",
-    "business-studies",
+    "business",
     "economics",
     "psychology",
   ],
@@ -87,23 +91,42 @@ export const SUBJECTS_BY_LEVEL: Record<QualificationKey, SubjectKey[]> = {
     "physics",
     "chemistry",
     "biology",
-    "business-studies",
+    "business-management",
     "economics",
     "psychology",
   ],
-  myp: ["chemistry", "physics", "biology"],
+  myp: ["mathematics", "english", "sciences", "individuals-societies"],
 };
+
+/** URL slug -> canonical subject key for content lookup (when slug differs from key) */
+export const SUBJECT_SLUG_TO_KEY: Partial<Record<QualificationKey, Record<string, SubjectKey>>> = {
+  gcse: { "english-language": "english" },
+  igcse: { "english-language": "english" },
+  "a-level": { "english-literature": "english", business: "business-studies" },
+  ib: { "business-management": "business-studies" },
+};
+
+/** Resolve display subject key to canonical key used for course content/assessment blocks */
+function getContentSubjectKey(q: QualificationKey, s: SubjectKey): SubjectKey {
+  const map = SUBJECT_SLUG_TO_KEY[q as keyof typeof SUBJECT_SLUG_TO_KEY];
+  if (map && map[s as string]) return map[s as string] as SubjectKey;
+  if (s === "english-language" || s === "english-literature") return "english";
+  if (s === "business" || s === "business-management") return "business-studies";
+  if (s === "sciences") return "science";
+  return s;
+}
 
 function contentFor(q: QualificationKey, s: SubjectKey): QualificationSubjectContent {
   const qualification = QUALIFICATIONS[q];
   const subject = SUBJECTS[s];
+  const contentSubjectKey = getContentSubjectKey(q, s);
 
   const subjectLabel = subject.label;
   const qualificationLabel = qualification.label;
 
   // Per-qualification “boards/format” string for SEO + hero.
   const boardsForSeo =
-    q === "ib" ? "SL & HL" : q === "myp" ? "MYP Criteria" : q === "primary" ? "UK & International Schools" : qualification.badge.replaceAll(" • ", ", ");
+    q === "ib" ? "SL & HL" : q === "myp" ? "MYP Criteria" : q === "primary" || q === "eyfs" || q === "ks1" || q === "ks2" ? "UK & International Schools" : qualification.badge.replaceAll(" • ", ", ");
 
   const seoTitle = `${qualificationLabel} ${subjectLabel} Tutoring Dubai | ${boardsForSeo} | Improve ME`;
   const seoDescription = basicSchemaDescription(
@@ -113,12 +136,30 @@ function contentFor(q: QualificationKey, s: SubjectKey): QualificationSubjectCon
   );
 
   const levelKeyBadges =
-    q === "primary"
-      ? [
-          { title: "Ages 5–11", subtitle: "KS1–KS2" },
-          { title: "Core Skills", subtitle: "Confidence first" },
-          { title: "Small Groups", subtitle: "2–6 students" },
-        ]
+    q === "primary" || q === "eyfs" || q === "ks1" || q === "ks2"
+      ? q === "eyfs"
+        ? [
+            { title: "Ages 3–5", subtitle: "EYFS" },
+            { title: "Play & Learn", subtitle: "Confidence first" },
+            { title: "Small Groups", subtitle: "2–6 students" },
+          ]
+        : q === "ks1"
+          ? [
+              { title: "Ages 5–7", subtitle: "Year 1–2" },
+              { title: "Core Skills", subtitle: "Confidence first" },
+              { title: "Small Groups", subtitle: "2–6 students" },
+            ]
+          : q === "ks2"
+            ? [
+                { title: "Ages 7–11", subtitle: "Year 3–6" },
+                { title: "Core Skills", subtitle: "Confidence first" },
+                { title: "Small Groups", subtitle: "2–6 students" },
+              ]
+            : [
+                { title: "Ages 5–11", subtitle: "KS1–KS2" },
+                { title: "Core Skills", subtitle: "Confidence first" },
+                { title: "Small Groups", subtitle: "2–6 students" },
+              ]
       : q === "ks3"
         ? [
             { title: "Ages 11–14", subtitle: "Year 7–9" },
@@ -158,134 +199,498 @@ function contentFor(q: QualificationKey, s: SubjectKey): QualificationSubjectCon
   // Subject-specific building blocks.
   const courseContentColumns = (() => {
     const common = {
-      maths: [
+      mathsPrimary: [
         {
-          title: q === "primary" ? "Number Sense" : "Core Skills",
+          title: "Number Sense",
           iconBgClassName: "bg-green-100",
           icon: <Calculator className="w-8 h-8 text-green-600" />,
-          items:
-            q === "primary"
-              ? [
-                  "Place value and number bonds",
-                  "Four operations with fluency",
-                  "Fractions, decimals, percentages (age-appropriate)",
-                  "Mental maths and estimation",
-                  "Word problems and reasoning",
-                ]
-              : [
-                  "Algebraic manipulation (where relevant)",
-                  "Ratio, proportion, and change",
-                  "Number and calculation strategies",
-                  "Accuracy, estimation, and bounds",
-                  "Problem-solving methods",
-                ],
+          items: [
+            "Place value and number bonds",
+            "Four operations with fluency",
+            "Fractions, decimals, percentages (age-appropriate)",
+            "Mental maths and estimation",
+            "Word problems and reasoning",
+          ],
         },
         {
           title: "Algebra & Geometry",
           iconBgClassName: "bg-blue-100",
           icon: <Target className="w-8 h-8 text-blue-600" />,
-          items:
-            q === "primary"
-              ? [
-                  "Patterns and sequences",
-                  "Shapes, symmetry, and angles",
-                  "Measurement and units",
-                  "Coordinates and simple graphs",
-                  "Times tables mastery",
-                ]
-              : [
-                  "Equations, inequalities, and graphs",
-                  "Geometry, measures, and constructions",
-                  "Trigonometry (where applicable)",
-                  "Vectors and transformations (where applicable)",
-                  "Interpreting mathematical models",
-                ],
+          items: [
+            "Patterns and sequences",
+            "Shapes, symmetry, and angles",
+            "Measurement and units",
+            "Coordinates and simple graphs",
+            "Times tables mastery",
+          ],
         },
         {
           title: "Data & Probability",
           iconBgClassName: "bg-purple-100",
           icon: <BookOpen className="w-8 h-8 text-purple-600" />,
-          items:
-            q === "primary"
-              ? [
-                  "Charts and tables",
-                  "Averages (mean/median/mode) introduction",
-                  "Simple probability",
-                  "Data handling and interpretation",
-                  "Reasoning with data",
-                ]
-              : [
-                  "Statistical representations and interpretation",
-                  "Averages, spread, and sampling",
-                  "Probability calculations and diagrams",
-                  "Correlation and trends (where applicable)",
-                  "Exam-style data questions",
-                ],
+          items: [
+            "Charts and tables",
+            "Averages (mean/median/mode) introduction",
+            "Simple probability",
+            "Data handling and interpretation",
+            "Reasoning with data",
+          ],
         },
       ],
-      english: [
+      mathsGCSE: [
+        {
+          title: "Algebraic Proficiency",
+          iconBgClassName: "bg-green-100",
+          icon: <Calculator className="w-8 h-8 text-green-600" />,
+          items: [
+            "Expanding, factorising, and solving equations",
+            "Sequences and nth term",
+            "Quadratic equations and graphs",
+            "Tackling the algebra that trips up Grades 7–9",
+            "Problem-solving with algebra",
+          ],
+        },
+        {
+          title: "Geometry & Trigonometry",
+          iconBgClassName: "bg-blue-100",
+          icon: <Target className="w-8 h-8 text-blue-600" />,
+          items: [
+            "Circle theorems and proof",
+            "Pythagoras, trigonometry (SOH CAH TOA)",
+            "Area, volume, and similarity",
+            "Vectors and transformations",
+            "Multi-step geometric reasoning",
+          ],
+        },
+        {
+          title: "Probability & Statistics",
+          iconBgClassName: "bg-purple-100",
+          icon: <BookOpen className="w-8 h-8 text-purple-600" />,
+          items: [
+            "Probability trees and Venn diagrams",
+            "Averages, spread, and sampling",
+            "Representing and interpreting data",
+            "Foundation vs Higher tier content",
+            "Exam technique and command words",
+          ],
+        },
+      ],
+      mathsALevel: [
+        {
+          title: "Pure Mathematics 1 & 2",
+          iconBgClassName: "bg-green-100",
+          icon: <Calculator className="w-8 h-8 text-green-600" />,
+          items: [
+            "Differentiation and integration (core calculus)",
+            "Trigonometry, identities, and equations",
+            "Sequences, series, and binomial expansion",
+            "Proof and algebraic structures",
+            "University-prep problem-solving",
+          ],
+        },
+        {
+          title: "Statistics",
+          iconBgClassName: "bg-blue-100",
+          icon: <Target className="w-8 h-8 text-blue-600" />,
+          items: [
+            "Probability distributions",
+            "Statistical hypothesis testing",
+            "Large data set and modelling",
+            "Data presentation and interpretation",
+            "Synoptic links with mechanics",
+          ],
+        },
+        {
+          title: "Mechanics",
+          iconBgClassName: "bg-purple-100",
+          icon: <BookOpen className="w-8 h-8 text-purple-600" />,
+          items: [
+            "Kinematics and variable acceleration",
+            "Forces, Newton's laws, and connected particles",
+            "Moments and equilibrium",
+            "Projectiles and calculus in context",
+            "Deep understanding for exam application",
+          ],
+        },
+      ],
+      mathsIB: [
+        {
+          title: "Analysis & Approaches (AA)",
+          iconBgClassName: "bg-green-100",
+          icon: <Calculator className="w-8 h-8 text-green-600" />,
+          items: [
+            "Calculus, functions, and proof",
+            "SL vs HL: depth and breadth differences",
+            "Algebra and trigonometry at HL",
+            "Internal Assessment (IA) support",
+            "Inquiry-based mathematical exploration",
+          ],
+        },
+        {
+          title: "Applications & Interpretation (AI)",
+          iconBgClassName: "bg-blue-100",
+          icon: <Target className="w-8 h-8 text-blue-600" />,
+          items: [
+            "Modelling and statistics",
+            "Real-world applications and technology",
+            "SL vs HL: applied focus",
+            "IA planning and criteria alignment",
+            "Data and financial mathematics",
+          ],
+        },
+        {
+          title: "Exam & IA Strategy",
+          iconBgClassName: "bg-purple-100",
+          icon: <BookOpen className="w-8 h-8 text-purple-600" />,
+          items: [
+            "Paper 1 (non-calculator) and Paper 2 technique",
+            "HL Paper 3 (option) where applicable",
+            "IA structure, feedback, and grade maximisation",
+            "Markscheme awareness and common pitfalls",
+            "SL & HL grade boundaries and targeting",
+          ],
+        },
+      ],
+      mathsMYP: [
+        {
+          title: "Number & Algebra",
+          iconBgClassName: "bg-green-100",
+          icon: <Calculator className="w-8 h-8 text-green-600" />,
+          items: [
+            "Algebraic reasoning and manipulation",
+            "Functions and graphs",
+            "Number systems and fluency",
+            "Inquiry-based problem-solving",
+            "MYP criteria A–D alignment",
+          ],
+        },
+        {
+          title: "Geometry & Trigonometry",
+          iconBgClassName: "bg-blue-100",
+          icon: <Target className="w-8 h-8 text-blue-600" />,
+          items: [
+            "Space and shape",
+            "Measurement and trigonometry (phase-appropriate)",
+            "Transformations and proof",
+            "Real-world and interdisciplinary links",
+            "Criteria-based assessment readiness",
+          ],
+        },
+        {
+          title: "Statistics & Probability",
+          iconBgClassName: "bg-purple-100",
+          icon: <BookOpen className="w-8 h-8 text-purple-600" />,
+          items: [
+            "Data handling and representation",
+            "Probability and uncertainty",
+            "Modelling and evaluation",
+            "ATL: thinking and communication",
+            "Progress to DP Mathematics",
+          ],
+        },
+      ],
+      mathsKS3: [
+        {
+          title: "Core Skills",
+          iconBgClassName: "bg-green-100",
+          icon: <Calculator className="w-8 h-8 text-green-600" />,
+          items: [
+            "Algebraic manipulation (where relevant)",
+            "Ratio, proportion, and change",
+            "Number and calculation strategies",
+            "Accuracy, estimation, and bounds",
+            "Problem-solving methods",
+          ],
+        },
+        {
+          title: "Algebra & Geometry",
+          iconBgClassName: "bg-blue-100",
+          icon: <Target className="w-8 h-8 text-blue-600" />,
+          items: [
+            "Equations, inequalities, and graphs",
+            "Geometry, measures, and constructions",
+            "Trigonometry (where applicable)",
+            "Vectors and transformations (where applicable)",
+            "Interpreting mathematical models",
+          ],
+        },
+        {
+          title: "Data & Probability",
+          iconBgClassName: "bg-purple-100",
+          icon: <BookOpen className="w-8 h-8 text-purple-600" />,
+          items: [
+            "Statistical representations and interpretation",
+            "Averages, spread, and sampling",
+            "Probability calculations and diagrams",
+            "Correlation and trends (where applicable)",
+            "Exam-style data questions",
+          ],
+        },
+      ],
+      englishPrimary: [
         {
           title: "Reading",
           iconBgClassName: "bg-blue-100",
           icon: <BookOpen className="w-8 h-8 text-blue-600" />,
-          items:
-            q === "primary"
-              ? [
-                  "Phonics and decoding (as needed)",
-                  "Comprehension strategies",
-                  "Vocabulary building",
-                  "Inference and prediction",
-                  "Reading fluency and confidence",
-                ]
-              : [
-                  "Comprehension and analysis",
-                  "Language and structure techniques",
-                  "Comparing texts and viewpoints",
-                  "Inference, evaluation, synthesis",
-                  "Unseen text exam technique",
-                ],
+          items: [
+            "Phonics and decoding (as needed)",
+            "Comprehension strategies",
+            "Vocabulary building",
+            "Inference and prediction",
+            "Reading fluency and confidence",
+          ],
         },
         {
           title: "Writing",
           iconBgClassName: "bg-green-100",
           icon: <Target className="w-8 h-8 text-green-600" />,
-          items:
-            q === "primary"
-              ? [
-                  "Sentence structure and punctuation",
-                  "Spelling patterns and accuracy",
-                  "Planning and organising ideas",
-                  "Creative writing foundations",
-                  "Handwriting and presentation",
-                ]
-              : [
-                  "Narrative and descriptive writing",
-                  "Transactional writing (letters/speeches/articles)",
-                  "Grammar, punctuation, and style",
-                  "Planning under timed conditions",
-                  "Editing, improving, and feedback loops",
-                ],
+          items: [
+            "Sentence structure and punctuation",
+            "Spelling patterns and accuracy",
+            "Planning and organising ideas",
+            "Creative writing foundations",
+            "Handwriting and presentation",
+          ],
         },
         {
           title: "Speaking & Listening",
           iconBgClassName: "bg-purple-100",
           icon: <Users className="w-8 h-8 text-purple-600" />,
-          items:
-            q === "primary"
-              ? [
-                  "Confidence in communication",
-                  "Presentation and storytelling",
-                  "Listening and responding",
-                  "Vocabulary and expression",
-                  "Classroom participation skills",
-                ]
-              : [
-                  "Presentations and discussions",
-                  "Argument building and persuasion",
-                  "Critical thinking and debate",
-                  "Exam-style responses (where assessed)",
-                  "Confidence and clarity under pressure",
-                ],
+          items: [
+            "Confidence in communication",
+            "Presentation and storytelling",
+            "Listening and responding",
+            "Vocabulary and expression",
+            "Classroom participation skills",
+          ],
+        },
+      ],
+      englishLanguageGCSE: [
+        {
+          title: "Creative Writing",
+          iconBgClassName: "bg-blue-100",
+          icon: <BookOpen className="w-8 h-8 text-blue-600" />,
+          items: [
+            "Narrative and descriptive writing",
+            "Planning, structure, and timing",
+            "Vocabulary and literary techniques",
+            "Essay structure and paragraphing",
+            "Common pitfalls (vagueness, weak openings)",
+          ],
+        },
+        {
+          title: "Non-fiction Analysis",
+          iconBgClassName: "bg-green-100",
+          icon: <Target className="w-8 h-8 text-green-600" />,
+          items: [
+            "Unseen 19th- and 20th/21st-century texts",
+            "Language and structure analysis",
+            "Comparing viewpoints and writers' methods",
+            "Evaluation and critical response",
+            "Exam technique and command words",
+          ],
+        },
+        {
+          title: "Spoken Language",
+          iconBgClassName: "bg-purple-100",
+          icon: <Users className="w-8 h-8 text-purple-600" />,
+          items: [
+            "Presentations and formal discussion",
+            "Planning and responding to questions",
+            "Confidence and clarity (where assessed)",
+            "Preparation for the spoken endorsement",
+            "Linking to reading and writing skills",
+          ],
+        },
+      ],
+      englishLiteratureGCSE: [
+        {
+          title: "Shakespeare",
+          iconBgClassName: "bg-blue-100",
+          icon: <BookOpen className="w-8 h-8 text-blue-600" />,
+          items: [
+            "Set play: themes, character, and context",
+            "Extract and whole-text analysis",
+            "Language, structure, and dramatic effect",
+            "Essay structure and quote integration",
+            "Tackling the 'explain' and 'explore' demands",
+          ],
+        },
+        {
+          title: "Modern Drama & Prose",
+          iconBgClassName: "bg-green-100",
+          icon: <Target className="w-8 h-8 text-green-600" />,
+          items: [
+            "e.g. An Inspector Calls, Jekyll & Hyde",
+            "Themes, character, and writer's methods",
+            "Comparative and contextual understanding",
+            "Timed essay planning and execution",
+            "Quote selection and analysis",
+          ],
+        },
+        {
+          title: "Poetry Anthology & Unseen",
+          iconBgClassName: "bg-purple-100",
+          icon: <Users className="w-8 h-8 text-purple-600" />,
+          items: [
+            "Anthology poems: comparison and analysis",
+            "Unseen poetry: approach and comparison",
+            "Form, structure, and language",
+            "Essay structure under time pressure",
+            "Grades 7–9 response strategies",
+          ],
+        },
+      ],
+      englishALevel: [
+        {
+          title: "Comparative Coursework",
+          iconBgClassName: "bg-blue-100",
+          icon: <BookOpen className="w-8 h-8 text-blue-600" />,
+          items: [
+            "NEA: independent critical study",
+            "Comparing texts across time and genre",
+            "Critical theory and contexts",
+            "Planning, drafting, and refining",
+            "Academic style and bibliography",
+          ],
+        },
+        {
+          title: "Set Texts & Exam Papers",
+          iconBgClassName: "bg-green-100",
+          icon: <Target className="w-8 h-8 text-green-600" />,
+          items: [
+            "Drama, prose, and poetry (board-specific)",
+            "Tragedy, comedy, and genre study",
+            "Unseen analysis and comparison",
+            "Essay structure and argument",
+            "University-level critical reading",
+          ],
+        },
+        {
+          title: "Critical Theory",
+          iconBgClassName: "bg-purple-100",
+          icon: <Users className="w-8 h-8 text-purple-600" />,
+          items: [
+            "Literary theory and interpretation",
+            "Contexts: historical, social, critical",
+            "Evaluation and judgement (AO5)",
+            "Synoptic assessment preparation",
+            "Deep understanding for top grades",
+          ],
+        },
+      ],
+      englishIB: [
+        {
+          title: "Works in Translation & Literary Genres",
+          iconBgClassName: "bg-blue-100",
+          icon: <BookOpen className="w-8 h-8 text-blue-600" />,
+          items: [
+            "SL & HL: prescribed titles and options",
+            "Individual Oral (IO) preparation",
+            "Guided literary analysis",
+            "Inquiry-based literary exploration",
+            "Criteria alignment (A–D)",
+          ],
+        },
+        {
+          title: "Paper 1 & Paper 2",
+          iconBgClassName: "bg-green-100",
+          icon: <Target className="w-8 h-8 text-green-600" />,
+          items: [
+            "Unseen literary passages (Paper 1)",
+            "Comparative essay (Paper 2)",
+            "HL Essay support",
+            "Markscheme and command terms",
+            "IA and exam strategy",
+          ],
+        },
+        {
+          title: "Speaking & Critical Response",
+          iconBgClassName: "bg-purple-100",
+          icon: <Users className="w-8 h-8 text-purple-600" />,
+          items: [
+            "Individual Oral structure and delivery",
+            "Global issues and literary works",
+            "Critical thinking and evaluation",
+            "SL vs HL depth and breadth",
+            "Consistent performance under pressure",
+          ],
+        },
+      ],
+      englishMYP: [
+        {
+          title: "Reading & Analysis",
+          iconBgClassName: "bg-blue-100",
+          icon: <BookOpen className="w-8 h-8 text-blue-600" />,
+          items: [
+            "Comprehension and analysis",
+            "Language and structure techniques",
+            "Comparing texts and viewpoints",
+            "Inference, evaluation, synthesis",
+            "MYP criteria and ATL",
+          ],
+        },
+        {
+          title: "Writing",
+          iconBgClassName: "bg-green-100",
+          icon: <Target className="w-8 h-8 text-green-600" />,
+          items: [
+            "Narrative and transactional writing",
+            "Grammar, punctuation, and style",
+            "Planning and organising under time",
+            "Editing and feedback loops",
+            "Criteria-based success",
+          ],
+        },
+        {
+          title: "Speaking & Listening",
+          iconBgClassName: "bg-purple-100",
+          icon: <Users className="w-8 h-8 text-purple-600" />,
+          items: [
+            "Presentations and discussions",
+            "Argument and persuasion",
+            "Critical thinking and debate",
+            "Inquiry and reflection",
+            "Progress to DP Language & Literature",
+          ],
+        },
+      ],
+      englishKS3: [
+        {
+          title: "Reading",
+          iconBgClassName: "bg-blue-100",
+          icon: <BookOpen className="w-8 h-8 text-blue-600" />,
+          items: [
+            "Comprehension and analysis",
+            "Language and structure techniques",
+            "Comparing texts and viewpoints",
+            "Inference, evaluation, synthesis",
+            "Unseen text exam technique",
+          ],
+        },
+        {
+          title: "Writing",
+          iconBgClassName: "bg-green-100",
+          icon: <Target className="w-8 h-8 text-green-600" />,
+          items: [
+            "Narrative and descriptive writing",
+            "Transactional writing (letters/speeches/articles)",
+            "Grammar, punctuation, and style",
+            "Planning under timed conditions",
+            "Editing, improving, and feedback loops",
+          ],
+        },
+        {
+          title: "Speaking & Listening",
+          iconBgClassName: "bg-purple-100",
+          icon: <Users className="w-8 h-8 text-purple-600" />,
+          items: [
+            "Presentations and discussions",
+            "Argument building and persuasion",
+            "Critical thinking and debate",
+            "Exam-style responses (where assessed)",
+            "Confidence and clarity under pressure",
+          ],
         },
       ],
       scienceGeneral: [
@@ -391,6 +796,82 @@ function contentFor(q: QualificationKey, s: SubjectKey): QualificationSubjectCon
           ],
         },
       ],
+      physicsGCSE: [
+        {
+          title: "Forces & Motion",
+          iconBgClassName: "bg-blue-100",
+          icon: <Zap className="w-8 h-8 text-blue-600" />,
+          items: [
+            "Forces, motion, and Newton's laws",
+            "Speed, velocity, and acceleration graphs",
+            "Momentum and stopping distances",
+            "Required practicals and calculations",
+            "Common pitfalls: units and direction",
+          ],
+        },
+        {
+          title: "Energy, Electricity & Waves",
+          iconBgClassName: "bg-green-100",
+          icon: <Target className="w-8 h-8 text-green-600" />,
+          items: [
+            "Energy stores and transfers",
+            "Circuits, current, potential difference, resistance",
+            "Domestic electricity and power",
+            "Waves, electromagnetic spectrum, and atomic structure",
+            "Exam technique for 6-mark questions",
+          ],
+        },
+        {
+          title: "Magnetism & Atomic Structure",
+          iconBgClassName: "bg-purple-100",
+          icon: <BookOpen className="w-8 h-8 text-purple-600" />,
+          items: [
+            "Magnetism and electromagnetism",
+            "Particle model and pressure",
+            "Radioactivity and nuclear physics",
+            "Space physics (where applicable)",
+            "Foundation vs Higher tier focus",
+          ],
+        },
+      ],
+      physicsALevel: [
+        {
+          title: "Particle Physics & Radiation",
+          iconBgClassName: "bg-blue-100",
+          icon: <Zap className="w-8 h-8 text-blue-600" />,
+          items: [
+            "Particles and radiation",
+            "Quantum phenomena and photoelectric effect",
+            "Nuclear physics and decay",
+            "Required practicals and uncertainty",
+            "Synoptic links across papers",
+          ],
+        },
+        {
+          title: "Mechanics, Materials & Waves",
+          iconBgClassName: "bg-green-100",
+          icon: <Target className="w-8 h-8 text-green-600" />,
+          items: [
+            "Forces, motion, and momentum",
+            "Materials and deformation",
+            "Waves and superposition",
+            "Simple Harmonic Motion (SHM)",
+            "University-prep problem-solving",
+          ],
+        },
+        {
+          title: "Fields & Options",
+          iconBgClassName: "bg-purple-100",
+          icon: <BookOpen className="w-8 h-8 text-purple-600" />,
+          items: [
+            "Electric and magnetic fields",
+            "Gravitational fields",
+            "Capacitors and electromagnetic induction",
+            "Astrophysics / medical / engineering (board options)",
+            "Deep understanding for extended response",
+          ],
+        },
+      ],
       chemistry: [
         {
           title: "Physical Chemistry",
@@ -426,6 +907,82 @@ function contentFor(q: QualificationKey, s: SubjectKey): QualificationSubjectCon
             "Polymers and materials",
             "Spectroscopy (A-Level/IB where applicable)",
             "Exam-style synthesis questions",
+          ],
+        },
+      ],
+      chemistryGCSE: [
+        {
+          title: "Atomic Structure & Bonding",
+          iconBgClassName: "bg-blue-100",
+          icon: <FlaskConical className="w-8 h-8 text-blue-600" />,
+          items: [
+            "Atomic structure and the periodic table",
+            "Bonding (ionic, covalent, metallic)",
+            "Structure and properties of matter",
+            "Moles and calculations (key pain point)",
+            "Chemical equations and balancing",
+          ],
+        },
+        {
+          title: "Reactions & Energy",
+          iconBgClassName: "bg-green-100",
+          icon: <Target className="w-8 h-8 text-green-600" />,
+          items: [
+            "Acids, bases, and salts",
+            "Electrolysis and redox",
+            "Energy changes and rates of reaction",
+            "Reversible reactions and equilibria",
+            "Required practicals and safety",
+          ],
+        },
+        {
+          title: "Organic & Analysis",
+          iconBgClassName: "bg-purple-100",
+          icon: <BookOpen className="w-8 h-8 text-purple-600" />,
+          items: [
+            "Crude oil and fuels",
+            "Organic chemistry (alkanes, alkenes, alcohols)",
+            "Polymers and materials",
+            "Chemical analysis and chromatography",
+            "Foundation vs Higher and exam technique",
+          ],
+        },
+      ],
+      chemistryALevel: [
+        {
+          title: "Physical Chemistry",
+          iconBgClassName: "bg-blue-100",
+          icon: <FlaskConical className="w-8 h-8 text-blue-600" />,
+          items: [
+            "Atomic structure, bonding, and energetics",
+            "Kinetics, equilibria, and Kp",
+            "Thermodynamics and Gibbs free energy",
+            "Electrochemistry and acids and bases",
+            "Moles and calculations at depth",
+          ],
+        },
+        {
+          title: "Inorganic Chemistry",
+          iconBgClassName: "bg-green-100",
+          icon: <Target className="w-8 h-8 text-green-600" />,
+          items: [
+            "Periodicity and period 3",
+            "Group 2 and Group 7 chemistry",
+            "Transition metals and redox",
+            "Practical techniques and analysis",
+            "Synoptic assessment preparation",
+          ],
+        },
+        {
+          title: "Organic Synthesis",
+          iconBgClassName: "bg-purple-100",
+          icon: <BookOpen className="w-8 h-8 text-purple-600" />,
+          items: [
+            "Mechanisms and functional groups",
+            "Synthesis and multi-step routes",
+            "Spectroscopy (NMR, IR, MS)",
+            "Organic analysis and required practicals",
+            "University-level problem-solving",
           ],
         },
       ],
@@ -467,41 +1024,117 @@ function contentFor(q: QualificationKey, s: SubjectKey): QualificationSubjectCon
           ],
         },
       ],
+      biologyGCSE: [
+        {
+          title: "Cell Biology & Infection",
+          iconBgClassName: "bg-emerald-100",
+          icon: <Leaf className="w-8 h-8 text-emerald-600" />,
+          items: [
+            "Cell structure, division, and transport",
+            "Organisation and digestive system",
+            "Communicable and non-communicable disease",
+            "Monoclonal antibodies and vaccination",
+            "Required practicals and data",
+          ],
+        },
+        {
+          title: "Bioenergetics & Homeostasis",
+          iconBgClassName: "bg-blue-100",
+          icon: <Target className="w-8 h-8 text-blue-600" />,
+          items: [
+            "Photosynthesis and respiration",
+            "Human nervous and endocrine systems",
+            "Homeostasis and control",
+            "Plant hormones and response",
+            "Calculation and application questions",
+          ],
+        },
+        {
+          title: "Ecology & Genetics",
+          iconBgClassName: "bg-purple-100",
+          icon: <Microscope className="w-8 h-8 text-purple-600" />,
+          items: [
+            "Ecosystems, adaptation, and biodiversity",
+            "Inheritance, variation, and evolution",
+            "Classification and evolution",
+            "Ecology fieldwork and sampling",
+            "Exam technique and extended writing",
+          ],
+        },
+      ],
+      biologyALevel: [
+        {
+          title: "Biological Molecules & Cells",
+          iconBgClassName: "bg-emerald-100",
+          icon: <Leaf className="w-8 h-8 text-emerald-600" />,
+          items: [
+            "Biological molecules (proteins, nucleic acids, etc.)",
+            "Cell structure and membranes",
+            "Cell division and cell cycle",
+            "Exchange and transport",
+            "Required practicals and evaluation",
+          ],
+        },
+        {
+          title: "Genetics & Gene Expression",
+          iconBgClassName: "bg-blue-100",
+          icon: <Target className="w-8 h-8 text-blue-600" />,
+          items: [
+            "DNA, genes, and inheritance",
+            "Gene expression and epigenetics",
+            "Populations and evolution",
+            "Classification and biodiversity",
+            "Synoptic and application questions",
+          ],
+        },
+        {
+          title: "Organisms & Ecosystems",
+          iconBgClassName: "bg-purple-100",
+          icon: <Microscope className="w-8 h-8 text-purple-600" />,
+          items: [
+            "Energy transfer and nutrient cycles",
+            "Response to the environment",
+            "Ecosystems and succession",
+            "Practical and investigative skills",
+            "University-prep depth and essay technique",
+          ],
+        },
+      ],
       business: [
         {
-          title: "Business Foundations",
+          title: "Marketing Mix & Strategy",
           iconBgClassName: "bg-blue-100",
           icon: <Briefcase className="w-8 h-8 text-blue-600" />,
           items: [
-            "Business ownership and aims",
-            "Stakeholders and ethics",
-            "Entrepreneurship and innovation",
-            "External influences and risk",
-            "Case-study interpretation",
+            "Product, price, place, promotion (4Ps)",
+            "Market research and segmentation",
+            "Branding and positioning",
+            "Growth strategies and competitive advantage",
+            "Case study analysis and application",
           ],
         },
         {
-          title: "Operations & Finance",
+          title: "Finance & Accounts",
           iconBgClassName: "bg-green-100",
           icon: <TrendingUp className="w-8 h-8 text-green-600" />,
           items: [
-            "Operations and quality management",
-            "Costs, revenue, profit",
-            "Budgets and cash flow",
-            "Break-even and decision-making",
-            "Data response questions",
+            "Costs, revenue, profit, and break-even",
+            "Cash flow and budgets",
+            "Financial statements and ratios",
+            "Sources of finance and investment",
+            "Data response and calculation questions",
           ],
         },
         {
-          title: "Marketing & Strategy",
+          title: "Operations Management",
           iconBgClassName: "bg-purple-100",
           icon: <Target className="w-8 h-8 text-purple-600" />,
           items: [
-            "Market research and segmentation",
-            "Marketing mix and branding",
-            "Growth strategies",
+            "Operations and quality management",
             "Human resources and leadership",
-            "Essay structure (A-Level/IB where applicable)",
+            "Stakeholders, ethics, and external influences",
+            "Entrepreneurship and business planning",
+            "Essay structure and evaluation (A-Level/IB)",
           ],
         },
       ],
@@ -515,7 +1148,7 @@ function contentFor(q: QualificationKey, s: SubjectKey): QualificationSubjectCon
             "Market failure and government intervention",
             "Firms, costs, and competition",
             "Labour markets (where applicable)",
-            "Diagram technique",
+            "Diagram technique and application",
           ],
         },
         {
@@ -523,23 +1156,23 @@ function contentFor(q: QualificationKey, s: SubjectKey): QualificationSubjectCon
           iconBgClassName: "bg-green-100",
           icon: <Target className="w-8 h-8 text-green-600" />,
           items: [
-            "GDP, inflation, unemployment",
+            "GDP, inflation, and unemployment",
             "Fiscal and monetary policy",
+            "Aggregate demand and supply",
             "International trade and exchange rates",
-            "Development (where applicable)",
             "Evaluation and judgement",
           ],
         },
         {
-          title: "Exam Skills",
+          title: "Global Economics & Exam Skills",
           iconBgClassName: "bg-purple-100",
           icon: <BookOpen className="w-8 h-8 text-purple-600" />,
           items: [
-            "Data response questions",
+            "Globalisation and development",
+            "Data response and essay planning",
             "Structured evaluation paragraphs",
-            "Essay planning under time pressure",
-            "Application to case studies",
-            "Past-paper practice routines",
+            "Application to case studies and context",
+            "Past-paper practice and timing",
           ],
         },
       ],
@@ -581,6 +1214,44 @@ function contentFor(q: QualificationKey, s: SubjectKey): QualificationSubjectCon
           ],
         },
       ],
+      individualsSocieties: [
+        {
+          title: "History & Change",
+          iconBgClassName: "bg-blue-100",
+          icon: <BookOpen className="w-8 h-8 text-blue-600" />,
+          items: [
+            "Historical sources and evidence",
+            "Cause and consequence",
+            "Change over time",
+            "Inquiry and research skills",
+            "Presenting arguments",
+          ],
+        },
+        {
+          title: "Geography & Systems",
+          iconBgClassName: "bg-green-100",
+          icon: <Target className="w-8 h-8 text-green-600" />,
+          items: [
+            "Human and physical geography",
+            "Global systems and resources",
+            "Sustainability and development",
+            "Spatial thinking and maps",
+            "Criteria-based assessment",
+          ],
+        },
+        {
+          title: "Civics & Economics",
+          iconBgClassName: "bg-purple-100",
+          icon: <TrendingUp className="w-8 h-8 text-purple-600" />,
+          items: [
+            "Civic participation and rights",
+            "Economic concepts (intro)",
+            "Global perspectives",
+            "MYP criteria and objectives",
+            "Inquiry cycles and reflection",
+          ],
+        },
+      ],
     } as const;
 
     const toMutableColumns = (
@@ -596,18 +1267,40 @@ function contentFor(q: QualificationKey, s: SubjectKey): QualificationSubjectCon
         items: [...c.items],
       }));
 
-    switch (s) {
+    switch (contentSubjectKey) {
       case "mathematics":
-        return toMutableColumns(common.maths);
+        if (q === "primary" || q === "eyfs" || q === "ks1" || q === "ks2") return toMutableColumns(common.mathsPrimary);
+        if (q === "ks3") return toMutableColumns(common.mathsKS3);
+        if (q === "gcse" || q === "igcse") return toMutableColumns(common.mathsGCSE);
+        if (q === "a-level") return toMutableColumns(common.mathsALevel);
+        if (q === "ib") return toMutableColumns(common.mathsIB);
+        if (q === "myp") return toMutableColumns(common.mathsMYP);
+        return toMutableColumns(common.mathsKS3);
       case "english":
-        return toMutableColumns(common.english);
+        if (q === "primary" || q === "eyfs" || q === "ks1" || q === "ks2") return toMutableColumns(common.englishPrimary);
+        if (q === "ks3") return toMutableColumns(common.englishKS3);
+        if (q === "gcse" || q === "igcse") return toMutableColumns(common.englishLanguageGCSE);
+        if (q === "a-level") return toMutableColumns(common.englishALevel);
+        if (q === "ib") return toMutableColumns(common.englishIB);
+        if (q === "myp") return toMutableColumns(common.englishMYP);
+        return toMutableColumns(common.englishKS3);
       case "science":
         return toMutableColumns(common.scienceGeneral);
+      case "sciences":
+        return toMutableColumns(common.scienceGeneral);
+      case "individuals-societies":
+        return toMutableColumns(common.individualsSocieties);
       case "physics":
+        if (q === "gcse" || q === "igcse") return toMutableColumns(common.physicsGCSE);
+        if (q === "a-level" || q === "ib") return toMutableColumns(common.physicsALevel);
         return toMutableColumns(common.physics);
       case "chemistry":
+        if (q === "gcse" || q === "igcse") return toMutableColumns(common.chemistryGCSE);
+        if (q === "a-level" || q === "ib") return toMutableColumns(common.chemistryALevel);
         return toMutableColumns(common.chemistry);
       case "biology":
+        if (q === "gcse" || q === "igcse") return toMutableColumns(common.biologyGCSE);
+        if (q === "a-level" || q === "ib") return toMutableColumns(common.biologyALevel);
         return toMutableColumns(common.biology);
       case "business-studies":
         return toMutableColumns(common.business);
@@ -621,7 +1314,7 @@ function contentFor(q: QualificationKey, s: SubjectKey): QualificationSubjectCon
   })();
 
   const overviewCards =
-    q === "gcse" && s === "mathematics"
+    q === "gcse" && contentSubjectKey === "mathematics"
       ? [
           {
             title: "Foundation Tier",
@@ -636,25 +1329,40 @@ function contentFor(q: QualificationKey, s: SubjectKey): QualificationSubjectCon
             bullets: ["Algebraic reasoning and equations", "Trigonometry and circle theorems", "Higher-grade exam technique"],
           },
         ]
-      : q === "gcse" && s === "english"
+      : q === "gcse" && contentSubjectKey === "english"
         ? [
             {
-              title: "Language",
+              title: "Creative Reading & Writing",
               description:
-                "Reading and writing skills assessed through unseen texts and creative/transactional tasks.",
-              bullets: ["Unseen text analysis", "Writing for purpose and audience", "Accuracy and style"],
+                "Unseen literature extract and creative writing (narrative/descriptive). We focus on structure, vocabulary, and essay technique.",
+              bullets: ["Unseen text analysis", "Creative writing planning and execution", "Grades 7–9 response strategies"],
             },
             {
-              title: "Literature",
+              title: "Writers' Viewpoints & Non-fiction",
               description:
-                "Texts, themes, and essay writing—building confident, structured responses under timed conditions.",
-              bullets: ["Theme and character analysis", "Quote selection and analysis", "Essay structure and timing"],
+                "Non-fiction reading, comparison, and transactional writing. Building analysis and evaluation under timed conditions.",
+              bullets: ["Comparing viewpoints and writers' methods", "Transactional writing (letters, speeches, articles)", "Spoken Language endorsement"],
             },
           ]
-        : undefined;
+        : q === "a-level" && contentSubjectKey === "mathematics"
+          ? [
+              {
+                title: "Pure Mathematics",
+                description:
+                  "Proof, algebra, calculus (differentiation and integration), trigonometry, and sequences. The core of A-Level Maths and university preparation.",
+                bullets: ["Differentiation and integration", "Trigonometry and identities", "Proof and algebraic structures"],
+              },
+              {
+                title: "Statistics & Mechanics",
+                description:
+                  "Applied mathematics: probability, distributions, hypothesis testing, kinematics, forces, and moments. Synoptic links with Pure.",
+                bullets: ["Statistics: distributions and testing", "Mechanics: forces, motion, moments", "Synoptic assessment preparation"],
+              },
+            ]
+          : undefined;
 
   const assessmentCards = (() => {
-    if (q === "primary") {
+    if (q === "primary" || q === "eyfs" || q === "ks1" || q === "ks2") {
       return [
         {
           eyebrow: "Diagnostic",
@@ -732,30 +1440,103 @@ function contentFor(q: QualificationKey, s: SubjectKey): QualificationSubjectCon
       ];
     }
 
-    if (q === "gcse" && s === "mathematics") {
+    if ((q === "gcse" || q === "igcse") && contentSubjectKey === "mathematics") {
+      const accent = q === "gcse" ? { accentClassName: "text-green-600" as const, borderClassName: "border-green-500 bg-green-50" as const } : { accentClassName: "text-teal-700" as const, borderClassName: "border-teal-500 bg-teal-50" as const };
       return [
-        {
-          eyebrow: "Paper 1",
-          title: "Non-Calculator",
-          bullets: ["1 hr 30 min", "80 marks", "Method and accuracy"],
-          accentClassName: "text-green-600",
-          borderClassName: "border-green-500 bg-green-50",
-        },
-        {
-          eyebrow: "Paper 2",
-          title: "Calculator",
-          bullets: ["1 hr 30 min", "80 marks", "Problem-solving focus"],
-          accentClassName: "text-green-600",
-          borderClassName: "border-green-500 bg-green-50",
-        },
-        {
-          eyebrow: "Paper 3",
-          title: "Calculator",
-          bullets: ["1 hr 30 min", "80 marks", "Mixed topic coverage"],
-          accentClassName: "text-green-600",
-          borderClassName: "border-green-500 bg-green-50",
-        },
+        { eyebrow: "Paper 1", title: "Non-Calculator", bullets: ["1 hr 30 min", "80 marks", "Method and accuracy"], ...accent },
+        { eyebrow: "Paper 2", title: "Calculator", bullets: ["1 hr 30 min", "80 marks", "Problem-solving focus"], ...accent },
+        { eyebrow: "Paper 3", title: "Calculator", bullets: ["1 hr 30 min", "80 marks", "Mixed topic coverage"], ...accent },
       ];
+    }
+
+    if (q === "a-level" && contentSubjectKey === "mathematics") {
+      return [
+        { eyebrow: "Paper 1", title: "Pure Mathematics 1", bullets: ["2 hr", "100 marks", "Proof, algebra, calculus, trigonometry"], accentClassName: "text-purple-700", borderClassName: "border-purple-500 bg-purple-50" },
+        { eyebrow: "Paper 2", title: "Pure Mathematics 2", bullets: ["2 hr", "100 marks", "Further calculus, sequences, numerical methods"], accentClassName: "text-purple-700", borderClassName: "border-purple-500 bg-purple-50" },
+        { eyebrow: "Paper 3", title: "Statistics & Mechanics", bullets: ["2 hr", "100 marks", "Applied maths: stats and mechanics combined"], accentClassName: "text-purple-700", borderClassName: "border-purple-500 bg-purple-50" },
+      ];
+    }
+
+    if (q === "ib" && contentSubjectKey === "mathematics") {
+      return [
+        { eyebrow: "Internal", title: "Mathematics IA", bullets: ["Exploration or investigation", "SL & HL criteria", "Personal engagement and reflection"], accentClassName: "text-indigo-600", borderClassName: "border-indigo-500 bg-indigo-50" },
+        { eyebrow: "Paper 1", title: "Non-Calculator", bullets: ["AA/AI Paper 1", "Short and extended response", "SL & HL differences"], accentClassName: "text-indigo-600", borderClassName: "border-indigo-500 bg-indigo-50" },
+        { eyebrow: "Paper 2", title: "Calculator", bullets: ["AA/AI Paper 2", "Technology allowed", "HL Paper 3 (option) where applicable"], accentClassName: "text-indigo-600", borderClassName: "border-indigo-500 bg-indigo-50" },
+      ];
+    }
+
+    if ((q === "gcse" || q === "igcse") && contentSubjectKey === "physics") {
+      const accent = q === "gcse" ? { accentClassName: "text-green-600" as const, borderClassName: "border-green-500 bg-green-50" as const } : { accentClassName: "text-teal-700" as const, borderClassName: "border-teal-500 bg-teal-50" as const };
+      return [
+        { eyebrow: "Paper 1", title: "Energy, Electricity, Particle Model, Atomic", bullets: ["Topics: energy, electricity, particle model, atomic structure", "Multiple choice and structured questions", "Foundation vs Higher tier"], ...accent },
+        { eyebrow: "Paper 2", title: "Forces, Waves, Magnetism, Space", bullets: ["Topics: forces, waves, magnetism, space physics", "Structured and extended response", "Required practicals assessed"], ...accent },
+      ];
+    }
+
+    if ((q === "gcse" || q === "igcse") && contentSubjectKey === "chemistry") {
+      const accent = q === "gcse" ? { accentClassName: "text-green-600" as const, borderClassName: "border-green-500 bg-green-50" as const } : { accentClassName: "text-teal-700" as const, borderClassName: "border-teal-500 bg-teal-50" as const };
+      return [
+        { eyebrow: "Paper 1", title: "Atomic Structure, Bonding, Quantitative, Chemical Changes", bullets: ["Topics: atomic structure, bonding, moles, chemical changes", "Structured and calculation questions", "Moles and equations (key pain point)"], ...accent },
+        { eyebrow: "Paper 2", title: "Rates, Organic, Analysis, Chemistry of Atmosphere", bullets: ["Topics: rates, organic chemistry, analysis, atmosphere", "Extended response and practical skills", "Foundation vs Higher"], ...accent },
+      ];
+    }
+
+    if ((q === "gcse" || q === "igcse") && contentSubjectKey === "biology") {
+      const accent = q === "gcse" ? { accentClassName: "text-green-600" as const, borderClassName: "border-green-500 bg-green-50" as const } : { accentClassName: "text-teal-700" as const, borderClassName: "border-teal-500 bg-teal-50" as const };
+      return [
+        { eyebrow: "Paper 1", title: "Cell Biology, Organisation, Infection, Bioenergetics", bullets: ["Topics: cells, organisation, infection, photosynthesis, respiration", "Structured and multiple choice", "Required practicals"], ...accent },
+        { eyebrow: "Paper 2", title: "Homeostasis, Inheritance, Ecology", bullets: ["Topics: homeostasis, inheritance, variation, ecology", "Extended response and synoptic", "Exam technique for 6-mark questions"], ...accent },
+      ];
+    }
+
+    if ((q === "gcse" || q === "igcse") && contentSubjectKey === "english") {
+      const accent = q === "gcse" ? { accentClassName: "text-green-600" as const, borderClassName: "border-green-500 bg-green-50" as const } : { accentClassName: "text-teal-700" as const, borderClassName: "border-teal-500 bg-teal-50" as const };
+      return [
+        { eyebrow: "Paper 1", title: "Creative Reading & Writing", bullets: ["Unseen literature extract", "Creative writing (narrative/descriptive)", "Explorations in creative reading"], ...accent },
+        { eyebrow: "Paper 2", title: "Writers' Viewpoints & Perspectives", bullets: ["Non-fiction reading and comparison", "Transactional writing", "Essay structure and analysis"], ...accent },
+        { eyebrow: "Spoken", title: "Spoken Language Endorsement", bullets: ["Presentation and discussion", "Non-exam assessment", "Confidence and clarity"], ...accent },
+      ];
+    }
+
+    if (q === "a-level" && contentSubjectKey === "english") {
+      return [
+        { eyebrow: "Paper 1", title: "Literary Genres (e.g. Tragedy)", bullets: ["Drama and poetry", "Shakespeare and other set texts", "Closed-book and open-book (board-specific)"], accentClassName: "text-purple-700", borderClassName: "border-purple-500 bg-purple-50" },
+        { eyebrow: "Paper 2", title: "Texts and Genres (e.g. Elements of Crime)", bullets: ["Prose and comparison", "Themes and contexts", "Critical theory"], accentClassName: "text-purple-700", borderClassName: "border-purple-500 bg-purple-50" },
+        { eyebrow: "NEA", title: "Comparative Coursework", bullets: ["Independent critical study", "Two texts, comparative essay", "Academic style and bibliography"], accentClassName: "text-purple-700", borderClassName: "border-purple-500 bg-purple-50" },
+      ];
+    }
+
+    if ((q === "gcse" || q === "igcse") && (contentSubjectKey === "business-studies" || contentSubjectKey === "economics")) {
+      const accent = q === "gcse" ? { accentClassName: "text-green-600" as const, borderClassName: "border-green-500 bg-green-50" as const } : { accentClassName: "text-teal-700" as const, borderClassName: "border-teal-500 bg-teal-50" as const };
+      const isBiz = contentSubjectKey === "business-studies";
+      return [
+        { eyebrow: "Paper 1", title: isBiz ? "Theme 1 & 2 (Enterprise, Marketing, Finance)" : "Markets & Market Failure", bullets: [isBiz ? "Multiple choice and short answer" : "Microeconomics", "Case study / data response", "Structured questions"], ...accent },
+        { eyebrow: "Paper 2", title: isBiz ? "Theme 3 & 4 (Operations, HR, Strategy)" : "National & Global Economy", bullets: [isBiz ? "Case study and extended response" : "Macroeconomics", "Evaluation and application", "Essay technique"], ...accent },
+      ];
+    }
+
+    if (q === "a-level" && (contentSubjectKey === "business-studies" || contentSubjectKey === "economics")) {
+      const isBiz = contentSubjectKey === "business-studies";
+      return [
+        { eyebrow: "Paper 1", title: isBiz ? "Marketing, People, Global Business" : "Markets & Market Failure", bullets: [isBiz ? "Multiple choice and short answer" : "Microeconomics and diagram technique", "Case study analysis", "Structured response"], accentClassName: "text-purple-700", borderClassName: "border-purple-500 bg-purple-50" },
+        { eyebrow: "Paper 2", title: isBiz ? "Business Activities, Decisions, Strategy" : "National & Global Economy", bullets: [isBiz ? "Data response and essay" : "Macroeconomics, inflation, GDP", "Evaluation and judgement", "Synoptic assessment"], accentClassName: "text-purple-700", borderClassName: "border-purple-500 bg-purple-50" },
+        { eyebrow: "Paper 3", title: isBiz ? "Synoptic Paper / Case Study" : "Economic Principles & Issues", bullets: [isBiz ? "Pre-release and synoptic" : "Multiple choice and essay", "Application to context", "University-prep depth"], accentClassName: "text-purple-700", borderClassName: "border-purple-500 bg-purple-50" },
+      ];
+    }
+
+    if (q === "a-level" && (contentSubjectKey === "physics" || contentSubjectKey === "chemistry" || contentSubjectKey === "biology")) {
+      const papers = contentSubjectKey === "physics"
+        ? ["Modelling, Materials, Particles", "Waves, Electricity, Magnetism", "Fields, Option (e.g. Astrophysics)"]
+        : contentSubjectKey === "chemistry"
+          ? ["Relevant Physical & Inorganic", "Relevant Physical & Organic", "Synoptic + Practical"]
+          : ["Biological Molecules, Cells, Organisms", "Genetics, Evolution, Ecosystems", "Synoptic + Practical"];
+      return papers.map((title, i) => ({
+        eyebrow: `Paper ${i + 1}`,
+        title,
+        bullets: ["Structured and extended response", "Required practicals (where applicable)", "Synoptic and deep understanding"],
+        accentClassName: "text-purple-700",
+        borderClassName: "border-purple-500 bg-purple-50",
+      }));
     }
 
     // Default exam-style structure for GCSE/IGCSE/A-Level/KS3 (school assessments) per subject.
@@ -789,7 +1570,7 @@ function contentFor(q: QualificationKey, s: SubjectKey): QualificationSubjectCon
   })();
 
   const examBoards = (() => {
-    if (q === "primary") {
+    if (q === "primary" || q === "eyfs" || q === "ks1" || q === "ks2") {
       return [
         {
           name: "UK National Curriculum",
@@ -854,17 +1635,17 @@ function contentFor(q: QualificationKey, s: SubjectKey): QualificationSubjectCon
       {
         name: q === "ks3" ? "UK National Curriculum" : "AQA",
         description: q === "ks3" ? "KS3 pathways aligned to UK curriculum objectives and school assessments." : "Popular exam board with consistent mark schemes and clear assessment objectives.",
-        specification: q === "gcse" && s === "mathematics" ? "8300" : undefined,
+        specification: q === "gcse" && contentSubjectKey === "mathematics" ? "8300" : undefined,
       },
       {
         name: q === "ks3" ? "School Schemes" : "Pearson Edexcel",
         description: q === "ks3" ? "We follow your school’s scheme of work to stay one step ahead of class." : "Specification-focused teaching with strong exam-style practice.",
-        specification: q === "gcse" && s === "mathematics" ? "1MA1" : undefined,
+        specification: q === "gcse" && contentSubjectKey === "mathematics" ? "1MA1" : undefined,
       },
       {
         name: q === "ks3" ? "Transition to GCSE" : "OCR",
         description: q === "ks3" ? "Bridging content and skills to start GCSE with confidence." : "Strong problem-solving and application-style questions.",
-        specification: q === "gcse" && s === "mathematics" ? "J560" : undefined,
+        specification: q === "gcse" && contentSubjectKey === "mathematics" ? "J560" : undefined,
       },
     ];
   })();
@@ -900,8 +1681,14 @@ function contentFor(q: QualificationKey, s: SubjectKey): QualificationSubjectCon
     ];
 
     const colors =
-      q === "primary"
-        ? ["bg-sky-100", "text-sky-600"]
+      q === "primary" || q === "eyfs" || q === "ks1" || q === "ks2"
+        ? q === "eyfs"
+          ? ["bg-yellow-100", "text-yellow-700"]
+          : q === "ks1"
+            ? ["bg-sky-100", "text-sky-600"]
+            : q === "ks2"
+              ? ["bg-blue-100", "text-blue-600"]
+              : ["bg-sky-100", "text-sky-600"]
         : q === "ks3"
           ? ["bg-blue-100", "text-blue-600"]
           : q === "gcse"
@@ -950,54 +1737,87 @@ function contentFor(q: QualificationKey, s: SubjectKey): QualificationSubjectCon
   })();
 
   const overviewHeading = `What is ${qualificationLabel} ${subjectLabel}?`;
-  const overviewLead =
-    q === "primary"
-      ? `Primary ${subjectLabel} builds strong foundations through clear explanations, guided practice, and confidence-building routines aligned to school learning.`
-      : q === "ks3"
-        ? `KS3 ${subjectLabel} strengthens understanding across core topics and prepares students for GCSE with strong study habits and problem-solving skills.`
-        : q === "gcse"
-          ? `GCSE ${subjectLabel} is a two-year qualification designed to develop knowledge, application, and exam technique across the full specification.`
-          : q === "igcse"
-            ? `IGCSE ${subjectLabel} is an internationally recognised qualification, assessed through structured exams and specification-aligned skills.`
-            : q === "a-level"
-              ? `A-Level ${subjectLabel} is an advanced qualification focused on depth, analysis, and university-level readiness.`
-              : q === "ib"
-                ? `IB ${subjectLabel} supports SL and HL pathways with a balance of content mastery, skills, and assessment strategy (including the IA).`
-                : `MYP ${subjectLabel} builds inquiry skills and conceptual understanding, with criteria-based assessments and strong feedback cycles.`;
+  const overviewLead = (() => {
+    if (q === "primary" || q === "eyfs" || q === "ks1" || q === "ks2") {
+      if (q === "eyfs") return `EYFS ${subjectLabel} supports early development through play-based learning, curiosity, and readiness for Key Stage 1.`;
+      if (q === "ks1") return `Key Stage 1 ${subjectLabel} builds core skills and confidence through structured, age-appropriate activities aligned to the UK curriculum.`;
+      if (q === "ks2") return `Key Stage 2 ${subjectLabel} strengthens foundations and prepares students for secondary school with clear progress and support.`;
+      return `Primary ${subjectLabel} builds strong foundations through clear explanations, guided practice, and confidence-building routines aligned to school learning.`;
+    }
+    if (q === "ks3") return `KS3 ${subjectLabel} strengthens understanding across core topics and prepares students for GCSE with strong study habits and problem-solving skills.`;
+    if (q === "gcse") {
+      if (contentSubjectKey === "mathematics") return `GCSE Mathematics develops algebraic proficiency, geometry and trigonometry, and probability—with a strong focus on problem-solving and exam technique for Foundation (Grades 1–5) and Higher (Grades 4–9) tier.`;
+      if (contentSubjectKey === "english") return `GCSE English Language develops creative writing, non-fiction analysis, and spoken language. We focus on essay structure, unseen text technique, and the skills that secure Grades 7–9.`;
+      if (contentSubjectKey === "physics") return `GCSE Physics covers forces, energy, electricity, waves, and atomic structure. We build fluency in calculations and required practicals, and target Foundation vs Higher tier effectively.`;
+      if (contentSubjectKey === "chemistry") return `GCSE Chemistry builds from atomic structure and bonding through to organic chemistry. We tackle the topics students find hardest—including moles and calculations—with clear, step-by-step support.`;
+      if (contentSubjectKey === "biology") return `GCSE Biology spans cell biology, infection and response, bioenergetics, and ecology. We strengthen extended writing and practical skills for strong performance across both papers.`;
+      if (contentSubjectKey === "business-studies") return `GCSE Business Studies covers the marketing mix, finance and accounts, and operations management. We emphasise case study analysis and exam technique for data response and extended questions.`;
+      if (contentSubjectKey === "economics") return `GCSE Economics introduces microeconomics (including market failure), macroeconomics (inflation, GDP, policy), and global economics. We build diagram technique and evaluation skills.`;
+      return `GCSE ${subjectLabel} is a two-year qualification designed to develop knowledge, application, and exam technique across the full specification.`;
+    }
+    if (q === "igcse") {
+      if (contentSubjectKey === "mathematics") return `IGCSE Mathematics develops algebraic proficiency, geometry and trigonometry, and probability, with exam technique and problem-solving for top grades (A*–A / 7–9).`;
+      if (contentSubjectKey === "english") return `IGCSE English Language develops creative writing, non-fiction analysis, and spoken language, with specification-aligned exam technique.`;
+      if (contentSubjectKey === "physics" || contentSubjectKey === "chemistry" || contentSubjectKey === "biology") return `IGCSE ${subjectLabel} is assessed through structured papers and practical components. We build specification mastery and exam technique for international pathways.`;
+      return `IGCSE ${subjectLabel} is an internationally recognised qualification, assessed through structured exams and specification-aligned skills.`;
+    }
+    if (q === "a-level") {
+      if (contentSubjectKey === "mathematics") return `A-Level Mathematics is split into Pure (differentiation, integration, proof) and Applied (Statistics and Mechanics). We focus on deep understanding and synoptic assessment for university preparation.`;
+      if (contentSubjectKey === "english") return `A-Level English Literature combines set texts, comparative coursework (NEA), and critical theory. We build the analytical and essay skills expected at university level.`;
+      if (contentSubjectKey === "physics") return `A-Level Physics covers particle physics, fields, simple harmonic motion, and options such as astrophysics. We support required practicals and synoptic assessment for top grades.`;
+      if (contentSubjectKey === "chemistry") return `A-Level Chemistry extends to thermodynamics, organic synthesis, and spectroscopy. We tackle moles, mechanisms, and multi-step synthesis with university-prep depth.`;
+      if (contentSubjectKey === "biology") return `A-Level Biology covers biological molecules, genetics, gene expression, and ecosystems. We build synoptic understanding and practical evaluation for strong exam performance.`;
+      if (contentSubjectKey === "business-studies") return `A-Level Business focuses on marketing mix, finance and accounts, and operations management, with case study analysis and synoptic assessment for university readiness.`;
+      if (contentSubjectKey === "economics") return `A-Level Economics combines microeconomics (market failure), macroeconomics (inflation, GDP, policy), and global economics, with data response and essay technique for top grades.`;
+      return `A-Level ${subjectLabel} is an advanced qualification focused on depth, analysis, and university-level readiness.`;
+    }
+    if (q === "ib") {
+      if (contentSubjectKey === "mathematics") return `IB Mathematics offers Analysis & Approaches (AA) and Applications & Interpretation (AI), each at SL and HL. We support the Internal Assessment (IA) and exam strategy, with clear SL vs HL differentiation.`;
+      if (contentSubjectKey === "english") return `IB Language & Literature combines literary analysis, the Individual Oral, and Paper 1 & 2. We support HL Essay and criteria-focused preparation for SL and HL.`;
+      if (contentSubjectKey === "physics" || contentSubjectKey === "chemistry" || contentSubjectKey === "biology") return `IB ${subjectLabel} is assessed through Internal Assessment (IA) and external papers. We support SL and HL content, inquiry-based learning, and markscheme awareness.`;
+      if (contentSubjectKey === "business-studies" || contentSubjectKey === "economics") return `IB ${subjectLabel} combines case study and essay assessment with SL and HL options. We support the IA and exam strategy for consistent performance.`;
+      return `IB ${subjectLabel} supports SL and HL pathways with a balance of content mastery, skills, and assessment strategy (including the IA).`;
+    }
+    if (q === "myp") {
+      if (contentSubjectKey === "mathematics") return `MYP Mathematics builds number, algebra, geometry, and statistics through inquiry-based learning. We align to MYP criteria and prepare students for DP Mathematics (AA or AI).`;
+      return `MYP ${subjectLabel} builds inquiry skills and conceptual understanding, with criteria-based assessments and strong feedback cycles.`;
+    }
+    return `MYP ${subjectLabel} builds inquiry skills and conceptual understanding, with criteria-based assessments and strong feedback cycles.`;
+  })();
 
-  const assessmentLead =
-    q === "gcse" && s === "mathematics"
-      ? "Students sit three written papers. We build technique, timing, and confidence with structured past-paper practice."
-      : q === "primary"
-        ? "We focus on confidence, accuracy, and consistency using a clear assessment-to-plan approach."
-        : q === "ib"
-          ? "We support both IA and final exams with a structured plan, feedback cycles, and timed practice."
-          : q === "myp"
-            ? "We support criteria-based success with clear expectations, task planning, and consistent feedback."
-            : "Assessment is built around topic mastery, regular testing, and exam-style practice where applicable.";
+  const assessmentLead = (() => {
+    if (q === "primary" || q === "eyfs" || q === "ks1" || q === "ks2") return "We focus on confidence, accuracy, and consistency using a clear assessment-to-plan approach.";
+    if (q === "ib") return "We support both Internal Assessment (IA) and final exams with a structured plan, feedback cycles, and timed practice. SL and HL requirements are clearly differentiated.";
+    if (q === "myp") return "We support criteria-based success with clear expectations, task planning, and consistent feedback aligned to MYP objectives.";
+    if ((q === "gcse" || q === "igcse") && contentSubjectKey === "mathematics") return "Students sit three written papers (one non-calculator, two calculator). We build technique, timing, and confidence with structured past-paper practice for Grades 7–9.";
+    if (q === "a-level" && contentSubjectKey === "mathematics") return "Assessment is via three papers: Pure Mathematics 1, Pure Mathematics 2, and Statistics & Mechanics. We focus on differentiation, integration, and synoptic application.";
+    if ((q === "gcse" || q === "igcse") && contentSubjectKey === "english") return "Two written papers (Creative Reading & Writing; Writers' Viewpoints) plus Spoken Language endorsement. We build essay structure and analysis under timed conditions.";
+    if (q === "a-level" && contentSubjectKey === "english") return "Assessment includes set-text papers and comparative coursework (NEA). We support critical theory, essay structure, and exam technique for top grades.";
+    if ((q === "gcse" || q === "igcse") && (contentSubjectKey === "physics" || contentSubjectKey === "chemistry" || contentSubjectKey === "biology")) return "Two written papers cover the full specification; required practicals are assessed within the papers. We build exam technique and extended response skills.";
+    if (q === "a-level" && (contentSubjectKey === "physics" || contentSubjectKey === "chemistry" || contentSubjectKey === "biology")) return "Three papers plus practical endorsement. We support synoptic assessment and the deep understanding examiners reward at A-Level.";
+    if ((q === "gcse" || q === "igcse") && (contentSubjectKey === "business-studies" || contentSubjectKey === "economics")) return "Written papers include multiple choice, short answer, and extended response. We focus on case study analysis and evaluation technique.";
+    if (q === "a-level" && (contentSubjectKey === "business-studies" || contentSubjectKey === "economics")) return "Assessment includes data response and essay papers, with synoptic elements at A-Level. We build evaluation and application to context for university prep.";
+    return "Assessment is built around topic mastery, regular testing, and exam-style practice where applicable.";
+  })();
 
-  const contentLead =
-    q === "primary"
-      ? "Clear, age-appropriate learning with real progress you can see."
-      : q === "ks3"
-        ? "Strong foundations across the key strands before GCSE."
-        : q === "gcse"
-          ? "Comprehensive coverage of exam-board specifications with targeted grade improvements."
-          : q === "igcse"
-            ? "International specification coverage with clear structure and exam technique."
-            : q === "a-level"
-              ? "Advanced depth with step-by-step problem-solving and top-grade strategy."
-              : q === "ib"
-                ? "SL & HL coverage plus IA support and exam strategy."
-                : "Inquiry-led coverage with criteria-based success strategies.";
+  const contentLead = (() => {
+    if (q === "primary" || q === "eyfs" || q === "ks1" || q === "ks2") return "Clear, age-appropriate learning with real progress you can see.";
+    if (q === "ks3") return "Strong foundations across the key strands before GCSE.";
+    if (q === "gcse") return "Comprehensive coverage of exam-board specifications with targeted grade improvements and exam technique for Grades 7–9.";
+    if (q === "igcse") return "International specification coverage with clear structure and exam technique for A*–A.";
+    if (q === "a-level") return "Advanced depth with step-by-step problem-solving, synoptic assessment preparation, and top-grade strategy for university.";
+    if (q === "ib") return "SL & HL coverage plus Internal Assessment (IA) support and exam strategy.";
+    if (q === "myp") return "Inquiry-led coverage with criteria-based success strategies and progress to DP.";
+    return "Inquiry-led coverage with criteria-based success strategies.";
+  })();
 
   const courseContentHeading = `${qualificationLabel} ${subjectLabel} Course Content`;
 
   const successHeading = `${qualificationLabel} ${subjectLabel} Success Stories`;
 
   const teachingHeading =
-    q === "primary"
-      ? `Our Primary ${subjectLabel} Teaching Approach`
+    q === "primary" || q === "eyfs" || q === "ks1" || q === "ks2"
+      ? `Our ${qualificationLabel} ${subjectLabel} Teaching Approach`
       : `Our ${qualificationLabel} ${subjectLabel} Teaching Approach`;
 
   return {
@@ -1009,10 +1829,22 @@ function contentFor(q: QualificationKey, s: SubjectKey): QualificationSubjectCon
       keywords: defaultKeywords(qualificationLabel, subjectLabel, boardsForSeo),
     },
     hero: {
-      subtitle:
-        s === "mathematics" && q === "gcse"
-          ? "Master GCSE Mathematics from Foundation to Higher tier with structured revision and exam technique."
-          : `Build confidence and achieve strong results in ${qualificationLabel} ${subjectLabel} with expert support.`,
+      subtitle: (() => {
+        if (contentSubjectKey === "mathematics" && (q === "gcse" || q === "igcse")) return `Master ${qualificationLabel} Mathematics from Foundation to Higher with algebraic proficiency, problem-solving, and exam technique for Grades 7–9.`;
+        if (contentSubjectKey === "mathematics" && q === "a-level") return "Master Pure and Applied Mathematics—differentiation, integration, statistics and mechanics—with synoptic assessment and university-prep support.";
+        if (contentSubjectKey === "mathematics" && q === "ib") return "Navigate Analysis & Approaches (AA) or Applications & Interpretation (AI), SL and HL, with IA support and exam strategy.";
+        if (contentSubjectKey === "english" && (q === "gcse" || q === "igcse")) return "Build confidence in creative writing, non-fiction analysis, and spoken language with exam technique that secures top grades.";
+        if (contentSubjectKey === "english" && q === "a-level") return "Excel in set texts, comparative coursework, and critical theory with university-level analytical and essay skills.";
+        if (contentSubjectKey === "physics" && (q === "gcse" || q === "igcse")) return "Master forces, energy, electricity, and atomic structure with required practicals and exam technique for Foundation and Higher tier.";
+        if (contentSubjectKey === "physics" && q === "a-level") return "Build deep understanding in particle physics, fields, simple harmonic motion, and options—with synoptic assessment and practical skills.";
+        if (contentSubjectKey === "chemistry" && (q === "gcse" || q === "igcse")) return "Tackle moles, bonding, and organic chemistry with clear step-by-step support and exam technique for both papers.";
+        if (contentSubjectKey === "chemistry" && q === "a-level") return "Master thermodynamics, organic synthesis, and spectroscopy with university-prep depth and synoptic assessment.";
+        if (contentSubjectKey === "biology" && (q === "gcse" || q === "igcse")) return "Strengthen cell biology, bioenergetics, ecology, and genetics with extended writing and practical skills for strong results.";
+        if (contentSubjectKey === "biology" && q === "a-level") return "Build fluency in biological molecules, genetics, gene expression, and ecosystems with synoptic and practical assessment support.";
+        if ((contentSubjectKey === "business-studies" || contentSubjectKey === "economics") && (q === "gcse" || q === "igcse")) return `Master ${contentSubjectKey === "economics" ? "microeconomics, macroeconomics, and global economics" : "marketing mix, finance, and operations"} with case study analysis and exam technique.`;
+        if ((contentSubjectKey === "business-studies" || contentSubjectKey === "economics") && q === "a-level") return "Excel in data response and essay papers with evaluation, application to context, and synoptic assessment for university.";
+        return `Build confidence and achieve strong results in ${qualificationLabel} ${subjectLabel} with expert support.`;
+      })(),
       keyBadges: levelKeyBadges,
     },
     overview: {
@@ -1030,9 +1862,9 @@ function contentFor(q: QualificationKey, s: SubjectKey): QualificationSubjectCon
       lead: assessmentLead,
       cards: assessmentCards,
       noteHeading:
-        q === "gcse" && s === "mathematics" ? "Grade Boundaries (Typical)" : undefined,
+        q === "gcse" && contentSubjectKey === "mathematics" ? "Grade Boundaries (Typical)" : undefined,
       noteBody:
-        q === "gcse" && s === "mathematics"
+        q === "gcse" && contentSubjectKey === "mathematics"
           ? "Grade boundaries vary by year and exam board. We focus on maximising marks through method, accuracy, and smart exam strategy."
           : undefined,
     },
@@ -1047,6 +1879,20 @@ function contentFor(q: QualificationKey, s: SubjectKey): QualificationSubjectCon
     success: {
       heading: successHeading,
       testimonials,
+    },
+    whyChooseUs: {
+      heading: `Why Improve ME for ${qualificationLabel} ${subjectLabel}?`,
+      items: [
+        "KHDA-approved tutoring centre in Gold & Diamond Park",
+        `10+ years' experience teaching ${subjectLabel} in Dubai`,
+        "Small groups (maximum 6 students) for personalized attention",
+        "Specialist subject tutors with proven track records",
+        "Structured, curriculum-aligned teaching",
+        `All exam boards covered: ${boardsForSeo}`,
+        "Regular progress reports to track improvement",
+        "Flexible scheduling to fit your family's routine",
+        "Dedicated learning environment in our 7,000 sq ft teaching facility",
+      ],
     },
   };
 }

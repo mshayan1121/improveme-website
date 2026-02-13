@@ -78,53 +78,23 @@ const LEVELS: Record<
   },
 };
 
-const SUBJECTS = [
-  {
-    slug: "mathematics",
-    label: "Mathematics",
-    Icon: Calculator,
-  },
-  {
-    slug: "english",
-    label: "English",
-    Icon: BookOpen,
-  },
-  {
-    slug: "science",
-    label: "Science (General)",
-    Icon: Microscope,
-  },
-  {
-    slug: "physics",
-    label: "Physics",
-    Icon: Zap,
-  },
-  {
-    slug: "chemistry",
-    label: "Chemistry",
-    Icon: FlaskConical,
-  },
-  {
-    slug: "biology",
-    label: "Biology",
-    Icon: Leaf,
-  },
-  {
-    slug: "business-studies",
-    label: "Business Studies",
-    Icon: Briefcase,
-  },
-  {
-    slug: "economics",
-    label: "Economics",
-    Icon: TrendingUp,
-  },
-  {
-    slug: "psychology",
-    label: "Psychology",
-    Icon: Brain,
-  },
-] as const;
+const SUBJECTS: Array<{ slug: string; label: string; Icon: typeof Calculator }> = [
+  { slug: "mathematics", label: "Mathematics", Icon: Calculator },
+  { slug: "english", label: "English", Icon: BookOpen },
+  { slug: "english-language", label: "English Language", Icon: BookOpen },
+  { slug: "english-literature", label: "English Literature", Icon: BookOpen },
+  { slug: "science", label: "Science (General)", Icon: Microscope },
+  { slug: "sciences", label: "Sciences", Icon: Microscope },
+  { slug: "individuals-societies", label: "Individuals & Societies", Icon: BookOpen },
+  { slug: "physics", label: "Physics", Icon: Zap },
+  { slug: "chemistry", label: "Chemistry", Icon: FlaskConical },
+  { slug: "biology", label: "Biology", Icon: Leaf },
+  { slug: "business-studies", label: "Business Studies", Icon: Briefcase },
+  { slug: "business", label: "Business", Icon: Briefcase },
+  { slug: "business-management", label: "Business Management", Icon: Briefcase },
+  { slug: "economics", label: "Economics", Icon: TrendingUp },
+  { slug: "psychology", label: "Psychology", Icon: Brain },
+];
 
 export async function generateMetadata({
   params,
@@ -158,8 +128,11 @@ export default async function SecondaryLevelCurriculumPage({
 
   if (!data) notFound();
 
-  const allowedSubjects = new Set(SUBJECTS_BY_LEVEL[key]);
-  const visibleSubjects = SUBJECTS.filter((s) => allowedSubjects.has(s.slug as never));
+  const subjectSlugs = SUBJECTS_BY_LEVEL[key] as string[];
+  const subjectsToShow = subjectSlugs.map((slug) => {
+    const found = SUBJECTS.find((s) => s.slug === slug);
+    return found ?? { slug, label: slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()), Icon: BookOpen };
+  });
 
   return (
     <article className="min-h-screen">
@@ -223,7 +196,7 @@ export default async function SecondaryLevelCurriculumPage({
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {visibleSubjects.map(({ slug, label, Icon }) => (
+            {subjectsToShow.map(({ slug, label, Icon }) => (
               <Link
                 key={slug}
                 href={`/curriculum/secondary/${key}/${slug}`}

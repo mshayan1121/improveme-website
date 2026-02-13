@@ -35,7 +35,17 @@ export type Testimonial = {
   role: string;
 };
 
-export type QualificationKey = "primary" | "ks3" | "gcse" | "igcse" | "a-level" | "ib" | "myp";
+export type QualificationKey =
+  | "primary"
+  | "eyfs"
+  | "ks1"
+  | "ks2"
+  | "ks3"
+  | "gcse"
+  | "igcse"
+  | "a-level"
+  | "ib"
+  | "myp";
 
 export type QualificationMeta = {
   key: QualificationKey;
@@ -49,11 +59,17 @@ export type QualificationMeta = {
 export type SubjectKey =
   | "mathematics"
   | "english"
+  | "english-language"
+  | "english-literature"
   | "science"
+  | "sciences"
+  | "individuals-societies"
   | "physics"
   | "chemistry"
   | "biology"
   | "business-studies"
+  | "business"
+  | "business-management"
   | "economics"
   | "psychology";
 
@@ -104,6 +120,10 @@ export type QualificationSubjectContent = {
     heading: string;
     testimonials: Testimonial[];
   };
+  whyChooseUs?: {
+    heading: string;
+    items: string[];
+  };
 };
 
 export const QUALIFICATIONS: Record<QualificationKey, QualificationMeta> = {
@@ -114,6 +134,30 @@ export const QUALIFICATIONS: Record<QualificationKey, QualificationMeta> = {
     badge: "EYFS • KS1 • KS2",
     age: "Ages 5-11",
     heroTrustLine: "Trusted by Dubai families • Skills-first • Confidence-building",
+  },
+  eyfs: {
+    key: "eyfs",
+    label: "EYFS",
+    gradientClassName: "from-yellow-400 to-orange-500",
+    badge: "Ages 3-5",
+    age: "Ages 3-5",
+    heroTrustLine: "Trusted by families from Dubai College, Repton, JESS…",
+  },
+  ks1: {
+    key: "ks1",
+    label: "Key Stage 1",
+    gradientClassName: "from-sky-400 to-blue-500",
+    badge: "Ages 5-7",
+    age: "Ages 5-7",
+    heroTrustLine: "Trusted by families from Dubai College, Repton, JESS…",
+  },
+  ks2: {
+    key: "ks2",
+    label: "Key Stage 2",
+    gradientClassName: "from-blue-400 to-blue-600",
+    badge: "Ages 7-11",
+    age: "Ages 7-11",
+    heroTrustLine: "Trusted by families from Dubai College, Repton, JESS…",
   },
   ks3: {
     key: "ks3",
@@ -179,5 +223,35 @@ export const SUBJECTS: Record<SubjectKey, SubjectMeta> = {
   },
   economics: { key: "economics", label: "Economics", courseHref: "/courses/economics" },
   psychology: { key: "psychology", label: "Psychology", courseHref: "/courses/psychology" },
+  "english-language": {
+    key: "english-language",
+    label: "English Language",
+    courseHref: "/courses/english",
+  },
+  "english-literature": {
+    key: "english-literature",
+    label: "English Literature",
+    courseHref: "/courses/english",
+  },
+  business: {
+    key: "business",
+    label: "Business",
+    courseHref: "/courses/business-studies",
+  },
+  "business-management": {
+    key: "business-management",
+    label: "Business Management",
+    courseHref: "/courses/business-studies",
+  },
+  sciences: {
+    key: "sciences",
+    label: "Sciences",
+    courseHref: "/courses/science",
+  },
+  "individuals-societies": {
+    key: "individuals-societies",
+    label: "Individuals & Societies",
+    courseHref: "/courses",
+  },
 };
 
