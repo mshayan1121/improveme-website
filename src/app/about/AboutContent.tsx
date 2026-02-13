@@ -134,7 +134,7 @@ export default function AboutContent() {
               className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg"
             >
               <Image
-                src="/Y3 English (1).jpeg"
+                src="/jason class2.jpg"
                 alt="Students learning in small groups at Improve ME Institute, Dubai"
                 fill
                 className="object-cover"
@@ -539,20 +539,20 @@ export default function AboutContent() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
             {[
               {
-                src: "/Y3 English (1).jpeg",
-                alt: "UK-themed classroom with London Underground signage at Improve ME Institute",
+                src: "/jason class2.jpg",
+                alt: "Instructor teaching maths at the whiteboard at Improve ME Institute",
               },
               {
-                src: "/Y3 English (1).jpeg",
-                alt: "Small group learning session in progress at Gold and Diamond Park centre",
+                src: "/Students at Maths Class (3).jpeg",
+                alt: "Students in maths class at Gold and Diamond Park centre",
               },
               {
-                src: "/Y3 English (1).jpeg",
-                alt: "Comfortable study area with British cultural elements",
+                src: "/Taavisha, Raahat in Maths class.jpeg",
+                alt: "Small group maths session with students and tutor",
               },
               {
-                src: "/Y3 English (1).jpeg",
-                alt: "Modern learning space at Improve ME Institute",
+                src: "/GCSE Maths Class (5).jpeg",
+                alt: "GCSE Maths class in progress at Improve ME Institute",
               },
             ].map((image, index) => (
               <motion.div
