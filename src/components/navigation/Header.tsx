@@ -115,7 +115,7 @@ const curriculumColumns: CurriculumColumn[] = [
   {
     title: 'SECONDARY (AGES 11-18)',
     sections: [
-      { icon: Book, name: 'Key Stage 3 (Ages 11-14)', links: [{ name: 'Mathematics', href: '/courses/ks3-mathematics' }, { name: 'English', href: '/courses/ks3-english' }, { name: 'Science (Combined)', href: '/courses/ks3-science' }] },
+      { icon: Book, name: 'Key Stage 3 (Ages 11-14)', links: [{ name: 'Mathematics', href: '/curriculum/secondary/ks3/mathematics' }, { name: 'English', href: '/curriculum/secondary/ks3/english' }, { name: 'Science (Combined)', href: '/curriculum/secondary/ks3/science' }] },
       {
         icon: BookMarked,
         name: 'GCSE/IGCSE/MYP (Ages 14-16)',
@@ -123,36 +123,36 @@ const curriculumColumns: CurriculumColumn[] = [
           {
             label: 'GCSE Subjects:',
             links: [
-              { name: 'GCSE Mathematics', href: '/courses/gcse-mathematics' },
-              { name: 'GCSE English Language', href: '/courses/gcse-english-language' },
-              { name: 'GCSE Physics', href: '/courses/gcse-physics' },
-              { name: 'GCSE Chemistry', href: '/courses/gcse-chemistry' },
-              { name: 'GCSE Biology', href: '/courses/gcse-biology' },
-              { name: 'GCSE Business Studies', href: '/courses/gcse-business-studies' },
-              { name: 'GCSE Economics', href: '/courses/gcse-economics' },
-              { name: 'GCSE Psychology', href: '/courses/gcse-psychology' },
+              { name: 'GCSE Mathematics', href: '/curriculum/secondary/gcse/mathematics' },
+              { name: 'GCSE English Language', href: '/curriculum/secondary/gcse/english-language' },
+              { name: 'GCSE Physics', href: '/curriculum/secondary/gcse/physics' },
+              { name: 'GCSE Chemistry', href: '/curriculum/secondary/gcse/chemistry' },
+              { name: 'GCSE Biology', href: '/curriculum/secondary/gcse/biology' },
+              { name: 'GCSE Business Studies', href: '/curriculum/secondary/gcse/business-studies' },
+              { name: 'GCSE Economics', href: '/curriculum/secondary/gcse/economics' },
+              { name: 'GCSE Psychology', href: '/curriculum/secondary/gcse/psychology' },
             ],
           },
           {
             label: 'IGCSE Subjects:',
             links: [
-              { name: 'IGCSE Mathematics', href: '/courses/igcse-mathematics' },
-              { name: 'IGCSE English Language', href: '/courses/igcse-english-language' },
-              { name: 'IGCSE Physics', href: '/courses/igcse-physics' },
-              { name: 'IGCSE Chemistry', href: '/courses/igcse-chemistry' },
-              { name: 'IGCSE Biology', href: '/courses/igcse-biology' },
-              { name: 'IGCSE Business Studies', href: '/courses/igcse-business-studies' },
-              { name: 'IGCSE Economics', href: '/courses/igcse-economics' },
-              { name: 'IGCSE Psychology', href: '/courses/igcse-psychology' },
+              { name: 'IGCSE Mathematics', href: '/curriculum/secondary/igcse/mathematics' },
+              { name: 'IGCSE English Language', href: '/curriculum/secondary/igcse/english-language' },
+              { name: 'IGCSE Physics', href: '/curriculum/secondary/igcse/physics' },
+              { name: 'IGCSE Chemistry', href: '/curriculum/secondary/igcse/chemistry' },
+              { name: 'IGCSE Biology', href: '/curriculum/secondary/igcse/biology' },
+              { name: 'IGCSE Business Studies', href: '/curriculum/secondary/igcse/business-studies' },
+              { name: 'IGCSE Economics', href: '/curriculum/secondary/igcse/economics' },
+              { name: 'IGCSE Psychology', href: '/curriculum/secondary/igcse/psychology' },
             ],
           },
           {
             label: 'MYP Subjects:',
             links: [
-              { name: 'MYP Mathematics', href: '/courses/myp-mathematics' },
-              { name: 'MYP English', href: '/courses/myp-english' },
-              { name: 'MYP Sciences', href: '/courses/myp-sciences' },
-              { name: 'MYP Individuals & Societies', href: '/courses/myp-individuals-societies' },
+              { name: 'MYP Mathematics', href: '/curriculum/secondary/myp/mathematics' },
+              { name: 'MYP English', href: '/curriculum/secondary/myp/english' },
+              { name: 'MYP Sciences', href: '/curriculum/secondary/myp/sciences' },
+              { name: 'MYP Individuals & Societies', href: '/curriculum/secondary/myp/individuals-societies' },
             ],
           },
         ],
@@ -164,27 +164,27 @@ const curriculumColumns: CurriculumColumn[] = [
           {
             label: 'A-Level Subjects:',
             links: [
-              { name: 'A-Level Mathematics', href: '/courses/a-level-mathematics' },
-              { name: 'A-Level English Literature', href: '/courses/a-level-english-literature' },
-              { name: 'A-Level Physics', href: '/courses/a-level-physics' },
-              { name: 'A-Level Chemistry', href: '/courses/a-level-chemistry' },
-              { name: 'A-Level Biology', href: '/courses/a-level-biology' },
-              { name: 'A-Level Business', href: '/courses/a-level-business' },
-              { name: 'A-Level Economics', href: '/courses/a-level-economics' },
-              { name: 'A-Level Psychology', href: '/courses/a-level-psychology' },
+              { name: 'A-Level Mathematics', href: '/curriculum/secondary/a-level/mathematics' },
+              { name: 'A-Level English Literature', href: '/curriculum/secondary/a-level/english-literature' },
+              { name: 'A-Level Physics', href: '/curriculum/secondary/a-level/physics' },
+              { name: 'A-Level Chemistry', href: '/curriculum/secondary/a-level/chemistry' },
+              { name: 'A-Level Biology', href: '/curriculum/secondary/a-level/biology' },
+              { name: 'A-Level Business', href: '/curriculum/secondary/a-level/business' },
+              { name: 'A-Level Economics', href: '/curriculum/secondary/a-level/economics' },
+              { name: 'A-Level Psychology', href: '/curriculum/secondary/a-level/psychology' },
             ],
           },
           {
             label: 'IB Subjects (SL/HL):',
             links: [
-              { name: 'IB Mathematics', href: '/courses/ib-mathematics' },
-              { name: 'IB English', href: '/courses/ib-english' },
-              { name: 'IB Physics', href: '/courses/ib-physics' },
-              { name: 'IB Chemistry', href: '/courses/ib-chemistry' },
-              { name: 'IB Biology', href: '/courses/ib-biology' },
-              { name: 'IB Business Management', href: '/courses/ib-business-management' },
-              { name: 'IB Economics', href: '/courses/ib-economics' },
-              { name: 'IB Psychology', href: '/courses/ib-psychology' },
+              { name: 'IB Mathematics', href: '/curriculum/secondary/ib/mathematics' },
+              { name: 'IB English', href: '/curriculum/secondary/ib/english' },
+              { name: 'IB Physics', href: '/curriculum/secondary/ib/physics' },
+              { name: 'IB Chemistry', href: '/curriculum/secondary/ib/chemistry' },
+              { name: 'IB Biology', href: '/curriculum/secondary/ib/biology' },
+              { name: 'IB Business Management', href: '/curriculum/secondary/ib/business-management' },
+              { name: 'IB Economics', href: '/curriculum/secondary/ib/economics' },
+              { name: 'IB Psychology', href: '/curriculum/secondary/ib/psychology' },
             ],
           },
         ],
@@ -208,6 +208,58 @@ const mainNavItems: MainNavItem[] = [
   { name: 'About Us', href: '/about', title: 'About Improve ME Institute' },
   { name: 'Contact', href: '/contact', title: 'Contact Improve ME Institute' },
 ];
+
+// Helper function to generate curriculum routes
+function getCurriculumRoute(level: string, subject: string): string {
+  // Map level names to slugs
+  const levelSlugMap: Record<string, string> = {
+    'KS3': 'ks3',
+    'GCSE': 'gcse',
+    'IGCSE': 'igcse',
+    'MYP': 'myp',
+    'A-Level': 'a-level',
+    'IB': 'ib',
+  };
+
+  // Map subject display names to slugs
+  const subjectSlugMap: Record<string, string> = {
+    'Mathematics': 'mathematics',
+    'English': 'english',
+    'English Language': 'english-language',
+    'English Literature': 'english-literature',
+    'Science': 'science',
+    'Science (Combined)': 'science',
+    'Sciences': 'sciences',
+    'Physics': 'physics',
+    'Chemistry': 'chemistry',
+    'Biology': 'biology',
+    'Business Studies': 'business-studies',
+    'Business': 'business',
+    'Business Management': 'business-management',
+    'Economics': 'economics',
+    'Psychology': 'psychology',
+    'Individuals & Societies': 'individuals-societies',
+  };
+
+  const levelSlug = levelSlugMap[level] || level.toLowerCase();
+  const subjectSlug = subjectSlugMap[subject] || subject.toLowerCase().replace(/\s+/g, '-');
+
+  return `/curriculum/secondary/${levelSlug}/${subjectSlug}`;
+}
+
+// Helper function to get level hub route
+function getLevelHubRoute(level: string): string {
+  const levelSlugMap: Record<string, string> = {
+    'KS3': 'ks3',
+    'GCSE': 'gcse',
+    'IGCSE': 'igcse',
+    'MYP': 'myp',
+    'A-Level': 'a-level',
+    'IB': 'ib',
+  };
+  const levelSlug = levelSlugMap[level] || level.toLowerCase();
+  return `/curriculum/secondary/${levelSlug}`;
+}
 
 const desktopDropdownVariants = {
   hidden: { opacity: 0, y: -10 },
@@ -580,24 +632,29 @@ export default function Header() {
                         <div className="break-inside-avoid mb-4">
                           <div className="flex items-center gap-2 mb-1.5">
                             <Book className="w-4 h-4 text-yellow-500" />
-                            <h3 className="text-sm font-bold text-navy-900">Key Stage 3 (Ages 11-14)</h3>
+                            <Link
+                              href={getLevelHubRoute('KS3')}
+                              className="text-sm font-bold text-navy-900 hover:text-blue-600 transition-colors cursor-pointer"
+                            >
+                              Key Stage 3 (Ages 11-14)
+                            </Link>
                           </div>
                           <div className="pl-6 space-y-0.5">
                             <Link
-                              href="/courses/ks3-mathematics"
-                              className="block text-xs text-navy-700 hover:text-yellow-600 transition-colors"
+                              href={getCurriculumRoute('KS3', 'Mathematics')}
+                              className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                             >
                               Mathematics
                             </Link>
                             <Link
-                              href="/courses/ks3-english"
-                              className="block text-xs text-navy-700 hover:text-yellow-600 transition-colors"
+                              href={getCurriculumRoute('KS3', 'English')}
+                              className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                             >
                               English
                             </Link>
                             <Link
-                              href="/courses/ks3-science"
-                              className="block text-xs text-navy-700 hover:text-yellow-600 transition-colors"
+                              href={getCurriculumRoute('KS3', 'Science (Combined)')}
+                              className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                             >
                               Science (Combined)
                             </Link>
@@ -607,58 +664,61 @@ export default function Header() {
                         {/* Block 7: GCSE (Ages 14-16) */}
                         <div className="break-inside-avoid mb-4">
                           <div className="mb-1.5">
-                            <h3 className="text-sm font-bold text-navy-900 flex items-center gap-2">
+                            <Link
+                              href={getLevelHubRoute('GCSE')}
+                              className="text-sm font-bold text-navy-900 flex items-center gap-2 hover:text-blue-600 transition-colors cursor-pointer"
+                            >
                               <BookMarked className="w-4 h-4 text-yellow-500" />
                               GCSE (Ages 14-16)
-                            </h3>
+                            </Link>
                           </div>
                           <div className="pl-6">
                             <div className="grid grid-cols-2 gap-x-3 gap-y-0.5">
                               <Link
-                                href="/courses/gcse-mathematics"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('GCSE', 'Mathematics')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 Mathematics
                               </Link>
                               <Link
-                                href="/courses/gcse-physics"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('GCSE', 'Physics')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 Physics
                               </Link>
                               <Link
-                                href="/courses/gcse-english-language"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('GCSE', 'English Language')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 English Language
                               </Link>
                               <Link
-                                href="/courses/gcse-chemistry"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('GCSE', 'Chemistry')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 Chemistry
                               </Link>
                               <Link
-                                href="/courses/gcse-biology"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('GCSE', 'Biology')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 Biology
                               </Link>
                               <Link
-                                href="/courses/gcse-business-studies"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('GCSE', 'Business Studies')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 Business Studies
                               </Link>
                               <Link
-                                href="/courses/gcse-economics"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('GCSE', 'Economics')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 Economics
                               </Link>
                               <Link
-                                href="/courses/gcse-psychology"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('GCSE', 'Psychology')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 Psychology
                               </Link>
@@ -669,58 +729,61 @@ export default function Header() {
                         {/* Block 8: IGCSE (Ages 14-16) */}
                         <div className="break-inside-avoid mb-4">
                           <div className="mb-1.5">
-                            <h3 className="text-sm font-bold text-navy-900 flex items-center gap-2">
+                            <Link
+                              href={getLevelHubRoute('IGCSE')}
+                              className="text-sm font-bold text-navy-900 flex items-center gap-2 hover:text-blue-600 transition-colors cursor-pointer"
+                            >
                               <BookMarked className="w-4 h-4 text-yellow-500" />
                               IGCSE (Ages 14-16)
-                            </h3>
+                            </Link>
                           </div>
                           <div className="pl-6">
                             <div className="grid grid-cols-2 gap-x-3 gap-y-0.5">
                               <Link
-                                href="/courses/igcse-mathematics"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('IGCSE', 'Mathematics')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 Mathematics
                               </Link>
                               <Link
-                                href="/courses/igcse-physics"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('IGCSE', 'Physics')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 Physics
                               </Link>
                               <Link
-                                href="/courses/igcse-english-language"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('IGCSE', 'English Language')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 English Language
                               </Link>
                               <Link
-                                href="/courses/igcse-chemistry"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('IGCSE', 'Chemistry')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 Chemistry
                               </Link>
                               <Link
-                                href="/courses/igcse-biology"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('IGCSE', 'Biology')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 Biology
                               </Link>
                               <Link
-                                href="/courses/igcse-business-studies"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('IGCSE', 'Business Studies')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 Business Studies
                               </Link>
                               <Link
-                                href="/courses/igcse-economics"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('IGCSE', 'Economics')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 Economics
                               </Link>
                               <Link
-                                href="/courses/igcse-psychology"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('IGCSE', 'Psychology')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 Psychology
                               </Link>
@@ -731,33 +794,36 @@ export default function Header() {
                         {/* Block 9: MYP (Ages 14-16) */}
                         <div className="break-inside-avoid mb-4">
                           <div className="mb-1.5">
-                            <h3 className="text-sm font-bold text-navy-900 flex items-center gap-2">
+                            <Link
+                              href={getLevelHubRoute('MYP')}
+                              className="text-sm font-bold text-navy-900 flex items-center gap-2 hover:text-blue-600 transition-colors cursor-pointer"
+                            >
                               <BookOpen className="w-4 h-4 text-yellow-500" />
                               MYP (Ages 14-16)
-                            </h3>
+                            </Link>
                           </div>
                           <div className="pl-6 space-y-0.5">
                             <Link
-                              href="/courses/myp-mathematics"
-                              className="block text-xs text-navy-700 hover:text-yellow-600"
+                              href={getCurriculumRoute('MYP', 'Mathematics')}
+                              className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                             >
                               Mathematics
                             </Link>
                             <Link
-                              href="/courses/myp-english"
-                              className="block text-xs text-navy-700 hover:text-yellow-600"
+                              href={getCurriculumRoute('MYP', 'English')}
+                              className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                             >
                               English
                             </Link>
                             <Link
-                              href="/courses/myp-sciences"
-                              className="block text-xs text-navy-700 hover:text-yellow-600"
+                              href={getCurriculumRoute('MYP', 'Sciences')}
+                              className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                             >
                               Sciences
                             </Link>
                             <Link
-                              href="/courses/myp-individuals-societies"
-                              className="block text-xs text-navy-700 hover:text-yellow-600"
+                              href={getCurriculumRoute('MYP', 'Individuals & Societies')}
+                              className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                             >
                               Individuals &amp; Societies
                             </Link>
@@ -767,58 +833,61 @@ export default function Header() {
                         {/* Block 10: A-Level (Ages 16-18) */}
                         <div className="break-inside-avoid mb-4">
                           <div className="mb-1.5">
-                            <h3 className="text-sm font-bold text-navy-900 flex items-center gap-2">
+                            <Link
+                              href={getLevelHubRoute('A-Level')}
+                              className="text-sm font-bold text-navy-900 flex items-center gap-2 hover:text-blue-600 transition-colors cursor-pointer"
+                            >
                               <GraduationCap className="w-4 h-4 text-yellow-500" />
                               A-Level (Ages 16-18)
-                            </h3>
+                            </Link>
                           </div>
                           <div className="pl-6">
                             <div className="grid grid-cols-2 gap-x-3 gap-y-0.5">
                               <Link
-                                href="/courses/a-level-mathematics"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('A-Level', 'Mathematics')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 Mathematics
                               </Link>
                               <Link
-                                href="/courses/a-level-physics"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('A-Level', 'Physics')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 Physics
                               </Link>
                               <Link
-                                href="/courses/a-level-english-literature"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('A-Level', 'English Literature')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 English Literature
                               </Link>
                               <Link
-                                href="/courses/a-level-chemistry"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('A-Level', 'Chemistry')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 Chemistry
                               </Link>
                               <Link
-                                href="/courses/a-level-biology"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('A-Level', 'Biology')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 Biology
                               </Link>
                               <Link
-                                href="/courses/a-level-business"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('A-Level', 'Business')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 Business
                               </Link>
                               <Link
-                                href="/courses/a-level-economics"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('A-Level', 'Economics')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 Economics
                               </Link>
                               <Link
-                                href="/courses/a-level-psychology"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('A-Level', 'Psychology')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 Psychology
                               </Link>
@@ -829,58 +898,61 @@ export default function Header() {
                         {/* Block 11: IB (SL/HL, Ages 16-18) */}
                         <div className="break-inside-avoid mb-4">
                           <div className="mb-1.5">
-                            <h3 className="text-sm font-bold text-navy-900 flex items-center gap-2">
+                            <Link
+                              href={getLevelHubRoute('IB')}
+                              className="text-sm font-bold text-navy-900 flex items-center gap-2 hover:text-blue-600 transition-colors cursor-pointer"
+                            >
                               <GraduationCap className="w-4 h-4 text-yellow-500" />
                               IB (SL/HL, Ages 16-18)
-                            </h3>
+                            </Link>
                           </div>
                           <div className="pl-6">
                             <div className="grid grid-cols-2 gap-x-3 gap-y-0.5">
                               <Link
-                                href="/courses/ib-mathematics"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('IB', 'Mathematics')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 Mathematics
                               </Link>
                               <Link
-                                href="/courses/ib-physics"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('IB', 'Physics')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 Physics
                               </Link>
                               <Link
-                                href="/courses/ib-english"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('IB', 'English')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 English
                               </Link>
                               <Link
-                                href="/courses/ib-chemistry"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('IB', 'Chemistry')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 Chemistry
                               </Link>
                               <Link
-                                href="/courses/ib-biology"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('IB', 'Biology')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 Biology
                               </Link>
                               <Link
-                                href="/courses/ib-business-management"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('IB', 'Business Management')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 Business Management
                               </Link>
                               <Link
-                                href="/courses/ib-economics"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('IB', 'Economics')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 Economics
                               </Link>
                               <Link
-                                href="/courses/ib-psychology"
-                                className="text-xs text-navy-700 hover:text-yellow-600"
+                                href={getCurriculumRoute('IB', 'Psychology')}
+                                className="block py-1 text-xs text-navy-700 hover:text-blue-600 hover:translate-x-1 transition-all cursor-pointer"
                               >
                                 Psychology
                               </Link>

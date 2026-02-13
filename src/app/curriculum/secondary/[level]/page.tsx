@@ -213,7 +213,7 @@ export default async function SecondaryLevelCurriculumPage({
                     Explore our {data.label} support for {label}.
                   </p>
                   <div className="flex items-center justify-center gap-2 text-navy-600 text-sm mt-auto transition-colors group-hover:text-navy-900">
-                    <span>View {label}</span>
+                    <span>View Course</span>
                     <ArrowRight className="w-4 h-4" />
                   </div>
                 </div>
