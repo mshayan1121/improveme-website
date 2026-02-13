@@ -69,9 +69,9 @@ const secondarySubjects = [
 /* Enrichment: 4 programs, small cards/pills with icons, dark blue text */
 const enrichmentPrograms = [
   { Icon: Target, name: 'CAT Prep', description: 'Preparation for CAT4 cognitive ability tests (Ages 7–13)', href: '/courses/cat-prep' },
-  { Icon: Crown, name: 'Chess Mastery', description: 'Developing logic, strategy, and focus', href: '/enrichment/chess' },
-  { Icon: Wallet, name: 'Financial Literacy', description: 'Practical money skills and economic awareness', href: '/enrichment/financial-literacy' },
-  { Icon: Cpu, name: 'AI Literacy', description: 'Understanding AI tools and thinking critically about technology', href: '/enrichment/ai-literacy' },
+  { Icon: Crown, name: 'Chess Mastery', description: 'Developing logic, strategy, and focus', href: '/courses/chess' },
+  { Icon: Wallet, name: 'Financial Literacy', description: 'Practical money skills and economic awareness', href: '/courses/financial-literacy' },
+  { Icon: Cpu, name: 'AI Literacy', description: 'Understanding AI tools and thinking critically about technology', href: '/courses/ai-literacy' },
 ];
 
 export default function AcademicJourneySection() {
