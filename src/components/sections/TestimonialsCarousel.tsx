@@ -28,7 +28,7 @@ const testimonials = [
   },
 ];
 
-const GOOGLE_REVIEWS_URL = 'https://g.page/r/CYOUR_GOOGLE_BUSINESS_ID/review';
+const GOOGLE_REVIEWS_URL = 'https://www.google.com/search?kgmid=/g/11c54bkv6t&hl=en-AE&q=Improve+ME+Institute&shem=sumc,shrtsdl&shndl=30&source=sh/x/loc/osrp/m5/1&kgs=16f1ab0c03232984&utm_source=sumc,shrtsdl,sh/x/loc/osrp/m5/1';
 
 export default function TestimonialsCarousel() {
   const [current, setCurrent] = useState(0);
@@ -36,8 +36,17 @@ export default function TestimonialsCarousel() {
   const [itemsPerView, setItemsPerView] = useState(3);
 
   useEffect(() => {
-    const update = () =>
-      setItemsPerView(typeof window !== 'undefined' && window.innerWidth >= 1024 ? 3 : 1);
+    const update = () => {
+      if (typeof window === 'undefined') return;
+      const width = window.innerWidth;
+      if (width >= 1024) {
+        setItemsPerView(3); // Desktop: 3 cards
+      } else if (width >= 768) {
+        setItemsPerView(2); // Tablet: 2 cards
+      } else {
+        setItemsPerView(1); // Mobile: 1 card
+      }
+    };
     update();
     window.addEventListener('resize', update);
     return () => window.removeEventListener('resize', update);
@@ -76,25 +85,27 @@ export default function TestimonialsCarousel() {
   return (
     <section className="relative overflow-hidden bg-gray-100/80 py-10 md:py-14">
       <div className="section-container">
-        {/* Header: Title + Google Reviews badge */}
+        {/* Header: Title */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6"
+          className="text-center mb-8"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-navy-900">
+          <h2 className="text-3xl md:text-4xl font-bold text-navy-900 mb-6">
             What Parents Say
           </h2>
+          
+          {/* Google Rating Badge - Prominently displayed */}
           <a
             href={GOOGLE_REVIEWS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-white rounded-xl border border-gray-200 shadow-sm px-4 py-3 hover:shadow-md hover:border-gray-300 transition-all w-fit"
+            className="inline-flex items-center gap-3 bg-white rounded-xl border border-gray-200 shadow-md px-5 py-4 hover:shadow-lg hover:border-yellow-400 transition-all w-fit mx-auto"
           >
             {/* Google logo (simplified G colors) */}
             <svg
-              className="w-8 h-8 shrink-0"
+              className="w-10 h-10 shrink-0"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden
@@ -117,17 +128,16 @@ export default function TestimonialsCarousel() {
               />
             </svg>
             <div className="text-left">
-              <div className="flex items-center gap-1.5">
-                <span className="font-bold text-navy-900">4.8</span>
-                <span className="text-navy-600 text-sm">out of 5</span>
+              <div className="flex items-center gap-2">
+                <span className="font-bold text-2xl text-navy-900">4.9</span>
+                <div className="flex gap-0.5">
+                  {[1, 2, 3, 4, 5].map((i) => (
+                    <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
               </div>
-              <div className="flex gap-0.5 mt-0.5">
-                {[1, 2, 3, 4].map((i) => (
-                  <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                ))}
-                <Star className="w-4 h-4 fill-yellow-400/50 text-yellow-400" />
-              </div>
-              <p className="text-navy-600 text-xs mt-1">Based on 206 Google Reviews</p>
+              <p className="text-navy-600 text-sm mt-1 font-medium">Google Rating</p>
+              <p className="text-navy-500 text-xs mt-0.5">Based on 206+ reviews</p>
             </div>
           </a>
         </motion.div>
@@ -152,9 +162,13 @@ export default function TestimonialsCarousel() {
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.35 }}
-                  className="flex-[1_1_100%] lg:flex-[1_1_calc(33.333%-1rem)] max-w-md mx-auto lg:mx-0 min-w-0 flex"
+                  className={`flex-[1_1_100%] ${
+                    itemsPerView === 2 ? 'md:flex-[1_1_calc(50%-0.5rem)]' : ''
+                  } ${
+                    itemsPerView === 3 ? 'lg:flex-[1_1_calc(33.333%-1rem)]' : ''
+                  } max-w-md mx-auto lg:mx-0 min-w-0 flex`}
                 >
-                  <div className="bg-white rounded-2xl shadow-md border border-gray-200/80 p-4 md:p-5 h-full flex flex-col w-full">
+                  <div className="bg-white rounded-2xl shadow-md border border-gray-200/80 p-4 md:p-5 h-full flex flex-col w-full transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
                     <div className="flex gap-1 mb-4">
                       {Array.from({ length: testimonial.rating }).map((_, j) => (
                         <Star
@@ -176,24 +190,26 @@ export default function TestimonialsCarousel() {
             </motion.div>
           </div>
 
-          {/* Optional prev/next - subtle */}
-          {itemsPerView === 1 && testimonials.length > 1 && (
+          {/* Navigation Arrows - Always visible */}
+          {testimonials.length > itemsPerView && (
             <>
               <button
                 type="button"
                 onClick={() => goTo(Math.max(0, current - 1))}
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:translate-x-0 w-10 h-10 rounded-full bg-white border border-gray-200 shadow-md flex items-center justify-center text-navy-600 hover:bg-gray-50 transition-colors z-10"
+                disabled={current === 0}
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-4 lg:-translate-x-6 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border border-gray-200 shadow-lg flex items-center justify-center text-navy-600 hover:bg-gray-50 hover:border-yellow-400 transition-all disabled:opacity-50 disabled:cursor-not-allowed z-10"
                 aria-label="Previous testimonial"
               >
-                <ChevronLeft className="w-5 h-5" />
+                <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
               </button>
               <button
                 type="button"
                 onClick={() => goTo(Math.min(maxIndex, current + 1))}
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-0 w-10 h-10 rounded-full bg-white border border-gray-200 shadow-md flex items-center justify-center text-navy-600 hover:bg-gray-50 transition-colors z-10"
+                disabled={current >= maxIndex}
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-4 lg:translate-x-6 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border border-gray-200 shadow-lg flex items-center justify-center text-navy-600 hover:bg-gray-50 hover:border-yellow-400 transition-all disabled:opacity-50 disabled:cursor-not-allowed z-10"
                 aria-label="Next testimonial"
               >
-                <ChevronRight className="w-5 h-5" />
+                <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
               </button>
             </>
           )}

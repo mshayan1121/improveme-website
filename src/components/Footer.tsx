@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Facebook, Instagram } from 'lucide-react';
 
 const primaryLinks = [
@@ -40,9 +41,15 @@ export default function Footer() {
           {/* 1. Logo & Social */}
           <div className="space-y-4">
             <Link href="/" className="inline-block">
-              <span className="text-2xl font-bold">
-                Improve <span className="text-yellow-500">ME</span> Institute
-              </span>
+              <div className="bg-white p-2 rounded-md inline-block">
+                <Image 
+                  src="/logo.png" 
+                  alt="Improve ME Institute" 
+                  width={185} 
+                  height={45} 
+                  className="h-8 w-auto"
+                />
+              </div>
             </Link>
             <p className="text-gray-400 text-sm">
               Leading Tutoring Center in Dubai

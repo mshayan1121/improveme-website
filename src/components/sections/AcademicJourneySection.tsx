@@ -155,44 +155,48 @@ export default function AcademicJourneySection() {
           </StageRow>
         </div>
 
-        {/* Enrichment row: horizontal full-width bar, no spine - bonus layer */}
+        {/* Enrichment row: 2x2 Grid layout with Card styling */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.4, delay: 0.35 }}
-          className="mt-12 md:mt-16 rounded-2xl overflow-hidden"
-          style={{ backgroundColor: 'rgb(251 191 36 / 0.12)' }}
+          className="mt-12 md:mt-16"
         >
-          <div className="flex flex-col lg:flex-row lg:items-start lg:gap-8 py-12 md:py-16 px-6 sm:px-8 lg:px-10">
-            {/* Left: title + subtitle */}
-            <div className="lg:w-[28%] lg:max-w-[16rem] shrink-0 mb-6 lg:mb-0">
-              <h3 className="text-xl font-extrabold text-navy-900">Enrichment & Future Skills</h3>
-              <p className="text-sm text-navy-700 mt-1 font-medium">Building well-rounded learners alongside their academic programme.</p>
-            </div>
-            {/* Right: 4 pills + note */}
-            <div className="flex-1 min-w-0">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                {enrichmentPrograms.map((program, i) => (
-                  <Link
-                    key={program.name}
-                    href={program.href}
-                    title={program.name}
-                    className="group flex items-start gap-3 rounded-xl bg-white/80 hover:bg-white border border-amber-200/60 p-4 transition-all duration-200 hover:shadow-md hover:shadow-amber-200/20"
-                  >
-                    <span className="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center shrink-0 text-navy-700 group-hover:bg-amber-200/50 transition-colors">
-                      <program.Icon className="w-5 h-5" strokeWidth={1.5} />
-                    </span>
-                    <div className="min-w-0 flex-1">
-                      <span className="font-semibold text-navy-900 text-sm block">{program.name}</span>
-                      <span className="text-xs text-navy-700 leading-snug block mt-0.5">{program.description}</span>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-              <p className="text-xs text-navy-600 mt-4 leading-relaxed italic">
-                These programmes run alongside our academic courses for a more complete education.
+          <div className="bg-amber-50 rounded-2xl py-12 md:py-16 px-6 sm:px-8 lg:px-10 border border-amber-100">
+            {/* Section Header */}
+            <div className="text-center mb-8 md:mb-10">
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-navy-900 mb-2">Enrichment & Future Skills</h3>
+              <p className="text-sm md:text-base text-navy-700 font-medium max-w-2xl mx-auto">
+                Building well-rounded learners alongside their academic programme.
               </p>
             </div>
+            
+            {/* 2x2 Grid of Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
+              {enrichmentPrograms.map((program, i) => (
+                <motion.div
+                  key={program.name}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.3, delay: 0.4 + i * 0.05 }}
+                >
+                  <Link
+                    href={program.href}
+                    className="group block bg-white rounded-xl shadow-sm border border-amber-200 p-5 md:p-6 h-full transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
+                  >
+                    <div className="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center mb-4 group-hover:bg-amber-200 transition-colors">
+                      <program.Icon className="w-6 h-6 text-amber-600" strokeWidth={1.5} />
+                    </div>
+                    <h4 className="font-bold text-navy-900 text-lg mb-2">{program.name}</h4>
+                    <p className="text-sm text-navy-700 leading-relaxed">{program.description}</p>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+            
+            <p className="text-xs text-navy-600 mt-6 text-center leading-relaxed italic">
+              These programmes run alongside our academic courses for a more complete education.
+            </p>
           </div>
         </motion.div>
 
